@@ -1,0 +1,2 @@
+test/sample --> sample
+test --> test
