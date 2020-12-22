@@ -1,3 +1,3 @@
 vlib work
-vlog  sample.v
+vlog  MATLAB_Function1.v
 vlog  test.v

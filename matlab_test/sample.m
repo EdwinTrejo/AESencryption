@@ -4,7 +4,7 @@ clc; clear;
 % tested:   TimesTwo, TimesThree, getSBoxValue, SubBytes, RotWord,
 % MixColumns, ShiftRows, addKey, SubWord
 % untested: KeyExpansion, AESEncryption
-% might not be able to be used: BreakWordDown, PackKey
+% might not be able to be used: BreakWordDown, PackKey (not needed)
 %% times two test
 % 63 is hex for 99 in dec
 % 63 timestwo should be 198 or c6
