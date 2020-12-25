@@ -1,6 +1,6 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
-"../../../../AESencryption.srcs/sources_1/imports/Downloads/addRoundKey.v" \
+"../../../../AESencryption.srcs/sources_1/new/keyExpansion.v" \
 "../../../../AESencryption.srcs/sim_1/new/keyExpansion_test.v" \
 
 # compile glbl module

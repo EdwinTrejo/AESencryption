@@ -2,7 +2,7 @@
 ## Makefile generated for component 'test'. 
 ## 
 ## Makefile     : test.mk
-## Generated on : Sat Dec 12 15:11:47 2020
+## Generated on : Tue Dec 22 20:38:20 2020
 ## Final product: $(RELATIVE_PATH_TO_ANCHOR)\test_win64.dll
 ## Product type : shared library
 ## 
@@ -24,14 +24,14 @@ MAKEFILE                  = test.mk
 MATLAB_ROOT               = C:\PROGRA~1\MATLAB\R2020b
 MATLAB_BIN                = C:\PROGRA~1\MATLAB\R2020b\bin
 MATLAB_ARCH_BIN           = $(MATLAB_BIN)\win64
-START_DIR                 = C:\Users\horse\Documents\Xilinx_Projects\matlab_test
+START_DIR                 = C:\Users\horse\Documents\Xilinx_Projects\AESencryption\matlab_test
 SOLVER                    = 
 SOLVER_OBJ                = 
 CLASSIC_INTERFACE         = 0
 TGT_FCN_LIB               = None
 MODEL_HAS_DYNAMICALLY_LOADED_SFCNS = 0
 RELATIVE_PATH_TO_ANCHOR   = ..
-RELATIVE_PATH_TO_ANCHOR   = C:\Users\horse\DOCUME~1\XILINX~1\MATLAB~1\TEST_B~1
+RELATIVE_PATH_TO_ANCHOR   = C:\Users\horse\DOCUME~1\XILINX~1\AESENC~1\MATLAB~1\TEST_B~1
 COMPILER_COMMAND_FILE     = test_comp.rsp
 CMD_FILE                  = test.rsp
 DEF_FILE                  = $(PRODUCT_NAME).def

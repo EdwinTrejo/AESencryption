@@ -4,8 +4,8 @@ function [w1, w2, w3, w4, w5, w6, w7, w8, w9, w10, w11, w12, w13, w14, w15, w16,
     Rcon = uint32([0x8d000000 0x01000000 0x02000000 0x04000000 0x08000000 0x10000000 0x20000000 0x40000000 0x80000000 0x1b000000 0x36000000 ]);
     
     w = uint32(zeros(1,44));
-	temp = uint32(0);
-	i = uint8(1);
+% 	temp = uint32(0);
+% 	i = uint8(1);
 
     % first loop worked out:
 
@@ -61,103 +61,143 @@ function [w1, w2, w3, w4, w5, w6, w7, w8, w9, w10, w11, w12, w13, w14, w15, w16,
     w3 = w(3);
     w4 = w(4); 
     
-    w5_temp = w(4);
-    w5 = uint32(RotWord(w5_temp));
-    w5 = uint32(SubWord(w5_temp));
-    w5 = uint32(bitxor(w5_temp, Rcon(2))); 
-    w5 = bitxor(w1, w5_temp);
+    w(5) = w(4);
+    w(5) = uint32(RotWord(w(5)));
+    w(5) = uint32(SubWord(w(5)));
+    w(5) = uint32(bitxor(w(5), Rcon(2)));
+    w(5) = bitxor(w(1), w(5));    
+    w5 = w(5);
     
-    w6 = bitxor(w5, w2);
-    w7 = bitxor(w6, w3);
-    w8 = bitxor(w7, w4);
+    w(6) = bitxor(w(5), w(2));
+    w6 = w(6);
+    w(7) = bitxor(w(6), w(3));
+    w7 = w(7);
+    w(8) = bitxor(w(7), w(4));
+    w8 = w(8);
 
-    w9_temp = w(8);
-    w9 = uint32(RotWord(w9_temp));
-    w9 = uint32(SubWord(w9_temp));
-    w9 = uint32(bitxor(w9_temp, Rcon(3))); 
-    w9 = bitxor(w5, w9_temp);
+    w(9) = w(8);
+    w(9) = uint32(RotWord(w(9)));
+    w(9) = uint32(SubWord(w(9)));
+    w(9) = uint32(bitxor(w(9), Rcon(3))); 
+    w(9) = bitxor(w(5), w(9));
+    w9 = w(9);
      
-    w10 = bitxor(w9, w6);
-    w11 = bitxor(w10, w7);
-    w12 = bitxor(w11, w8);
+    w(10) = bitxor(w(9), w(6));
+    w10 = w(10);
+    w(11) = bitxor(w(10), w(7));
+    w11 = w(11);
+    w(12) = bitxor(w(11), w(8));
+    w12 = w(12);
     
-    w13_temp = w(12);
-    w13 = uint32(RotWord(w13_temp));
-    w13 = uint32(SubWord(w13_temp));
-    w13 = uint32(bitxor(w13_temp, Rcon(4))); 
-    w13 = bitxor(w9, w13_temp);
+    w(13) = w(12);
+    w(13) = uint32(RotWord(w(13)));
+    w(13) = uint32(SubWord(w(13)));
+    w(13) = uint32(bitxor(w(13), Rcon(4))); 
+    w(13) = bitxor(w(9), w(13));
+    w13 = w(13);
 
+    w(14) = bitxor(w(13), w(10));
     w14 = w(14);
+    w(15) = bitxor(w(14), w(11));
     w15 = w(15);
+    w(16) = bitxor(w(15), w(12));
     w16 = w(16);
     
-    w17_temp = w(16);
-    w17 = uint32(RotWord(w17_temp));
-    w17 = uint32(SubWord(w17_temp));
-    w17 = uint32(bitxor(w17_temp, Rcon(5))); 
-    w17 = bitxor(w13, w17_temp);
+    w(17) = w(16);
+    w(17) = uint32(RotWord(w(17)));
+    w(17) = uint32(SubWord(w(17)));
+    w(17) = uint32(bitxor(w(17), Rcon(5))); 
+    w(17) = bitxor(w(13), w(17));
+    w17 = w(17);
     
-    w18 = bitxor(w17, w14);
-    w19 = bitxor(w18, w15);
-    w20 = bitxor(w19, w16);
+    w(18) = bitxor(w(17), w(14));
+    w18 = w(18);
+    w(19) = bitxor(w(18), w(15));
+    w19 = w(19);
+    w(20) = bitxor(w(19), w(16));
+    w20 = w(20);
     
-    w21_temp = w(20);
-    w21 = uint32(RotWord(w21_temp));
-    w21 = uint32(SubWord(w21_temp));
-    w21 = uint32(bitxor(w21_temp, Rcon(6))); 
-    w21 = bitxor(w17, w21_temp);
+    w(21) = w(20);
+    w(21) = uint32(RotWord(w(21)));
+    w(21) = uint32(SubWord(w(21)));
+    w(21) = uint32(bitxor(w(21), Rcon(6))); 
+    w(21) = bitxor(w(17), w(21));
+    w21 = w(21);
     
-    w22 = bitxor(w21, w18);
-    w23 = bitxor(w22, w19);
-    w24 = bitxor(w23, w20);
+    w(22) = bitxor(w(21), w(18));
+    w22 = w(22);
+    w(23) = bitxor(w(22), w(19));
+    w23 = w(23);
+    w(24) = bitxor(w(23), w(20));
+    w24 = w(24);
     
-    w25_temp = w(24);
-    w25 = uint32(RotWord(w25_temp));
-    w25 = uint32(SubWord(w25_temp));
-    w25 = uint32(bitxor(w25_temp, Rcon(7))); 
-    w25 = bitxor(w21, w25_temp);
+    w(25) = w(24);
+    w(25) = uint32(RotWord(w(25)));
+    w(25) = uint32(SubWord(w(25)));
+    w(25) = uint32(bitxor(w(25), Rcon(7))); 
+    w(25) = bitxor(w(21), w(25));
+    w25 = w(25);
     
-    w26 = bitxor(w24, w21);
-    w27 = bitxor(w25, w22);
-    w28 = bitxor(w26, w23);
+    w(26) = bitxor(w(25), w(22));
+    w26 = w(26);
+    w(27) = bitxor(w(26), w(23));
+    w27 = w(27);
+    w(28) = bitxor(w(27), w(24));
+    w28 = w(28);
+    
+    w(29) = w(28);
+    w(29) = uint32(RotWord(w(29)));
+    w(29) = uint32(SubWord(w(29)));
+    w(29) = uint32(bitxor(w(29), Rcon(8))); 
+    w(29) = bitxor(w(25), w(29));
+    w29 = w(29);
+    
+    w(30) = bitxor(w(29), w(26));
+    w30 = w(30);
+    w(31) = bitxor(w(30), w(27));
+    w31 = w(31);
+    w(32) = bitxor(w(31), w(28));
+    w32 = w(32);
+    
+    w(33) = w(32);
+    w(33) = uint32(RotWord(w(33)));
+    w(33) = uint32(SubWord(w(33)));
+    w(33) = uint32(bitxor(w(33), Rcon(9))); 
+    w(33) = bitxor(w(29), w(33));
+    w33 = w(33);
    
-    w29_temp = w(28);
-    w29 = uint32(RotWord(w29_temp));
-    w29 = uint32(SubWord(w29_temp));
-    w29 = uint32(bitxor(w29_temp, Rcon(8))); 
-    w29 = bitxor(w25, w29_temp);
-   
-    w30 = bitxor(w29, w26);
-    w31 = bitxor(w30, w27);
-    w32 = bitxor(w31, w28);
-   
-    w33_temp = w(32);
-    w33 = uint32(RotWord(w33_temp));
-    w33 = uint32(SubWord(w33_temp));
-    w33 = uint32(bitxor(w33_temp, Rcon(9))); 
-    w33 = bitxor(w29, w33_temp);
-   
-    w34 = bitxor(w33, w30);
-    w35 = bitxor(w34, w31);
-    w36 = bitxor(w35, w32);
-   
-    w37_temp = w(36);
-    w37 = uint32(RotWord(w37_temp));
-    w37 = uint32(SubWord(w37_temp));
-    w37 = uint32(bitxor(w37_temp, Rcon(10))); 
-    w37 = bitxor(w33, w37_temp);
-   
-    w38 = bitxor(w37, w34);
-    w39 = bitxor(w38, w35);
-    w40 = bitxor(w39, w36);
-   
-    w41_temp = w(40);
-    w41 = uint32(RotWord(w41_temp));
-    w41 = uint32(SubWord(w41_temp));
-    w41 = uint32(bitxor(w41_temp, Rcon(11))); 
-    w41 = bitxor(w37, w41_temp);
-   
-    w42 = bitxor(w41, w38);
-    w43 = bitxor(w42, w39);
-    w44 = bitxor(w43, w40);
+    w(34) = bitxor(w(33), w(30));
+    w34 = w(34);
+    w(35) = bitxor(w(34), w(31));
+    w35 = w(35);
+    w(36) = bitxor(w(35), w(32));
+    w36 = w(36);
+    
+    w(37) = w(36);
+    w(37) = uint32(RotWord(w(37)));
+    w(37) = uint32(SubWord(w(37)));
+    w(37) = uint32(bitxor(w(37), Rcon(10))); 
+    w(37) = bitxor(w(33), w(37));
+    w37 = w(37);
+    
+    w(38) = bitxor(w(37), w(34));
+    w38 = w(38);
+    w(39) = bitxor(w(38), w(35));
+    w39 = w(39);
+    w(40) = bitxor(w(39), w(36));
+    w40 = w(40);
+    
+    w(41) = w(40);
+    w(41) = uint32(RotWord(w(41)));
+    w(41) = uint32(SubWord(w(41)));
+    w(41) = uint32(bitxor(w(41), Rcon(11))); 
+    w(41) = bitxor(w(37), w(41));
+    w41 = w(41);
+    
+    w(42) = bitxor(w(41), w(38));
+    w42 = w(42);
+    w(43) = bitxor(w(42), w(39));
+    w43 = w(43);
+    w(44) = bitxor(w(43), w(40));
+    w44 = w(44);
 end

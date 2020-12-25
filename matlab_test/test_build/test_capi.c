@@ -7,9 +7,9 @@
  *
  * Code generation for model "test".
  *
- * Model version              : 2.16
+ * Model version              : 2.55
  * Simulink Coder version : 9.4 (R2020b) 29-Jul-2020
- * C source code generated on : Sat Dec 12 15:18:16 2020
+ * C source code generated on : Tue Dec 22 20:38:06 2020
  *
  * Target selection: systemverilog_dpi_grt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -118,10 +118,10 @@ static rtwCAPI_ModelMappingStaticInfo mmiStatic = {
     rtElementMap, rtSampleTimeMap, rtDimensionArray },
   "float",
 
-  { 2286042814U,
-    2613995145U,
-    2681574210U,
-    1161240889U },
+  { 1271826683U,
+    4247921613U,
+    1357816953U,
+    1807991431U },
   (NULL), 0,
   0
 };
