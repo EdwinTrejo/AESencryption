@@ -145,8 +145,6 @@ module keyExpansion_test();
         w42,
         w43,
         w44);
-    
-
 
 initial begin
     key1 = 0'h2B;

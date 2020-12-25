@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Fri Dec 25 15:28:18 2020
+# Process ID: 20688
+# Current directory: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.runs/impl_1
+# Command line: vivado.exe -log KeyExpansion.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source KeyExpansion.tcl -notrace
+# Log file: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.runs/impl_1/KeyExpansion.vdi
+# Journal file: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source KeyExpansion.tcl -notrace
