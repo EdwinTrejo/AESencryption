@@ -2,6 +2,8 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/horse/Documents/Xilinx_Pro
 INFO: [VRFC 10-311] analyzing module KeyExpansion
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sim_1/new/keyExpansion_test.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module keyExpansion_test
+WARNING: [VRFC 10-965] invalid size of integer constant literal [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sim_1/new/keyExpansion_test.v:150]
+WARNING: [VRFC 10-965] invalid size of integer constant literal [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sim_1/new/keyExpansion_test.v:151]
 WARNING: [VRFC 10-965] invalid size of integer constant literal [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sim_1/new/keyExpansion_test.v:152]
 WARNING: [VRFC 10-965] invalid size of integer constant literal [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sim_1/new/keyExpansion_test.v:153]
 WARNING: [VRFC 10-965] invalid size of integer constant literal [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sim_1/new/keyExpansion_test.v:154]
@@ -16,5 +18,3 @@ WARNING: [VRFC 10-965] invalid size of integer constant literal [C:/Users/horse/
 WARNING: [VRFC 10-965] invalid size of integer constant literal [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sim_1/new/keyExpansion_test.v:163]
 WARNING: [VRFC 10-965] invalid size of integer constant literal [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sim_1/new/keyExpansion_test.v:164]
 WARNING: [VRFC 10-965] invalid size of integer constant literal [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sim_1/new/keyExpansion_test.v:165]
-WARNING: [VRFC 10-965] invalid size of integer constant literal [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sim_1/new/keyExpansion_test.v:166]
-WARNING: [VRFC 10-965] invalid size of integer constant literal [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sim_1/new/keyExpansion_test.v:167]

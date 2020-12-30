@@ -1,0 +1,2 @@
+test3/SubWord --> SubWord
+test3 --> test3
