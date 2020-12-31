@@ -14,7 +14,7 @@ state = uint8({ '00', '11', '22', '33', '44', '55', '66', '77', '88', '99', 'aa'
 %addKey(&state, word[i]);
 key = PackKey(word(1), word(2), word(3), word(4));
 
-state = addKey(state, key);
+    
 
 %AES rounds
 for  i = 0:10 

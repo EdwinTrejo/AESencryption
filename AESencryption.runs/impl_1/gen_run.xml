@@ -1,47 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1608928089">
-  <File Type="PA-DCP" Name="KeyExpansion.dcp"/>
-  <File Type="OPT-HWDEF" Name="KeyExpansion.hwdef"/>
-  <File Type="PA-TCL" Name="KeyExpansion.tcl"/>
-  <File Type="BITSTR-BMM" Name="KeyExpansion_bd.bmm"/>
-  <File Type="OPT-DCP" Name="KeyExpansion_opt.dcp"/>
-  <File Type="REPORTS-TCL" Name="KeyExpansion_reports.tcl"/>
-  <File Type="OPT-DRC" Name="KeyExpansion_drc_opted.rpt"/>
-  <File Type="PWROPT-DCP" Name="KeyExpansion_pwropt.dcp"/>
-  <File Type="PLACE-DCP" Name="KeyExpansion_placed.dcp"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="KeyExpansion_incremental_reuse_pre_placed.rpt"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="KeyExpansion_postplace_pwropt.dcp"/>
-  <File Type="BG-BIN" Name="KeyExpansion.bin"/>
-  <File Type="PHYSOPT-DCP" Name="KeyExpansion_physopt.dcp"/>
-  <File Type="BITSTR-MSK" Name="KeyExpansion.msk"/>
-  <File Type="ROUTE-ERROR-DCP" Name="KeyExpansion_routed_error.dcp"/>
-  <File Type="ROUTE-DCP" Name="KeyExpansion_routed.dcp"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="KeyExpansion_routed_bb.dcp"/>
-  <File Type="BITSTR-LTX" Name="KeyExpansion.ltx"/>
-  <File Type="BITSTR-MMI" Name="KeyExpansion.mmi"/>
-  <File Type="BITSTR-SYSDEF" Name="KeyExpansion.sysdef"/>
-  <File Type="ROUTE-TIMING-PB" Name="KeyExpansion_timing_summary_routed.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-DCP" Name="KeyExpansion_postroute_physopt.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="KeyExpansion_postroute_physopt_bb.dcp"/>
-  <File Type="BG-BIT" Name="KeyExpansion.bit"/>
-  <File Type="BITSTR-RBT" Name="KeyExpansion.rbt"/>
-  <File Type="BITSTR-NKY" Name="KeyExpansion.nky"/>
-  <File Type="BG-BGN" Name="KeyExpansion.bgn"/>
-  <File Type="BG-DRC" Name="KeyExpansion.drc"/>
-  <File Type="RDI-RDI" Name="KeyExpansion.vdi"/>
+<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1609447646">
+  <File Type="BITSTR-BMM" Name="FlatEncryption_bd.bmm"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="FlatEncryption_methodology_drc_opted.rpt"/>
+  <File Type="INIT-TIMING" Name="FlatEncryption_timing_summary_init.rpt"/>
+  <File Type="ROUTE-PWR" Name="FlatEncryption_power_routed.rpt"/>
+  <File Type="PA-TCL" Name="FlatEncryption.tcl"/>
+  <File Type="OPT-TIMING" Name="FlatEncryption_timing_summary_opted.rpt"/>
+  <File Type="OPT-DCP" Name="FlatEncryption_opt.dcp"/>
+  <File Type="ROUTE-PWR-SUM" Name="FlatEncryption_power_summary_routed.pb"/>
+  <File Type="REPORTS-TCL" Name="FlatEncryption_reports.tcl"/>
+  <File Type="OPT-DRC" Name="FlatEncryption_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="FlatEncryption.hwdef"/>
+  <File Type="PWROPT-DCP" Name="FlatEncryption_pwropt.dcp"/>
+  <File Type="PWROPT-DRC" Name="FlatEncryption_drc_pwropted.rpt"/>
+  <File Type="PWROPT-TIMING" Name="FlatEncryption_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="FlatEncryption_placed.dcp"/>
+  <File Type="PLACE-IO" Name="FlatEncryption_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="FlatEncryption_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="FlatEncryption_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="FlatEncryption_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="FlatEncryption_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="FlatEncryption_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="FlatEncryption_incremental_reuse_pre_placed.rpt"/>
+  <File Type="BG-BGN" Name="FlatEncryption.bgn"/>
+  <File Type="PLACE-TIMING" Name="FlatEncryption_timing_summary_placed.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="FlatEncryption_postplace_pwropt.dcp"/>
+  <File Type="BG-BIN" Name="FlatEncryption.bin"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="FlatEncryption_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="FlatEncryption_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="FlatEncryption_drc_physopted.rpt"/>
+  <File Type="BITSTR-MSK" Name="FlatEncryption.msk"/>
+  <File Type="PHYSOPT-TIMING" Name="FlatEncryption_timing_summary_physopted.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="FlatEncryption_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="FlatEncryption_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="FlatEncryption_routed_bb.dcp"/>
+  <File Type="ROUTE-DRC" Name="FlatEncryption_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="FlatEncryption_drc_routed.pb"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="FlatEncryption.ltx"/>
+  <File Type="ROUTE-DRC-RPX" Name="FlatEncryption_drc_routed.rpx"/>
+  <File Type="BITSTR-MMI" Name="FlatEncryption.mmi"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="FlatEncryption_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="FlatEncryption_methodology_drc_routed.rpx"/>
+  <File Type="BITSTR-SYSDEF" Name="FlatEncryption.sysdef"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="FlatEncryption_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="FlatEncryption_power_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="FlatEncryption_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="FlatEncryption_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="FlatEncryption_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="FlatEncryption_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="FlatEncryption_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="FlatEncryption_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="FlatEncryption_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW" Name="FlatEncryption_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="FlatEncryption_bus_skew_routed.pb"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="FlatEncryption_bus_skew_routed.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="FlatEncryption_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="FlatEncryption_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="FlatEncryption_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="FlatEncryption_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="FlatEncryption_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="FlatEncryption_bus_skew_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="FlatEncryption_bus_skew_postroute_physopted.pb"/>
+  <File Type="BG-BIT" Name="FlatEncryption.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="FlatEncryption_bus_skew_postroute_physopted.rpx"/>
+  <File Type="BITSTR-RBT" Name="FlatEncryption.rbt"/>
+  <File Type="BITSTR-NKY" Name="FlatEncryption.nky"/>
+  <File Type="BG-DRC" Name="FlatEncryption.drc"/>
+  <File Type="RDI-RDI" Name="FlatEncryption.vdi"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PSRCDIR/sources_1/new/keyExpansion.v">
+    <File Path="$PSRCDIR/sources_1/new/FlatEncryption.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/encryption_sm.v">
+    <File Path="$PSRCDIR/sources_1/new/keyExpansion.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/RotWord.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Downloads/SBox_lookup_table.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../SBox_lookup_table.v"/>
+        <Attr Name="ImportTime" Val="1606870621"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/SubWord.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Downloads/addRoundKey.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../addRoundKey.v"/>
+        <Attr Name="ImportTime" Val="1606870250"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -67,11 +142,19 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/Downloads/addRoundKey.v">
+    <File Path="$PSRCDIR/sources_1/imports/Downloads/byte_substitution.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../addRoundKey.v"/>
-        <Attr Name="ImportTime" Val="1606870250"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../byte_substitution.v"/>
+        <Attr Name="ImportTime" Val="1606875208"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/encryption_sm.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -97,27 +180,23 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/Downloads/byte_substitution.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../byte_substitution.v"/>
-        <Attr Name="ImportTime" Val="1606875208"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/imports/Downloads/SBox_lookup_table.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../SBox_lookup_table.v"/>
-        <Attr Name="ImportTime" Val="1606870621"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/new/state_machine.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/bd/design_1/design_1.bd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/EncDecController.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -127,11 +206,17 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="KeyExpansion"/>
+      <Option Name="TopModule" Val="FlatEncryption"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
     <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/new/timing.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="ConstrsType" Val="XDC"/>
     </Config>
