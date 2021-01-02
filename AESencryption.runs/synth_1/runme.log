@@ -1,6 +1,6 @@
 
 *** Running vivado
-    with args -log FlatEncryption.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source FlatEncryption.tcl
+    with args -log EncDecController.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source EncDecController.tcl
 
 
 ****** Vivado v2019.1 (64-bit)
@@ -8,24 +8,44 @@
   **** IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
     ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 
-source FlatEncryption.tcl -notrace
+source EncDecController.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/hdlverifier/supportpackages/fpgadebug_xilinx/+hdlverifier/+fpga/+vivado'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2019.1/data/ip'.
-Command: synth_design -top FlatEncryption -part xc7a100tcsg324-1
+Command: synth_design -top EncDecController -part xc7a100tcsg324-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 1720 
+INFO: Helper process launched with PID 15560 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 698.859 ; gain = 178.016
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 699.703 ; gain = 177.301
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'EncDecController' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:23]
 INFO: [Synth 8-6157] synthesizing module 'FlatEncryption' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:23]
+	Parameter state0 bound to: 0 - type: integer 
+	Parameter state1 bound to: 1 - type: integer 
+	Parameter state2 bound to: 2 - type: integer 
+	Parameter state3 bound to: 3 - type: integer 
+	Parameter state4 bound to: 4 - type: integer 
+	Parameter state5 bound to: 5 - type: integer 
+	Parameter state6 bound to: 6 - type: integer 
+	Parameter state7 bound to: 7 - type: integer 
+	Parameter state8 bound to: 8 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'FlatEncryption' (1#1) [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:23]
+WARNING: [Synth 8-567] referenced signal 'in_stream' should be on the sensitivity list [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:47]
+WARNING: [Synth 8-567] referenced signal 'current_sm_state' should be on the sensitivity list [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:47]
+WARNING: [Synth 8-567] referenced signal 'encrypt_state' should be on the sensitivity list [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:55]
+WARNING: [Synth 8-567] referenced signal 'current_sm_state' should be on the sensitivity list [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:55]
+WARNING: [Synth 8-567] referenced signal 'encrypt_state' should be on the sensitivity list [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:74]
+WARNING: [Synth 8-567] referenced signal 'current_sm_state' should be on the sensitivity list [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:74]
+WARNING: [Synth 8-567] referenced signal 'encrypt_state' should be on the sensitivity list [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:81]
+WARNING: [Synth 8-567] referenced signal 'current_sm_state' should be on the sensitivity list [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:81]
+WARNING: [Synth 8-567] referenced signal 'encrypt_out_stream' should be on the sensitivity list [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:81]
+INFO: [Synth 8-6155] done synthesizing module 'EncDecController' (2#1) [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:23]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 762.777 ; gain = 241.934
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 763.781 ; gain = 241.379
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -38,10 +58,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 762.777 ; gain = 241.934
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 763.781 ; gain = 241.379
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 762.777 ; gain = 241.934
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 763.781 ; gain = 241.379
 ---------------------------------------------------------------------------------
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
@@ -49,31 +69,41 @@ Processing XDC Constraints
 Initializing timing engine
 Parsing XDC File [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/timing.xdc]
 Finished Parsing XDC File [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/timing.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/timing.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/EncDecController_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/EncDecController_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 879.516 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 875.551 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 879.516 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 875.551 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 879.516 ; gain = 358.672
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 875.551 ; gain = 353.148
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 879.516 ; gain = 358.672
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 875.551 ; gain = 353.148
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 879.516 ; gain = 358.672
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 875.551 ; gain = 353.148
 ---------------------------------------------------------------------------------
+WARNING: [Synth 8-327] inferring latch for variable 'out_stream_reg' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+WARNING: [Synth 8-327] inferring latch for variable 'out_stream_reg' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+WARNING: [Synth 8-327] inferring latch for variable 'next_sm_state_reg' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:84]
+WARNING: [Synth 8-327] inferring latch for variable 'next_sm_state_reg' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:76]
+WARNING: [Synth 8-327] inferring latch for variable 'next_sm_state_reg' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:58]
+WARNING: [Synth 8-327] inferring latch for variable 'next_sm_state_reg' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:51]
+WARNING: [Synth 8-327] inferring latch for variable 'encrypt_instruction_reg' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:57]
+WARNING: [Synth 8-327] inferring latch for variable 'encrypt_instruction_reg' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:34]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 879.516 ; gain = 358.672
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 875.551 ; gain = 353.148
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -90,13 +120,15 @@ Detailed RTL Component Info :
 +---Registers : 
 	              128 Bit    Registers := 1     
 	               64 Bit    Registers := 1     
-	                8 Bit    Registers := 1     
+	                8 Bit    Registers := 2     
 +---Muxes : 
 	   2 Input    128 Bit        Muxes := 2     
 	   2 Input      8 Bit        Muxes := 2     
-	   3 Input      8 Bit        Muxes := 2     
+	   3 Input      8 Bit        Muxes := 4     
 	   2 Input      4 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 6     
+	   4 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 11    
 	   3 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -105,6 +137,13 @@ Finished RTL Component Statistics
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
 Hierarchical RTL Component report 
+Module EncDecController 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
++---Muxes : 
+	   4 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
 Module FlatEncryption 
 Detailed RTL Component Info : 
 +---XORs : 
@@ -116,9 +155,10 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   2 Input    128 Bit        Muxes := 2     
 	   2 Input      8 Bit        Muxes := 2     
-	   3 Input      8 Bit        Muxes := 2     
+	   3 Input      8 Bit        Muxes := 4     
 	   2 Input      4 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 6     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 7     
 	   3 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
@@ -136,230 +176,376 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-INFO: [Synth 8-5544] ROM "p_1_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "p_1_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-3886] merging instance 'current_sm_state_reg[3]' (FD) to 'current_sm_state_reg[0]'
-INFO: [Synth 8-3886] merging instance 'current_sm_state_reg[1]' (FD) to 'current_sm_state_reg[0]'
-INFO: [Synth 8-3886] merging instance 'current_sm_state_reg[2]' (FD) to 'current_sm_state_reg[0]'
-INFO: [Synth 8-3886] merging instance 'current_sm_state_reg[0]' (FD) to 'current_sm_state_reg[4]'
-INFO: [Synth 8-3886] merging instance 'current_sm_state_reg[7]' (FD) to 'current_sm_state_reg[4]'
-INFO: [Synth 8-3886] merging instance 'current_sm_state_reg[6]' (FD) to 'current_sm_state_reg[4]'
-INFO: [Synth 8-3886] merging instance 'current_sm_state_reg[5]' (FD) to 'current_sm_state_reg[4]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\current_sm_state_reg[4] )
-INFO: [Synth 8-3886] merging instance 'key_reg[64]' (FDE) to 'key_reg[0]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[0] )
-INFO: [Synth 8-3886] merging instance 'key_reg[65]' (FDE) to 'key_reg[1]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[1] )
-INFO: [Synth 8-3886] merging instance 'key_reg[66]' (FDE) to 'key_reg[2]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[2] )
-INFO: [Synth 8-3886] merging instance 'key_reg[67]' (FDE) to 'key_reg[3]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[3] )
-INFO: [Synth 8-3886] merging instance 'key_reg[68]' (FDE) to 'key_reg[4]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[4] )
-INFO: [Synth 8-3886] merging instance 'key_reg[69]' (FDE) to 'key_reg[5]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[5] )
-INFO: [Synth 8-3886] merging instance 'key_reg[70]' (FDE) to 'key_reg[6]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[6] )
-INFO: [Synth 8-3886] merging instance 'key_reg[71]' (FDE) to 'key_reg[7]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[7] )
-INFO: [Synth 8-3886] merging instance 'key_reg[72]' (FDE) to 'key_reg[8]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[8] )
-INFO: [Synth 8-3886] merging instance 'key_reg[73]' (FDE) to 'key_reg[9]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[9] )
-INFO: [Synth 8-3886] merging instance 'key_reg[74]' (FDE) to 'key_reg[10]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[10] )
-INFO: [Synth 8-3886] merging instance 'key_reg[75]' (FDE) to 'key_reg[11]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[11] )
-INFO: [Synth 8-3886] merging instance 'key_reg[76]' (FDE) to 'key_reg[12]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[12] )
-INFO: [Synth 8-3886] merging instance 'key_reg[77]' (FDE) to 'key_reg[13]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[13] )
-INFO: [Synth 8-3886] merging instance 'key_reg[78]' (FDE) to 'key_reg[14]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[14] )
-INFO: [Synth 8-3886] merging instance 'key_reg[79]' (FDE) to 'key_reg[15]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[15] )
-INFO: [Synth 8-3886] merging instance 'key_reg[80]' (FDE) to 'key_reg[16]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[16] )
-INFO: [Synth 8-3886] merging instance 'key_reg[81]' (FDE) to 'key_reg[17]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[17] )
-INFO: [Synth 8-3886] merging instance 'key_reg[82]' (FDE) to 'key_reg[18]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[18] )
-INFO: [Synth 8-3886] merging instance 'key_reg[83]' (FDE) to 'key_reg[19]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[19] )
-INFO: [Synth 8-3886] merging instance 'key_reg[84]' (FDE) to 'key_reg[20]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[20] )
-INFO: [Synth 8-3886] merging instance 'key_reg[85]' (FDE) to 'key_reg[21]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[21] )
-INFO: [Synth 8-3886] merging instance 'key_reg[86]' (FDE) to 'key_reg[22]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[22] )
-INFO: [Synth 8-3886] merging instance 'key_reg[87]' (FDE) to 'key_reg[23]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[23] )
-INFO: [Synth 8-3886] merging instance 'key_reg[88]' (FDE) to 'key_reg[24]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[24] )
-INFO: [Synth 8-3886] merging instance 'key_reg[89]' (FDE) to 'key_reg[25]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[25] )
-INFO: [Synth 8-3886] merging instance 'key_reg[90]' (FDE) to 'key_reg[26]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[26] )
-INFO: [Synth 8-3886] merging instance 'key_reg[91]' (FDE) to 'key_reg[27]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[27] )
-INFO: [Synth 8-3886] merging instance 'key_reg[92]' (FDE) to 'key_reg[28]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[28] )
-INFO: [Synth 8-3886] merging instance 'key_reg[93]' (FDE) to 'key_reg[29]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[29] )
-INFO: [Synth 8-3886] merging instance 'key_reg[94]' (FDE) to 'key_reg[30]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[30] )
-INFO: [Synth 8-3886] merging instance 'key_reg[95]' (FDE) to 'key_reg[31]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[31] )
-INFO: [Synth 8-3886] merging instance 'key_reg[96]' (FDE) to 'key_reg[32]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[32] )
-INFO: [Synth 8-3886] merging instance 'key_reg[97]' (FDE) to 'key_reg[33]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[33] )
-INFO: [Synth 8-3886] merging instance 'key_reg[98]' (FDE) to 'key_reg[34]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[34] )
-INFO: [Synth 8-3886] merging instance 'key_reg[99]' (FDE) to 'key_reg[35]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[35] )
-INFO: [Synth 8-3886] merging instance 'key_reg[100]' (FDE) to 'key_reg[36]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[36] )
-INFO: [Synth 8-3886] merging instance 'key_reg[101]' (FDE) to 'key_reg[37]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[37] )
-INFO: [Synth 8-3886] merging instance 'key_reg[102]' (FDE) to 'key_reg[38]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[38] )
-INFO: [Synth 8-3886] merging instance 'key_reg[103]' (FDE) to 'key_reg[39]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[39] )
-INFO: [Synth 8-3886] merging instance 'key_reg[104]' (FDE) to 'key_reg[40]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[40] )
-INFO: [Synth 8-3886] merging instance 'key_reg[105]' (FDE) to 'key_reg[41]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[41] )
-INFO: [Synth 8-3886] merging instance 'key_reg[106]' (FDE) to 'key_reg[42]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[42] )
-INFO: [Synth 8-3886] merging instance 'key_reg[107]' (FDE) to 'key_reg[43]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[43] )
-INFO: [Synth 8-3886] merging instance 'key_reg[108]' (FDE) to 'key_reg[44]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[44] )
-INFO: [Synth 8-3886] merging instance 'key_reg[109]' (FDE) to 'key_reg[45]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[45] )
-INFO: [Synth 8-3886] merging instance 'key_reg[110]' (FDE) to 'key_reg[46]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[46] )
-INFO: [Synth 8-3886] merging instance 'key_reg[111]' (FDE) to 'key_reg[47]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[47] )
-INFO: [Synth 8-3886] merging instance 'key_reg[112]' (FDE) to 'key_reg[48]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[48] )
-INFO: [Synth 8-3886] merging instance 'key_reg[113]' (FDE) to 'key_reg[49]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[49] )
-INFO: [Synth 8-3886] merging instance 'key_reg[114]' (FDE) to 'key_reg[50]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[50] )
-INFO: [Synth 8-3886] merging instance 'key_reg[115]' (FDE) to 'key_reg[51]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[51] )
-INFO: [Synth 8-3886] merging instance 'key_reg[116]' (FDE) to 'key_reg[52]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[52] )
-INFO: [Synth 8-3886] merging instance 'key_reg[117]' (FDE) to 'key_reg[53]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[53] )
-INFO: [Synth 8-3886] merging instance 'key_reg[118]' (FDE) to 'key_reg[54]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[54] )
-INFO: [Synth 8-3886] merging instance 'key_reg[119]' (FDE) to 'key_reg[55]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[55] )
-INFO: [Synth 8-3886] merging instance 'key_reg[120]' (FDE) to 'key_reg[56]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[56] )
-INFO: [Synth 8-3886] merging instance 'key_reg[121]' (FDE) to 'key_reg[57]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[57] )
-INFO: [Synth 8-3886] merging instance 'key_reg[122]' (FDE) to 'key_reg[58]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[58] )
-INFO: [Synth 8-3886] merging instance 'key_reg[123]' (FDE) to 'key_reg[59]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[59] )
-INFO: [Synth 8-3886] merging instance 'key_reg[124]' (FDE) to 'key_reg[60]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[60] )
-INFO: [Synth 8-3886] merging instance 'key_reg[125]' (FDE) to 'key_reg[61]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[61] )
-INFO: [Synth 8-3886] merging instance 'key_reg[126]' (FDE) to 'key_reg[62]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[62] )
-INFO: [Synth 8-3886] merging instance 'key_reg[127]' (FDE) to 'key_reg[63]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_reg[63] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[8] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[9] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[10] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[11] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[12] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[13] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[14] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[15] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[16] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[17] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[18] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[19] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[20] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[21] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[22] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[23] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[24] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[25] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[26] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[27] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[28] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[29] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[30] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[31] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[32] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[33] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[34] )
+INFO: [Synth 8-5544] ROM "FlatEncryption_uut/" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "FlatEncryption_uut/" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[0]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[0]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[1]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[1]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[2]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[2]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[3]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[3]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[4]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[4]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[5]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[5]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[6]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[6]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[7]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[7]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[8]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[8]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[9]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[9]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[10]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[10]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[11]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[11]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[12]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[12]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[13]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[13]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[14]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[14]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[15]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[15]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[16]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[16]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[17]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[17]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[18]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[18]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[19]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[19]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[20]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[20]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[21]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[21]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[22]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[22]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[23]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[23]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[24]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[24]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[25]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[25]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[26]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[26]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[27]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[27]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[28]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[28]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[29]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[29]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[30]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[30]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[31]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[31]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[32]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[32]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[33]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[33]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[34]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[34]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[35]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[35]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[36]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[36]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[37]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[37]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[38]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[38]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[39]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[39]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[40]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[40]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[41]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[41]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[42]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[42]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[43]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[43]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[44]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[44]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[45]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[45]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[46]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[46]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[47]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[47]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[48]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[48]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[49]  is always disabled
+WARNING: [Synth 8-264] enable of latch \out_stream_reg[49]  is always disabled
+INFO: [Common 17-14] Message 'Synth 8-264' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/current_sm_state_reg[1]' (FD) to 'FlatEncryption_uut/current_sm_state_reg[7]'
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/current_sm_state_reg[2]' (FD) to 'FlatEncryption_uut/current_sm_state_reg[7]'
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/current_sm_state_reg[3]' (FD) to 'FlatEncryption_uut/current_sm_state_reg[7]'
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/current_sm_state_reg[4]' (FD) to 'FlatEncryption_uut/current_sm_state_reg[7]'
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/current_sm_state_reg[5]' (FD) to 'FlatEncryption_uut/current_sm_state_reg[7]'
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/current_sm_state_reg[6]' (FD) to 'FlatEncryption_uut/current_sm_state_reg[7]'
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/current_sm_state_reg[7]' (FD) to 'FlatEncryption_uut/current_sm_state_reg[0]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/current_sm_state_reg[0] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[64]' (FDE) to 'FlatEncryption_uut/key_reg[0]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[0] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[65]' (FDE) to 'FlatEncryption_uut/key_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[1] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[66]' (FDE) to 'FlatEncryption_uut/key_reg[2]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[2] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[67]' (FDE) to 'FlatEncryption_uut/key_reg[3]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[3] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[68]' (FDE) to 'FlatEncryption_uut/key_reg[4]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[4] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[69]' (FDE) to 'FlatEncryption_uut/key_reg[5]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[5] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[70]' (FDE) to 'FlatEncryption_uut/key_reg[6]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[6] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[71]' (FDE) to 'FlatEncryption_uut/key_reg[7]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[7] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[72]' (FDE) to 'FlatEncryption_uut/key_reg[8]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[8] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[73]' (FDE) to 'FlatEncryption_uut/key_reg[9]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[9] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[74]' (FDE) to 'FlatEncryption_uut/key_reg[10]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[10] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[75]' (FDE) to 'FlatEncryption_uut/key_reg[11]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[11] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[76]' (FDE) to 'FlatEncryption_uut/key_reg[12]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[12] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[77]' (FDE) to 'FlatEncryption_uut/key_reg[13]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[13] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[78]' (FDE) to 'FlatEncryption_uut/key_reg[14]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[14] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[79]' (FDE) to 'FlatEncryption_uut/key_reg[15]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[15] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[80]' (FDE) to 'FlatEncryption_uut/key_reg[16]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[16] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[81]' (FDE) to 'FlatEncryption_uut/key_reg[17]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[17] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[82]' (FDE) to 'FlatEncryption_uut/key_reg[18]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[18] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[83]' (FDE) to 'FlatEncryption_uut/key_reg[19]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[19] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[84]' (FDE) to 'FlatEncryption_uut/key_reg[20]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[20] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[85]' (FDE) to 'FlatEncryption_uut/key_reg[21]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[21] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[86]' (FDE) to 'FlatEncryption_uut/key_reg[22]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[22] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[87]' (FDE) to 'FlatEncryption_uut/key_reg[23]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[23] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[88]' (FDE) to 'FlatEncryption_uut/key_reg[24]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[24] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[89]' (FDE) to 'FlatEncryption_uut/key_reg[25]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[25] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[90]' (FDE) to 'FlatEncryption_uut/key_reg[26]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[26] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[91]' (FDE) to 'FlatEncryption_uut/key_reg[27]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[27] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[92]' (FDE) to 'FlatEncryption_uut/key_reg[28]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[28] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[93]' (FDE) to 'FlatEncryption_uut/key_reg[29]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[29] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[94]' (FDE) to 'FlatEncryption_uut/key_reg[30]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[30] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[95]' (FDE) to 'FlatEncryption_uut/key_reg[31]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[31] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[96]' (FDE) to 'FlatEncryption_uut/key_reg[32]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[32] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[97]' (FDE) to 'FlatEncryption_uut/key_reg[33]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[33] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[98]' (FDE) to 'FlatEncryption_uut/key_reg[34]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[34] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[99]' (FDE) to 'FlatEncryption_uut/key_reg[35]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[35] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[100]' (FDE) to 'FlatEncryption_uut/key_reg[36]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[36] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[101]' (FDE) to 'FlatEncryption_uut/key_reg[37]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[37] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[102]' (FDE) to 'FlatEncryption_uut/key_reg[38]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[38] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[103]' (FDE) to 'FlatEncryption_uut/key_reg[39]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[39] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[104]' (FDE) to 'FlatEncryption_uut/key_reg[40]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[40] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[105]' (FDE) to 'FlatEncryption_uut/key_reg[41]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[41] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[106]' (FDE) to 'FlatEncryption_uut/key_reg[42]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[42] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[107]' (FDE) to 'FlatEncryption_uut/key_reg[43]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[43] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[108]' (FDE) to 'FlatEncryption_uut/key_reg[44]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[44] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[109]' (FDE) to 'FlatEncryption_uut/key_reg[45]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[45] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[110]' (FDE) to 'FlatEncryption_uut/key_reg[46]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[46] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[111]' (FDE) to 'FlatEncryption_uut/key_reg[47]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[47] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[112]' (FDE) to 'FlatEncryption_uut/key_reg[48]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[48] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[113]' (FDE) to 'FlatEncryption_uut/key_reg[49]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[49] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[114]' (FDE) to 'FlatEncryption_uut/key_reg[50]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[50] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[115]' (FDE) to 'FlatEncryption_uut/key_reg[51]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[51] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[116]' (FDE) to 'FlatEncryption_uut/key_reg[52]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[52] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[117]' (FDE) to 'FlatEncryption_uut/key_reg[53]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[53] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[118]' (FDE) to 'FlatEncryption_uut/key_reg[54]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[54] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[119]' (FDE) to 'FlatEncryption_uut/key_reg[55]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[55] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[120]' (FDE) to 'FlatEncryption_uut/key_reg[56]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[56] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[121]' (FDE) to 'FlatEncryption_uut/key_reg[57]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[57] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[122]' (FDE) to 'FlatEncryption_uut/key_reg[58]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[58] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[123]' (FDE) to 'FlatEncryption_uut/key_reg[59]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[59] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[124]' (FDE) to 'FlatEncryption_uut/key_reg[60]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[60] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[125]' (FDE) to 'FlatEncryption_uut/key_reg[61]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[61] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[126]' (FDE) to 'FlatEncryption_uut/key_reg[62]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[62] )
+INFO: [Synth 8-3886] merging instance 'FlatEncryption_uut/key_reg[127]' (FDE) to 'FlatEncryption_uut/key_reg[63]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/key_reg[63] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[19] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[20] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[21] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[22] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[23] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[24] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[25] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[26] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[27] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[28] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[29] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[30] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[31] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[32] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[33] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\FlatEncryption_uut/out_stream_reg[34] )
 INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'next_sm_state_reg[0]__3/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:86]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:86]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:86]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'next_sm_state_reg[7]__6/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:54]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:54]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:54]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'next_sm_state_reg[6]__6/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:54]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:54]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:54]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'next_sm_state_reg[5]__6/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:54]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:54]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:54]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'next_sm_state_reg[4]__6/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:54]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:54]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:54]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'next_sm_state_reg[3]__6/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:54]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:54]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:54]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'next_sm_state_reg[2]__6/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:54]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:54]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:54]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'next_sm_state_reg[1]__6/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:54]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:54]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:54]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'out_instruction_reg[7]__2/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:47]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:47]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:47]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'out_instruction_reg[6]__2/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:47]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:47]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:47]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'out_instruction_reg[5]__2/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:47]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:47]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:47]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'out_instruction_reg[4]__2/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:47]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:47]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:47]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'out_instruction_reg[3]__2/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:47]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:47]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:47]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'out_instruction_reg[2]__2/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:47]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:47]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:47]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'out_instruction_reg[1]__2/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:47]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:47]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:47]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'out_instruction_reg[0]__2/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:47]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:47]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:47]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'FlatEncryption_uut/next_sm_state_reg[0]__3/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:88]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:88]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:88]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'FlatEncryption_uut/next_sm_state_reg[7]__6/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:51]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:51]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:51]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'FlatEncryption_uut/next_sm_state_reg[6]__6/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:51]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:51]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:51]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'FlatEncryption_uut/next_sm_state_reg[5]__6/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:51]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:51]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:51]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'FlatEncryption_uut/next_sm_state_reg[4]__6/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:51]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:51]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:51]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'FlatEncryption_uut/next_sm_state_reg[3]__6/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:51]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:51]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:51]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'FlatEncryption_uut/next_sm_state_reg[2]__6/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:51]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:51]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:51]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'FlatEncryption_uut/next_sm_state_reg[1]__6/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:51]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:51]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:51]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'FlatEncryption_uut/out_instruction_reg[7]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:122]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:122]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:122]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'FlatEncryption_uut/out_instruction_reg[6]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:122]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:122]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:122]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'FlatEncryption_uut/out_instruction_reg[5]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:122]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:122]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:122]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'FlatEncryption_uut/out_instruction_reg[4]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:122]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:122]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:122]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'FlatEncryption_uut/out_instruction_reg[3]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:122]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:122]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:122]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'FlatEncryption_uut/out_instruction_reg[1]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:122]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:122]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:122]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'FlatEncryption_uut/out_instruction_reg[2]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:113]
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[7]) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[6]) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[5]) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[4]) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[3]) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[2]) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[1]) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[0]) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[7]__0) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[6]__0) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[5]__0) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[4]__0) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[3]__0) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[2]__0) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[1]__0) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[0]__0) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[7]__1) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[6]__1) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[5]__1) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[4]__1) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[3]__1) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[2]__1) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[1]__1) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[0]__1) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[7]__2) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[6]__2) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[5]__2) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[4]__2) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[3]__2) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[2]__2) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[1]__2) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (next_sm_state_reg[0]__2) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (encrypt_instruction_reg[7]) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (encrypt_instruction_reg[6]) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (encrypt_instruction_reg[5]) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (encrypt_instruction_reg[4]) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (encrypt_instruction_reg[3]) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (encrypt_instruction_reg[2]) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (encrypt_instruction_reg[1]) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (encrypt_instruction_reg[0]) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (encrypt_instruction_reg[7]__0) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (encrypt_instruction_reg[6]__0) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (encrypt_instruction_reg[5]__0) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (encrypt_instruction_reg[4]__0) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (encrypt_instruction_reg[3]__0) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (encrypt_instruction_reg[2]__0) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (encrypt_instruction_reg[1]__0) is unused and will be removed from module EncDecController.
+WARNING: [Synth 8-3332] Sequential element (encrypt_instruction_reg[0]__0) is unused and will be removed from module EncDecController.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 879.516 ; gain = 358.672
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 875.551 ; gain = 353.148
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -371,13 +557,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 879.516 ; gain = 358.672
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 875.551 ; gain = 353.148
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 879.516 ; gain = 358.672
+Finished Timing Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 875.551 ; gain = 353.148
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -389,7 +575,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 879.516 ; gain = 358.672
+Finished Technology Mapping : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 875.551 ; gain = 353.148
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -413,20 +599,91 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 879.516 ; gain = 358.672
+Finished IO Insertion : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 875.551 ; gain = 353.148
 ---------------------------------------------------------------------------------
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[63] with 1st driver pin 'out_stream_reg[63]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[63] with 2nd driver pin 'out_stream_reg[63]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[62] with 1st driver pin 'out_stream_reg[62]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[62] with 2nd driver pin 'out_stream_reg[62]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[61] with 1st driver pin 'out_stream_reg[61]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[61] with 2nd driver pin 'out_stream_reg[61]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[60] with 1st driver pin 'out_stream_reg[60]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[60] with 2nd driver pin 'out_stream_reg[60]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[59] with 1st driver pin 'out_stream_reg[59]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[59] with 2nd driver pin 'out_stream_reg[59]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[58] with 1st driver pin 'out_stream_reg[58]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[58] with 2nd driver pin 'out_stream_reg[58]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[57] with 1st driver pin 'out_stream_reg[57]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[57] with 2nd driver pin 'out_stream_reg[57]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[56] with 1st driver pin 'out_stream_reg[56]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[56] with 2nd driver pin 'out_stream_reg[56]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[55] with 1st driver pin 'out_stream_reg[55]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[55] with 2nd driver pin 'out_stream_reg[55]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[54] with 1st driver pin 'out_stream_reg[54]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[54] with 2nd driver pin 'out_stream_reg[54]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[53] with 1st driver pin 'out_stream_reg[53]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[53] with 2nd driver pin 'out_stream_reg[53]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[52] with 1st driver pin 'out_stream_reg[52]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[52] with 2nd driver pin 'out_stream_reg[52]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[51] with 1st driver pin 'out_stream_reg[51]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[51] with 2nd driver pin 'out_stream_reg[51]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[50] with 1st driver pin 'out_stream_reg[50]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[50] with 2nd driver pin 'out_stream_reg[50]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[49] with 1st driver pin 'out_stream_reg[49]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[49] with 2nd driver pin 'out_stream_reg[49]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[48] with 1st driver pin 'out_stream_reg[48]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[48] with 2nd driver pin 'out_stream_reg[48]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[47] with 1st driver pin 'out_stream_reg[47]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[47] with 2nd driver pin 'out_stream_reg[47]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[46] with 1st driver pin 'out_stream_reg[46]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[46] with 2nd driver pin 'out_stream_reg[46]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[45] with 1st driver pin 'out_stream_reg[45]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[45] with 2nd driver pin 'out_stream_reg[45]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[44] with 1st driver pin 'out_stream_reg[44]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[44] with 2nd driver pin 'out_stream_reg[44]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[43] with 1st driver pin 'out_stream_reg[43]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[43] with 2nd driver pin 'out_stream_reg[43]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[42] with 1st driver pin 'out_stream_reg[42]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[42] with 2nd driver pin 'out_stream_reg[42]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[41] with 1st driver pin 'out_stream_reg[41]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[41] with 2nd driver pin 'out_stream_reg[41]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[40] with 1st driver pin 'out_stream_reg[40]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[40] with 2nd driver pin 'out_stream_reg[40]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[39] with 1st driver pin 'out_stream_reg[39]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[39] with 2nd driver pin 'out_stream_reg[39]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[38] with 1st driver pin 'out_stream_reg[38]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[38] with 2nd driver pin 'out_stream_reg[38]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[37] with 1st driver pin 'out_stream_reg[37]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[37] with 2nd driver pin 'out_stream_reg[37]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[36] with 1st driver pin 'out_stream_reg[36]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[36] with 2nd driver pin 'out_stream_reg[36]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[35] with 1st driver pin 'out_stream_reg[35]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[35] with 2nd driver pin 'out_stream_reg[35]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[34] with 1st driver pin 'out_stream_reg[34]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[34] with 2nd driver pin 'out_stream_reg[34]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[33] with 1st driver pin 'out_stream_reg[33]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[33] with 2nd driver pin 'out_stream_reg[33]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[32] with 1st driver pin 'out_stream_reg[32]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[32] with 2nd driver pin 'out_stream_reg[32]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[31] with 1st driver pin 'out_stream_reg[31]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[31] with 2nd driver pin 'out_stream_reg[31]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[30] with 1st driver pin 'out_stream_reg[30]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[30] with 2nd driver pin 'out_stream_reg[30]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[29] with 1st driver pin 'out_stream_reg[29]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[29] with 2nd driver pin 'out_stream_reg[29]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
+INFO: [Common 17-14] Message 'Synth 8-6859' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 
 Report Check Netlist: 
 +------+------------------+-------+---------+-------+------------------+
 |      |Item              |Errors |Warnings |Status |Description       |
 +------+------------------+-------+---------+-------+------------------+
-|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
+|1     |multi_driven_nets |      0|       64|Failed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 879.516 ; gain = 358.672
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 875.551 ; gain = 353.148
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -438,25 +695,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 879.516 ; gain = 358.672
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 875.551 ; gain = 353.148
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 879.516 ; gain = 358.672
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 875.551 ; gain = 353.148
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 879.516 ; gain = 358.672
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 875.551 ; gain = 353.148
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 879.516 ; gain = 358.672
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 875.551 ; gain = 353.148
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -472,35 +729,39 @@ Report Cell Usage:
 +------+-----+------+
 |      |Cell |Count |
 +------+-----+------+
-|1     |OBUF |    72|
+|1     |LD   |   128|
+|2     |OBUF |    64|
 +------+-----+------+
 
 Report Instance Areas: 
 +------+---------+-------+------+
 |      |Instance |Module |Cells |
 +------+---------+-------+------+
-|1     |top      |       |    72|
+|1     |top      |       |   192|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 879.516 ; gain = 358.672
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 875.551 ; gain = 353.148
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 48 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:24 . Memory (MB): peak = 879.516 ; gain = 241.934
-Synthesis Optimization Complete : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 879.516 ; gain = 358.672
+Synthesis finished with 0 errors, 173 critical warnings and 312 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:25 . Memory (MB): peak = 875.551 ; gain = 241.379
+Synthesis Optimization Complete : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 875.551 ; gain = 353.148
 INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 128 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 890.715 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 891.914 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
+  A total of 128 instances were transformed.
+  LD => LDCE: 128 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-188 Infos, 0 Warnings, 48 Critical Warnings and 0 Errors encountered.
+195 Infos, 165 Warnings, 115 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 890.715 ; gain = 600.020
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 890.715 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 891.914 ; gain = 600.980
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 891.914 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
-INFO: [Common 17-1381] The checkpoint 'C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.runs/synth_1/FlatEncryption.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_utilization -file FlatEncryption_utilization_synth.rpt -pb FlatEncryption_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Dec 31 15:45:06 2020...
+INFO: [Common 17-1381] The checkpoint 'C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.runs/synth_1/EncDecController.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file EncDecController_utilization_synth.rpt -pb EncDecController_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Dec 31 17:35:47 2020...

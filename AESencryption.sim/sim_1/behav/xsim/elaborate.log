@@ -1,6 +1,6 @@
 Vivado Simulator 2019.1
 Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2019.1/bin/unwrapped/win64.o/xelab.exe -wto a97183ee437348a1bb3e479dcf850b30 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot FlatEncryption_tb_behav xil_defaultlib.FlatEncryption_tb xil_defaultlib.glbl -log elaborate.log 
+Running: C:/Xilinx/Vivado/2019.1/bin/unwrapped/win64.o/xelab.exe -wto a97183ee437348a1bb3e479dcf850b30 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot EncDecController_tb_behav xil_defaultlib.EncDecController_tb xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
@@ -8,6 +8,7 @@ Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
 Compiling module xil_defaultlib.FlatEncryption
-Compiling module xil_defaultlib.FlatEncryption_tb
+Compiling module xil_defaultlib.EncDecController
+Compiling module xil_defaultlib.EncDecController_tb
 Compiling module xil_defaultlib.glbl
-Built simulation snapshot FlatEncryption_tb_behav
+Built simulation snapshot EncDecController_tb_behav

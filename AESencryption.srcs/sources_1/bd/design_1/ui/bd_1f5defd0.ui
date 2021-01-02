@@ -1,0 +1,15 @@
+{
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0.19  2019-03-26 bk=1.5019 VDI=41 GEI=35 GUI=JA:9.0 non-TLS-threadsafe
+#  -string -flagsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 6 -x 790 -y -280 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 5 -x 610 -y -220 -defaultsOSRD
+preplace inst ethernet_mac_hub_0 -pg 1 -lvl 4 -x 400 -y -640 -defaultsOSRD
+preplace inst udp_matlab_axi_master_0 -pg 1 -lvl 3 -x 160 -y -330 -defaultsOSRD
+preplace inst proc_sys_reset_0 -pg 1 -lvl 2 -x -130 -y -640 -defaultsOSRD
+preplace inst mig_7series_0 -pg 1 -lvl 1 -x -410 -y -770 -defaultsOSRD
+levelinfo -pg 1 -520 -410 -130 160 400 610 790 890
+pagesize -pg 1 -db -bbox -sgen -520 -840 890 140
+"
+}
+

@@ -23,7 +23,7 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 ISEStep( "vivado",
-         "-log FlatEncryption.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source FlatEncryption.tcl" );
+         "-log EncDecController.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source EncDecController.tcl" );
 
 
 
