@@ -18,14 +18,9 @@
 
 `timescale 1 ns / 1 ns
 
-module SubWord
-          (word,
-           ret_word);
-
-
+module SubWord(word, ret_word);
   input   [31:0] word;  // uint32
   output  [31:0] ret_word;  // uint32
-
 
   reg [31:0] ret_word_2;  // uint32
   reg [31:0] ret_word1;  // uint32

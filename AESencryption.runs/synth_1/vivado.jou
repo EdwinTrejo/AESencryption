@@ -2,11 +2,11 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Thu Dec 31 17:35:07 2020
-# Process ID: 15596
+# Start of session at: Sun Jan  3 17:42:00 2021
+# Process ID: 22412
 # Current directory: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.runs/synth_1
-# Command line: vivado.exe -log EncDecController.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source EncDecController.tcl
-# Log file: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.runs/synth_1/EncDecController.vds
+# Command line: vivado.exe -log FlatEncryption.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source FlatEncryption.tcl
+# Log file: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.runs/synth_1/FlatEncryption.vds
 # Journal file: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
-source EncDecController.tcl -notrace
+source FlatEncryption.tcl -notrace

@@ -17,7 +17,6 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param chipscope.maxJobs 4
 create_project -in_memory -part xc7a100tcsg324-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -32,8 +31,9 @@ update_ip_catalog
 set_property ip_output_repo c:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib {
+  C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/RotWord.v
+  C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/SubWord.v
   C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v
-  C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v
 }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -49,12 +49,12 @@ set_property used_in_implementation false [get_files C:/Users/horse/Documents/Xi
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
 
-synth_design -top EncDecController -part xc7a100tcsg324-1
+synth_design -top FlatEncryption -part xc7a100tcsg324-1
 
 
 # disable binary constraint mode for synth run checkpoints
 set_param constraints.enableBinaryConstraints false
-write_checkpoint -force -noxdef EncDecController.dcp
-create_report "synth_1_synth_report_utilization_0" "report_utilization -file EncDecController_utilization_synth.rpt -pb EncDecController_utilization_synth.pb"
+write_checkpoint -force -noxdef FlatEncryption.dcp
+create_report "synth_1_synth_report_utilization_0" "report_utilization -file FlatEncryption_utilization_synth.rpt -pb FlatEncryption_utilization_synth.pb"
 file delete __synthesis_is_running__
 close [open __synthesis_is_complete__ w]

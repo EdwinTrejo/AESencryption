@@ -1,13 +1,14 @@
-
-*** Running vivado
-    with args -log FlatEncryption.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source FlatEncryption.tcl
-
-
-****** Vivado v2019.1 (64-bit)
-  **** SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
-  **** IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
-
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Sun Jan  3 17:42:00 2021
+# Process ID: 22412
+# Current directory: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.runs/synth_1
+# Command line: vivado.exe -log FlatEncryption.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source FlatEncryption.tcl
+# Log file: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.runs/synth_1/FlatEncryption.vds
+# Journal file: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
 source FlatEncryption.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/hdlverifier/supportpackages/fpgadebug_xilinx/+hdlverifier/+fpga/+vivado'.

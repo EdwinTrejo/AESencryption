@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log EncDecController.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source EncDecController.tcl
+EAStep vivado -log FlatEncryption.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source FlatEncryption.tcl

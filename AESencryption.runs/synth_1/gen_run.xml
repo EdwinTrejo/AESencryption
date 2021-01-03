@@ -1,16 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1609454104">
-  <File Type="PA-TCL" Name="EncDecController.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="EncDecController_drc_synth.rpt"/>
-  <File Type="REPORTS-TCL" Name="EncDecController_reports.tcl"/>
-  <File Type="RDS-RDS" Name="EncDecController.vds"/>
-  <File Type="RDS-UTIL" Name="EncDecController_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="EncDecController_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="EncDecController.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="EncDecController_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="EncDecController_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1609713716">
+  <File Type="PA-TCL" Name="FlatEncryption.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="FlatEncryption_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="FlatEncryption_reports.tcl"/>
+  <File Type="RDS-RDS" Name="FlatEncryption.vds"/>
+  <File Type="RDS-UTIL" Name="FlatEncryption_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="FlatEncryption_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="FlatEncryption.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="FlatEncryption_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="FlatEncryption_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/RotWord.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/SubWord.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/FlatEncryption.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -20,6 +34,7 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/EncDecController.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -33,27 +48,11 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/RotWord.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/imports/Downloads/SBox_lookup_table.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="ImportPath" Val="$PPRDIR/../../SBox_lookup_table.v"/>
         <Attr Name="ImportTime" Val="1606870621"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/SubWord.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -145,7 +144,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="EncDecController"/>
+      <Option Name="TopModule" Val="FlatEncryption"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
