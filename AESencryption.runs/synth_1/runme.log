@@ -18,33 +18,33 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 16680 
+INFO: Helper process launched with PID 20500 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 700.414 ; gain = 177.375
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 698.785 ; gain = 176.812
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'FlatEncryption' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:23]
-	Parameter PARTIAL_MSG_SIZE bound to: 64 - type: integer 
-	Parameter FULL_MSG_SIZE bound to: 128 - type: integer 
-	Parameter EXPANDED_KEYS bound to: 44 - type: integer 
-	Parameter EXPANDED_KEY_PART_SIZE bound to: 32 - type: integer 
-	Parameter INSTRUCTION_SIZE bound to: 8 - type: integer 
-	Parameter STATE_COUNTER_SIZE bound to: 8 - type: integer 
-	Parameter state0 bound to: 0 - type: integer 
-	Parameter state1 bound to: 1 - type: integer 
-	Parameter state2 bound to: 2 - type: integer 
-	Parameter state3 bound to: 3 - type: integer 
-	Parameter state4 bound to: 4 - type: integer 
-	Parameter state5 bound to: 5 - type: integer 
-	Parameter state6 bound to: 6 - type: integer 
-	Parameter state7 bound to: 7 - type: integer 
-	Parameter state8 bound to: 8 - type: integer 
-	Parameter state9 bound to: 9 - type: integer 
-	Parameter state10 bound to: 10 - type: integer 
-	Parameter state11 bound to: 11 - type: integer 
-	Parameter state12 bound to: 12 - type: integer 
-	Parameter state13 bound to: 13 - type: integer 
-	Parameter state14 bound to: 14 - type: integer 
-	Parameter state15 bound to: 15 - type: integer 
+	Parameter PARTIAL_MSG_SIZE bound to: 8'b01000000 
+	Parameter FULL_MSG_SIZE bound to: 8'b10000000 
+	Parameter EXPANDED_KEYS bound to: 8'b00101100 
+	Parameter EXPANDED_KEY_PART_SIZE bound to: 8'b00100000 
+	Parameter INSTRUCTION_SIZE bound to: 8'b00001000 
+	Parameter STATE_COUNTER_SIZE bound to: 8'b00001000 
+	Parameter state0 bound to: 8'b00000000 
+	Parameter state1 bound to: 8'b00000001 
+	Parameter state2 bound to: 8'b00000010 
+	Parameter state3 bound to: 8'b00000011 
+	Parameter state4 bound to: 8'b00000100 
+	Parameter state5 bound to: 8'b00000101 
+	Parameter state6 bound to: 8'b00000110 
+	Parameter state7 bound to: 8'b00000111 
+	Parameter state8 bound to: 8'b00001000 
+	Parameter state9 bound to: 8'b00001001 
+	Parameter state10 bound to: 8'b00001010 
+	Parameter state11 bound to: 8'b00001011 
+	Parameter state12 bound to: 8'b00001100 
+	Parameter state13 bound to: 8'b00001101 
+	Parameter state14 bound to: 8'b00001110 
+	Parameter state15 bound to: 8'b00001111 
 	Parameter RCON0 bound to: -1929379840 - type: integer 
 	Parameter RCON1 bound to: 16777216 - type: integer 
 	Parameter RCON2 bound to: 33554432 - type: integer 
@@ -56,16 +56,22 @@ INFO: [Synth 8-6157] synthesizing module 'FlatEncryption' [C:/Users/horse/Docume
 	Parameter RCON8 bound to: -2147483648 - type: integer 
 	Parameter RCON9 bound to: 452984832 - type: integer 
 	Parameter RCON10 bound to: 905969664 - type: integer 
+	Parameter times_two_B bound to: 8'b00011011 
+	Parameter state_blocks bound to: 8'b00010000 
+	Parameter state_block_size bound to: 8'b00001000 
 INFO: [Synth 8-6157] synthesizing module 'RotWord' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/RotWord.v:21]
 INFO: [Synth 8-6155] done synthesizing module 'RotWord' (1#1) [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/RotWord.v:21]
 INFO: [Synth 8-6157] synthesizing module 'SubWord' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/SubWord.v:21]
 WARNING: [Synth 8-5856] 3D RAM sbox_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
 INFO: [Synth 8-6155] done synthesizing module 'SubWord' (2#1) [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/SubWord.v:21]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:125]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:190]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:128]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:205]
+WARNING: [Synth 8-6014] Unused sequential element xtime_reg was removed.  [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:275]
+WARNING: [Synth 8-6014] Unused sequential element xtime_next_reg was removed.  [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:276]
+WARNING: [Synth 8-6014] Unused sequential element xtime_part_reg was removed.  [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:277]
 INFO: [Synth 8-6155] done synthesizing module 'FlatEncryption' (3#1) [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:23]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 769.113 ; gain = 246.074
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 767.828 ; gain = 245.855
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -78,10 +84,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 782.363 ; gain = 259.324
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 767.828 ; gain = 245.855
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 782.363 ; gain = 259.324
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 767.828 ; gain = 245.855
 ---------------------------------------------------------------------------------
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
@@ -93,28 +99,30 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/FlatEncryption_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 914.188 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 911.699 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.027 . Memory (MB): peak = 914.188 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.026 . Memory (MB): peak = 911.699 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 914.188 ; gain = 391.148
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 911.699 ; gain = 389.727
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 914.188 ; gain = 391.148
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 911.699 ; gain = 389.727
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 914.188 ; gain = 391.148
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 911.699 ; gain = 389.727
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'KeySchedule_part_reg' in module 'FlatEncryption'
+INFO: [Synth 8-5546] ROM "KeySchedule_current_1" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "KeySchedule" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "KeySchedule_part" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "msg_in_rotword" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "msg_in_subword" won't be mapped to RAM because it is too sparse
@@ -134,7 +142,7 @@ INFO: [Synth 8-5546] ROM "msg_in_subword" won't be mapped to RAM because it is t
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'KeySchedule_part_reg' using encoding 'sequential' in module 'FlatEncryption'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 914.188 ; gain = 391.148
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 911.699 ; gain = 389.727
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -161,18 +169,16 @@ Detailed RTL Component Info :
 	                8 Bit    Registers := 9     
 +---Muxes : 
 	   2 Input    128 Bit        Muxes := 2     
-	   2 Input     32 Bit        Muxes := 5     
+	   2 Input     32 Bit        Muxes := 4     
 	  10 Input     32 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 19    
-	   3 Input      8 Bit        Muxes := 4     
-	  10 Input      8 Bit        Muxes := 2     
-	  12 Input      8 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 6     
+	   3 Input      8 Bit        Muxes := 2     
 	   2 Input      4 Bit        Muxes := 1     
 	  10 Input      4 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 320   
+	   2 Input      1 Bit        Muxes := 321   
 	   3 Input      1 Bit        Muxes := 1     
-	  10 Input      1 Bit        Muxes := 47    
+	  11 Input      1 Bit        Muxes := 1     
+	  10 Input      1 Bit        Muxes := 48    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -192,18 +198,16 @@ Detailed RTL Component Info :
 	                8 Bit    Registers := 9     
 +---Muxes : 
 	   2 Input    128 Bit        Muxes := 2     
-	   2 Input     32 Bit        Muxes := 5     
+	   2 Input     32 Bit        Muxes := 4     
 	  10 Input     32 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 19    
-	   3 Input      8 Bit        Muxes := 4     
-	  10 Input      8 Bit        Muxes := 2     
-	  12 Input      8 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 6     
+	   3 Input      8 Bit        Muxes := 2     
 	   2 Input      4 Bit        Muxes := 1     
 	  10 Input      4 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 320   
+	   2 Input      1 Bit        Muxes := 321   
 	   3 Input      1 Bit        Muxes := 1     
-	  10 Input      1 Bit        Muxes := 47    
+	  11 Input      1 Bit        Muxes := 1     
+	  10 Input      1 Bit        Muxes := 48    
 Module SubWord 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -394,57 +398,60 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stre
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[26] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\out_stream_reg[27] )
 INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'next_sm_state_reg[0]__1/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:268]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:268]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:268]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'next_sm_state_reg[7]__6/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:75]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:75]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:75]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'next_sm_state_reg[6]__6/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:75]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:75]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:75]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'next_sm_state_reg[5]__6/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:75]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:75]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:75]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'next_sm_state_reg[4]__6/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:75]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:75]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:75]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'next_sm_state_reg[3]__6/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:75]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:75]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:75]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'next_sm_state_reg[2]__6/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:75]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:75]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:75]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'next_sm_state_reg[1]__6/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:75]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:75]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:75]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'out_instruction_reg[1]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:285]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:285]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:285]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'out_instruction_reg[7]__1/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:76]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:76]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:76]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'out_instruction_reg[6]__1/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:76]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:76]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:76]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'out_instruction_reg[5]__1/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:76]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:76]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:76]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'out_instruction_reg[4]__1/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:76]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:76]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:76]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'out_instruction_reg[3]__1/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:76]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:76]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:76]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'out_instruction_reg[2]__1/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:76]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:76]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:76]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'next_sm_state_reg[7]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:306]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'next_sm_state_reg[6]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:306]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'next_sm_state_reg[5]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:306]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'next_sm_state_reg[4]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:306]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'next_sm_state_reg[2]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:306]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'next_sm_state_reg[1]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:306]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'next_sm_state_reg[0]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:306]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:306]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'next_sm_state_reg[3]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:297]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:297]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:297]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'out_instruction_reg[7]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:307]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:307]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:307]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'out_instruction_reg[6]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:307]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:307]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:307]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'out_instruction_reg[5]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:307]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:307]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:307]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'out_instruction_reg[4]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:307]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:307]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:307]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'out_instruction_reg[3]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:307]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:307]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:307]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'out_instruction_reg[1]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:307]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:307]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:307]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'out_instruction_reg[0]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:307]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:307]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:307]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'out_instruction_reg[2]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:298]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:298]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:298]
 WARNING: [Synth 8-3332] Sequential element (FSM_sequential_KeySchedule_part_reg[3]) is unused and will be removed from module FlatEncryption.
 WARNING: [Synth 8-3332] Sequential element (FSM_sequential_KeySchedule_part_reg[2]) is unused and will be removed from module FlatEncryption.
 WARNING: [Synth 8-3332] Sequential element (FSM_sequential_KeySchedule_part_reg[1]) is unused and will be removed from module FlatEncryption.
 WARNING: [Synth 8-3332] Sequential element (FSM_sequential_KeySchedule_part_reg[0]) is unused and will be removed from module FlatEncryption.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 914.188 ; gain = 391.148
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 911.699 ; gain = 389.727
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -456,13 +463,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 914.188 ; gain = 391.148
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 911.699 ; gain = 389.727
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 914.188 ; gain = 391.148
+Finished Timing Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 911.699 ; gain = 389.727
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -474,7 +481,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 914.188 ; gain = 391.148
+Finished Technology Mapping : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 911.699 ; gain = 389.727
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -498,23 +505,20 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 914.188 ; gain = 391.148
+Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 911.699 ; gain = 389.727
 ---------------------------------------------------------------------------------
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_instruction_OBUF[0] with 1st driver pin 'out_instruction_reg[0]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:285]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_instruction_OBUF[0] with 2nd driver pin 'out_instruction_reg[0]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:276]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_instruction_OBUF[0] with 3rd driver pin 'out_instruction_reg[0]__1/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:76]
 
 Report Check Netlist: 
 +------+------------------+-------+---------+-------+------------------+
 |      |Item              |Errors |Warnings |Status |Description       |
 +------+------------------+-------+---------+-------+------------------+
-|1     |multi_driven_nets |      0|        1|Failed |Multi driven nets |
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 914.188 ; gain = 391.148
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 911.699 ; gain = 389.727
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -526,25 +530,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 914.188 ; gain = 391.148
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 911.699 ; gain = 389.727
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 914.188 ; gain = 391.148
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 911.699 ; gain = 389.727
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 914.188 ; gain = 391.148
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 911.699 ; gain = 389.727
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 914.188 ; gain = 391.148
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 911.699 ; gain = 389.727
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -560,40 +564,35 @@ Report Cell Usage:
 +------+-----+------+
 |      |Cell |Count |
 +------+-----+------+
-|1     |BUFG |     1|
-|2     |LUT3 |     1|
-|3     |LUT6 |     1|
-|4     |FDRE |     3|
-|5     |IBUF |     9|
-|6     |OBUF |    72|
+|1     |OBUF |    72|
 +------+-----+------+
 
 Report Instance Areas: 
 +------+---------+-------+------+
 |      |Instance |Module |Cells |
 +------+---------+-------+------+
-|1     |top      |       |    87|
+|1     |top      |       |    72|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 914.188 ; gain = 391.148
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 911.699 ; gain = 389.727
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 48 critical warnings and 4 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:31 . Memory (MB): peak = 914.188 ; gain = 259.324
-Synthesis Optimization Complete : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 914.188 ; gain = 391.148
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:22 ; elapsed = 00:00:30 . Memory (MB): peak = 911.699 ; gain = 245.855
+Synthesis Optimization Complete : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 911.699 ; gain = 389.727
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 914.621 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 911.699 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-193 Infos, 5 Warnings, 48 Critical Warnings and 0 Errors encountered.
+195 Infos, 8 Warnings, 48 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:38 ; elapsed = 00:00:42 . Memory (MB): peak = 914.621 ; gain = 624.047
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 914.621 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 911.699 ; gain = 621.066
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 911.699 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.runs/synth_1/FlatEncryption.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file FlatEncryption_utilization_synth.rpt -pb FlatEncryption_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Jan  3 17:42:46 2021...
+INFO: [Common 17-206] Exiting Vivado at Sun Jan  3 19:13:21 2021...
