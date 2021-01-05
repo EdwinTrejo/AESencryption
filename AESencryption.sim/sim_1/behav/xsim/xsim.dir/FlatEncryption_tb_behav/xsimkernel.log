@@ -1,4 +1,4 @@
-Running: xsim.dir/FlatEncryption_tb_behav/xsimk.exe -simmode gui -wdb FlatEncryption_tb_behav.wdb -simrunnum 0 -socket 51399
+Running: xsim.dir/FlatEncryption_tb_behav/xsimk.exe -simmode gui -wdb FlatEncryption_tb_behav.wdb -simrunnum 0 -socket 52243
 Design successfully loaded
-Design Loading Memory Usage: 5896 KB (Peak: 5896 KB)
-Design Loading CPU Usage: 31 ms
+Design Loading Memory Usage: 6120 KB (Peak: 6120 KB)
+Design Loading CPU Usage: 62 ms

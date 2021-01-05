@@ -3,6 +3,7 @@ verilog xil_defaultlib  \
 "../../../../AESencryption.srcs/sources_1/new/FlatEncryption.v" \
 "../../../../AESencryption.srcs/sources_1/new/RotWord.v" \
 "../../../../AESencryption.srcs/sources_1/new/SubWord.v" \
+"../../../../AESencryption.srcs/sources_1/new/getSBoxValue.v" \
 "../../../../AESencryption.srcs/sim_1/new/FlatEncryption_tb.v" \
 
 # compile glbl module

@@ -1,3 +1,3 @@
 vlib work
-vlog  SubWord.v
+vlog  getSBoxValue.v
 vlog  test3.v

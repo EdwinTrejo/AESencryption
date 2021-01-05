@@ -1,2 +1,2 @@
-test3/SubWord --> SubWord
+test3/getSBoxValue --> getSBoxValue
 test3 --> test3
