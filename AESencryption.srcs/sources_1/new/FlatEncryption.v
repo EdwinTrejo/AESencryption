@@ -606,55 +606,90 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
                     //MixColumns1
                     
                     //high to low
-                    //case 3
                     //times 2 = (block_state[] ^ times_two_B)
                     //times 3 = (block_state[] ^ (block_state[] ^ times_two_B))
-                    MixColumns16 <= ( ( ^ ) ^ ( ^ ));
-                    //case 2
-                    MixColumns15 <= ( ( ^ ) ^ ( ^ ));
-                    //case 1
-                    MixColumns14 <= ( ( ^ ) ^ ( ^ ));
-                    //case 0
-                    MixColumns13 <= ( ( ^ ) ^ ( ^ ));
+                    //  15  14  13  12
+                    //  11  10  9   8
+                    //  7   6   5   4
+                    //  3   2   1   0
+                    
+                    //  15  11  7   3
+                    //  14  10  6   2
+                    //  13  9   5   1
+                    //  12  8   4   0
+                                        
+                    //  0   1   2   3
+                    //  0   1   2   3
+                    //  0   1   2   3
+                    //  0   1   2   3
+                    
+                    //case 3
+                    //  12  13  14  15
+                    MixColumns13 <= (((block_state[15] ^ times_two_B) ^ (block_state[11] ^ (block_state[11] ^ times_two_B))) ^ (block_state[7] ^ block_state[3]));
+                    MixColumns14 <= ((block_state[15] ^ (block_state[11] ^ times_two_B)) ^ ((block_state[7] ^ (block_state[7] ^ times_two_B)) ^ block_state[3]));
+                    MixColumns15 <= ((block_state[15] ^ block_state[11]) ^ ((block_state[7] ^ times_two_B) ^ (block_state[3] ^ (block_state[3] ^ times_two_B))));
+                    MixColumns16 <= (((block_state[14] ^ (block_state[14] ^ times_two_B)) ^ block_state[13]) ^ (block_state[12] ^ (block_state[15] ^ times_two_B)));
+                    //  8  9  10  11
+                    MixColumns9 <= (((block_state[8] ^ times_two_B) ^ (block_state[9] ^ (block_state[9] ^ times_two_B))) ^ (block_state[10] ^ block_state[11]));
+                    MixColumns10 <= ((block_state[8] ^ (block_state[9] ^ times_two_B)) ^ ((block_state[10] ^ (block_state[10] ^ times_two_B)) ^ block_state[11]));
+                    MixColumns11 <= ((block_state[8] ^ block_state[9]) ^ ((block_state[10] ^ times_two_B) ^ (block_state[11] ^ (block_state[11] ^ times_two_B))));
+                    MixColumns12 <= (((block_state[8] ^ (block_state[8] ^ times_two_B)) ^ block_state[9]) ^ (block_state[10] ^ (block_state[11] ^ times_two_B)));
+                    //  4  5  6  7
+                    MixColumns5 <= (((block_state[4] ^ times_two_B) ^ (block_state[5] ^ (block_state[5] ^ times_two_B))) ^ (block_state[6] ^ block_state[7]));
+                    MixColumns6 <= ((block_state[4] ^ (block_state[5] ^ times_two_B)) ^ ((block_state[6] ^ (block_state[6] ^ times_two_B)) ^ block_state[7]));
+                    MixColumns7 <= ((block_state[4] ^ block_state[5]) ^ ((block_state[6] ^ times_two_B) ^ (block_state[7] ^ (block_state[7] ^ times_two_B))));
+                    MixColumns8 <= (((block_state[4] ^ (block_state[4] ^ times_two_B)) ^ block_state[5]) ^ (block_state[6] ^ (block_state[7] ^ times_two_B)));
+                    //  0  1  2  3
+                    MixColumns1 <= (((block_state[0] ^ times_two_B) ^ (block_state[1] ^ (block_state[1] ^ times_two_B))) ^ (block_state[2] ^ block_state[3]));
+                    MixColumns2 <= ((block_state[0] ^ (block_state[1] ^ times_two_B)) ^ ((block_state[2] ^ (block_state[2] ^ times_two_B)) ^ block_state[3]));
+                    MixColumns3 <= ((block_state[0] ^ block_state[1]) ^ ((block_state[2] ^ times_two_B) ^ (block_state[3] ^ (block_state[3] ^ times_two_B))));
+                    MixColumns4 <= (((block_state[0] ^ (block_state[0] ^ times_two_B)) ^ block_state[1]) ^ (block_state[2] ^ (block_state[3] ^ times_two_B)));
                     
                     xtime_part <= 5;
                 end
                 5: begin
                     //mixcolumns
+                    if (xtime < 10) begin
+                        block_state[0] <= MixColumns1;
+                        block_state[1] <= MixColumns2;
+                        block_state[2] <= MixColumns3;
+                        block_state[3] <= MixColumns4;
+                        block_state[4] <= MixColumns5;
+                        block_state[5] <= MixColumns6;
+                        block_state[6] <= MixColumns7;
+                        block_state[7] <= MixColumns8;
+                        block_state[8] <= MixColumns9;
+                        block_state[9] <= MixColumns10;
+                        block_state[10] <= MixColumns11;
+                        block_state[11] <= MixColumns12;
+                        block_state[12] <= MixColumns13;
+                        block_state[13] <= MixColumns14;
+                        block_state[14] <= MixColumns15;
+                        block_state[15] <= MixColumns16;
+                    end
                     xtime_part <= 6;
                 end
                 6: begin
                     //addkey
+                    block_state[0] <= block_state[0] ^ block_key[0];
+                    block_state[1] <= block_state[1] ^ block_key[1];
+                    block_state[2] <= block_state[2] ^ block_key[2];
+                    block_state[3] <= block_state[3] ^ block_key[3];
+                    block_state[4] <= block_state[4] ^ block_key[4];
+                    block_state[5] <= block_state[5] ^ block_key[5];
+                    block_state[6] <= block_state[6] ^ block_key[6];
+                    block_state[7] <= block_state[7] ^ block_key[7];
+                    block_state[8] <= block_state[8] ^ block_key[8];
+                    block_state[9] <= block_state[9] ^ block_key[9];
+                    block_state[10] <= block_state[10] ^ block_key[10];
+                    block_state[11] <= block_state[11] ^ block_key[11];
+                    block_state[12] <= block_state[12] ^ block_key[12];
+                    block_state[13] <= block_state[13] ^ block_key[13];
+                    block_state[14] <= block_state[14] ^ block_key[14];
+                    block_state[15] <= block_state[15] ^ block_key[15];
                     xtime_part <= 7;
                 end
                 7: begin
-                    xtime_part <= 8;
-                end
-                8: begin
-                    xtime_part <= 9;
-                end
-                9: begin
-                    xtime_part <= 10;
-                end
-                10: begin
-                    xtime_part <= 11;
-                end
-                11: begin
-                    xtime_part <= 12;
-                end
-                12: begin
-                    xtime_part <= 13;
-                end
-                13: begin
-                    xtime_part <= 14;
-                end
-                14: begin
-                    xtime_part <= 15;
-                end
-                15: begin
-                    xtime_part <= 16;
-                end
-                16: begin
                     xtime_part <= 1;
                     xtime <= xtime_next;
                 end
