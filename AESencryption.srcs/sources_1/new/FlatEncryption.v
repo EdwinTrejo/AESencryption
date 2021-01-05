@@ -607,13 +607,15 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
                     
                     //high to low
                     //case 3
-                    MixColumns16 <= block_state[];
+                    //times 2 = (block_state[] ^ times_two_B)
+                    //times 3 = (block_state[] ^ (block_state[] ^ times_two_B))
+                    MixColumns16 <= ( ( ^ ) ^ ( ^ ));
                     //case 2
-                    MixColumns15 <= ;
+                    MixColumns15 <= ( ( ^ ) ^ ( ^ ));
                     //case 1
-                    MixColumns14 <= ;
+                    MixColumns14 <= ( ( ^ ) ^ ( ^ ));
                     //case 0
-                    MixColumns13 <= ;
+                    MixColumns13 <= ( ( ^ ) ^ ( ^ ));
                     
                     xtime_part <= 5;
                 end
