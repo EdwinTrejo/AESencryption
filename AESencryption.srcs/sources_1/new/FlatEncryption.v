@@ -69,6 +69,44 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
     //encryption mixcolumns
     parameter times_two_B = 8'h1B;
     reg [state_block_size-1:0] MixColumns1, MixColumns2, MixColumns3, MixColumns4, MixColumns5, MixColumns6, MixColumns7, MixColumns8, MixColumns9, MixColumns10, MixColumns11, MixColumns12, MixColumns13, MixColumns14, MixColumns15, MixColumns16;
+    reg [state_block_size-1:0] MixColumns2_1, MixColumns2_2, MixColumns2_3, MixColumns2_4, MixColumns2_5, MixColumns2_6, MixColumns2_7, MixColumns2_8, MixColumns2_9, MixColumns2_10, MixColumns2_11, MixColumns2_12, MixColumns2_13, MixColumns2_14, MixColumns2_15, MixColumns2_16;
+    reg [state_block_size-1:0] MixColumns3_1, MixColumns3_2, MixColumns3_3, MixColumns3_4, MixColumns3_5, MixColumns3_6, MixColumns3_7, MixColumns3_8, MixColumns3_9, MixColumns3_10, MixColumns3_11, MixColumns3_12, MixColumns3_13, MixColumns3_14, MixColumns3_15, MixColumns3_16;
+    wire [state_block_size-1:0] MixColumns2out_1, MixColumns2out_2, MixColumns2out_3, MixColumns2out_4, MixColumns2out_5, MixColumns2out_6, MixColumns2out_7, MixColumns2out_8, MixColumns2out_9, MixColumns2out_10, MixColumns2out_11, MixColumns2out_12, MixColumns2out_13, MixColumns2out_14, MixColumns2out_15, MixColumns2out_16;
+    wire [state_block_size-1:0] MixColumns3out_1, MixColumns3out_2, MixColumns3out_3, MixColumns3out_4, MixColumns3out_5, MixColumns3out_6, MixColumns3out_7, MixColumns3out_8, MixColumns3out_9, MixColumns3out_10, MixColumns3out_11, MixColumns3out_12, MixColumns3out_13, MixColumns3out_14, MixColumns3out_15, MixColumns3out_16;
+    times_two times_two_uut1(MixColumns2_1, MixColumns2out_1);
+    times_two times_two_uut2(MixColumns2_2, MixColumns2out_2);
+    times_two times_two_uut3(MixColumns2_3, MixColumns2out_3);
+    times_two times_two_uut4(MixColumns2_4, MixColumns2out_4);
+    times_two times_two_uut5(MixColumns2_5, MixColumns2out_5);
+    times_two times_two_uut6(MixColumns2_6, MixColumns2out_6);
+    times_two times_two_uut7(MixColumns2_7, MixColumns2out_7);
+    times_two times_two_uut8(MixColumns2_8, MixColumns2out_8);
+    times_two times_two_uut9(MixColumns2_9, MixColumns2out_9);
+    times_two times_two_uut10(MixColumns2_10, MixColumns2out_10);
+    times_two times_two_uut11(MixColumns2_11, MixColumns2out_11);
+    times_two times_two_uut12(MixColumns2_12, MixColumns2out_12);
+    times_two times_two_uut13(MixColumns2_13, MixColumns2out_13);
+    times_two times_two_uut14(MixColumns2_14, MixColumns2out_14);
+    times_two times_two_uut15(MixColumns2_15, MixColumns2out_15);
+    times_two times_two_uut16(MixColumns2_16, MixColumns2out_16);
+    
+    times_three times_three_uut1(MixColumns3_1, MixColumns3out_1);
+    times_three times_three_uut2(MixColumns3_2, MixColumns3out_2);
+    times_three times_three_uut3(MixColumns3_3, MixColumns3out_3);
+    times_three times_three_uut4(MixColumns3_4, MixColumns3out_4);
+    times_three times_three_uut5(MixColumns3_5, MixColumns3out_5);
+    times_three times_three_uut6(MixColumns3_6, MixColumns3out_6);
+    times_three times_three_uut7(MixColumns3_7, MixColumns3out_7);
+    times_three times_three_uut8(MixColumns3_8, MixColumns3out_8);
+    times_three times_three_uut9(MixColumns3_9, MixColumns3out_9);
+    times_three times_three_uut10(MixColumns3_10, MixColumns3out_10);
+    times_three times_three_uut11(MixColumns3_11, MixColumns3out_11);
+    times_three times_three_uut12(MixColumns3_12, MixColumns3out_12);
+    times_three times_three_uut13(MixColumns3_13, MixColumns3out_13);
+    times_three times_three_uut14(MixColumns3_14, MixColumns3out_14);
+    times_three times_three_uut15(MixColumns3_15, MixColumns3out_15);
+    times_three times_three_uut16(MixColumns3_16, MixColumns3out_16);
+     
     //encryption subbytes
     reg [state_block_size-1:0] msg_in_subbyte1, msg_in_subbyte2, msg_in_subbyte3, msg_in_subbyte4, msg_in_subbyte5, msg_in_subbyte6, msg_in_subbyte7, msg_in_subbyte8, msg_in_subbyte9, msg_in_subbyte10, msg_in_subbyte11, msg_in_subbyte12, msg_in_subbyte13, msg_in_subbyte14, msg_in_subbyte15, msg_in_subbyte16;
     wire [state_block_size-1:0] msg_out_subbyte1, msg_out_subbyte2, msg_out_subbyte3, msg_out_subbyte4, msg_out_subbyte5, msg_out_subbyte6, msg_out_subbyte7, msg_out_subbyte8, msg_out_subbyte9, msg_out_subbyte10, msg_out_subbyte11, msg_out_subbyte12, msg_out_subbyte13, msg_out_subbyte14, msg_out_subbyte15, msg_out_subbyte16;
@@ -89,6 +127,8 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
     getSBoxValue getSBoxValue_uut15(msg_in_subbyte15, msg_out_subbyte15);
     getSBoxValue getSBoxValue_uut16(msg_in_subbyte16, msg_out_subbyte16);
     
+    
+ 
     
     always @(negedge clk) begin
         current_sm_state <= next_sm_state;
@@ -624,26 +664,30 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
                     //  0   1   2   3
                     
                     //case 3
+                   
+                 //  MixColumns2_16, MixColumns3_16
+                   
                     //  12  13  14  15
-                    MixColumns13 <= (((block_state[15] ^ times_two_B) ^ (block_state[11] ^ (block_state[11] ^ times_two_B))) ^ (block_state[7] ^ block_state[3]));
+                    MixColumns16 <= times_two ^ times_three ^ (state + 2) ^ (state + 3);//(((block_state[14] ^ (block_state[14] ^ times_two_B)) ^ block_state[13]) ^ (block_state[12] ^ (block_state[15] ^ times_two_B)));
+                    MixColumns15 <= (((block_state[15] ^ times_two_B) ^ (block_state[11] ^ (block_state[11] ^ times_two_B))) ^ (block_state[7] ^ block_state[3]));
                     MixColumns14 <= ((block_state[15] ^ (block_state[11] ^ times_two_B)) ^ ((block_state[7] ^ (block_state[7] ^ times_two_B)) ^ block_state[3]));
-                    MixColumns15 <= ((block_state[15] ^ block_state[11]) ^ ((block_state[7] ^ times_two_B) ^ (block_state[3] ^ (block_state[3] ^ times_two_B))));
-                    MixColumns16 <= (((block_state[14] ^ (block_state[14] ^ times_two_B)) ^ block_state[13]) ^ (block_state[12] ^ (block_state[15] ^ times_two_B)));
+                    MixColumns13 <= ((block_state[15] ^ block_state[11]) ^ ((block_state[7] ^ times_two_B) ^ (block_state[3] ^ (block_state[3] ^ times_two_B))));
+                    
                     //  8  9  10  11
-                    MixColumns9 <= (((block_state[8] ^ times_two_B) ^ (block_state[9] ^ (block_state[9] ^ times_two_B))) ^ (block_state[10] ^ block_state[11]));
-                    MixColumns10 <= ((block_state[8] ^ (block_state[9] ^ times_two_B)) ^ ((block_state[10] ^ (block_state[10] ^ times_two_B)) ^ block_state[11]));
-                    MixColumns11 <= ((block_state[8] ^ block_state[9]) ^ ((block_state[10] ^ times_two_B) ^ (block_state[11] ^ (block_state[11] ^ times_two_B))));
-                    MixColumns12 <= (((block_state[8] ^ (block_state[8] ^ times_two_B)) ^ block_state[9]) ^ (block_state[10] ^ (block_state[11] ^ times_two_B)));
+                    MixColumns12 <= (((block_state[8] ^ times_two_B) ^ (block_state[9] ^ (block_state[9] ^ times_two_B))) ^ (block_state[10] ^ block_state[11]));
+                    MixColumns11 <= ((block_state[8] ^ (block_state[9] ^ times_two_B)) ^ ((block_state[10] ^ (block_state[10] ^ times_two_B)) ^ block_state[11]));
+                    MixColumns10 <= ((block_state[8] ^ block_state[9]) ^ ((block_state[10] ^ times_two_B) ^ (block_state[11] ^ (block_state[11] ^ times_two_B))));
+                    MixColumns9 <= (((block_state[8] ^ (block_state[8] ^ times_two_B)) ^ block_state[9]) ^ (block_state[10] ^ (block_state[11] ^ times_two_B)));
                     //  4  5  6  7
-                    MixColumns5 <= (((block_state[4] ^ times_two_B) ^ (block_state[5] ^ (block_state[5] ^ times_two_B))) ^ (block_state[6] ^ block_state[7]));
-                    MixColumns6 <= ((block_state[4] ^ (block_state[5] ^ times_two_B)) ^ ((block_state[6] ^ (block_state[6] ^ times_two_B)) ^ block_state[7]));
-                    MixColumns7 <= ((block_state[4] ^ block_state[5]) ^ ((block_state[6] ^ times_two_B) ^ (block_state[7] ^ (block_state[7] ^ times_two_B))));
-                    MixColumns8 <= (((block_state[4] ^ (block_state[4] ^ times_two_B)) ^ block_state[5]) ^ (block_state[6] ^ (block_state[7] ^ times_two_B)));
+                    MixColumns8 <= (((block_state[4] ^ times_two_B) ^ (block_state[5] ^ (block_state[5] ^ times_two_B))) ^ (block_state[6] ^ block_state[7]));
+                    MixColumns7 <= ((block_state[4] ^ (block_state[5] ^ times_two_B)) ^ ((block_state[6] ^ (block_state[6] ^ times_two_B)) ^ block_state[7]));
+                    MixColumns6 <= ((block_state[4] ^ block_state[5]) ^ ((block_state[6] ^ times_two_B) ^ (block_state[7] ^ (block_state[7] ^ times_two_B))));
+                    MixColumns5 <= (((block_state[4] ^ (block_state[4] ^ times_two_B)) ^ block_state[5]) ^ (block_state[6] ^ (block_state[7] ^ times_two_B)));
                     //  0  1  2  3
-                    MixColumns1 <= (((block_state[0] ^ times_two_B) ^ (block_state[1] ^ (block_state[1] ^ times_two_B))) ^ (block_state[2] ^ block_state[3]));
-                    MixColumns2 <= ((block_state[0] ^ (block_state[1] ^ times_two_B)) ^ ((block_state[2] ^ (block_state[2] ^ times_two_B)) ^ block_state[3]));
-                    MixColumns3 <= ((block_state[0] ^ block_state[1]) ^ ((block_state[2] ^ times_two_B) ^ (block_state[3] ^ (block_state[3] ^ times_two_B))));
-                    MixColumns4 <= (((block_state[0] ^ (block_state[0] ^ times_two_B)) ^ block_state[1]) ^ (block_state[2] ^ (block_state[3] ^ times_two_B)));
+                    MixColumns4 <= (((block_state[0] ^ times_two_B) ^ (block_state[1] ^ (block_state[1] ^ times_two_B))) ^ (block_state[2] ^ block_state[3]));
+                    MixColumns3 <= ((block_state[0] ^ (block_state[1] ^ times_two_B)) ^ ((block_state[2] ^ (block_state[2] ^ times_two_B)) ^ block_state[3]));
+                    MixColumns2 <= ((block_state[0] ^ block_state[1]) ^ ((block_state[2] ^ times_two_B) ^ (block_state[3] ^ (block_state[3] ^ times_two_B))));
+                    MixColumns1 <= (((block_state[0] ^ (block_state[0] ^ times_two_B)) ^ block_state[1]) ^ (block_state[2] ^ (block_state[3] ^ times_two_B)));
                     
                     xtime_part <= 5;
                 end
