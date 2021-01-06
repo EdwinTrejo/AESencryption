@@ -60,6 +60,7 @@ proc step_failed { step } {
   close $ch
 }
 
+set_msg_config -id {Common 17-41} -limit 10000000
 
 start_step init_design
 set ACTIVE_STEP init_design
@@ -75,9 +76,9 @@ set rc [catch {
   update_ip_catalog
   set_property ip_output_repo C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
-  add_files -quiet C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.runs/synth_1/FlatEncryption.dcp
+  add_files -quiet C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.runs/synth_1/EncDecController.dcp
   read_xdc C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/timing.xdc
-  link_design -top FlatEncryption -part xc7a100tcsg324-1
+  link_design -top EncDecController -part xc7a100tcsg324-1
   close_msg_db -file init_design.pb
 } RESULT]
 if {$rc} {
@@ -93,8 +94,8 @@ set ACTIVE_STEP opt_design
 set rc [catch {
   create_msg_db opt_design.pb
   opt_design 
-  write_checkpoint -force FlatEncryption_opt.dcp
-  create_report "impl_1_opt_report_drc_0" "report_drc -file FlatEncryption_drc_opted.rpt -pb FlatEncryption_drc_opted.pb -rpx FlatEncryption_drc_opted.rpx"
+  write_checkpoint -force EncDecController_opt.dcp
+  create_report "impl_1_opt_report_drc_0" "report_drc -file EncDecController_drc_opted.rpt -pb EncDecController_drc_opted.pb -rpx EncDecController_drc_opted.rpx"
   close_msg_db -file opt_design.pb
 } RESULT]
 if {$rc} {
@@ -113,10 +114,10 @@ set rc [catch {
     implement_debug_core 
   } 
   place_design 
-  write_checkpoint -force FlatEncryption_placed.dcp
-  create_report "impl_1_place_report_io_0" "report_io -file FlatEncryption_io_placed.rpt"
-  create_report "impl_1_place_report_utilization_0" "report_utilization -file FlatEncryption_utilization_placed.rpt -pb FlatEncryption_utilization_placed.pb"
-  create_report "impl_1_place_report_control_sets_0" "report_control_sets -verbose -file FlatEncryption_control_sets_placed.rpt"
+  write_checkpoint -force EncDecController_placed.dcp
+  create_report "impl_1_place_report_io_0" "report_io -file EncDecController_io_placed.rpt"
+  create_report "impl_1_place_report_utilization_0" "report_utilization -file EncDecController_utilization_placed.rpt -pb EncDecController_utilization_placed.pb"
+  create_report "impl_1_place_report_control_sets_0" "report_control_sets -verbose -file EncDecController_control_sets_placed.rpt"
   close_msg_db -file place_design.pb
 } RESULT]
 if {$rc} {
@@ -132,19 +133,19 @@ set ACTIVE_STEP route_design
 set rc [catch {
   create_msg_db route_design.pb
   route_design 
-  write_checkpoint -force FlatEncryption_routed.dcp
-  create_report "impl_1_route_report_drc_0" "report_drc -file FlatEncryption_drc_routed.rpt -pb FlatEncryption_drc_routed.pb -rpx FlatEncryption_drc_routed.rpx"
-  create_report "impl_1_route_report_methodology_0" "report_methodology -file FlatEncryption_methodology_drc_routed.rpt -pb FlatEncryption_methodology_drc_routed.pb -rpx FlatEncryption_methodology_drc_routed.rpx"
-  create_report "impl_1_route_report_power_0" "report_power -file FlatEncryption_power_routed.rpt -pb FlatEncryption_power_summary_routed.pb -rpx FlatEncryption_power_routed.rpx"
-  create_report "impl_1_route_report_route_status_0" "report_route_status -file FlatEncryption_route_status.rpt -pb FlatEncryption_route_status.pb"
-  create_report "impl_1_route_report_timing_summary_0" "report_timing_summary -max_paths 10 -file FlatEncryption_timing_summary_routed.rpt -pb FlatEncryption_timing_summary_routed.pb -rpx FlatEncryption_timing_summary_routed.rpx -warn_on_violation "
-  create_report "impl_1_route_report_incremental_reuse_0" "report_incremental_reuse -file FlatEncryption_incremental_reuse_routed.rpt"
-  create_report "impl_1_route_report_clock_utilization_0" "report_clock_utilization -file FlatEncryption_clock_utilization_routed.rpt"
-  create_report "impl_1_route_report_bus_skew_0" "report_bus_skew -warn_on_violation -file FlatEncryption_bus_skew_routed.rpt -pb FlatEncryption_bus_skew_routed.pb -rpx FlatEncryption_bus_skew_routed.rpx"
+  write_checkpoint -force EncDecController_routed.dcp
+  create_report "impl_1_route_report_drc_0" "report_drc -file EncDecController_drc_routed.rpt -pb EncDecController_drc_routed.pb -rpx EncDecController_drc_routed.rpx"
+  create_report "impl_1_route_report_methodology_0" "report_methodology -file EncDecController_methodology_drc_routed.rpt -pb EncDecController_methodology_drc_routed.pb -rpx EncDecController_methodology_drc_routed.rpx"
+  create_report "impl_1_route_report_power_0" "report_power -file EncDecController_power_routed.rpt -pb EncDecController_power_summary_routed.pb -rpx EncDecController_power_routed.rpx"
+  create_report "impl_1_route_report_route_status_0" "report_route_status -file EncDecController_route_status.rpt -pb EncDecController_route_status.pb"
+  create_report "impl_1_route_report_timing_summary_0" "report_timing_summary -max_paths 10 -file EncDecController_timing_summary_routed.rpt -pb EncDecController_timing_summary_routed.pb -rpx EncDecController_timing_summary_routed.rpx -warn_on_violation "
+  create_report "impl_1_route_report_incremental_reuse_0" "report_incremental_reuse -file EncDecController_incremental_reuse_routed.rpt"
+  create_report "impl_1_route_report_clock_utilization_0" "report_clock_utilization -file EncDecController_clock_utilization_routed.rpt"
+  create_report "impl_1_route_report_bus_skew_0" "report_bus_skew -warn_on_violation -file EncDecController_bus_skew_routed.rpt -pb EncDecController_bus_skew_routed.pb -rpx EncDecController_bus_skew_routed.rpx"
   close_msg_db -file route_design.pb
 } RESULT]
 if {$rc} {
-  write_checkpoint -force FlatEncryption_routed_error.dcp
+  write_checkpoint -force EncDecController_routed_error.dcp
   step_failed route_design
   return -code error $RESULT
 } else {

@@ -35,10 +35,15 @@ module EncDecController_tb();
         clk = 0;
         #1;
         in_stream = 64'h1111111111111111;
-        #3;
-        in_stream = 64'hEEEEEEEEEEEEEEEE;
-        #2;
-        #20;
+        #1;
+        in_stream = 64'H2B7E151628AED2A6;
+        #1;
+        in_stream = 64'HABF7158809CF4F3C;
+        #1;
+        in_stream = 64'H0011223344556677;
+        #1;
+        in_stream = 64'H8899AABBCCDDEEFF;
+        #200;
         $finish;
     end
     

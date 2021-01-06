@@ -47,45 +47,45 @@ module EncDecController(in_stream, out_stream, clk);
     always @(clk) begin
         if (in_stream == 64'h1111111111111111 && current_sm_state == 0) begin
             //begin encryption
-            encrypt_instruction = 1;
-            next_sm_state = 1;
+            encrypt_instruction <= 1;
+            next_sm_state <= 1;
         end
     end
     
     always @(clk) begin
         if (encrypt_state == 2 && current_sm_state == 1) begin
-            encrypt_instruction = 2;
-            next_sm_state = 2;
+            encrypt_instruction <= 2;
+            next_sm_state <= 2;
         end
         else if (encrypt_state == 2 && current_sm_state == 2) begin
-            encrypt_instruction = 3;
-            next_sm_state = 3;
+            encrypt_instruction <= 3;
+            next_sm_state <= 3;
         end
         else if (encrypt_state == 2 && current_sm_state == 3) begin
-            encrypt_instruction = 4;
-            next_sm_state = 4;
+            encrypt_instruction <= 4;
+            next_sm_state <= 4;
         end
         else if (encrypt_state == 2 && current_sm_state == 4) begin
-            encrypt_instruction = 5;
-            next_sm_state = 5;
+            encrypt_instruction <= 5;
+            next_sm_state <= 5;
         end
     end
     
     always @(clk) begin
         if (encrypt_state == 3 && current_sm_state == 5) begin
-            next_sm_state = 6;
-            out_stream = 64'h1111111111111111;
+            next_sm_state <= 6;
+            out_stream <= 64'h1111111111111111;
         end
     end
     
     always @(clk) begin
         if (encrypt_state == 4 && current_sm_state == 6) begin
-            out_stream = encrypt_out_stream;
-            next_sm_state = 7;
+            out_stream <= encrypt_out_stream;
+            next_sm_state <= 7;
         end
         if (encrypt_state == 5 && current_sm_state == 7) begin
-            out_stream = encrypt_out_stream;
-            next_sm_state = 0;
+            out_stream <= encrypt_out_stream;
+            next_sm_state <= 0;
         end
     end
     

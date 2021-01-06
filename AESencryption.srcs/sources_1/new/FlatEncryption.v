@@ -68,7 +68,7 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
     reg encryption_done;
     //encryption mixcolumns
     parameter times_two_B = 8'h1B;
-    reg [state_block_size-1:0] MixColumns1, MixColumns2, MixColumns3, MixColumns4, MixColumns5, MixColumns6, MixColumns7, MixColumns8, MixColumns9, MixColumns10, MixColumns11, MixColumns12, MixColumns13, MixColumns14, MixColumns15, MixColumns16;
+    //reg [state_block_size-1:0] MixColumns1, MixColumns2, MixColumns3, MixColumns4, MixColumns5, MixColumns6, MixColumns7, MixColumns8, MixColumns9, MixColumns10, MixColumns11, MixColumns12, MixColumns13, MixColumns14, MixColumns15, MixColumns16;
     reg [state_block_size-1:0] MixColumns2_1, MixColumns2_2, MixColumns2_3, MixColumns2_4, MixColumns2_5, MixColumns2_6, MixColumns2_7, MixColumns2_8, MixColumns2_9, MixColumns2_10, MixColumns2_11, MixColumns2_12, MixColumns2_13, MixColumns2_14, MixColumns2_15, MixColumns2_16;
     reg [state_block_size-1:0] MixColumns3_1, MixColumns3_2, MixColumns3_3, MixColumns3_4, MixColumns3_5, MixColumns3_6, MixColumns3_7, MixColumns3_8, MixColumns3_9, MixColumns3_10, MixColumns3_11, MixColumns3_12, MixColumns3_13, MixColumns3_14, MixColumns3_15, MixColumns3_16;
     wire [state_block_size-1:0] MixColumns2out_1, MixColumns2out_2, MixColumns2out_3, MixColumns2out_4, MixColumns2out_5, MixColumns2out_6, MixColumns2out_7, MixColumns2out_8, MixColumns2out_9, MixColumns2out_10, MixColumns2out_11, MixColumns2out_12, MixColumns2out_13, MixColumns2out_14, MixColumns2out_15, MixColumns2out_16;
@@ -664,52 +664,51 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
                     //  0   1   2   3
                     
                     //case 3
-                   
-                 //  MixColumns2_16, MixColumns3_16
-                   
-                    //  12  13  14  15
-                    MixColumns16 <= times_two ^ times_three ^ (state + 2) ^ (state + 3);//(((block_state[14] ^ (block_state[14] ^ times_two_B)) ^ block_state[13]) ^ (block_state[12] ^ (block_state[15] ^ times_two_B)));
-                    MixColumns15 <= (((block_state[15] ^ times_two_B) ^ (block_state[11] ^ (block_state[11] ^ times_two_B))) ^ (block_state[7] ^ block_state[3]));
-                    MixColumns14 <= ((block_state[15] ^ (block_state[11] ^ times_two_B)) ^ ((block_state[7] ^ (block_state[7] ^ times_two_B)) ^ block_state[3]));
-                    MixColumns13 <= ((block_state[15] ^ block_state[11]) ^ ((block_state[7] ^ times_two_B) ^ (block_state[3] ^ (block_state[3] ^ times_two_B))));
+                    MixColumns2_1 <= block_state[0]; MixColumns3_1 <= block_state[3];
+                    MixColumns2_2 <= block_state[1]; MixColumns3_2 <= block_state[0];
+                    MixColumns2_3 <= block_state[2]; MixColumns3_3 <= block_state[1];
+                    MixColumns2_4 <= block_state[3]; MixColumns3_4 <= block_state[2];
                     
-                    //  8  9  10  11
-                    MixColumns12 <= (((block_state[8] ^ times_two_B) ^ (block_state[9] ^ (block_state[9] ^ times_two_B))) ^ (block_state[10] ^ block_state[11]));
-                    MixColumns11 <= ((block_state[8] ^ (block_state[9] ^ times_two_B)) ^ ((block_state[10] ^ (block_state[10] ^ times_two_B)) ^ block_state[11]));
-                    MixColumns10 <= ((block_state[8] ^ block_state[9]) ^ ((block_state[10] ^ times_two_B) ^ (block_state[11] ^ (block_state[11] ^ times_two_B))));
-                    MixColumns9 <= (((block_state[8] ^ (block_state[8] ^ times_two_B)) ^ block_state[9]) ^ (block_state[10] ^ (block_state[11] ^ times_two_B)));
-                    //  4  5  6  7
-                    MixColumns8 <= (((block_state[4] ^ times_two_B) ^ (block_state[5] ^ (block_state[5] ^ times_two_B))) ^ (block_state[6] ^ block_state[7]));
-                    MixColumns7 <= ((block_state[4] ^ (block_state[5] ^ times_two_B)) ^ ((block_state[6] ^ (block_state[6] ^ times_two_B)) ^ block_state[7]));
-                    MixColumns6 <= ((block_state[4] ^ block_state[5]) ^ ((block_state[6] ^ times_two_B) ^ (block_state[7] ^ (block_state[7] ^ times_two_B))));
-                    MixColumns5 <= (((block_state[4] ^ (block_state[4] ^ times_two_B)) ^ block_state[5]) ^ (block_state[6] ^ (block_state[7] ^ times_two_B)));
-                    //  0  1  2  3
-                    MixColumns4 <= (((block_state[0] ^ times_two_B) ^ (block_state[1] ^ (block_state[1] ^ times_two_B))) ^ (block_state[2] ^ block_state[3]));
-                    MixColumns3 <= ((block_state[0] ^ (block_state[1] ^ times_two_B)) ^ ((block_state[2] ^ (block_state[2] ^ times_two_B)) ^ block_state[3]));
-                    MixColumns2 <= ((block_state[0] ^ block_state[1]) ^ ((block_state[2] ^ times_two_B) ^ (block_state[3] ^ (block_state[3] ^ times_two_B))));
-                    MixColumns1 <= (((block_state[0] ^ (block_state[0] ^ times_two_B)) ^ block_state[1]) ^ (block_state[2] ^ (block_state[3] ^ times_two_B)));
+                    MixColumns2_5 <= block_state[4]; MixColumns3_5 <= block_state[7];
+                    MixColumns2_6 <= block_state[5]; MixColumns3_6 <= block_state[4];
+                    MixColumns2_7 <= block_state[6]; MixColumns3_7 <= block_state[5];
+                    MixColumns2_8 <= block_state[7]; MixColumns3_8 <= block_state[6];
                     
+                    MixColumns2_9 <= block_state[8]; MixColumns3_9 <= block_state[11];
+                    MixColumns2_10 <= block_state[9]; MixColumns3_10 <= block_state[8];
+                    MixColumns2_11 <= block_state[10]; MixColumns3_11 <= block_state[9];
+                    MixColumns2_12 <= block_state[11]; MixColumns3_12 <= block_state[10];
+                    
+                    MixColumns2_13 <= block_state[12]; MixColumns3_13 <= block_state[15];
+                    MixColumns2_14 <= block_state[13]; MixColumns3_14 <= block_state[12];
+                    MixColumns2_15 <= block_state[14]; MixColumns3_15 <= block_state[13];
+                    MixColumns2_16 <= block_state[15]; MixColumns3_16 <= block_state[14];
+                                       
                     xtime_part <= 5;
                 end
                 5: begin
                     //mixcolumns
                     if (xtime < 10) begin
-                        block_state[0] <= MixColumns1;
-                        block_state[1] <= MixColumns2;
-                        block_state[2] <= MixColumns3;
-                        block_state[3] <= MixColumns4;
-                        block_state[4] <= MixColumns5;
-                        block_state[5] <= MixColumns6;
-                        block_state[6] <= MixColumns7;
-                        block_state[7] <= MixColumns8;
-                        block_state[8] <= MixColumns9;
-                        block_state[9] <= MixColumns10;
-                        block_state[10] <= MixColumns11;
-                        block_state[11] <= MixColumns12;
-                        block_state[12] <= MixColumns13;
-                        block_state[13] <= MixColumns14;
-                        block_state[14] <= MixColumns15;
-                        block_state[15] <= MixColumns16;
+                        //MixColumns2out_1 MixColumns3out_1
+                        block_state[0] <= MixColumns2out_1 ^ MixColumns3out_1 ^ block_state[1] ^ block_state[2];
+                        block_state[1] <= MixColumns2out_2 ^ MixColumns3out_2 ^ block_state[2] ^ block_state[3];
+                        block_state[2] <= MixColumns2out_3 ^ MixColumns3out_3 ^ block_state[0] ^ block_state[3];
+                        block_state[3] <= MixColumns2out_4 ^ MixColumns3out_4 ^ block_state[0] ^ block_state[1];
+                        
+                        block_state[4] <= MixColumns2out_5 ^ MixColumns3out_5 ^ block_state[5] ^ block_state[6];
+                        block_state[5] <= MixColumns2out_6 ^ MixColumns3out_6 ^ block_state[6] ^ block_state[7];
+                        block_state[6] <= MixColumns2out_7 ^ MixColumns3out_7 ^ block_state[4] ^ block_state[7];
+                        block_state[7] <= MixColumns2out_8 ^ MixColumns3out_8 ^ block_state[4] ^ block_state[5];
+                        
+                        block_state[8] <= MixColumns2out_9 ^ MixColumns3out_9 ^ block_state[9] ^ block_state[10];
+                        block_state[9] <= MixColumns2out_10 ^ MixColumns3out_10 ^ block_state[10] ^ block_state[11];
+                        block_state[10] <= MixColumns2out_11 ^ MixColumns3out_11 ^ block_state[8] ^ block_state[11];
+                        block_state[11] <= MixColumns2out_12 ^ MixColumns3out_12 ^ block_state[8] ^ block_state[9];
+                        
+                        block_state[12] <= MixColumns2out_13 ^ MixColumns3out_13 ^ block_state[13] ^ block_state[14];
+                        block_state[13] <= MixColumns2out_14 ^ MixColumns3out_14 ^ block_state[14] ^ block_state[15];
+                        block_state[14] <= MixColumns2out_15 ^ MixColumns3out_15 ^ block_state[12] ^ block_state[15];
+                        block_state[15] <= MixColumns2out_16 ^ MixColumns3out_16 ^ block_state[12] ^ block_state[13];
                     end
                     xtime_part <= 6;
                 end
@@ -778,8 +777,8 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
     always @(posedge clk) begin
         if (current_sm_state == 7) begin
             out_stream <= state[127:64];
-            next_sm_state <= 8;
-            out_instruction <= state4;
+            next_sm_state <= state8;
+            out_instruction <= 4;
         end
         else if (current_sm_state == 8) begin
             out_stream <= state[63:0];

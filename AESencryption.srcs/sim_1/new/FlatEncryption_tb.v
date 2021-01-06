@@ -55,7 +55,7 @@ module FlatEncryption_tb();
         in_instruction = 5;
         #2;
         in_stream = 64'hZZZZZZZZZZZZZZZZ;
-        #600;
+        #450;
         $finish;
     end
     
