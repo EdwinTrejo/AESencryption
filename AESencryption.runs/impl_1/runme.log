@@ -21,13 +21,13 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 Parsing XDC File [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/timing.xdc]
 Finished Parsing XDC File [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/timing.xdc]
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 652.297 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 651.855 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 8 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 link_design completed successfully
-link_design: Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 656.324 ; gain = 365.598
+link_design: Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 656.828 ; gain = 365.879
 Command: opt_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a100t'
@@ -35,78 +35,78 @@ Running DRC as a precondition to command opt_design
 
 Starting DRC Task
 INFO: [DRC 23-27] Running DRC with 2 threads
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[0] has multiple drivers: out_stream_reg[0]__0/Q, and out_stream_reg[0]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[0] has multiple drivers: out_stream_reg[0]/Q, and out_stream_reg[0]__0/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[10] has multiple drivers: out_stream_reg[10]/Q, and out_stream_reg[10]__0/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[11] has multiple drivers: out_stream_reg[11]/Q, and out_stream_reg[11]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[12] has multiple drivers: out_stream_reg[12]__0/Q, and out_stream_reg[12]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[12] has multiple drivers: out_stream_reg[12]/Q, and out_stream_reg[12]__0/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[13] has multiple drivers: out_stream_reg[13]__0/Q, and out_stream_reg[13]/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[14] has multiple drivers: out_stream_reg[14]/Q, and out_stream_reg[14]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[15] has multiple drivers: out_stream_reg[15]/Q, and out_stream_reg[15]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[16] has multiple drivers: out_stream_reg[16]__0/Q, and out_stream_reg[16]/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[17] has multiple drivers: out_stream_reg[17]/Q, and out_stream_reg[17]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[14] has multiple drivers: out_stream_reg[14]__0/Q, and out_stream_reg[14]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[15] has multiple drivers: out_stream_reg[15]__0/Q, and out_stream_reg[15]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[16] has multiple drivers: out_stream_reg[16]/Q, and out_stream_reg[16]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[17] has multiple drivers: out_stream_reg[17]__0/Q, and out_stream_reg[17]/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[18] has multiple drivers: out_stream_reg[18]/Q, and out_stream_reg[18]__0/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[19] has multiple drivers: out_stream_reg[19]/Q, and out_stream_reg[19]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[1] has multiple drivers: out_stream_reg[1]__0/Q, and out_stream_reg[1]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[1] has multiple drivers: out_stream_reg[1]/Q, and out_stream_reg[1]__0/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[20] has multiple drivers: out_stream_reg[20]__0/Q, and out_stream_reg[20]/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[21] has multiple drivers: out_stream_reg[21]__0/Q, and out_stream_reg[21]/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[22] has multiple drivers: out_stream_reg[22]/Q, and out_stream_reg[22]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[22] has multiple drivers: out_stream_reg[22]__0/Q, and out_stream_reg[22]/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[23] has multiple drivers: out_stream_reg[23]__0/Q, and out_stream_reg[23]/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[24] has multiple drivers: out_stream_reg[24]/Q, and out_stream_reg[24]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[24] has multiple drivers: out_stream_reg[24]__0/Q, and out_stream_reg[24]/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[25] has multiple drivers: out_stream_reg[25]/Q, and out_stream_reg[25]__0/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[26] has multiple drivers: out_stream_reg[26]/Q, and out_stream_reg[26]__0/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[27] has multiple drivers: out_stream_reg[27]__0/Q, and out_stream_reg[27]/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[28] has multiple drivers: out_stream_reg[28]/Q, and out_stream_reg[28]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[29] has multiple drivers: out_stream_reg[29]/Q, and out_stream_reg[29]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[2] has multiple drivers: out_stream_reg[2]/Q, and out_stream_reg[2]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[30] has multiple drivers: out_stream_reg[30]__0/Q, and out_stream_reg[30]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[29] has multiple drivers: out_stream_reg[29]__0/Q, and out_stream_reg[29]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[2] has multiple drivers: out_stream_reg[2]__0/Q, and out_stream_reg[2]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[30] has multiple drivers: out_stream_reg[30]/Q, and out_stream_reg[30]__0/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[31] has multiple drivers: out_stream_reg[31]/Q, and out_stream_reg[31]__0/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[32] has multiple drivers: out_stream_reg[32]__0/Q, and out_stream_reg[32]/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[33] has multiple drivers: out_stream_reg[33]/Q, and out_stream_reg[33]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[33] has multiple drivers: out_stream_reg[33]__0/Q, and out_stream_reg[33]/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[34] has multiple drivers: out_stream_reg[34]/Q, and out_stream_reg[34]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[35] has multiple drivers: out_stream_reg[35]__0/Q, and out_stream_reg[35]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[35] has multiple drivers: out_stream_reg[35]/Q, and out_stream_reg[35]__0/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[36] has multiple drivers: out_stream_reg[36]/Q, and out_stream_reg[36]__0/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[37] has multiple drivers: out_stream_reg[37]__0/Q, and out_stream_reg[37]/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[38] has multiple drivers: out_stream_reg[38]__0/Q, and out_stream_reg[38]/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[39] has multiple drivers: out_stream_reg[39]__0/Q, and out_stream_reg[39]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[38] has multiple drivers: out_stream_reg[38]/Q, and out_stream_reg[38]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[39] has multiple drivers: out_stream_reg[39]/Q, and out_stream_reg[39]__0/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[3] has multiple drivers: out_stream_reg[3]/Q, and out_stream_reg[3]__0/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[40] has multiple drivers: out_stream_reg[40]/Q, and out_stream_reg[40]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[41] has multiple drivers: out_stream_reg[41]/Q, and out_stream_reg[41]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[41] has multiple drivers: out_stream_reg[41]__0/Q, and out_stream_reg[41]/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[42] has multiple drivers: out_stream_reg[42]__0/Q, and out_stream_reg[42]/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[43] has multiple drivers: out_stream_reg[43]/Q, and out_stream_reg[43]__0/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[44] has multiple drivers: out_stream_reg[44]/Q, and out_stream_reg[44]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[45] has multiple drivers: out_stream_reg[45]/Q, and out_stream_reg[45]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[46] has multiple drivers: out_stream_reg[46]__0/Q, and out_stream_reg[46]/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[47] has multiple drivers: out_stream_reg[47]__0/Q, and out_stream_reg[47]/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[48] has multiple drivers: out_stream_reg[48]/Q, and out_stream_reg[48]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[45] has multiple drivers: out_stream_reg[45]__0/Q, and out_stream_reg[45]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[46] has multiple drivers: out_stream_reg[46]/Q, and out_stream_reg[46]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[47] has multiple drivers: out_stream_reg[47]/Q, and out_stream_reg[47]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[48] has multiple drivers: out_stream_reg[48]__0/Q, and out_stream_reg[48]/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[49] has multiple drivers: out_stream_reg[49]/Q, and out_stream_reg[49]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[4] has multiple drivers: out_stream_reg[4]/Q, and out_stream_reg[4]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[50] has multiple drivers: out_stream_reg[50]/Q, and out_stream_reg[50]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[51] has multiple drivers: out_stream_reg[51]__0/Q, and out_stream_reg[51]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[4] has multiple drivers: out_stream_reg[4]__0/Q, and out_stream_reg[4]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[50] has multiple drivers: out_stream_reg[50]__0/Q, and out_stream_reg[50]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[51] has multiple drivers: out_stream_reg[51]/Q, and out_stream_reg[51]__0/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[52] has multiple drivers: out_stream_reg[52]/Q, and out_stream_reg[52]__0/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[53] has multiple drivers: out_stream_reg[53]/Q, and out_stream_reg[53]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[54] has multiple drivers: out_stream_reg[54]/Q, and out_stream_reg[54]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[54] has multiple drivers: out_stream_reg[54]__0/Q, and out_stream_reg[54]/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[55] has multiple drivers: out_stream_reg[55]/Q, and out_stream_reg[55]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[56] has multiple drivers: out_stream_reg[56]__0/Q, and out_stream_reg[56]/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[57] has multiple drivers: out_stream_reg[57]/Q, and out_stream_reg[57]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[58] has multiple drivers: out_stream_reg[58]/Q, and out_stream_reg[58]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[56] has multiple drivers: out_stream_reg[56]/Q, and out_stream_reg[56]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[57] has multiple drivers: out_stream_reg[57]__0/Q, and out_stream_reg[57]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[58] has multiple drivers: out_stream_reg[58]__0/Q, and out_stream_reg[58]/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[59] has multiple drivers: out_stream_reg[59]__0/Q, and out_stream_reg[59]/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[5] has multiple drivers: out_stream_reg[5]/Q, and out_stream_reg[5]__0/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[60] has multiple drivers: out_stream_reg[60]/Q, and out_stream_reg[60]__0/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[61] has multiple drivers: out_stream_reg[61]/Q, and out_stream_reg[61]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[62] has multiple drivers: out_stream_reg[62]/Q, and out_stream_reg[62]__0/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[63] has multiple drivers: out_stream_reg[63]/Q, and out_stream_reg[63]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[62] has multiple drivers: out_stream_reg[62]__0/Q, and out_stream_reg[62]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[63] has multiple drivers: out_stream_reg[63]__0/Q, and out_stream_reg[63]/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[6] has multiple drivers: out_stream_reg[6]__0/Q, and out_stream_reg[6]/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[7] has multiple drivers: out_stream_reg[7]/Q, and out_stream_reg[7]__0/Q.
 ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[8] has multiple drivers: out_stream_reg[8]__0/Q, and out_stream_reg[8]/Q.
-ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[9] has multiple drivers: out_stream_reg[9]__0/Q, and out_stream_reg[9]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net out_stream_OBUF[9] has multiple drivers: out_stream_reg[9]/Q, and out_stream_reg[9]__0/Q.
 INFO: [Project 1-461] DRC finished with 64 Errors
 INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
 ERROR: [Vivado_Tcl 4-78] Error(s) found during DRC. Opt_design not run.
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.794 . Memory (MB): peak = 673.281 ; gain = 16.957
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.759 . Memory (MB): peak = 675.805 ; gain = 18.977
 INFO: [Common 17-83] Releasing license: Implementation
 13 Infos, 0 Warnings, 0 Critical Warnings and 65 Errors encountered.
 opt_design failed
 ERROR: [Common 17-39] 'opt_design' failed due to earlier errors.
 
-INFO: [Common 17-206] Exiting Vivado at Tue Jan  5 22:31:03 2021...
+INFO: [Common 17-206] Exiting Vivado at Fri Jan  8 18:48:43 2021...

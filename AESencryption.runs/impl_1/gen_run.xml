@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1609903766">
+<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1610149701">
   <File Type="BITSTR-BMM" Name="EncDecController_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="EncDecController_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="EncDecController_timing_summary_init.rpt"/>
@@ -120,7 +120,7 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/keyExpansion.v">
+    <File Path="$PSRCDIR/sources_1/bd/design_1/design_1.bd">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -186,6 +186,14 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/keyExpansion.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/imports/Downloads/mixColumns.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
@@ -207,14 +215,6 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/state_machine.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/bd/design_1/design_1.bd">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>

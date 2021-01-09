@@ -17,7 +17,9 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_msg_config -id {Common 17-41} -limit 10000000
+set_param project.hsv.suppressChildGraphs 0
+set_param chipscope.maxJobs 4
+set_msg_config -id {HDL-1065} -limit 10000
 create_project -in_memory -part xc7a100tcsg324-1
 
 set_param project.singleFileAddWarning.threshold 0

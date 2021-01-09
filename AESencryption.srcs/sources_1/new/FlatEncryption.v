@@ -330,8 +330,7 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
     always @(posedge clk) begin
         if (current_sm_state == 4) begin
             next_sm_state <= state5;
-//            state <= state ^ key;
-            xtime <= 1;
+            xtime <= state1;
             xtime_next <= 1;
             xtime_part <= 1;
             encryption_done <= 0;            

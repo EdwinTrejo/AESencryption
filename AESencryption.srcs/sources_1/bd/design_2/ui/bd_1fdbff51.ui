@@ -1,0 +1,12 @@
+{
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0.19  2019-03-26 bk=1.5019 VDI=41 GEI=35 GUI=JA:9.0 non-TLS-threadsafe
+#  -string -flagsOSRD
+preplace inst mii_to_rmii_0 -pg 1 -lvl 1 -x -80 -y -240 -defaultsOSRD
+preplace inst ethernet_mac_hub_0 -pg 1 -lvl 2 -x 210 -y -210 -defaultsOSRD
+preplace inst axi_ethernetlite_0 -pg 1 -lvl 1 -x -80 -y 300 -defaultsOSRD
+levelinfo -pg 1 -430 -80 210 340
+pagesize -pg 1 -db -bbox -sgen -430 -460 340 550
+"
+}
+0
