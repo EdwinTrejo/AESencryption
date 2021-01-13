@@ -1,9 +1,9 @@
 #-----------------------------------------------------------
-# Vivado v2019.1 (64-bit)
-# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
-# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Fri Jan  8 18:47:02 2021
-# Process ID: 1872
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Tue Jan 12 21:20:39 2021
+# Process ID: 16800
 # Current directory: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.runs/synth_1
 # Command line: vivado.exe -log EncDecController.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source EncDecController.tcl
 # Log file: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.runs/synth_1/EncDecController.vds
@@ -11,17 +11,19 @@
 #-----------------------------------------------------------
 source EncDecController.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
-INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/hdlverifier/supportpackages/fpgadebug_xilinx/+hdlverifier/+fpga/+vivado'.
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2019.1/data/ip'.
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'c:/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/hdlverifier/supportpackages/fpgadebug_xilinx/+hdlverifier/+fpga/+vivado'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2020.2/data/ip'.
 Command: synth_design -top EncDecController -part xc7a100tcsg324-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
-INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 16160 
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 13776
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 700.801 ; gain = 177.695
+Starting RTL Elaboration : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1000.902 ; gain = 0.000
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'EncDecController' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:23]
 INFO: [Synth 8-6157] synthesizing module 'FlatEncryption' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:23]
@@ -64,14 +66,12 @@ INFO: [Synth 8-6157] synthesizing module 'FlatEncryption' [C:/Users/horse/Docume
 INFO: [Synth 8-6157] synthesizing module 'RotWord' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/RotWord.v:21]
 INFO: [Synth 8-6155] done synthesizing module 'RotWord' (1#1) [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/RotWord.v:21]
 INFO: [Synth 8-6157] synthesizing module 'SubWord' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/SubWord.v:21]
-WARNING: [Synth 8-5856] 3D RAM sbox_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
 INFO: [Synth 8-6155] done synthesizing module 'SubWord' (2#1) [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/SubWord.v:21]
 INFO: [Synth 8-6157] synthesizing module 'times_two' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/times_two.v:23]
 INFO: [Synth 8-6155] done synthesizing module 'times_two' (3#1) [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/times_two.v:23]
 INFO: [Synth 8-6157] synthesizing module 'times_three' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/times_three.v:23]
 INFO: [Synth 8-6155] done synthesizing module 'times_three' (4#1) [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/times_three.v:23]
 INFO: [Synth 8-6157] synthesizing module 'getSBoxValue' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/getSBoxValue.v:23]
-WARNING: [Synth 8-5856] 3D RAM sbox_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
 INFO: [Synth 8-6155] done synthesizing module 'getSBoxValue' (5#1) [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/getSBoxValue.v:23]
 INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:187]
 INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:264]
@@ -89,78 +89,113 @@ WARNING: [Synth 8-567] referenced signal 'current_sm_state' should be on the sen
 WARNING: [Synth 8-567] referenced signal 'encrypt_out_stream' should be on the sensitivity list [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:81]
 INFO: [Synth 8-6155] done synthesizing module 'EncDecController' (7#1) [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:23]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 782.855 ; gain = 259.750
+Finished RTL Elaboration : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1000.902 ; gain = 0.000
 ---------------------------------------------------------------------------------
-
-Report Check Netlist: 
-+------+------------------+-------+---------+-------+------------------+
-|      |Item              |Errors |Warnings |Status |Description       |
-+------+------------------+-------+---------+-------+------------------+
-|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
-+------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 782.855 ; gain = 259.750
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 1000.902 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 782.855 ; gain = 259.750
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 1000.902 ; gain = 0.000
 ---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.293 . Memory (MB): peak = 1000.902 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/timing.xdc]
-Finished Parsing XDC File [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/timing.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/timing.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/EncDecController_propImpl.xdc].
+Parsing XDC File [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc]
+WARNING: [Vivado 12-584] No ports matched 'LED[0]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:33]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:33]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'LED[1]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:34]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:34]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'SSD[0]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:59]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:59]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'SSD[1]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:60]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:60]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'SSD[2]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:61]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:61]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'SSD[3]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:62]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:62]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'SSD[4]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:63]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:63]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'SSD[5]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:64]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:64]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'SSD[6]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:65]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:65]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'AN[0]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:67]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:67]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'AN[1]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:68]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:68]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'AN[2]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:69]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:69]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'AN[3]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:70]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:70]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'AN[4]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:71]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:71]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'AN[5]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:72]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:72]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'AN[6]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:73]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:73]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'AN[7]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:74]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:74]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'BTNC'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:81]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:81]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'BTNU'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:82]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:82]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'UART_TXD_IN'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:216]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:216]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'UART_RXD_OUT'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:217]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:217]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/EncDecController_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/EncDecController_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 925.152 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1051.902 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.040 . Memory (MB): peak = 925.152 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.087 . Memory (MB): peak = 1051.902 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 925.152 ; gain = 402.047
+Finished Constraint Validation : Time (s): cpu = 00:00:46 ; elapsed = 00:00:50 . Memory (MB): peak = 1051.902 ; gain = 51.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 925.152 ; gain = 402.047
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:46 ; elapsed = 00:00:50 . Memory (MB): peak = 1051.902 ; gain = 51.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 925.152 ; gain = 402.047
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:46 ; elapsed = 00:00:50 . Memory (MB): peak = 1051.902 ; gain = 51.000
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-4471] merging register 'MixColumns3_2_reg[7:0]' into 'MixColumns2_1_reg[7:0]' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:94]
-INFO: [Synth 8-4471] merging register 'MixColumns3_3_reg[7:0]' into 'MixColumns2_2_reg[7:0]' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:95]
-INFO: [Synth 8-4471] merging register 'MixColumns2_4_reg[7:0]' into 'MixColumns3_1_reg[7:0]' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:79]
-INFO: [Synth 8-4471] merging register 'MixColumns3_4_reg[7:0]' into 'MixColumns2_3_reg[7:0]' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:96]
-INFO: [Synth 8-4471] merging register 'MixColumns3_6_reg[7:0]' into 'MixColumns2_5_reg[7:0]' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:98]
-INFO: [Synth 8-4471] merging register 'MixColumns3_7_reg[7:0]' into 'MixColumns2_6_reg[7:0]' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:99]
-INFO: [Synth 8-4471] merging register 'MixColumns2_8_reg[7:0]' into 'MixColumns3_5_reg[7:0]' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:83]
-INFO: [Synth 8-4471] merging register 'MixColumns3_8_reg[7:0]' into 'MixColumns2_7_reg[7:0]' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:100]
-INFO: [Synth 8-4471] merging register 'MixColumns3_10_reg[7:0]' into 'MixColumns2_9_reg[7:0]' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:102]
-INFO: [Synth 8-4471] merging register 'MixColumns3_11_reg[7:0]' into 'MixColumns2_10_reg[7:0]' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:103]
-INFO: [Synth 8-4471] merging register 'MixColumns2_12_reg[7:0]' into 'MixColumns3_9_reg[7:0]' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:87]
-INFO: [Synth 8-4471] merging register 'MixColumns3_12_reg[7:0]' into 'MixColumns2_11_reg[7:0]' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:104]
-INFO: [Synth 8-4471] merging register 'MixColumns3_14_reg[7:0]' into 'MixColumns2_13_reg[7:0]' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:106]
-INFO: [Synth 8-4471] merging register 'MixColumns3_15_reg[7:0]' into 'MixColumns2_14_reg[7:0]' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:107]
-INFO: [Synth 8-4471] merging register 'MixColumns2_16_reg[7:0]' into 'MixColumns3_13_reg[7:0]' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:91]
-INFO: [Synth 8-4471] merging register 'MixColumns3_16_reg[7:0]' into 'MixColumns2_15_reg[7:0]' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:108]
 INFO: [Synth 8-802] inferred FSM for state register 'KeySchedule_part_reg' in module 'FlatEncryption'
-INFO: [Synth 8-5546] ROM "block_key" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "KeySchedule_current_1" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "KeySchedule" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "KeySchedule_part" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "msg_in_rotword" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "msg_in_subword" won't be mapped to RAM because it is too sparse
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -185,29 +220,17 @@ WARNING: [Synth 8-327] inferring latch for variable 'next_sm_state_reg' [C:/User
 WARNING: [Synth 8-327] inferring latch for variable 'encrypt_instruction_reg' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:57]
 WARNING: [Synth 8-327] inferring latch for variable 'encrypt_instruction_reg' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:34]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 925.152 ; gain = 402.047
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:53 ; elapsed = 00:00:59 . Memory (MB): peak = 1051.902 ; gain = 51.000
 ---------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+------+----------------------+------------+----------+
-|      |RTL Partition         |Replication |Instances |
-+------+----------------------+------------+----------+
-|1     |FlatEncryption__GB0   |           1|     28792|
-|2     |FlatEncryption__GB1   |           1|      7839|
-|3     |FlatEncryption__GB2   |           1|      8842|
-|4     |FlatEncryption__GB3   |           1|      6526|
-|5     |FlatEncryption__GB4   |           1|     10260|
-|6     |EncDecController__GC0 |           1|       369|
-+------+----------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     32 Bit       Adders := 1     
-	   2 Input     26 Bit       Adders := 1     
-	   2 Input     17 Bit       Adders := 1     
-	   2 Input      4 Bit       Adders := 40    
+	   2 Input   32 Bit       Adders := 1     
+	   2 Input   26 Bit       Adders := 1     
+	   2 Input   17 Bit       Adders := 1     
+	   2 Input    4 Bit       Adders := 40    
 +---XORs : 
 	   2 Input     32 Bit         XORs := 5     
 	   2 Input      8 Bit         XORs := 80    
@@ -218,388 +241,22 @@ Detailed RTL Component Info :
 	               32 Bit    Registers := 47    
 	                8 Bit    Registers := 58    
 +---Muxes : 
-	   2 Input    128 Bit        Muxes := 2     
-	   2 Input     32 Bit        Muxes := 4     
-	  10 Input     32 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 39    
-	   8 Input      8 Bit        Muxes := 5     
-	   3 Input      8 Bit        Muxes := 2     
-	  10 Input      4 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 1     
-	   4 Input      3 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 244   
-	   3 Input      1 Bit        Muxes := 1     
-	  11 Input      1 Bit        Muxes := 2     
-	  10 Input      1 Bit        Muxes := 48    
-	   8 Input      1 Bit        Muxes := 6     
+	   2 Input  128 Bit        Muxes := 2     
+	   2 Input   32 Bit        Muxes := 4     
+	  10 Input   32 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 39    
+	   8 Input    8 Bit        Muxes := 5     
+	   3 Input    8 Bit        Muxes := 2     
+	  10 Input    4 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 1     
+	   4 Input    3 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 244   
+	   3 Input    1 Bit        Muxes := 1     
+	  11 Input    1 Bit        Muxes := 2     
+	  10 Input    1 Bit        Muxes := 48    
+	   8 Input    1 Bit        Muxes := 6     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start RTL Hierarchical Component Statistics 
----------------------------------------------------------------------------------
-Hierarchical RTL Component report 
-Module EncDecController 
-Detailed RTL Component Info : 
-+---Registers : 
-	                8 Bit    Registers := 1     
-+---Muxes : 
-	   4 Input      3 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 4     
-Module SubWord 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input     32 Bit       Adders := 1     
-	   2 Input     26 Bit       Adders := 1     
-	   2 Input     17 Bit       Adders := 1     
-	   2 Input      4 Bit       Adders := 8     
-Module times_two__2 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module times_two__3 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module times_two__4 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module times_two__8 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module times_two__5 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module times_three__1 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-Module times_two__6 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module times_three__2 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-Module times_two__7 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module times_three__3 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-Module times_two__1 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module times_three__4 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-Module getSBoxValue__1 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      4 Bit       Adders := 2     
-Module getSBoxValue__2 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      4 Bit       Adders := 2     
-Module getSBoxValue__3 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      4 Bit       Adders := 2     
-Module getSBoxValue__4 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      4 Bit       Adders := 2     
-Module times_two__13 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module times_three__5 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-Module times_two__14 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module times_three__6 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-Module times_two__15 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module times_three__7 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-Module times_two__9 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module times_three__8 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-Module times_two__10 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module times_two__11 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module times_two__12 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module times_two__16 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module getSBoxValue__5 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      4 Bit       Adders := 2     
-Module getSBoxValue__6 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      4 Bit       Adders := 2     
-Module getSBoxValue__7 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      4 Bit       Adders := 2     
-Module getSBoxValue__8 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      4 Bit       Adders := 2     
-Module times_two__21 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module times_three__9 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-Module times_two__22 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module times_three__10 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-Module times_two__23 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module times_three__11 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-Module times_two__17 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module times_three__12 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-Module times_two__18 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module times_two__19 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module times_two__20 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module times_two__24 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module getSBoxValue__9 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      4 Bit       Adders := 2     
-Module getSBoxValue__10 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      4 Bit       Adders := 2     
-Module getSBoxValue__11 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      4 Bit       Adders := 2     
-Module times_two__29 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module times_three__13 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-Module times_two__30 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module times_three__14 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-Module times_two__31 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module times_three__15 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-Module times_two__25 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module times_three 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-Module times_two__26 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module times_two__27 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module times_two__28 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module times_two 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      8 Bit         XORs := 1     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 1     
-Module getSBoxValue__12 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      4 Bit       Adders := 2     
-Module getSBoxValue__13 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      4 Bit       Adders := 2     
-Module getSBoxValue__14 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      4 Bit       Adders := 2     
-Module getSBoxValue__15 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      4 Bit       Adders := 2     
-Module getSBoxValue 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      4 Bit       Adders := 2     
-Module FlatEncryption 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input     32 Bit         XORs := 5     
-	   2 Input      8 Bit         XORs := 32    
-	   4 Input      8 Bit         XORs := 16    
-+---Registers : 
-	              128 Bit    Registers := 1     
-	               64 Bit    Registers := 1     
-	               32 Bit    Registers := 47    
-	                8 Bit    Registers := 57    
-+---Muxes : 
-	   2 Input    128 Bit        Muxes := 2     
-	   2 Input     32 Bit        Muxes := 4     
-	  10 Input     32 Bit        Muxes := 1     
-	   8 Input      8 Bit        Muxes := 5     
-	   2 Input      8 Bit        Muxes := 7     
-	   3 Input      8 Bit        Muxes := 2     
-	  10 Input      4 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 240   
-	   3 Input      1 Bit        Muxes := 1     
-	  11 Input      1 Bit        Muxes := 2     
-	  10 Input      1 Bit        Muxes := 48    
-	   8 Input      1 Bit        Muxes := 6     
----------------------------------------------------------------------------------
-Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Part Resource Summary
@@ -613,53 +270,6 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
-Warning: Parallel synthesis criteria is not met 
-INFO: [Synth 8-5544] ROM "p_1_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "p_1_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_rcon_reg[8]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_rcon_reg[9]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_rcon_reg[10]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_rcon_reg[11]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_rcon_reg[12]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_rcon_reg[13]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_rcon_reg[14]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_rcon_reg[15]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_rcon_reg[0]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_rcon_reg[1]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_rcon_reg[2]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_rcon_reg[3]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_rcon_reg[4]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_rcon_reg[5]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_rcon_reg[6]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_rcon_reg[7]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_rcon_reg[16]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_rcon_reg[17]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_rcon_reg[18]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_rcon_reg[19]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_rcon_reg[20]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_rcon_reg[21]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_rcon_reg[22]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_rcon_reg[23]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_prev_3_reg[0]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_prev_3_reg[1]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[0]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_prev_2_reg[0]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[0]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_prev_2_reg[1]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_prev_1_reg[0]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_prev_1_reg[1]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_prev_4_reg[0]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[0]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_prev_4_reg[1]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[0]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[6]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[7]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[0]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_3_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_2_reg[1]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_1_reg[7]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_3_reg[6]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_1_reg[7]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_3_reg[7]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_1_reg[7]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_3_reg[0]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_1_reg[7]'
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (FlatEncryption_uuti_1/\KeySchedule_current_3_reg[1] )
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_1_reg[6]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_1_reg[7]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_1_reg[7]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_1_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/KeySchedule_current_1_reg[0]' (FDE_1) to 'FlatEncryption_uuti_1/KeySchedule_current_1_reg[1]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\KeySchedule_current_1_reg[1] )
 CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'FlatEncryption_uuti_1/xtime_reg[7]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:333]
 CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:333]
 CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:333]
@@ -681,62 +291,6 @@ CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one
 CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'FlatEncryption_uuti_1/xtime_reg[1]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:333]
 CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:333]
 CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:333]
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_2/xtime_next_reg[0]' (FDE) to 'FlatEncryption_uuti_2/xtime_next_reg[1]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_2/xtime_next_reg[1]' (FDE) to 'FlatEncryption_uuti_2/xtime_next_reg[2]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_2/xtime_next_reg[2]' (FDE) to 'FlatEncryption_uuti_2/xtime_next_reg[3]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_2/xtime_next_reg[3]' (FDE) to 'FlatEncryption_uuti_2/xtime_next_reg[4]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_2/xtime_next_reg[4]' (FDE) to 'FlatEncryption_uuti_2/xtime_next_reg[5]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_2/xtime_next_reg[5]' (FDE) to 'FlatEncryption_uuti_2/xtime_next_reg[6]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_2/xtime_next_reg[6]' (FDE) to 'FlatEncryption_uuti_2/xtime_next_reg[7]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\xtime_next_reg[7] )
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_2/KeySchedule_current_4_reg[6]' (FDE_1) to 'FlatEncryption_uuti_2/KeySchedule_current_4_reg[7]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\KeySchedule_current_4_reg[7] )
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_2/KeySchedule_current_4_reg[1]' (FDE_1) to 'FlatEncryption_uuti_2/KeySchedule_current_4_reg[0]'
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (FlatEncryption_uuti_2/\KeySchedule_current_4_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns2_11_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns3_9_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns2_11_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns3_9_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns2_11_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns3_9_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns2_11_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns3_9_reg[7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns3_9_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns2_11_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns3_9_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns2_11_reg[5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns3_9_reg[5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns2_11_reg[7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns2_11_reg[6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns3_9_reg[6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns2_9_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns2_10_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns2_9_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns2_10_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns2_9_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns2_10_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns2_9_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns2_10_reg[7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns2_10_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns2_9_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns2_10_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns2_9_reg[5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns2_10_reg[5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns2_9_reg[7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns2_9_reg[6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\MixColumns2_10_reg[6] )
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_2/current_sm_state_reg[0]' (FD_1) to 'FlatEncryption_uuti_2/current_sm_state_reg[7]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_2/current_sm_state_reg[1]' (FD_1) to 'FlatEncryption_uuti_2/current_sm_state_reg[7]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_2/current_sm_state_reg[2]' (FD_1) to 'FlatEncryption_uuti_2/current_sm_state_reg[7]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_2/current_sm_state_reg[6]' (FD_1) to 'FlatEncryption_uuti_2/current_sm_state_reg[7]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_2/current_sm_state_reg[7]' (FD_1) to 'FlatEncryption_uuti_2/current_sm_state_reg[5]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_2/current_sm_state_reg[5]' (FD_1) to 'FlatEncryption_uuti_2/current_sm_state_reg[4]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_2/current_sm_state_reg[4]' (FD_1) to 'FlatEncryption_uuti_2/current_sm_state_reg[3]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\current_sm_state_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\KeySchedule_current_4_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\KeySchedule_current_4_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\KeySchedule_current_4_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_2/\KeySchedule_current_4_reg[5] )
 CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'FlatEncryption_uuti_2/KeyExpansionDone_reg__1/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:147]
 CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:147]
 CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:147]
@@ -812,256 +366,33 @@ CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one
 CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'FlatEncryption_uuti_2/xtime_part_reg[1]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:335]
 CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:335]
 CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:335]
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_3/xtime_next_reg[4]__0' (FDE_1) to 'FlatEncryption_uuti_3/xtime_next_reg[7]__0'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_3/xtime_next_reg[5]__0' (FDE_1) to 'FlatEncryption_uuti_3/xtime_next_reg[7]__0'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_3/xtime_next_reg[6]__0' (FDE_1) to 'FlatEncryption_uuti_3/xtime_next_reg[7]__0'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_3/\xtime_next_reg[7]__0 )
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[42][8]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[2][8]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[38][8]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[2][8]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[34][8]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[2][8]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[30][8]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[2][8]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[26][8]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[2][8]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[22][8]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[2][8]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[18][8]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[2][8]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[14][8]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[2][8]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[10][8]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[2][8]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[2][8]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[1][8]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[41][8]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[1][8]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[37][8]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[1][8]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[33][8]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[1][8]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[29][8]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[1][8]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[25][8]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[1][8]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[21][8]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[1][8]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[17][8]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[1][8]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[13][8]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[1][8]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[9][8]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[1][8]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[1][8]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[3][8]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/msg_in_rotword_reg[0]' (FDE) to 'FlatEncryption_uuti_1/msg_in_subword_reg[0]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[43][8]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[3][8]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[39][8]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[3][8]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[35][8]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[3][8]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[31][8]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[3][8]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[27][8]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[3][8]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[23][8]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[3][8]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[19][8]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[3][8]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[15][8]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[3][8]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[11][8]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[3][8]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[3][8]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[0][8]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[42][9]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[2][9]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[38][9]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[2][9]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[34][9]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[2][9]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[30][9]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[2][9]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[26][9]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[2][9]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[22][9]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[2][9]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[18][9]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[2][9]'
-INFO: [Synth 8-3886] merging instance 'FlatEncryption_uuti_1/expanded_key_reg[14][9]' (FDE) to 'FlatEncryption_uuti_1/expanded_key_reg[2][9]'
-INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\key_reg[88] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\key_reg[89] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\key_reg[90] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\key_reg[91] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\key_reg[92] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\key_reg[93] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\key_reg[94] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\key_reg[95] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\expanded_key_reg[7][8] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\expanded_key_reg[7][9] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\expanded_key_reg[7][10] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\expanded_key_reg[7][11] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\expanded_key_reg[7][12] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\expanded_key_reg[7][13] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\expanded_key_reg[7][14] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\expanded_key_reg[7][15] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\key_reg[16] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\key_reg[17] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\key_reg[18] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\key_reg[19] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\key_reg[20] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\key_reg[21] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\key_reg[22] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\key_reg[23] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\msg_in_subword_reg[6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\msg_in_subword_reg[5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\msg_in_subword_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\msg_in_subword_reg[7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\msg_in_subword_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\msg_in_subword_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\msg_in_subword_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\msg_in_subword_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\msg_in_rotword_reg[8] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\msg_in_rotword_reg[9] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\msg_in_rotword_reg[10] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\msg_in_rotword_reg[11] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\msg_in_rotword_reg[12] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\msg_in_rotword_reg[13] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\msg_in_rotword_reg[14] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\msg_in_rotword_reg[15] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\KeySchedule_current_rcon_reg[24] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\msg_in_rotword_reg[16] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\KeySchedule_current_rcon_reg[25] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\msg_in_rotword_reg[17] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\KeySchedule_current_rcon_reg[26] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\msg_in_rotword_reg[18] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\KeySchedule_current_rcon_reg[27] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\msg_in_rotword_reg[19] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\KeySchedule_current_rcon_reg[28] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\msg_in_rotword_reg[20] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\KeySchedule_current_rcon_reg[29] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\msg_in_rotword_reg[21] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\KeySchedule_current_rcon_reg[30] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\msg_in_rotword_reg[22] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\KeySchedule_current_rcon_reg[31] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\msg_in_subword_reg[30] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (FlatEncryption_uuti_1/\msg_in_subword_reg[29] )
-INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'FlatEncryption_uuti_1/xtime_reg[0]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:573]
 CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:573]
 CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:573]
 CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'FlatEncryption_uuti_2/xtime_part_reg[0]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:335]
 CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:335]
 CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v:335]
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[0]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[0]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[1]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[1]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[2]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[2]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[3]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[3]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[4]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[4]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[5]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[5]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[6]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[6]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[7]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[7]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[8]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[8]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[9]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[9]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[10]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[10]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[11]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[11]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[12]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[12]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[13]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[13]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[14]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[14]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[15]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[15]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[16]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[16]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[17]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[17]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[18]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[18]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[19]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[19]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[20]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[20]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[21]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[21]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[22]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[22]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[23]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[23]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[24]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[24]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[25]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[25]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[26]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[26]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[27]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[27]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[28]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[28]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[29]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[29]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[30]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[30]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[31]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[31]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[32]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[32]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[33]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[33]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[34]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[34]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[35]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[35]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[36]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[36]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[37]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[37]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[38]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[38]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[39]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[39]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[40]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[40]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[41]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[41]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[42]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[42]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[43]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[43]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[44]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[44]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[45]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[45]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[46]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[46]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[47]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[47]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[48]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[48]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[49]  is always disabled
-WARNING: [Synth 8-264] enable of latch i_0/\out_stream_reg[49]  is always disabled
-INFO: [Common 17-14] Message 'Synth 8-264' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:43 ; elapsed = 00:00:44 . Memory (MB): peak = 925.152 ; gain = 402.047
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:43 ; elapsed = 00:01:53 . Memory (MB): peak = 1051.902 ; gain = 51.000
 ---------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+------+----------------------+------------+----------+
-|      |RTL Partition         |Replication |Instances |
-+------+----------------------+------------+----------+
-|1     |EncDecController__GC0 |           1|       128|
-+------+----------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:53 ; elapsed = 00:00:54 . Memory (MB): peak = 925.152 ; gain = 402.047
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:00 ; elapsed = 00:02:11 . Memory (MB): peak = 1051.902 ; gain = 51.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:53 ; elapsed = 00:00:54 . Memory (MB): peak = 925.152 ; gain = 402.047
+Finished Timing Optimization : Time (s): cpu = 00:02:00 ; elapsed = 00:02:11 . Memory (MB): peak = 1051.902 ; gain = 51.000
 ---------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+------+----------------------+------------+----------+
-|      |RTL Partition         |Replication |Instances |
-+------+----------------------+------------+----------+
-|1     |EncDecController__GC0 |           1|       128|
-+------+----------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:53 ; elapsed = 00:00:54 . Memory (MB): peak = 925.152 ; gain = 402.047
+Finished Technology Mapping : Time (s): cpu = 00:02:00 ; elapsed = 00:02:11 . Memory (MB): peak = 1051.902 ; gain = 51.000
 ---------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start IO Insertion
 ---------------------------------------------------------------------------------
@@ -1078,7 +409,13 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:55 ; elapsed = 00:00:57 . Memory (MB): peak = 925.152 ; gain = 402.047
+Finished IO Insertion : Time (s): cpu = 00:02:09 ; elapsed = 00:02:20 . Memory (MB): peak = 1051.902 ; gain = 51.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:09 ; elapsed = 00:02:20 . Memory (MB): peak = 1051.902 ; gain = 51.000
 ---------------------------------------------------------------------------------
 CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[63] with 1st driver pin 'out_stream_reg[63]/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:83]
 CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin out_stream_OBUF[63] with 2nd driver pin 'out_stream_reg[63]__0/Q' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v:77]
@@ -1121,40 +458,28 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|       64|Failed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Start Renaming Generated Instances
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:55 ; elapsed = 00:00:57 . Memory (MB): peak = 925.152 ; gain = 402.047
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
----------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:55 ; elapsed = 00:00:57 . Memory (MB): peak = 925.152 ; gain = 402.047
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:09 ; elapsed = 00:02:20 . Memory (MB): peak = 1051.902 ; gain = 51.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:55 ; elapsed = 00:00:57 . Memory (MB): peak = 925.152 ; gain = 402.047
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:09 ; elapsed = 00:02:20 . Memory (MB): peak = 1051.902 ; gain = 51.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:55 ; elapsed = 00:00:57 . Memory (MB): peak = 925.152 ; gain = 402.047
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:09 ; elapsed = 00:02:20 . Memory (MB): peak = 1051.902 ; gain = 51.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:55 ; elapsed = 00:00:57 . Memory (MB): peak = 925.152 ; gain = 402.047
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:09 ; elapsed = 00:02:20 . Memory (MB): peak = 1051.902 ; gain = 51.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1173,36 +498,28 @@ Report Cell Usage:
 |1     |LD   |   128|
 |2     |OBUF |    64|
 +------+-----+------+
-
-Report Instance Areas: 
-+------+---------+-------+------+
-|      |Instance |Module |Cells |
-+------+---------+-------+------+
-|1     |top      |       |   192|
-+------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:55 ; elapsed = 00:00:57 . Memory (MB): peak = 925.152 ; gain = 402.047
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:09 ; elapsed = 00:02:20 . Memory (MB): peak = 1051.902 ; gain = 51.000
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 230 critical warnings and 136 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:43 ; elapsed = 00:00:53 . Memory (MB): peak = 925.152 ; gain = 259.750
-Synthesis Optimization Complete : Time (s): cpu = 00:00:55 ; elapsed = 00:00:57 . Memory (MB): peak = 925.152 ; gain = 402.047
+Synthesis finished with 0 errors, 230 critical warnings and 8 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:36 ; elapsed = 00:02:10 . Memory (MB): peak = 1051.902 ; gain = 0.000
+Synthesis Optimization Complete : Time (s): cpu = 00:02:09 ; elapsed = 00:02:20 . Memory (MB): peak = 1051.902 ; gain = 51.000
 INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1051.902 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 128 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 925.152 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1051.902 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 128 instances were transformed.
   LD => LDCE: 128 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-263 Infos, 119 Warnings, 134 Critical Warnings and 0 Errors encountered.
+38 Infos, 39 Warnings, 155 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:01 ; elapsed = 00:01:04 . Memory (MB): peak = 925.152 ; gain = 634.297
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 925.152 ; gain = 0.000
-WARNING: [Constraints 18-5210] No constraints selected for write.
-Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+synth_design: Time (s): cpu = 00:02:24 ; elapsed = 00:02:39 . Memory (MB): peak = 1051.902 ; gain = 51.000
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
 INFO: [Common 17-1381] The checkpoint 'C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.runs/synth_1/EncDecController.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file EncDecController_utilization_synth.rpt -pb EncDecController_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Jan  8 18:48:10 2021...
+INFO: [Common 17-206] Exiting Vivado at Tue Jan 12 21:23:27 2021...

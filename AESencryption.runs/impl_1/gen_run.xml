@@ -1,34 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1610149701">
-  <File Type="PA-TCL" Name="EncDecController.tcl"/>
+<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1610504431">
   <File Type="BITSTR-BMM" Name="EncDecController_bd.bmm"/>
-  <File Type="REPORTS-TCL" Name="EncDecController_reports.tcl"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="EncDecController_methodology_drc_opted.rpt"/>
+  <File Type="INIT-TIMING" Name="EncDecController_timing_summary_init.rpt"/>
+  <File Type="ROUTE-PWR" Name="EncDecController_power_routed.rpt"/>
+  <File Type="PA-TCL" Name="EncDecController.tcl"/>
+  <File Type="OPT-TIMING" Name="EncDecController_timing_summary_opted.rpt"/>
   <File Type="OPT-DCP" Name="EncDecController_opt.dcp"/>
+  <File Type="ROUTE-PWR-SUM" Name="EncDecController_power_summary_routed.pb"/>
+  <File Type="REPORTS-TCL" Name="EncDecController_reports.tcl"/>
+  <File Type="OPT-DRC" Name="EncDecController_drc_opted.rpt"/>
   <File Type="OPT-HWDEF" Name="EncDecController.hwdef"/>
   <File Type="PWROPT-DCP" Name="EncDecController_pwropt.dcp"/>
+  <File Type="PWROPT-DRC" Name="EncDecController_drc_pwropted.rpt"/>
+  <File Type="PWROPT-TIMING" Name="EncDecController_timing_summary_pwropted.rpt"/>
   <File Type="PLACE-DCP" Name="EncDecController_placed.dcp"/>
+  <File Type="PLACE-IO" Name="EncDecController_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="EncDecController_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="EncDecController_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="EncDecController_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="EncDecController_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="EncDecController_incremental_reuse_placed.rpt"/>
   <File Type="PLACE-PRE-SIMILARITY" Name="EncDecController_incremental_reuse_pre_placed.rpt"/>
-  <File Type="BG-BGN" Name="EncDecController.bgn"/>
+  <File Type="PLACE-TIMING" Name="EncDecController_timing_summary_placed.rpt"/>
   <File Type="POSTPLACE-PWROPT-DCP" Name="EncDecController_postplace_pwropt.dcp"/>
   <File Type="BG-BIN" Name="EncDecController.bin"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="EncDecController_timing_summary_postplace_pwropted.rpt"/>
   <File Type="PHYSOPT-DCP" Name="EncDecController_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="EncDecController_drc_physopted.rpt"/>
   <File Type="BITSTR-MSK" Name="EncDecController.msk"/>
+  <File Type="PHYSOPT-TIMING" Name="EncDecController_timing_summary_physopted.rpt"/>
   <File Type="ROUTE-ERROR-DCP" Name="EncDecController_routed_error.dcp"/>
   <File Type="ROUTE-DCP" Name="EncDecController_routed.dcp"/>
   <File Type="ROUTE-BLACKBOX-DCP" Name="EncDecController_routed_bb.dcp"/>
-  <File Type="BITSTR-LTX" Name="EncDecController.ltx"/>
+  <File Type="ROUTE-DRC" Name="EncDecController_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="EncDecController_drc_routed.pb"/>
+  <File Type="ROUTE-DRC-RPX" Name="EncDecController_drc_routed.rpx"/>
   <File Type="BITSTR-MMI" Name="EncDecController.mmi"/>
-  <File Type="BITSTR-SYSDEF" Name="EncDecController.sysdef"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="EncDecController_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="EncDecController_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="EncDecController_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="EncDecController_power_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="EncDecController_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="EncDecController_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="EncDecController_timing_summary_routed.rpt"/>
   <File Type="ROUTE-TIMING-PB" Name="EncDecController_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="EncDecController_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="EncDecController_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="EncDecController_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW" Name="EncDecController_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="EncDecController_bus_skew_routed.pb"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="EncDecController_bus_skew_routed.rpx"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="EncDecController_postroute_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="EncDecController_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="EncDecController_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="EncDecController_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="EncDecController_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="EncDecController_bus_skew_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="EncDecController_bus_skew_postroute_physopted.pb"/>
   <File Type="BG-BIT" Name="EncDecController.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="EncDecController_bus_skew_postroute_physopted.rpx"/>
   <File Type="BITSTR-RBT" Name="EncDecController.rbt"/>
   <File Type="BITSTR-NKY" Name="EncDecController.nky"/>
+  <File Type="PDI-FILE" Name="EncDecController.pdi"/>
+  <File Type="RCFI_FILE" Name="EncDecController.rcfi"/>
+  <File Type="CFI_FILE" Name="EncDecController.cfi"/>
+  <File Type="RNPI_FILE" Name="EncDecController.rnpi"/>
+  <File Type="NPI_FILE" Name="EncDecController.npi"/>
+  <File Type="RBD_FILE" Name="EncDecController.rbd"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="EncDecController.ltx"/>
+  <File Type="BITSTR-SYSDEF" Name="EncDecController.sysdef"/>
+  <File Type="BG-BGN" Name="EncDecController.bgn"/>
   <File Type="BG-DRC" Name="EncDecController.drc"/>
   <File Type="RDI-RDI" Name="EncDecController.vdi"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
-  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/FlatEncryption.v">
       <FileInfo>
@@ -74,14 +121,6 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/EncDecController.v">
       <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/bd/design_1/design_1.bd">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -181,6 +220,30 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/uart.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/serial_device.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/uart_store_stream.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
       <Option Name="TopModule" Val="EncDecController"/>
@@ -188,7 +251,7 @@
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
     <Filter Type="Constrs"/>
-    <File Path="$PSRCDIR/constrs_1/new/timing.xdc">
+    <File Path="$PSRCDIR/constrs_1/new/Nexys-4-DDR-Master.xdc">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>

@@ -1,9 +1,9 @@
 #-----------------------------------------------------------
-# Vivado v2019.1 (64-bit)
-# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
-# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Fri Jan  8 18:47:02 2021
-# Process ID: 1872
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Tue Jan 12 21:20:39 2021
+# Process ID: 16800
 # Current directory: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.runs/synth_1
 # Command line: vivado.exe -log EncDecController.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source EncDecController.tcl
 # Log file: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.runs/synth_1/EncDecController.vds

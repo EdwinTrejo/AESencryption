@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1610149618">
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1610504431">
   <File Type="PA-TCL" Name="EncDecController.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="EncDecController_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="EncDecController_reports.tcl"/>
   <File Type="RDS-RDS" Name="EncDecController.vds"/>
   <File Type="RDS-UTIL" Name="EncDecController_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="EncDecController_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="EncDecController.dcp"/>
-  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+  <File Type="VDS-TIMINGSUMMARY" Name="EncDecController_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="EncDecController_timing_summary_synth.pb"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/FlatEncryption.v">
       <FileInfo>
@@ -52,14 +55,6 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/EncDecController.v">
       <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/bd/design_1/design_1.bd">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -159,6 +154,30 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/uart.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/serial_device.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/uart_store_stream.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
       <Option Name="TopModule" Val="EncDecController"/>
@@ -166,7 +185,7 @@
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
     <Filter Type="Constrs"/>
-    <File Path="$PSRCDIR/constrs_1/new/timing.xdc">
+    <File Path="$PSRCDIR/constrs_1/new/Nexys-4-DDR-Master.xdc">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
