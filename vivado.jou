@@ -1,25 +1,14 @@
 #-----------------------------------------------------------
-# Vivado v2019.1 (64-bit)
-# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
-# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Tue Jan  5 20:30:36 2021
-# Process ID: 13484
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Thu Jan 14 11:24:45 2021
+# Process ID: 10936
 # Current directory: C:/Users/faith/Documents/MAES/AESencryption
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9544 C:\Users\faith\Documents\MAES\AESencryption\AESencryption.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent14680 C:\Users\faith\Documents\MAES\AESencryption\AESencryption.xpr
 # Log file: C:/Users/faith/Documents/MAES/AESencryption/vivado.log
 # Journal file: C:/Users/faith/Documents/MAES/AESencryption\vivado.jou
 #-----------------------------------------------------------
-start_guioopen_project C:/Users/faith/Documents/MAES/AESencryption/AESencryption.xpruupdate_compile_order -fileset sources_1close [ open C:/Users/faith/Documents/MAES/AESencryption/AESencryption.srcs/sources_1/new/times_two.v w ]
-add_files C:/Users/faith/Documents/MAES/AESencryption/AESencryption.srcs/sources_1/new/times_two.v
+start_gui
+open_project C:/Users/faith/Documents/MAES/AESencryption/AESencryption.xpr
 update_compile_order -fileset sources_1
-close [ open C:/Users/faith/Documents/MAES/AESencryption/AESencryption.srcs/sources_1/new/times_three.v w ]
-add_files C:/Users/faith/Documents/MAES/AESencryption/AESencryption.srcs/sources_1/new/times_three.v
-update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
-launch_simulation
-launch_simulation -mode post-synthesis -type functional
-launch_simulation
-source FlatEncryption_tb.tcl
-relaunch_sim
-close_sim
