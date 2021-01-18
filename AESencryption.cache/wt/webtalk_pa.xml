@@ -3,7 +3,7 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Tue Jan 12 21:42:01 2021">
+<application name="pa" timeStamp="Sun Jan 17 20:34:53 2021">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="11f48b42e72a416697c466c8e405b8ce" type="ProjectID"/>
 <property name="ProjectIteration" value="21" type="ProjectIteration"/>
@@ -26,7 +26,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="EditDelete" value="14" type="JavaHandler"/>
 <property name="EditPaste" value="10" type="JavaHandler"/>
 <property name="EditUndo" value="14" type="JavaHandler"/>
-<property name="ExitApp" value="1" type="JavaHandler"/>
+<property name="ExitApp" value="3" type="JavaHandler"/>
 <property name="GenerateOutputForBDFile" value="1" type="JavaHandler"/>
 <property name="OpenBlockDesign" value="1" type="JavaHandler"/>
 <property name="OpenProject" value="1" type="JavaHandler"/>
@@ -94,7 +94,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="CreateRSBPortDialog_TYPE" value="4" type="GuiHandlerData"/>
 <property name="CreateSrcFileDialog_FILE_NAME" value="13" type="GuiHandlerData"/>
 <property name="ExpRunTreePanel_EXP_RUN_TREE_TABLE" value="6" type="GuiHandlerData"/>
-<property name="FileSetPanel_FILE_SET_PANEL_TREE" value="500" type="GuiHandlerData"/>
+<property name="FileSetPanel_FILE_SET_PANEL_TREE" value="528" type="GuiHandlerData"/>
 <property name="FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE" value="149" type="GuiHandlerData"/>
 <property name="FlowNavigatorView_COLLAPSE_NEXT_LEVEL" value="1" type="GuiHandlerData"/>
 <property name="GettingStartedView_OPEN_PROJECT" value="1" type="GuiHandlerData"/>
@@ -235,9 +235,9 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="XPowerSettingsDialog_CANCEL" value="1" type="GuiHandlerData"/>
 </item>
 <item name="Other">
-<property name="GuiMode" value="102" type="GuiMode"/>
+<property name="GuiMode" value="27" type="GuiMode"/>
 <property name="BatchMode" value="0" type="BatchMode"/>
-<property name="TclMode" value="80" type="TclMode"/>
+<property name="TclMode" value="18" type="TclMode"/>
 </item>
 </section>
 </application>

@@ -2,10 +2,10 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Sun Jan 17 20:29:06 2021
-# Process ID: 16084
+# Start of session at: Thu Jan 14 11:24:45 2021
+# Process ID: 10936
 # Current directory: C:/Users/faith/Documents/MAES/AESencryption
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10268 C:\Users\faith\Documents\MAES\AESencryption\AESencryption.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent14680 C:\Users\faith\Documents\MAES\AESencryption\AESencryption.xpr
 # Log file: C:/Users/faith/Documents/MAES/AESencryption/vivado.log
 # Journal file: C:/Users/faith/Documents/MAES/AESencryption\vivado.jou
 #-----------------------------------------------------------
