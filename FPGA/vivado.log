@@ -2,23 +2,504 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Sun Jan 17 20:29:06 2021
-# Process ID: 16084
-# Current directory: C:/Users/faith/Documents/MAES/AESencryption
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10268 C:\Users\faith\Documents\MAES\AESencryption\AESencryption.xpr
-# Log file: C:/Users/faith/Documents/MAES/AESencryption/vivado.log
-# Journal file: C:/Users/faith/Documents/MAES/AESencryption\vivado.jou
+# Start of session at: Mon Jan 18 14:37:49 2021
+# Process ID: 1488
+# Current directory: C:/Users/faith/Documents/MAES/AESencryption/FPGA
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent8432 C:\Users\faith\Documents\MAES\AESencryption\FPGA\AESencryption.xpr
+# Log file: C:/Users/faith/Documents/MAES/AESencryption/FPGA/vivado.log
+# Journal file: C:/Users/faith/Documents/MAES/AESencryption/FPGA\vivado.jou
 #-----------------------------------------------------------
 start_gui
-open_project C:/Users/faith/Documents/MAES/AESencryption/AESencryption.xpr
+open_project C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.xpr
 INFO: [Project 1-313] Project file moved from 'C:/Users/horse/Documents/Xilinx_Projects/AESencryption' since last save.
-WARNING: [filemgmt 56-3] IP Repository Path: Could not find the directory 'C:/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/hdlverifier/supportpackages/fpgadebug_xilinx/+hdlverifier/+fpga/+vivado'.
+WARNING: [filemgmt 56-2] IP Repository Path: Could not find the directory 'C:/Users/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/hdlverifier/supportpackages/fpgadebug_xilinx/+hdlverifier/+fpga/+vivado', nor could it be found using path 'C:/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/hdlverifier/supportpackages/fpgadebug_xilinx/+hdlverifier/+fpga/+vivado'.
 Scanning sources...
 Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
-WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'c:/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/hdlverifier/supportpackages/fpgadebug_xilinx/+hdlverifier/+fpga/+vivado'; Can't find the specified path.
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'c:/Users/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/hdlverifier/supportpackages/fpgadebug_xilinx/+hdlverifier/+fpga/+vivado'; Can't find the specified path.
 If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2020.2/data/ip'.
 update_compile_order -fileset sources_1
-exit
-INFO: [Common 17-206] Exiting Vivado at Sun Jan 17 20:34:56 2021...
+set_property top uart_store_stream [current_fileset]
+update_compile_order -fileset sources_1
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+close [ open C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/uart_store_stream_tb.v w ]
+add_files -fileset sim_1 C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/uart_store_stream_tb.v
+update_compile_order -fileset sim_1
+set_property top uart_store_stream_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+update_compile_order -fileset sim_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'uart_store_stream_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj uart_store_stream_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/EncDecController.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EncDecController
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/FlatEncryption.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module FlatEncryption
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/RotWord.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RotWord
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/SubWord.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SubWord
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/getSBoxValue.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module getSBoxValue
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/times_three.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module times_three
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/times_two.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module times_two
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_store_stream
+INFO: [VRFC 10-2458] undeclared symbol clk2, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:28]
+INFO: [VRFC 10-2458] undeclared symbol rst, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:28]
+INFO: [VRFC 10-2458] undeclared symbol rx, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:28]
+INFO: [VRFC 10-2458] undeclared symbol tx, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:28]
+INFO: [VRFC 10-2458] undeclared symbol transmit, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:28]
+INFO: [VRFC 10-2458] undeclared symbol tx_byte, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:28]
+INFO: [VRFC 10-2458] undeclared symbol received, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:28]
+INFO: [VRFC 10-2458] undeclared symbol is_receiving, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:28]
+INFO: [VRFC 10-2458] undeclared symbol is_transmitting, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:28]
+INFO: [VRFC 10-2458] undeclared symbol recv_error, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:28]
+INFO: [VRFC 10-2458] undeclared symbol LED, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:28]
+WARNING: [VRFC 10-2938] 'clk2' is already implicitly declared on line 28 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:29]
+WARNING: [VRFC 10-2938] 'transmit' is already implicitly declared on line 28 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:31]
+WARNING: [VRFC 10-2938] 'tx_byte' is already implicitly declared on line 28 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:32]
+WARNING: [VRFC 10-2938] 'tx' is already implicitly declared on line 28 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:33]
+WARNING: [VRFC 10-2938] 'is_receiving' is already implicitly declared on line 28 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:35]
+WARNING: [VRFC 10-2938] 'LED' is already implicitly declared on line 28 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:36]
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/uart_store_stream_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_store_stream_tb
+INFO: [VRFC 10-2458] undeclared symbol clk2, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/uart_store_stream_tb.v:28]
+INFO: [VRFC 10-2458] undeclared symbol rst, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/uart_store_stream_tb.v:28]
+INFO: [VRFC 10-2458] undeclared symbol rx, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/uart_store_stream_tb.v:28]
+INFO: [VRFC 10-2458] undeclared symbol tx, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/uart_store_stream_tb.v:28]
+INFO: [VRFC 10-2458] undeclared symbol transmit, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/uart_store_stream_tb.v:28]
+INFO: [VRFC 10-2458] undeclared symbol tx_byte, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/uart_store_stream_tb.v:28]
+INFO: [VRFC 10-2458] undeclared symbol received, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/uart_store_stream_tb.v:28]
+INFO: [VRFC 10-2458] undeclared symbol is_receiving, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/uart_store_stream_tb.v:28]
+INFO: [VRFC 10-2458] undeclared symbol is_transmitting, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/uart_store_stream_tb.v:28]
+INFO: [VRFC 10-2458] undeclared symbol recv_error, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/uart_store_stream_tb.v:28]
+INFO: [VRFC 10-2458] undeclared symbol LED, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/uart_store_stream_tb.v:28]
+WARNING: [VRFC 10-2938] 'clk2' is already implicitly declared on line 28 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/uart_store_stream_tb.v:30]
+WARNING: [VRFC 10-2938] 'transmit' is already implicitly declared on line 28 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/uart_store_stream_tb.v:32]
+WARNING: [VRFC 10-2938] 'tx_byte' is already implicitly declared on line 28 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/uart_store_stream_tb.v:33]
+WARNING: [VRFC 10-2938] 'tx' is already implicitly declared on line 28 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/uart_store_stream_tb.v:34]
+WARNING: [VRFC 10-2938] 'is_receiving' is already implicitly declared on line 28 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/uart_store_stream_tb.v:36]
+WARNING: [VRFC 10-2938] 'LED' is already implicitly declared on line 28 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/uart_store_stream_tb.v:37]
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 1145.238 ; gain = 0.000
+INFO: [USF-XSim-69] 'compile' step finished in '5' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim'
+"xelab -wto a97183ee437348a1bb3e479dcf850b30 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot uart_store_stream_tb_behav xil_defaultlib.uart_store_stream_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto a97183ee437348a1bb3e479dcf850b30 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot uart_store_stream_tb_behav xil_defaultlib.uart_store_stream_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+ERROR: [VRFC 10-3236] concurrent assignment to a non-net 'tx' is not permitted [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/uart_store_stream_tb.v:28]
+WARNING: [VRFC 10-3705] select index 15 into 'state_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:155]
+WARNING: [VRFC 10-3705] select index 14 into 'state_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:156]
+WARNING: [VRFC 10-3705] select index 13 into 'state_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:157]
+WARNING: [VRFC 10-3705] select index 12 into 'state_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:158]
+WARNING: [VRFC 10-3705] select index 11 into 'state_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:159]
+WARNING: [VRFC 10-3705] select index 10 into 'state_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:160]
+WARNING: [VRFC 10-3705] select index 9 into 'state_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:161]
+WARNING: [VRFC 10-3705] select index 8 into 'state_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:162]
+WARNING: [VRFC 10-3705] select index 15 into 'key_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:175]
+WARNING: [VRFC 10-3705] select index 14 into 'key_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:176]
+WARNING: [VRFC 10-3705] select index 13 into 'key_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:177]
+WARNING: [VRFC 10-3705] select index 12 into 'key_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:178]
+WARNING: [VRFC 10-3705] select index 11 into 'key_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:179]
+WARNING: [VRFC 10-3705] select index 10 into 'key_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:180]
+WARNING: [VRFC 10-3705] select index 9 into 'key_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:181]
+WARNING: [VRFC 10-3705] select index 8 into 'key_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:182]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-99] Step results log file:'C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or 'C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 1145.238 ; gain = 0.000
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+set_property top FlatEncryption_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+update_compile_order -fileset sim_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'FlatEncryption_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj FlatEncryption_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/FlatEncryption_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module FlatEncryption_tb
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim'
+"xelab -wto a97183ee437348a1bb3e479dcf850b30 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot FlatEncryption_tb_behav xil_defaultlib.FlatEncryption_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto a97183ee437348a1bb3e479dcf850b30 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot FlatEncryption_tb_behav xil_defaultlib.FlatEncryption_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.RotWord
+Compiling module xil_defaultlib.SubWord
+Compiling module xil_defaultlib.times_two
+Compiling module xil_defaultlib.times_three
+Compiling module xil_defaultlib.getSBoxValue
+Compiling module xil_defaultlib.FlatEncryption
+Compiling module xil_defaultlib.FlatEncryption_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot FlatEncryption_tb_behav
+
+****** Webtalk v2020.2 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim/xsim.dir/FlatEncryption_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Mon Jan 18 20:03:49 2021...
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 1145.238 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "FlatEncryption_tb_behav -key {Behavioral:sim_1:Functional:FlatEncryption_tb} -tclbatch {FlatEncryption_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+source FlatEncryption_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+$finish called at time : 461 ns : File "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/FlatEncryption_tb.v" Line 59
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'FlatEncryption_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 1157.762 ; gain = 12.523
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+set_property top uart_store_stream_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+update_compile_order -fileset sim_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'uart_store_stream_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj uart_store_stream_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/EncDecController.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EncDecController
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/FlatEncryption.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module FlatEncryption
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/RotWord.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RotWord
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/SubWord.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SubWord
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/getSBoxValue.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module getSBoxValue
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/times_three.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module times_three
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/times_two.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module times_two
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_store_stream
+INFO: [VRFC 10-2458] undeclared symbol rst, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:31]
+INFO: [VRFC 10-2458] undeclared symbol transmit, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:31]
+INFO: [VRFC 10-2458] undeclared symbol tx_byte, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:31]
+INFO: [VRFC 10-2458] undeclared symbol received, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:31]
+INFO: [VRFC 10-2458] undeclared symbol is_receiving, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:31]
+INFO: [VRFC 10-2458] undeclared symbol is_transmitting, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:31]
+INFO: [VRFC 10-2458] undeclared symbol recv_error, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:31]
+WARNING: [VRFC 10-2938] 'rst' is already implicitly declared on line 31 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:32]
+WARNING: [VRFC 10-2938] 'transmit' is already implicitly declared on line 31 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:34]
+WARNING: [VRFC 10-2938] 'tx_byte' is already implicitly declared on line 31 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:35]
+WARNING: [VRFC 10-2938] 'received' is already implicitly declared on line 31 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:36]
+WARNING: [VRFC 10-2938] 'is_receiving' is already implicitly declared on line 31 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:38]
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/uart_store_stream_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_store_stream_tb
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim'
+"xelab -wto a97183ee437348a1bb3e479dcf850b30 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot uart_store_stream_tb_behav xil_defaultlib.uart_store_stream_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto a97183ee437348a1bb3e479dcf850b30 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot uart_store_stream_tb_behav xil_defaultlib.uart_store_stream_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+ERROR: [VRFC 10-3236] concurrent assignment to a non-net 'UART_RXD_OUT' is not permitted [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/uart_store_stream_tb.v:31]
+WARNING: [VRFC 10-3705] select index 15 into 'state_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:158]
+WARNING: [VRFC 10-3705] select index 14 into 'state_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:159]
+WARNING: [VRFC 10-3705] select index 13 into 'state_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:160]
+WARNING: [VRFC 10-3705] select index 12 into 'state_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:161]
+WARNING: [VRFC 10-3705] select index 11 into 'state_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:162]
+WARNING: [VRFC 10-3705] select index 10 into 'state_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:163]
+WARNING: [VRFC 10-3705] select index 9 into 'state_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:164]
+WARNING: [VRFC 10-3705] select index 8 into 'state_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:165]
+WARNING: [VRFC 10-3705] select index 15 into 'key_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:178]
+WARNING: [VRFC 10-3705] select index 14 into 'key_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:179]
+WARNING: [VRFC 10-3705] select index 13 into 'key_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:180]
+WARNING: [VRFC 10-3705] select index 12 into 'key_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:181]
+WARNING: [VRFC 10-3705] select index 11 into 'key_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:182]
+WARNING: [VRFC 10-3705] select index 10 into 'key_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:183]
+WARNING: [VRFC 10-3705] select index 9 into 'key_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:184]
+WARNING: [VRFC 10-3705] select index 8 into 'key_block' is out of bounds [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:185]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-99] Step results log file:'C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or 'C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'uart_store_stream_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj uart_store_stream_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/EncDecController.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EncDecController
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/FlatEncryption.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module FlatEncryption
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/RotWord.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RotWord
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/SubWord.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SubWord
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/getSBoxValue.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module getSBoxValue
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/times_three.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module times_three
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/times_two.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module times_two
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_store_stream
+INFO: [VRFC 10-2458] undeclared symbol rst, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:31]
+INFO: [VRFC 10-2458] undeclared symbol transmit, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:31]
+INFO: [VRFC 10-2458] undeclared symbol tx_byte, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:31]
+INFO: [VRFC 10-2458] undeclared symbol received, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:31]
+INFO: [VRFC 10-2458] undeclared symbol is_receiving, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:31]
+INFO: [VRFC 10-2458] undeclared symbol is_transmitting, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:31]
+INFO: [VRFC 10-2458] undeclared symbol recv_error, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:31]
+WARNING: [VRFC 10-2938] 'rst' is already implicitly declared on line 31 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:32]
+WARNING: [VRFC 10-2938] 'transmit' is already implicitly declared on line 31 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:34]
+WARNING: [VRFC 10-2938] 'tx_byte' is already implicitly declared on line 31 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:35]
+WARNING: [VRFC 10-2938] 'received' is already implicitly declared on line 31 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:36]
+WARNING: [VRFC 10-2938] 'is_receiving' is already implicitly declared on line 31 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:38]
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/uart_store_stream_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_store_stream_tb
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim'
+"xelab -wto a97183ee437348a1bb3e479dcf850b30 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot uart_store_stream_tb_behav xil_defaultlib.uart_store_stream_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto a97183ee437348a1bb3e479dcf850b30 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot uart_store_stream_tb_behav xil_defaultlib.uart_store_stream_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+ERROR: [VRFC 10-3236] concurrent assignment to a non-net 'UART_RXD_OUT' is not permitted [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/uart_store_stream_tb.v:31]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-99] Step results log file:'C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or 'C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'uart_store_stream_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj uart_store_stream_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/EncDecController.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EncDecController
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/FlatEncryption.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module FlatEncryption
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/RotWord.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RotWord
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/SubWord.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SubWord
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/getSBoxValue.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module getSBoxValue
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/times_three.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module times_three
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/times_two.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module times_two
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_store_stream
+INFO: [VRFC 10-2458] undeclared symbol rst, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:31]
+INFO: [VRFC 10-2458] undeclared symbol transmit, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:31]
+INFO: [VRFC 10-2458] undeclared symbol tx_byte, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:31]
+INFO: [VRFC 10-2458] undeclared symbol received, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:31]
+INFO: [VRFC 10-2458] undeclared symbol is_receiving, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:31]
+INFO: [VRFC 10-2458] undeclared symbol is_transmitting, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:31]
+INFO: [VRFC 10-2458] undeclared symbol recv_error, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:31]
+WARNING: [VRFC 10-2938] 'rst' is already implicitly declared on line 31 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:32]
+WARNING: [VRFC 10-2938] 'transmit' is already implicitly declared on line 31 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:34]
+WARNING: [VRFC 10-2938] 'tx_byte' is already implicitly declared on line 31 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:35]
+WARNING: [VRFC 10-2938] 'received' is already implicitly declared on line 31 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:36]
+WARNING: [VRFC 10-2938] 'is_receiving' is already implicitly declared on line 31 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:38]
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/uart_store_stream_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_store_stream_tb
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim'
+"xelab -wto a97183ee437348a1bb3e479dcf850b30 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot uart_store_stream_tb_behav xil_defaultlib.uart_store_stream_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto a97183ee437348a1bb3e479dcf850b30 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot uart_store_stream_tb_behav xil_defaultlib.uart_store_stream_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+ERROR: [VRFC 10-3236] concurrent assignment to a non-net 'out_stream' is not permitted [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:195]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-99] Step results log file:'C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or 'C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'uart_store_stream_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj uart_store_stream_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/EncDecController.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EncDecController
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/FlatEncryption.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module FlatEncryption
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/RotWord.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RotWord
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/SubWord.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SubWord
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/getSBoxValue.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module getSBoxValue
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/times_three.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module times_three
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/times_two.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module times_two
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_store_stream
+INFO: [VRFC 10-2458] undeclared symbol rst, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:31]
+INFO: [VRFC 10-2458] undeclared symbol transmit, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:31]
+INFO: [VRFC 10-2458] undeclared symbol tx_byte, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:31]
+INFO: [VRFC 10-2458] undeclared symbol received, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:31]
+INFO: [VRFC 10-2458] undeclared symbol is_receiving, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:31]
+INFO: [VRFC 10-2458] undeclared symbol is_transmitting, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:31]
+INFO: [VRFC 10-2458] undeclared symbol recv_error, assumed default net type wire [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:31]
+WARNING: [VRFC 10-2938] 'rst' is already implicitly declared on line 31 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:32]
+WARNING: [VRFC 10-2938] 'transmit' is already implicitly declared on line 31 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:34]
+WARNING: [VRFC 10-2938] 'tx_byte' is already implicitly declared on line 31 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:35]
+WARNING: [VRFC 10-2938] 'received' is already implicitly declared on line 31 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:36]
+WARNING: [VRFC 10-2938] 'is_receiving' is already implicitly declared on line 31 [C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v:38]
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/uart_store_stream_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart_store_stream_tb
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim'
+"xelab -wto a97183ee437348a1bb3e479dcf850b30 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot uart_store_stream_tb_behav xil_defaultlib.uart_store_stream_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto a97183ee437348a1bb3e479dcf850b30 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot uart_store_stream_tb_behav xil_defaultlib.uart_store_stream_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.uart
+Compiling module xil_defaultlib.RotWord
+Compiling module xil_defaultlib.SubWord
+Compiling module xil_defaultlib.times_two
+Compiling module xil_defaultlib.times_three
+Compiling module xil_defaultlib.getSBoxValue
+Compiling module xil_defaultlib.FlatEncryption
+Compiling module xil_defaultlib.EncDecController
+Compiling module xil_defaultlib.uart_store_stream
+Compiling module xil_defaultlib.uart_store_stream_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot uart_store_stream_tb_behav
+
+****** Webtalk v2020.2 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim/xsim.dir/uart_store_stream_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Jan 19 14:07:57 2021...
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "uart_store_stream_tb_behav -key {Behavioral:sim_1:Functional:uart_store_stream_tb} -tclbatch {uart_store_stream_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+source uart_store_stream_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+$finish called at time : 58 ns : File "C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/uart_store_stream_tb.v" Line 133
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'uart_store_stream_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:10 . Memory (MB): peak = 1342.566 ; gain = 0.000
+close [ open C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/debounce.v w ]
+add_files C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/debounce.v
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1

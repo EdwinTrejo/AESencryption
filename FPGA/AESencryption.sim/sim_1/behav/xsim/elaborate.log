@@ -1,12 +1,14 @@
-Vivado Simulator 2019.1
-Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2019.1/bin/unwrapped/win64.o/xelab.exe -wto a97183ee437348a1bb3e479dcf850b30 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot EncDecController_tb_behav xil_defaultlib.EncDecController_tb xil_defaultlib.glbl -log elaborate.log 
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto a97183ee437348a1bb3e479dcf850b30 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot uart_store_stream_tb_behav xil_defaultlib.uart_store_stream_tb xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
+Pass Through NonSizing Optimizer
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.uart
 Compiling module xil_defaultlib.RotWord
 Compiling module xil_defaultlib.SubWord
 Compiling module xil_defaultlib.times_two
@@ -14,6 +16,7 @@ Compiling module xil_defaultlib.times_three
 Compiling module xil_defaultlib.getSBoxValue
 Compiling module xil_defaultlib.FlatEncryption
 Compiling module xil_defaultlib.EncDecController
-Compiling module xil_defaultlib.EncDecController_tb
+Compiling module xil_defaultlib.uart_store_stream
+Compiling module xil_defaultlib.uart_store_stream_tb
 Compiling module xil_defaultlib.glbl
-Built simulation snapshot EncDecController_tb_behav
+Built simulation snapshot uart_store_stream_tb_behav

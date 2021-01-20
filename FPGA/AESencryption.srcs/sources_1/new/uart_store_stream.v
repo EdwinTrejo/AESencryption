@@ -20,25 +20,28 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module uart_store_stream(clk);
+module uart_store_stream(
+    input BTNC,
+    input clk,
+    input UART_TXD_IN,
+    output wire UART_RXD_OUT);
     
-    input clk; // this may need to be generated here, or be a slower clock than othe things are running on
-
     // is this going to mess up the buttons?
-    uart uart_uut (.clk(clk), .rst(rsst), .rx(rx), .tx(tx), .transmit(transmit), .tx_byte(tx_byte), .received(received), .is_receiving(is_receiving), .is_transmitting(is_transmitting), .recv_error(recv_error), .LED(LED));
-    wire clk, rst, rx; // Incoming serial line
+    debounce debounce_BTNC_uut(.clk(clk), .data_in(BTNC), .data_out(BTNC_D));
+    uart uart_uut (.clk(clk), .rst(rst), .rx(UART_TXD_IN), .tx(UART_RXD_OUT), .transmit(BTNC_D), .tx_byte(tx_byte), .received(received), .is_receiving(is_receiving), .is_transmitting(is_transmitting), .recv_error(recv_error));
+    wire rst, rx; // Incoming serial line
     
-    wire transmit; // Signal to transmit
+    wire BTNC_D; // Signal to transmit
     wire [7:0] tx_byte; // Byte to transmit
     wire tx, received;
     wire [7:0] rx_byte; // Byte received
     wire is_receiving, is_transmitting, recv_error; 
-    reg [1:0] LED;
-    reg [63:0] out_stream;
-    
+    //reg [1:0] LED;
+    wire [63:0] out_stream;
+    reg [63:0] in_stream;
     reg [7:0] signal_block [0:7]; // want 64 bits, 8 blocks of 8
-    reg [15:0] state_block [0:7];
-    reg [15:0] key_block [0:7];
+    reg [7:0] state_block [0:15];
+    reg [7:0] key_block [0:15];
     
     reg begin_storing;
     reg [3:0] start_sig_count;
@@ -53,7 +56,7 @@ module uart_store_stream(clk);
     parameter store_key = 3'b010;
     parameter output_data = 3'b011;
     parameter wait_state = 3'b100;
-    parameter transmission_over = 4'b1111; // fix this number later
+    parameter transmission_over = 4'b0110; // 6
     
     initial begin
         begin_storing = 0;
@@ -128,7 +131,60 @@ module uart_store_stream(clk);
     //send enable to controller
     always @(posedge clk) begin
         if (state == output_data) begin
-           // enable <= 1;
+           
+           // start sequence
+         if (count == 0) begin
+              in_stream <= 64'h1111111111111111;
+         end else if (count == 1) begin
+             in_stream[63:56] <= signal_block[7];
+             in_stream[55:48] <= signal_block[6];
+             in_stream[47:40] <= signal_block[5];
+             in_stream[39:32] <= signal_block[4];
+             in_stream[31:24] <= signal_block[3];
+             in_stream[23:16] <= signal_block[2];
+             in_stream[15:8] <= signal_block[1];
+             in_stream[7:0] <= signal_block[0];
+          end else if (count == 2) begin
+             in_stream[63:56] <= state_block[7];
+             in_stream[55:48] <= state_block[6];
+             in_stream[47:40] <= state_block[5];
+             in_stream[39:32] <= state_block[4];
+             in_stream[31:24] <= state_block[3];
+             in_stream[23:16] <= state_block[2];
+             in_stream[15:8] <= state_block[1];
+             in_stream[7:0] <= state_block[0];
+           
+           end else if (count == 3) begin
+             in_stream[63:56] <= state_block[15];
+             in_stream[55:48] <= state_block[14];
+             in_stream[47:40] <= state_block[13];
+             in_stream[39:32] <= state_block[12];
+             in_stream[31:24] <= state_block[11];
+             in_stream[23:16] <= state_block[10];
+             in_stream[15:8] <= state_block[9];
+             in_stream[7:0] <= state_block[8];
+           
+           end else if (count == 4) begin
+             in_stream[63:56] <= key_block[7];
+             in_stream[55:48] <= key_block[6];
+             in_stream[47:40] <= key_block[5];
+             in_stream[39:32] <= key_block[4];
+             in_stream[31:24] <= key_block[3];
+             in_stream[23:16] <= key_block[2];
+             in_stream[15:8] <= key_block[1];
+             in_stream[7:0] <= key_block[0];
+             
+           end else if (count == 5) begin
+             in_stream[63:56] <= key_block[15];
+             in_stream[55:48] <= key_block[14];
+             in_stream[47:40] <= key_block[13];
+             in_stream[39:32] <= key_block[12];
+             in_stream[31:24] <= key_block[11];
+             in_stream[23:16] <= key_block[10];
+             in_stream[15:8] <= key_block[9];
+             in_stream[7:0] <= key_block[8];
+             
+           end
            count <= count + 1;
         end
         else if (count == transmission_over) begin
@@ -136,16 +192,6 @@ module uart_store_stream(clk);
         end
     end
 
-    
-    // what is actually being sent to EncDecController
-    // get everything before you send it
-    // essentially another state machine
-    // system clock, but data is not timed perfectly
-    // uart ready signal - wait for both
-    // ignore anything after encryption started
-    
-    
-    // should this all just be one big block of memory with an enable port in the controller
-    EncDecController EndDecController_uut(.in_stream(), .out_stream(out_stream), .clk(clk));
+    EncDecController EndDecController_uut(.in_stream(in_stream), .out_stream(out_stream), .clk(clk));
 
 endmodule

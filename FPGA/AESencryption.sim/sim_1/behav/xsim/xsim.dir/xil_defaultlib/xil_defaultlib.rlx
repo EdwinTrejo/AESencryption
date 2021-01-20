@@ -1,14 +1,16 @@
-0.6
-2019.1
-May 24 2019
-15:06:07
-C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.sim/sim_1/behav/xsim/glbl.v,1558713910,verilog,,,,glbl,,,,,,,,
-C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sim_1/new/EncDecController_tb.v,1609903091,verilog,,,,EncDecController_tb,,,,,,,,
-C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sim_1/new/FlatEncryption_tb.v,1609901835,verilog,,,,FlatEncryption_tb,,,,,,,,
-C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/EncDecController.v,1609902458,verilog,,C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v,,EncDecController,,,,,,,,
-C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/FlatEncryption.v,1610147495,verilog,,C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/RotWord.v,,FlatEncryption,,,,,,,,
-C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/RotWord.v,1609704945,verilog,,C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/SubWord.v,,RotWord,,,,,,,,
-C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/SubWord.v,1609700273,verilog,,C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/getSBoxValue.v,,SubWord,,,,,,,,
-C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/getSBoxValue.v,1609805955,verilog,,C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/times_three.v,,getSBoxValue,,,,,,,,
-C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/times_three.v,1609899295,verilog,,C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/times_two.v,,times_three,,,,,,,,
-C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sources_1/new/times_two.v,1609899295,verilog,,C:/Users/horse/Documents/Xilinx_Projects/AESencryption/AESencryption.srcs/sim_1/new/EncDecController_tb.v,,times_two,,,,,,,,
+0.7
+2020.2
+Nov 18 2020
+09:47:47
+C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.sim/sim_1/behav/xsim/glbl.v,1610934170,verilog,,,,glbl,,,,,,,,
+C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/FlatEncryption_tb.v,1610934170,verilog,,,,FlatEncryption_tb,,,,,,,,
+C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/uart_store_stream_tb.v,1611083186,verilog,,,,uart_store_stream_tb,,,,,,,,
+C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/EncDecController.v,1610934170,verilog,,C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/FlatEncryption.v,,EncDecController,,,,,,,,
+C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/FlatEncryption.v,1610934170,verilog,,C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/RotWord.v,,FlatEncryption,,,,,,,,
+C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/RotWord.v,1610934170,verilog,,C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/SubWord.v,,RotWord,,,,,,,,
+C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/SubWord.v,1610934170,verilog,,C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/getSBoxValue.v,,SubWord,,,,,,,,
+C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/getSBoxValue.v,1610934170,verilog,,C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/times_three.v,,getSBoxValue,,,,,,,,
+C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/times_three.v,1610934170,verilog,,C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/times_two.v,,times_three,,,,,,,,
+C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/times_two.v,1610934170,verilog,,C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart.v,,times_two,,,,,,,,
+C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart.v,1611019142,verilog,,C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v,,uart,,,,,,,,
+C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sources_1/new/uart_store_stream.v,1611083264,verilog,,C:/Users/faith/Documents/MAES/AESencryption/FPGA/AESencryption.srcs/sim_1/new/uart_store_stream_tb.v,,uart_store_stream,,,,,,,,
