@@ -1,5 +1,6 @@
 ﻿using MAESFRAMEWORK.CodeProcessors.UART;
 using MAESFRAMEWORK.CodeProcessors.UDP;
+using MAESFRAMEWORK.DataTypes.AES;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading;
@@ -48,6 +49,10 @@ namespace MAESSERVICE
         private static bool udp_receive_ready = false;
         private static bool udp_send_complete = false;
         private static bool udp_receive_complete = false;
+        #endregion
+
+        #region aes
+        private static List<CharSchema[]> charSchemas;
         #endregion
 
         #region uart manager settings

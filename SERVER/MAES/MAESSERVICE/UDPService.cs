@@ -55,11 +55,11 @@ namespace MAESSERVICE
                 {
                     lock (udp_lock)
                     {
-                        udp_receive_complete = false;
                         byte[] udp_rec = m_udp.Receive();
                         from_udp = udp_rec;
                         Console.WriteLine($"Message Received from {m_udp.identifier_one}:{m_udp.identifier_two}");
                         udp_receive_complete = true;
+                        udp_receive_ready = false;
                     }
                 }
                 Thread.Sleep(1000);

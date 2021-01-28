@@ -57,7 +57,6 @@ namespace MAESSERVICE
                 {
                     lock (uart_lock)
                     {
-                        uart_receive_complete = false;
                         byte[] uart_rec = m_uart.Receive();
                         from_uart = uart_rec;
                         uart_receive_complete = true;
