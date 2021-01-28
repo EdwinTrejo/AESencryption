@@ -32,8 +32,8 @@ module uart(
     output [7:0] rx_byte, // Byte received
     output is_receiving, // Low when receive line is idle.
     output is_transmitting, // Low when transmit line is idle.
-    output recv_error, // Indicates error in receiving packet.
-    output reg [1:0] LED
+    output recv_error // Indicates error in receiving packet.
+    //output reg [1:0] LED
     );
 
 parameter CLOCK_DIVIDE = 2604; // clock rate (50Mhz) / (baud rate (9600) * 4)
@@ -109,8 +109,8 @@ always @(posedge clk) begin
 				rx_clk_divider = CLOCK_DIVIDE;
 				rx_countdown = 2;
 				recv_state = RX_CHECK_START;
-				LED[0] = 1'b1;
-				LED[1] = 1'b0;
+			//	LED[0] = 1'b1;
+			//	LED[1] = 1'b0;
 			end
 		end
 		RX_CHECK_START: begin
@@ -186,8 +186,8 @@ always @(posedge clk) begin
 				tx_out = 0;
 				tx_bits_remaining = 8;
 				tx_state = TX_SENDING;
-                LED[0] = 1'b0;
-				LED[1] = 1'b1;
+            //    LED[0] = 1'b0;
+			//	LED[1] = 1'b1;
 			end
 		end
 		TX_SENDING: begin

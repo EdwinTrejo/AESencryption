@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1610504431">
   <File Type="PA-TCL" Name="EncDecController.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="EncDecController_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="EncDecController_reports.tcl"/>
   <File Type="RDS-RDS" Name="EncDecController.vds"/>
   <File Type="RDS-UTIL" Name="EncDecController_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="EncDecController_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="EncDecController.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="EncDecController_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="EncDecController_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/FlatEncryption.v">
