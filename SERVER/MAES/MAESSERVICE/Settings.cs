@@ -18,7 +18,7 @@ namespace MAESSERVICE
         /// rest of operations are described in AESMessage
         /// </summary>
         private static volatile int current_operation = 0;
-        
+
         #region threads
         private static Thread uart_send_svc;
         private static Thread uart_recv_svc;
@@ -45,14 +45,14 @@ namespace MAESSERVICE
         private static bool uart_send_complete = false;
         private static bool uart_receive_complete = false;
         private static bool udp_send_ready = false;
-        private static bool udp_receive_ready = false;        
+        private static bool udp_receive_ready = false;
         private static bool udp_send_complete = false;
         private static bool udp_receive_complete = false;
         #endregion
 
         #region uart manager settings
         private static UARTManager m_uart;
-        private const string uart_port = "4";
+        private const string uart_port = "COM5";
         private const int baudrate = 9600;
         private const int ReadTimeout = 1500;
         private const int WriteTimeout = 1500;

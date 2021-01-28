@@ -13,7 +13,7 @@ namespace MAESSERVICE
             //thread init
             lock (uart_lock)
             {
-                if (m_uart != null && !m_uart.ready)
+                if (m_uart == null)
                 {
                     m_uart = new UARTManager(uart_port, baudrate, ReadTimeout, WriteTimeout);
                     m_uart.Initialize();
@@ -43,7 +43,7 @@ namespace MAESSERVICE
             //thread init
             lock (uart_lock)
             {
-                if (m_uart != null && !m_uart.ready)
+                if (m_uart == null)
                 {
                     m_uart = new UARTManager(uart_port, baudrate, ReadTimeout, WriteTimeout);
                     m_uart.Initialize();

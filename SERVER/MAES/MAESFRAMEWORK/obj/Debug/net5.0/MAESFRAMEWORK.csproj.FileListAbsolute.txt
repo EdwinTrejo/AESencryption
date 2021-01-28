@@ -9,3 +9,15 @@ C:\Users\horse\source\repos\MAES\MAESFRAMEWORK\obj\Debug\net5.0\MAESFRAMEWORK.cs
 C:\Users\horse\source\repos\MAES\MAESFRAMEWORK\obj\Debug\net5.0\MAESFRAMEWORK.dll
 C:\Users\horse\source\repos\MAES\MAESFRAMEWORK\obj\Debug\net5.0\ref\MAESFRAMEWORK.dll
 C:\Users\horse\source\repos\MAES\MAESFRAMEWORK\obj\Debug\net5.0\MAESFRAMEWORK.pdb
+C:\Users\horse\Documents\Xilinx_Projects\AESencryption\SERVER\MAES\MAESFRAMEWORK\bin\Debug\net5.0\MAESFRAMEWORK.deps.json
+C:\Users\horse\Documents\Xilinx_Projects\AESencryption\SERVER\MAES\MAESFRAMEWORK\bin\Debug\net5.0\MAESFRAMEWORK.dll
+C:\Users\horse\Documents\Xilinx_Projects\AESencryption\SERVER\MAES\MAESFRAMEWORK\bin\Debug\net5.0\ref\MAESFRAMEWORK.dll
+C:\Users\horse\Documents\Xilinx_Projects\AESencryption\SERVER\MAES\MAESFRAMEWORK\bin\Debug\net5.0\MAESFRAMEWORK.pdb
+C:\Users\horse\Documents\Xilinx_Projects\AESencryption\SERVER\MAES\MAESFRAMEWORK\obj\Debug\net5.0\MAESFRAMEWORK.csprojAssemblyReference.cache
+C:\Users\horse\Documents\Xilinx_Projects\AESencryption\SERVER\MAES\MAESFRAMEWORK\obj\Debug\net5.0\MAESFRAMEWORK.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\horse\Documents\Xilinx_Projects\AESencryption\SERVER\MAES\MAESFRAMEWORK\obj\Debug\net5.0\MAESFRAMEWORK.AssemblyInfoInputs.cache
+C:\Users\horse\Documents\Xilinx_Projects\AESencryption\SERVER\MAES\MAESFRAMEWORK\obj\Debug\net5.0\MAESFRAMEWORK.AssemblyInfo.cs
+C:\Users\horse\Documents\Xilinx_Projects\AESencryption\SERVER\MAES\MAESFRAMEWORK\obj\Debug\net5.0\MAESFRAMEWORK.csproj.CoreCompileInputs.cache
+C:\Users\horse\Documents\Xilinx_Projects\AESencryption\SERVER\MAES\MAESFRAMEWORK\obj\Debug\net5.0\MAESFRAMEWORK.dll
+C:\Users\horse\Documents\Xilinx_Projects\AESencryption\SERVER\MAES\MAESFRAMEWORK\obj\Debug\net5.0\ref\MAESFRAMEWORK.dll
+C:\Users\horse\Documents\Xilinx_Projects\AESencryption\SERVER\MAES\MAESFRAMEWORK\obj\Debug\net5.0\MAESFRAMEWORK.pdb

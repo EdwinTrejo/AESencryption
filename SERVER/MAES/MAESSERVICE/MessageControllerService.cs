@@ -59,6 +59,12 @@ namespace MAESSERVICE
             uart_recv_svc = new Thread(UARTServiceReceive);
             udp_send_svc = new Thread(UDPServiceSend);
             udp_recv_svc = new Thread(UDPServiceReceive);
+
+            uart_send_svc.Name = "uart_send_svc";
+            uart_recv_svc.Name = "uart_recv_svc";
+            udp_send_svc.Name = "udp_send_svc";
+            udp_recv_svc.Name = "udp_recv_svc";
+
             //start threads
             uart_send_svc.Start();
             uart_recv_svc.Start();

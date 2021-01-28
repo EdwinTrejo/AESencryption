@@ -13,7 +13,7 @@ namespace MAESSERVICE
             //thread init
             lock (udp_lock)
             {
-                if (m_udp != null && !m_udp.ready)
+                if (m_udp == null)
                 {
                     m_udp = new UDPManager(send_ip, send_port, receive_port);
                     m_udp.Initialize();
@@ -41,7 +41,7 @@ namespace MAESSERVICE
             //thread init
             lock (udp_lock)
             {
-                if (m_udp != null && !m_udp.ready)
+                if (m_udp == null)
                 {
                     m_udp = new UDPManager(send_ip, send_port, receive_port);
                     m_udp.Initialize();
