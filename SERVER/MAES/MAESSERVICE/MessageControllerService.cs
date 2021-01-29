@@ -15,7 +15,7 @@ namespace MAESSERVICE
         {
             InitProcs();
             MessageControllerService();
-            charSchemas = new List<CharSchema[]>();
+            charSchemas = new Dictionary<int, CharSchema[]>();
         }
 
         //TODO: Make Service Scalable (OPTIONAL)
@@ -110,6 +110,15 @@ namespace MAESSERVICE
             //code will go here
             lock (m_lock)
             {
+                if (MessageType == 5)
+                {
+                    //add dictionary
+                    if (charSchemas.ContainsKey(CharSchemaId)) throw new InvalidOperationException("Dictionary Already exists");
+                }
+                else if (MessageType == 6)
+                {
+                    //delete dictionary
+                }
             }
         }
 
