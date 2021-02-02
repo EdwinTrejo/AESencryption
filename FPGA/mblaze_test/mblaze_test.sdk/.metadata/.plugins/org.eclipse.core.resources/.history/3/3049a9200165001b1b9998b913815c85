@@ -1,0 +1,6 @@
+#include "allleters.h"
+
+byte getLetterValue(byte number)
+{
+  return LETTER_REPLACE[number];
+}

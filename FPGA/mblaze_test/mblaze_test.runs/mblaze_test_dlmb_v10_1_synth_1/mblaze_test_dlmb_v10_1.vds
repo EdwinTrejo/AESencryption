@@ -1,0 +1,19 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Mon Feb  1 08:20:13 2021
+# Process ID: 30276
+# Current directory: C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.runs/mblaze_test_dlmb_v10_1_synth_1
+# Command line: vivado.exe -log mblaze_test_dlmb_v10_1.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source mblaze_test_dlmb_v10_1.tcl
+# Log file: C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.runs/mblaze_test_dlmb_v10_1_synth_1/mblaze_test_dlmb_v10_1.vds
+# Journal file: C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.runs/mblaze_test_dlmb_v10_1_synth_1\vivado.jou
+#-----------------------------------------------------------
+source mblaze_test_dlmb_v10_1.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/hdlverifier/supportpackages/fpgadebug_xilinx/+hdlverifier/+fpga/+vivado'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/horse/Documents/Xilinx_Projects/mblaze_aes/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2019.1/data/ip'.
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:mii_to_rmii:2.0'. The one found in IP location 'c:/Users/horse/Documents/Xilinx_Projects/mblaze_aes/ip_repo/mii_to_rmii_v2_0' will take precedence over the same IP in the Xilinx installed IP.
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP mblaze_test_dlmb_v10_1, cache-ID = 6632c357ba643891.
+INFO: [Common 17-206] Exiting Vivado at Mon Feb  1 08:20:18 2021...

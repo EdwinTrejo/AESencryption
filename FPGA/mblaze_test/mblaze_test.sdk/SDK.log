@@ -1,0 +1,1766 @@
+08:33:23 INFO  : Registering command handlers for SDK TCF services
+08:33:24 INFO  : Launching XSCT server: xsct.bat -interactive C:\Users\horse\Documents\Xilinx_Projects\mblaze_test\mblaze_test.sdk\temp_xsdb_launch_script.tcl
+08:33:28 INFO  : XSCT server has started successfully.
+08:33:28 INFO  : Successfully done setting XSCT server connection channel  
+08:33:32 INFO  : Processing command line option -hwspec C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper.hdf.
+08:33:32 INFO  : Successfully done setting SDK workspace  
+08:43:11 INFO  : Refreshed build settings on project networktest
+08:44:09 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:44:09 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+08:44:12 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/download.bit"
+08:45:22 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:45:22 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+08:45:22 INFO  : 'jtag frequency' command is executed.
+08:45:22 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+08:45:25 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+08:45:25 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+08:45:25 INFO  : Context for processor 'microblaze_0' is selected.
+08:45:25 INFO  : Processor reset is completed for 'microblaze_0'.
+08:45:25 INFO  : Context for processor 'microblaze_0' is selected.
+08:45:26 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf' is downloaded to processor 'microblaze_0'.
+08:45:26 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf
+----------------End of Script----------------
+
+08:45:26 INFO  : Context for processor 'microblaze_0' is selected.
+08:45:26 INFO  : 'con' command is executed.
+08:45:26 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+08:45:26 INFO  : Disconnected from the channel tcfchan#1.
+08:46:32 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:46:33 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+08:46:33 INFO  : 'jtag frequency' command is executed.
+08:46:33 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+08:46:35 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+08:46:35 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+08:46:35 INFO  : Context for processor 'microblaze_0' is selected.
+08:46:35 INFO  : Processor reset is completed for 'microblaze_0'.
+08:46:35 INFO  : Context for processor 'microblaze_0' is selected.
+08:46:36 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf' is downloaded to processor 'microblaze_0'.
+08:46:36 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf
+----------------End of Script----------------
+
+08:46:36 INFO  : Context for processor 'microblaze_0' is selected.
+08:46:36 INFO  : 'con' command is executed.
+08:46:36 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+08:46:36 INFO  : Disconnected from the channel tcfchan#2.
+08:54:17 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:54:18 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+08:54:18 INFO  : 'jtag frequency' command is executed.
+08:54:18 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+08:54:20 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+08:54:20 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+08:54:20 INFO  : Context for processor 'microblaze_0' is selected.
+08:54:20 INFO  : Processor reset is completed for 'microblaze_0'.
+08:54:20 INFO  : Context for processor 'microblaze_0' is selected.
+08:54:21 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf' is downloaded to processor 'microblaze_0'.
+08:54:21 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf
+----------------End of Script----------------
+
+08:54:21 INFO  : Context for processor 'microblaze_0' is selected.
+08:54:21 INFO  : 'con' command is executed.
+08:54:21 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+08:54:21 INFO  : Disconnected from the channel tcfchan#3.
+08:56:41 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:56:41 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+08:56:41 INFO  : 'jtag frequency' command is executed.
+08:56:41 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+08:56:43 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+08:56:43 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+08:56:43 INFO  : Context for processor 'microblaze_0' is selected.
+08:56:43 INFO  : Processor reset is completed for 'microblaze_0'.
+08:56:44 INFO  : Context for processor 'microblaze_0' is selected.
+08:56:44 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf' is downloaded to processor 'microblaze_0'.
+08:56:44 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf
+----------------End of Script----------------
+
+08:56:44 INFO  : Context for processor 'microblaze_0' is selected.
+08:56:44 INFO  : 'con' command is executed.
+08:56:44 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+08:56:44 INFO  : Disconnected from the channel tcfchan#4.
+08:59:22 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+08:59:22 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+08:59:23 INFO  : 'jtag frequency' command is executed.
+08:59:23 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+08:59:25 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+08:59:25 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+08:59:25 INFO  : Context for processor 'microblaze_0' is selected.
+08:59:25 INFO  : Processor reset is completed for 'microblaze_0'.
+08:59:25 INFO  : Context for processor 'microblaze_0' is selected.
+08:59:26 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf' is downloaded to processor 'microblaze_0'.
+08:59:26 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf
+----------------End of Script----------------
+
+08:59:26 INFO  : Context for processor 'microblaze_0' is selected.
+08:59:26 INFO  : 'con' command is executed.
+08:59:26 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+08:59:26 INFO  : Disconnected from the channel tcfchan#5.
+10:34:13 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+10:34:13 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+10:34:13 INFO  : 'jtag frequency' command is executed.
+10:34:13 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+10:34:16 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+10:34:16 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+10:34:16 INFO  : Context for processor 'microblaze_0' is selected.
+10:34:16 INFO  : Processor reset is completed for 'microblaze_0'.
+10:34:16 INFO  : Context for processor 'microblaze_0' is selected.
+10:34:16 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf' is downloaded to processor 'microblaze_0'.
+10:34:16 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf
+----------------End of Script----------------
+
+10:34:17 INFO  : Context for processor 'microblaze_0' is selected.
+10:34:17 INFO  : 'con' command is executed.
+10:34:17 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+10:34:17 INFO  : Disconnected from the channel tcfchan#6.
+10:35:04 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+10:35:04 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+10:35:04 INFO  : 'jtag frequency' command is executed.
+10:35:05 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+10:35:07 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+10:35:07 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+10:35:07 INFO  : Context for processor 'microblaze_0' is selected.
+10:35:07 INFO  : Processor reset is completed for 'microblaze_0'.
+10:35:07 INFO  : Context for processor 'microblaze_0' is selected.
+10:35:08 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf' is downloaded to processor 'microblaze_0'.
+10:35:08 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf
+----------------End of Script----------------
+
+10:35:22 INFO  : Disconnected from the channel tcfchan#7.
+10:35:28 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+10:35:28 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+10:35:28 INFO  : 'jtag frequency' command is executed.
+10:35:28 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+10:35:31 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+10:35:31 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+10:35:31 INFO  : Context for processor 'microblaze_0' is selected.
+10:35:31 INFO  : Processor reset is completed for 'microblaze_0'.
+10:35:31 INFO  : Context for processor 'microblaze_0' is selected.
+10:35:32 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf' is downloaded to processor 'microblaze_0'.
+10:35:32 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf
+----------------End of Script----------------
+
+10:35:32 INFO  : Context for processor 'microblaze_0' is selected.
+10:35:32 INFO  : 'con' command is executed.
+10:35:32 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+10:35:32 INFO  : Disconnected from the channel tcfchan#8.
+10:57:30 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+10:57:30 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+10:57:30 INFO  : 'jtag frequency' command is executed.
+10:57:30 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+10:57:33 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+10:57:33 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+10:57:33 INFO  : Context for processor 'microblaze_0' is selected.
+10:57:33 INFO  : Processor reset is completed for 'microblaze_0'.
+10:57:33 INFO  : Context for processor 'microblaze_0' is selected.
+10:57:34 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf' is downloaded to processor 'microblaze_0'.
+10:57:34 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf
+----------------End of Script----------------
+
+10:57:34 INFO  : Context for processor 'microblaze_0' is selected.
+10:57:34 INFO  : 'con' command is executed.
+10:57:34 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+10:57:34 INFO  : Disconnected from the channel tcfchan#9.
+11:10:50 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+11:10:50 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+11:10:50 INFO  : 'jtag frequency' command is executed.
+11:10:50 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+11:10:52 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+11:10:53 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+11:10:53 INFO  : Context for processor 'microblaze_0' is selected.
+11:10:53 INFO  : Processor reset is completed for 'microblaze_0'.
+11:10:53 INFO  : Context for processor 'microblaze_0' is selected.
+11:10:53 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf' is downloaded to processor 'microblaze_0'.
+11:10:53 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf
+----------------End of Script----------------
+
+11:10:53 INFO  : Context for processor 'microblaze_0' is selected.
+11:10:53 INFO  : 'con' command is executed.
+11:10:53 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+11:10:53 INFO  : Disconnected from the channel tcfchan#10.
+11:17:13 INFO  : Refreshed build settings on project networktest
+11:19:33 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+11:19:34 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+11:19:34 INFO  : 'jtag frequency' command is executed.
+11:19:34 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+11:19:36 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+11:19:36 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+11:19:36 INFO  : Context for processor 'microblaze_0' is selected.
+11:19:36 INFO  : Processor reset is completed for 'microblaze_0'.
+11:19:36 INFO  : Context for processor 'microblaze_0' is selected.
+11:19:37 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf' is downloaded to processor 'microblaze_0'.
+11:19:37 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf
+----------------End of Script----------------
+
+11:19:37 INFO  : Context for processor 'microblaze_0' is selected.
+11:19:37 INFO  : 'con' command is executed.
+11:19:37 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+11:19:37 INFO  : Disconnected from the channel tcfchan#11.
+11:23:50 INFO  : Refreshed build settings on project networktest
+11:24:13 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+11:24:13 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+11:24:13 INFO  : 'jtag frequency' command is executed.
+11:24:14 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+11:24:16 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+11:24:16 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+11:24:16 INFO  : Context for processor 'microblaze_0' is selected.
+11:24:16 INFO  : Processor reset is completed for 'microblaze_0'.
+11:24:16 INFO  : Context for processor 'microblaze_0' is selected.
+11:24:17 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf' is downloaded to processor 'microblaze_0'.
+11:24:17 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf
+----------------End of Script----------------
+
+11:24:17 INFO  : Context for processor 'microblaze_0' is selected.
+11:24:17 INFO  : 'con' command is executed.
+11:24:17 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+11:24:17 INFO  : Disconnected from the channel tcfchan#12.
+11:29:23 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+11:29:23 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+11:29:23 INFO  : 'jtag frequency' command is executed.
+11:29:23 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+11:29:26 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+11:29:26 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+11:29:26 INFO  : Context for processor 'microblaze_0' is selected.
+11:29:26 INFO  : Processor reset is completed for 'microblaze_0'.
+11:29:26 INFO  : Context for processor 'microblaze_0' is selected.
+11:29:27 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf' is downloaded to processor 'microblaze_0'.
+11:29:27 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf
+----------------End of Script----------------
+
+11:29:27 INFO  : Context for processor 'microblaze_0' is selected.
+11:29:27 INFO  : 'con' command is executed.
+11:29:27 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+11:29:27 INFO  : Disconnected from the channel tcfchan#13.
+11:36:20 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+11:36:20 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+11:36:20 INFO  : 'jtag frequency' command is executed.
+11:36:20 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+11:36:23 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+11:36:23 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+11:36:23 INFO  : Context for processor 'microblaze_0' is selected.
+11:36:23 INFO  : Processor reset is completed for 'microblaze_0'.
+11:36:23 INFO  : Context for processor 'microblaze_0' is selected.
+11:36:23 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf' is downloaded to processor 'microblaze_0'.
+11:36:23 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf
+----------------End of Script----------------
+
+11:36:23 INFO  : Context for processor 'microblaze_0' is selected.
+11:36:24 INFO  : 'con' command is executed.
+11:36:24 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+11:36:24 INFO  : Disconnected from the channel tcfchan#14.
+11:40:32 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+11:40:32 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+11:40:32 INFO  : 'jtag frequency' command is executed.
+11:40:32 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+11:40:34 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+11:40:34 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+11:40:34 INFO  : Context for processor 'microblaze_0' is selected.
+11:40:34 INFO  : Processor reset is completed for 'microblaze_0'.
+11:40:35 INFO  : Context for processor 'microblaze_0' is selected.
+11:40:35 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+11:40:35 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+11:40:35 INFO  : Context for processor 'microblaze_0' is selected.
+11:40:35 INFO  : 'con' command is executed.
+11:40:35 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+11:40:35 INFO  : Disconnected from the channel tcfchan#15.
+11:45:37 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+11:45:37 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+11:45:37 INFO  : 'jtag frequency' command is executed.
+11:45:37 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+11:45:39 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+11:45:39 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+11:45:39 INFO  : Context for processor 'microblaze_0' is selected.
+11:45:40 INFO  : Processor reset is completed for 'microblaze_0'.
+11:45:40 INFO  : Context for processor 'microblaze_0' is selected.
+11:45:40 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf' is downloaded to processor 'microblaze_0'.
+11:45:40 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf
+----------------End of Script----------------
+
+11:45:40 INFO  : Context for processor 'microblaze_0' is selected.
+11:45:40 INFO  : 'con' command is executed.
+11:45:40 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+11:45:40 INFO  : Disconnected from the channel tcfchan#16.
+11:45:51 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+11:45:51 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+11:45:51 INFO  : 'jtag frequency' command is executed.
+11:45:51 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+11:45:53 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+11:45:53 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+11:45:53 INFO  : Context for processor 'microblaze_0' is selected.
+11:45:53 INFO  : Processor reset is completed for 'microblaze_0'.
+11:45:53 INFO  : Context for processor 'microblaze_0' is selected.
+11:45:54 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+11:45:54 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+11:45:54 INFO  : Context for processor 'microblaze_0' is selected.
+11:45:54 INFO  : 'con' command is executed.
+11:45:54 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+11:45:54 INFO  : Disconnected from the channel tcfchan#17.
+11:46:05 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+11:46:06 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+11:46:06 INFO  : 'jtag frequency' command is executed.
+11:46:06 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+11:46:08 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+11:46:08 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+11:46:08 INFO  : Context for processor 'microblaze_0' is selected.
+11:46:08 INFO  : Processor reset is completed for 'microblaze_0'.
+11:46:08 INFO  : Context for processor 'microblaze_0' is selected.
+11:46:09 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf' is downloaded to processor 'microblaze_0'.
+11:46:09 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf
+----------------End of Script----------------
+
+11:46:09 INFO  : Context for processor 'microblaze_0' is selected.
+11:46:09 INFO  : 'con' command is executed.
+11:46:09 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+11:46:09 INFO  : Disconnected from the channel tcfchan#18.
+11:46:18 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+11:46:18 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+11:46:18 INFO  : 'jtag frequency' command is executed.
+11:46:18 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+11:46:21 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+11:46:21 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+11:46:21 INFO  : Context for processor 'microblaze_0' is selected.
+11:46:21 INFO  : Processor reset is completed for 'microblaze_0'.
+11:46:21 INFO  : Context for processor 'microblaze_0' is selected.
+11:46:21 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+11:46:21 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+11:46:21 INFO  : Context for processor 'microblaze_0' is selected.
+11:46:21 INFO  : 'con' command is executed.
+11:46:21 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+11:46:21 INFO  : Disconnected from the channel tcfchan#19.
+11:46:39 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+11:46:39 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+11:46:39 INFO  : 'jtag frequency' command is executed.
+11:46:40 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+11:46:42 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+11:46:42 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+11:46:42 INFO  : Context for processor 'microblaze_0' is selected.
+11:46:42 INFO  : Processor reset is completed for 'microblaze_0'.
+11:46:42 INFO  : Context for processor 'microblaze_0' is selected.
+11:46:43 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf' is downloaded to processor 'microblaze_0'.
+11:46:43 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/networktest/Debug/networktest.elf
+----------------End of Script----------------
+
+11:46:43 INFO  : Context for processor 'microblaze_0' is selected.
+11:46:43 INFO  : 'con' command is executed.
+11:46:43 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+11:46:43 INFO  : Disconnected from the channel tcfchan#20.
+11:46:44 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+11:46:45 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+11:46:45 INFO  : 'jtag frequency' command is executed.
+11:46:45 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+11:46:47 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+11:46:47 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+11:46:47 INFO  : Context for processor 'microblaze_0' is selected.
+11:46:47 INFO  : Processor reset is completed for 'microblaze_0'.
+11:46:47 INFO  : Context for processor 'microblaze_0' is selected.
+11:46:47 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+11:46:47 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+11:46:47 INFO  : Context for processor 'microblaze_0' is selected.
+11:46:47 INFO  : 'con' command is executed.
+11:46:47 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+11:46:47 INFO  : Disconnected from the channel tcfchan#21.
+11:49:15 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+11:49:15 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+11:49:15 INFO  : 'jtag frequency' command is executed.
+11:49:15 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+11:49:17 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+11:49:17 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+11:49:18 INFO  : Context for processor 'microblaze_0' is selected.
+11:49:18 INFO  : Processor reset is completed for 'microblaze_0'.
+11:49:18 INFO  : Context for processor 'microblaze_0' is selected.
+11:49:18 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+11:49:18 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+11:49:18 INFO  : Context for processor 'microblaze_0' is selected.
+11:49:18 INFO  : 'con' command is executed.
+11:49:18 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+11:49:18 INFO  : Disconnected from the channel tcfchan#22.
+11:50:16 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+11:50:16 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+11:50:16 INFO  : 'jtag frequency' command is executed.
+11:50:16 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+11:50:19 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+11:50:19 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+11:50:19 INFO  : Context for processor 'microblaze_0' is selected.
+11:50:19 INFO  : Processor reset is completed for 'microblaze_0'.
+11:50:19 INFO  : Context for processor 'microblaze_0' is selected.
+11:50:19 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+11:50:19 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+11:50:19 INFO  : Context for processor 'microblaze_0' is selected.
+11:50:19 INFO  : 'con' command is executed.
+11:50:19 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+11:50:19 INFO  : Disconnected from the channel tcfchan#23.
+11:52:16 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+11:52:16 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+11:52:16 INFO  : 'jtag frequency' command is executed.
+11:52:16 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+11:52:19 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+11:52:19 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+11:52:19 INFO  : Context for processor 'microblaze_0' is selected.
+11:52:19 INFO  : Processor reset is completed for 'microblaze_0'.
+11:52:19 INFO  : Context for processor 'microblaze_0' is selected.
+11:52:19 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+11:52:19 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+11:52:19 INFO  : Context for processor 'microblaze_0' is selected.
+11:52:19 INFO  : 'con' command is executed.
+11:52:19 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+11:52:19 INFO  : Disconnected from the channel tcfchan#24.
+12:05:56 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+12:05:57 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+12:05:57 INFO  : 'jtag frequency' command is executed.
+12:05:57 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+12:05:59 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+12:05:59 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+12:05:59 INFO  : Context for processor 'microblaze_0' is selected.
+12:05:59 INFO  : Processor reset is completed for 'microblaze_0'.
+12:05:59 INFO  : Context for processor 'microblaze_0' is selected.
+12:06:00 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+12:06:00 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+12:06:00 INFO  : Context for processor 'microblaze_0' is selected.
+12:06:00 INFO  : 'con' command is executed.
+12:06:00 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+12:06:00 INFO  : Disconnected from the channel tcfchan#25.
+12:06:24 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+12:06:24 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+12:06:24 INFO  : 'jtag frequency' command is executed.
+12:06:25 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+12:06:27 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+12:06:27 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+12:06:27 INFO  : Context for processor 'microblaze_0' is selected.
+12:06:27 INFO  : Processor reset is completed for 'microblaze_0'.
+12:06:27 INFO  : Context for processor 'microblaze_0' is selected.
+12:06:27 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+12:06:27 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+12:06:27 INFO  : Context for processor 'microblaze_0' is selected.
+12:06:27 INFO  : 'con' command is executed.
+12:06:27 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+12:06:27 INFO  : Disconnected from the channel tcfchan#26.
+12:08:30 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+12:08:31 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+12:08:31 INFO  : 'jtag frequency' command is executed.
+12:08:31 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+12:08:33 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+12:08:33 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+12:08:33 INFO  : Context for processor 'microblaze_0' is selected.
+12:08:33 INFO  : Processor reset is completed for 'microblaze_0'.
+12:08:33 INFO  : Context for processor 'microblaze_0' is selected.
+12:08:34 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+12:08:34 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+12:08:34 INFO  : Context for processor 'microblaze_0' is selected.
+12:08:34 INFO  : 'con' command is executed.
+12:08:34 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+12:08:34 INFO  : Disconnected from the channel tcfchan#27.
+12:09:26 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+12:09:26 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+12:09:26 INFO  : 'jtag frequency' command is executed.
+12:09:26 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+12:09:29 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+12:09:29 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+12:09:29 INFO  : Context for processor 'microblaze_0' is selected.
+12:09:29 INFO  : Processor reset is completed for 'microblaze_0'.
+12:09:29 INFO  : Context for processor 'microblaze_0' is selected.
+12:09:29 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+12:09:29 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+12:09:29 INFO  : Context for processor 'microblaze_0' is selected.
+12:09:29 INFO  : 'con' command is executed.
+12:09:29 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+12:09:29 INFO  : Disconnected from the channel tcfchan#28.
+12:14:51 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+12:14:52 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+12:14:52 INFO  : 'jtag frequency' command is executed.
+12:14:52 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+12:14:54 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+12:14:54 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+12:14:54 INFO  : Context for processor 'microblaze_0' is selected.
+12:14:54 INFO  : Processor reset is completed for 'microblaze_0'.
+12:14:54 INFO  : Context for processor 'microblaze_0' is selected.
+12:14:54 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+12:14:54 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+12:14:54 INFO  : Context for processor 'microblaze_0' is selected.
+12:14:54 INFO  : 'con' command is executed.
+12:14:54 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+12:14:54 INFO  : Disconnected from the channel tcfchan#29.
+12:26:53 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+12:26:54 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+12:26:54 INFO  : 'jtag frequency' command is executed.
+12:26:54 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+12:26:56 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+12:26:56 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+12:26:56 INFO  : Context for processor 'microblaze_0' is selected.
+12:26:56 INFO  : Processor reset is completed for 'microblaze_0'.
+12:26:56 INFO  : Context for processor 'microblaze_0' is selected.
+12:26:56 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+12:26:56 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+12:26:56 INFO  : Context for processor 'microblaze_0' is selected.
+12:26:56 INFO  : 'con' command is executed.
+12:26:56 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+12:26:56 INFO  : Disconnected from the channel tcfchan#30.
+12:33:58 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+12:33:58 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+12:33:58 INFO  : 'jtag frequency' command is executed.
+12:33:59 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+12:34:01 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+12:34:01 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+12:34:01 INFO  : Context for processor 'microblaze_0' is selected.
+12:34:01 INFO  : Processor reset is completed for 'microblaze_0'.
+12:34:01 INFO  : Context for processor 'microblaze_0' is selected.
+12:34:01 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+12:34:01 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+12:34:01 INFO  : Context for processor 'microblaze_0' is selected.
+12:34:01 INFO  : 'con' command is executed.
+12:34:01 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+12:34:01 INFO  : Disconnected from the channel tcfchan#31.
+12:35:59 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+12:36:00 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+12:36:00 INFO  : 'jtag frequency' command is executed.
+12:36:00 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+12:36:02 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+12:36:02 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+12:36:02 INFO  : Context for processor 'microblaze_0' is selected.
+12:36:02 INFO  : Processor reset is completed for 'microblaze_0'.
+12:36:02 INFO  : Context for processor 'microblaze_0' is selected.
+12:36:02 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+12:36:02 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+12:36:02 INFO  : Context for processor 'microblaze_0' is selected.
+12:36:02 INFO  : 'con' command is executed.
+12:36:02 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+12:36:02 INFO  : Disconnected from the channel tcfchan#32.
+12:36:45 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+12:36:46 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+12:36:46 INFO  : 'jtag frequency' command is executed.
+12:36:46 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+12:36:48 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+12:36:48 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+12:36:48 INFO  : Context for processor 'microblaze_0' is selected.
+12:36:48 INFO  : Processor reset is completed for 'microblaze_0'.
+12:36:48 INFO  : Context for processor 'microblaze_0' is selected.
+12:36:48 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+12:36:48 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+12:36:48 INFO  : Context for processor 'microblaze_0' is selected.
+12:36:48 INFO  : 'con' command is executed.
+12:36:48 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+12:36:48 INFO  : Disconnected from the channel tcfchan#33.
+12:37:20 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+12:37:20 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+12:37:20 INFO  : 'jtag frequency' command is executed.
+12:37:20 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+12:37:22 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+12:37:22 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+12:37:23 INFO  : Context for processor 'microblaze_0' is selected.
+12:37:23 INFO  : Processor reset is completed for 'microblaze_0'.
+12:37:23 INFO  : Context for processor 'microblaze_0' is selected.
+12:37:23 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+12:37:23 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+12:37:23 INFO  : Context for processor 'microblaze_0' is selected.
+12:37:23 INFO  : 'con' command is executed.
+12:37:23 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+12:37:23 INFO  : Disconnected from the channel tcfchan#34.
+12:39:04 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+12:39:05 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+12:39:05 INFO  : 'jtag frequency' command is executed.
+12:39:05 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+12:39:07 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+12:39:07 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+12:39:07 INFO  : Context for processor 'microblaze_0' is selected.
+12:39:07 INFO  : Processor reset is completed for 'microblaze_0'.
+12:39:07 INFO  : Context for processor 'microblaze_0' is selected.
+12:39:07 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+12:39:07 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+12:39:07 INFO  : Context for processor 'microblaze_0' is selected.
+12:39:08 INFO  : 'con' command is executed.
+12:39:08 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+12:39:08 INFO  : Disconnected from the channel tcfchan#35.
+12:39:35 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+12:39:36 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+12:39:36 INFO  : 'jtag frequency' command is executed.
+12:39:36 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+12:39:38 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+12:39:38 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+12:39:38 INFO  : Context for processor 'microblaze_0' is selected.
+12:39:38 INFO  : Processor reset is completed for 'microblaze_0'.
+12:39:38 INFO  : Context for processor 'microblaze_0' is selected.
+12:39:38 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+12:39:38 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+12:39:38 INFO  : Context for processor 'microblaze_0' is selected.
+12:39:38 INFO  : 'con' command is executed.
+12:39:38 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+12:39:38 INFO  : Disconnected from the channel tcfchan#36.
+12:42:23 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+12:42:24 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+12:42:24 INFO  : 'jtag frequency' command is executed.
+12:42:24 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+12:42:26 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+12:42:26 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+12:42:26 INFO  : Context for processor 'microblaze_0' is selected.
+12:42:26 INFO  : Processor reset is completed for 'microblaze_0'.
+12:42:26 INFO  : Context for processor 'microblaze_0' is selected.
+12:42:26 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+12:42:26 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+12:42:26 INFO  : Context for processor 'microblaze_0' is selected.
+12:42:26 INFO  : 'con' command is executed.
+12:42:26 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+12:42:26 INFO  : Disconnected from the channel tcfchan#37.
+12:45:07 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+12:45:08 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+12:45:08 INFO  : 'jtag frequency' command is executed.
+12:45:08 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+12:45:10 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+12:45:10 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+12:45:10 INFO  : Context for processor 'microblaze_0' is selected.
+12:45:10 INFO  : Processor reset is completed for 'microblaze_0'.
+12:45:10 INFO  : Context for processor 'microblaze_0' is selected.
+12:45:10 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+12:45:10 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+12:45:10 INFO  : Context for processor 'microblaze_0' is selected.
+12:45:11 INFO  : 'con' command is executed.
+12:45:11 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+12:45:11 INFO  : Disconnected from the channel tcfchan#38.
+14:59:30 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+14:59:31 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+14:59:31 INFO  : 'jtag frequency' command is executed.
+14:59:31 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+14:59:33 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+14:59:33 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+14:59:33 INFO  : Context for processor 'microblaze_0' is selected.
+14:59:33 INFO  : Processor reset is completed for 'microblaze_0'.
+14:59:33 INFO  : Context for processor 'microblaze_0' is selected.
+14:59:33 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+14:59:33 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+14:59:33 INFO  : Context for processor 'microblaze_0' is selected.
+14:59:33 INFO  : 'con' command is executed.
+14:59:33 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+14:59:33 INFO  : Disconnected from the channel tcfchan#39.
+20:25:26 INFO  : Registering command handlers for SDK TCF services
+20:25:27 INFO  : Launching XSCT server: xsct.bat -interactive C:\Users\horse\Documents\Xilinx_Projects\mblaze_test\mblaze_test.sdk\temp_xsdb_launch_script.tcl
+20:25:31 INFO  : XSCT server has started successfully.
+20:25:31 INFO  : Successfully done setting XSCT server connection channel  
+20:25:35 INFO  : Successfully done setting SDK workspace  
+20:25:35 INFO  : Processing command line option -hwspec C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper.hdf.
+20:25:35 INFO  : Checking for hwspec changes in the project mblaze_test_wrapper_hw_platform_0.
+20:25:40 INFO  : SDK has detected change in the last modified timestamps for source hardware specification file Source:1612187151584,  Project:1612186270307
+20:25:40 INFO  : The hardware specification for project 'mblaze_test_wrapper_hw_platform_0' is different from C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper.hdf.
+20:25:40 INFO  : Copied contents of C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper.hdf into \mblaze_test_wrapper_hw_platform_0\system.hdf.
+20:25:40 INFO  : Synchronizing projects in the workspace with the hardware platform specification changes.
+20:25:46 INFO  : 
+20:25:47 INFO  : Updating hardware inferred compiler options for test2.
+20:25:47 INFO  : Clearing existing target manager status.
+20:31:23 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:31:24 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+20:31:24 INFO  : 'jtag frequency' command is executed.
+20:31:24 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+20:31:26 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+20:31:26 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+20:31:26 INFO  : Context for processor 'microblaze_0' is selected.
+20:31:26 INFO  : Processor reset is completed for 'microblaze_0'.
+20:31:26 INFO  : Context for processor 'microblaze_0' is selected.
+20:31:27 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+20:31:27 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+20:31:27 INFO  : Context for processor 'microblaze_0' is selected.
+20:31:27 INFO  : 'con' command is executed.
+20:31:27 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+20:31:27 INFO  : Disconnected from the channel tcfchan#1.
+20:50:27 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+20:50:28 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+20:50:28 INFO  : 'jtag frequency' command is executed.
+20:50:28 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+20:50:30 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+20:50:30 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+20:50:30 INFO  : Context for processor 'microblaze_0' is selected.
+20:50:30 INFO  : Processor reset is completed for 'microblaze_0'.
+20:50:30 INFO  : Context for processor 'microblaze_0' is selected.
+20:50:30 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+20:50:30 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+20:50:30 INFO  : Context for processor 'microblaze_0' is selected.
+20:50:30 INFO  : 'con' command is executed.
+20:50:30 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+20:50:31 INFO  : Disconnected from the channel tcfchan#2.
+21:11:36 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:11:36 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+21:11:36 INFO  : 'jtag frequency' command is executed.
+21:11:37 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+21:11:39 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+21:11:39 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+21:11:39 INFO  : Context for processor 'microblaze_0' is selected.
+21:11:39 INFO  : Processor reset is completed for 'microblaze_0'.
+21:11:39 INFO  : Context for processor 'microblaze_0' is selected.
+21:11:39 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+21:11:39 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+21:11:39 INFO  : Context for processor 'microblaze_0' is selected.
+21:11:39 INFO  : 'con' command is executed.
+21:11:39 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+21:11:39 INFO  : Disconnected from the channel tcfchan#3.
+21:13:42 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:13:43 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+21:13:43 INFO  : 'jtag frequency' command is executed.
+21:13:43 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+21:13:45 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+21:13:45 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+21:13:45 INFO  : Context for processor 'microblaze_0' is selected.
+21:13:45 INFO  : Processor reset is completed for 'microblaze_0'.
+21:13:45 INFO  : Context for processor 'microblaze_0' is selected.
+21:13:45 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+21:13:45 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+21:13:45 INFO  : Context for processor 'microblaze_0' is selected.
+21:13:45 INFO  : 'con' command is executed.
+21:13:45 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+21:13:45 INFO  : Disconnected from the channel tcfchan#4.
+21:14:20 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:14:20 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+21:14:20 INFO  : 'jtag frequency' command is executed.
+21:14:20 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+21:14:23 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+21:14:23 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+21:14:23 INFO  : Context for processor 'microblaze_0' is selected.
+21:14:23 INFO  : Processor reset is completed for 'microblaze_0'.
+21:14:23 INFO  : Context for processor 'microblaze_0' is selected.
+21:14:23 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+21:14:23 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+21:14:23 INFO  : Context for processor 'microblaze_0' is selected.
+21:14:23 INFO  : 'con' command is executed.
+21:14:23 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+21:14:23 INFO  : Disconnected from the channel tcfchan#5.
+21:16:07 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:16:08 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+21:16:08 INFO  : 'jtag frequency' command is executed.
+21:16:08 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+21:16:10 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+21:16:10 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+21:16:10 INFO  : Context for processor 'microblaze_0' is selected.
+21:16:10 INFO  : Processor reset is completed for 'microblaze_0'.
+21:16:10 INFO  : Context for processor 'microblaze_0' is selected.
+21:16:10 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+21:16:10 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+21:16:10 INFO  : Context for processor 'microblaze_0' is selected.
+21:16:10 INFO  : 'con' command is executed.
+21:16:10 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+21:16:10 INFO  : Disconnected from the channel tcfchan#6.
+21:16:51 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:16:51 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+21:16:51 INFO  : 'jtag frequency' command is executed.
+21:16:51 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+21:16:53 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+21:16:53 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+21:16:53 INFO  : Context for processor 'microblaze_0' is selected.
+21:16:54 INFO  : Processor reset is completed for 'microblaze_0'.
+21:16:54 INFO  : Context for processor 'microblaze_0' is selected.
+21:16:54 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+21:16:54 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+21:16:54 INFO  : Context for processor 'microblaze_0' is selected.
+21:16:54 INFO  : 'con' command is executed.
+21:16:54 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+21:16:54 INFO  : Disconnected from the channel tcfchan#7.
+21:18:11 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:18:11 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+21:18:11 INFO  : 'jtag frequency' command is executed.
+21:18:11 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+21:18:13 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+21:18:13 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+21:18:14 INFO  : Context for processor 'microblaze_0' is selected.
+21:18:14 INFO  : Processor reset is completed for 'microblaze_0'.
+21:18:14 INFO  : Context for processor 'microblaze_0' is selected.
+21:18:14 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+21:18:14 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+21:18:14 INFO  : Context for processor 'microblaze_0' is selected.
+21:18:14 INFO  : 'con' command is executed.
+21:18:14 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+21:18:14 INFO  : Disconnected from the channel tcfchan#8.
+21:19:07 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:19:07 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+21:19:07 INFO  : 'jtag frequency' command is executed.
+21:19:07 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+21:19:09 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+21:19:09 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+21:19:09 INFO  : Context for processor 'microblaze_0' is selected.
+21:19:09 INFO  : Processor reset is completed for 'microblaze_0'.
+21:19:09 INFO  : Context for processor 'microblaze_0' is selected.
+21:19:10 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+21:19:10 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+21:19:10 INFO  : Context for processor 'microblaze_0' is selected.
+21:19:10 INFO  : 'con' command is executed.
+21:19:10 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+21:19:10 INFO  : Disconnected from the channel tcfchan#9.
+21:48:47 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:48:48 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+21:48:48 INFO  : 'jtag frequency' command is executed.
+21:48:48 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+21:48:50 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+21:48:50 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+21:48:50 INFO  : Context for processor 'microblaze_0' is selected.
+21:48:50 INFO  : Processor reset is completed for 'microblaze_0'.
+21:48:50 INFO  : Context for processor 'microblaze_0' is selected.
+21:48:50 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+21:48:50 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+21:48:50 INFO  : Context for processor 'microblaze_0' is selected.
+21:48:50 INFO  : 'con' command is executed.
+21:48:50 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+21:48:51 INFO  : Disconnected from the channel tcfchan#10.
+21:50:21 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:50:22 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+21:50:22 INFO  : 'jtag frequency' command is executed.
+21:50:22 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+21:50:24 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+21:50:24 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+21:50:24 INFO  : Context for processor 'microblaze_0' is selected.
+21:50:24 INFO  : Processor reset is completed for 'microblaze_0'.
+21:50:24 INFO  : Context for processor 'microblaze_0' is selected.
+21:50:24 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+21:50:24 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+21:50:24 INFO  : Context for processor 'microblaze_0' is selected.
+21:50:24 INFO  : 'con' command is executed.
+21:50:24 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+21:50:24 INFO  : Disconnected from the channel tcfchan#11.
+21:51:33 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:51:33 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+21:51:33 INFO  : 'jtag frequency' command is executed.
+21:51:33 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+21:51:36 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+21:51:36 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+21:51:36 INFO  : Context for processor 'microblaze_0' is selected.
+21:51:36 INFO  : Processor reset is completed for 'microblaze_0'.
+21:51:36 INFO  : Context for processor 'microblaze_0' is selected.
+21:51:36 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+21:51:36 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+21:51:36 INFO  : Context for processor 'microblaze_0' is selected.
+21:51:36 INFO  : 'con' command is executed.
+21:51:36 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+21:51:36 INFO  : Disconnected from the channel tcfchan#12.
+21:52:35 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:52:35 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+21:52:35 INFO  : 'jtag frequency' command is executed.
+21:52:35 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+21:52:38 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+21:52:38 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+21:52:38 INFO  : Context for processor 'microblaze_0' is selected.
+21:52:38 INFO  : Processor reset is completed for 'microblaze_0'.
+21:52:38 INFO  : Context for processor 'microblaze_0' is selected.
+21:52:38 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+21:52:38 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+21:52:38 INFO  : Context for processor 'microblaze_0' is selected.
+21:52:38 INFO  : 'con' command is executed.
+21:52:38 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+21:52:38 INFO  : Disconnected from the channel tcfchan#13.
+21:53:25 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:53:26 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+21:53:26 INFO  : 'jtag frequency' command is executed.
+21:53:26 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+21:53:28 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+21:53:28 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+21:53:28 INFO  : Context for processor 'microblaze_0' is selected.
+21:53:28 INFO  : Processor reset is completed for 'microblaze_0'.
+21:53:28 INFO  : Context for processor 'microblaze_0' is selected.
+21:53:28 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+21:53:28 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+21:53:28 INFO  : Context for processor 'microblaze_0' is selected.
+21:53:29 INFO  : 'con' command is executed.
+21:53:29 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+21:53:29 INFO  : Disconnected from the channel tcfchan#14.
+21:54:23 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:54:23 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+21:54:23 INFO  : 'jtag frequency' command is executed.
+21:54:23 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+21:54:26 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+21:54:26 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+21:54:26 INFO  : Context for processor 'microblaze_0' is selected.
+21:54:26 INFO  : Processor reset is completed for 'microblaze_0'.
+21:54:26 INFO  : Context for processor 'microblaze_0' is selected.
+21:54:26 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+21:54:26 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+21:54:26 INFO  : Context for processor 'microblaze_0' is selected.
+21:54:26 INFO  : 'con' command is executed.
+21:54:26 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+21:54:26 INFO  : Disconnected from the channel tcfchan#15.
+21:57:33 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:57:33 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+21:57:33 INFO  : 'jtag frequency' command is executed.
+21:57:33 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+21:57:36 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+21:57:36 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+21:57:36 INFO  : Context for processor 'microblaze_0' is selected.
+21:57:36 INFO  : Processor reset is completed for 'microblaze_0'.
+21:57:36 INFO  : Context for processor 'microblaze_0' is selected.
+21:57:36 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+21:57:36 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+21:57:36 INFO  : Context for processor 'microblaze_0' is selected.
+21:57:36 INFO  : 'con' command is executed.
+21:57:36 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+21:57:36 INFO  : Disconnected from the channel tcfchan#16.
+21:58:58 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+21:58:58 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+21:58:58 INFO  : 'jtag frequency' command is executed.
+21:58:58 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+21:59:00 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+21:59:00 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+21:59:01 INFO  : Context for processor 'microblaze_0' is selected.
+21:59:01 INFO  : Processor reset is completed for 'microblaze_0'.
+21:59:01 INFO  : Context for processor 'microblaze_0' is selected.
+21:59:01 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+21:59:01 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+21:59:01 INFO  : Context for processor 'microblaze_0' is selected.
+21:59:01 INFO  : 'con' command is executed.
+21:59:01 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+21:59:01 INFO  : Disconnected from the channel tcfchan#17.
+22:05:10 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:05:11 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+22:05:11 INFO  : 'jtag frequency' command is executed.
+22:05:11 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+22:05:13 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+22:05:13 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+22:05:13 INFO  : Context for processor 'microblaze_0' is selected.
+22:05:13 INFO  : Processor reset is completed for 'microblaze_0'.
+22:05:13 INFO  : Context for processor 'microblaze_0' is selected.
+22:05:13 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+22:05:13 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+22:05:13 INFO  : Context for processor 'microblaze_0' is selected.
+22:05:13 INFO  : 'con' command is executed.
+22:05:13 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+22:05:13 INFO  : Disconnected from the channel tcfchan#18.
+22:29:26 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:29:26 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+22:29:26 INFO  : 'jtag frequency' command is executed.
+22:29:26 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+22:29:28 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+22:29:28 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+22:29:28 INFO  : Context for processor 'microblaze_0' is selected.
+22:29:28 INFO  : Processor reset is completed for 'microblaze_0'.
+22:29:29 INFO  : Context for processor 'microblaze_0' is selected.
+22:29:29 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+22:29:29 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+22:29:29 INFO  : Context for processor 'microblaze_0' is selected.
+22:29:29 INFO  : 'con' command is executed.
+22:29:29 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+22:29:29 INFO  : Disconnected from the channel tcfchan#19.
+22:32:23 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:32:23 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+22:32:23 INFO  : 'jtag frequency' command is executed.
+22:32:23 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+22:32:25 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+22:32:25 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+22:32:25 INFO  : Context for processor 'microblaze_0' is selected.
+22:32:25 INFO  : Processor reset is completed for 'microblaze_0'.
+22:32:25 INFO  : Context for processor 'microblaze_0' is selected.
+22:32:26 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+22:32:26 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+22:32:26 INFO  : Context for processor 'microblaze_0' is selected.
+22:32:26 INFO  : 'con' command is executed.
+22:32:26 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+22:32:26 INFO  : Disconnected from the channel tcfchan#20.
+22:33:06 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+22:33:06 INFO  : Jtag cable 'Digilent Nexys4DDR 210292A6E471A' is selected.
+22:33:06 INFO  : 'jtag frequency' command is executed.
+22:33:06 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0' command is executed.
+22:33:09 INFO  : FPGA configured successfully with bitstream "C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit"
+22:33:09 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+22:33:09 INFO  : Context for processor 'microblaze_0' is selected.
+22:33:09 INFO  : Processor reset is completed for 'microblaze_0'.
+22:33:09 INFO  : Context for processor 'microblaze_0' is selected.
+22:33:09 INFO  : The application 'C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf' is downloaded to processor 'microblaze_0'.
+22:33:09 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A" && level==0} -index 0
+fpga -file C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper_hw_platform_0/mblaze_test_wrapper.bit
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+dow C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/test2/Debug/test2.elf
+----------------End of Script----------------
+
+22:33:09 INFO  : Context for processor 'microblaze_0' is selected.
+22:33:09 INFO  : 'con' command is executed.
+22:33:09 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "microblaze*#0" && bscan=="USER2"  && jtag_cable_name =~ "Digilent Nexys4DDR 210292A6E471A"} -index 0
+con
+----------------End of Script----------------
+
+22:33:09 INFO  : Disconnected from the channel tcfchan#21.
+22:36:26 INFO  : Registering command handlers for SDK TCF services
+22:36:27 INFO  : Launching XSCT server: xsct.bat -interactive C:\Users\horse\Documents\Xilinx_Projects\mblaze_test\mblaze_test.sdk\temp_xsdb_launch_script.tcl
+22:36:30 INFO  : XSCT server has started successfully.
+22:36:31 INFO  : Successfully done setting XSCT server connection channel  
+22:36:31 INFO  : Successfully done setting SDK workspace  
+22:36:31 INFO  : Processing command line option -hwspec C:/Users/horse/Documents/Xilinx_Projects/mblaze_test/mblaze_test.sdk/mblaze_test_wrapper.hdf.
+22:36:31 INFO  : Checking for hwspec changes in the project mblaze_test_wrapper_hw_platform_0.

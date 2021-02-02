@@ -1,0 +1,16 @@
+/*
+ * allleters.h
+ *
+ *  Created on: Feb 1, 2021
+ *      Author: horse
+ */
+
+#ifndef SRC_ALLLETERS_H_
+#define SRC_ALLLETERS_H_
+
+typedef uint8_t byte;
+typedef uint32_t word;
+
+const uint8_t LET_00 = 0x00;
+
+#endif /* SRC_ALLLETERS_H_ */
