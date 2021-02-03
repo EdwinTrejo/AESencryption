@@ -1,0 +1,19 @@
+/*
+ * allleters.h
+ *
+ *  Created on: Feb 1, 2021
+ *      Author: horse
+ */
+
+#ifndef SRC_ALLLETERS_H_
+#define SRC_ALLLETERS_H_
+
+typedef uint8_t byte;
+typedef uint32_t word;
+
+const byte LETTER_REPLACE = {
+		//0     1    2      3     4    5     6     7      8    9     A      B    C     D     E     F
+		0x00,
+};
+
+#endif /* SRC_ALLLETERS_H_ */

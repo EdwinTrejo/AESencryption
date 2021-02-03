@@ -1,0 +1,7 @@
+#include "allleters.h"
+
+uint8_t getSBoxValue(uint8_t number)
+{
+  //ascii numbering
+  return LETTER_REPLACE[number];
+}
