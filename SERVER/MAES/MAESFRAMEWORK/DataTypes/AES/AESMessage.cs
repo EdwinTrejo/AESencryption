@@ -14,8 +14,9 @@ namespace MAESFRAMEWORK.DataTypes.AES
         /// MessageType 2 Decrypt this
         /// MessageType 3 Encryption Result
         /// MessageType 4 Decryption Result
-        /// MessageType 5 new Character Replacement Schema
-        /// MessageType 6 delete Character Replacement Schema
+        /// MessageType 5 Generate Character Replacement Schema
+        /// MessageType 6 Delete Character Replacement Schema
+        /// MessageType 7 Inform Character Replacement Schema Generated
         /// </summary>
         [JsonProperty("MessageType", Required = Newtonsoft.Json.Required.Always)]
         public int MessageType { get; set; }
