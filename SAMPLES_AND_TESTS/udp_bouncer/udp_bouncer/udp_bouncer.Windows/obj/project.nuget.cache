@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "JnGUCU+rAeRtccVFJfDiU2spzpmw4NX1sI2/pERUhCyGeZScPkzE3H1IdmPpD4SjFmZfYG6sLk+TyHkMbV2U5g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\horse\\source\\repos\\udp_bouncer\\udp_bouncer\\udp_bouncer.Windows\\udp_bouncer.Windows.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\horse\\.nuget\\packages\\opentk\\3.0.1\\opentk.3.0.1.nupkg.sha512",
+    "C:\\Users\\horse\\.nuget\\packages\\opentk.glcontrol\\3.0.1\\opentk.glcontrol.3.0.1.nupkg.sha512",
+    "C:\\Users\\horse\\.nuget\\packages\\xamarin.forms\\4.3.0.947036\\xamarin.forms.4.3.0.947036.nupkg.sha512",
+    "C:\\Users\\horse\\.nuget\\packages\\xamarin.forms.platform.wpf\\4.3.0.947036\\xamarin.forms.platform.wpf.4.3.0.947036.nupkg.sha512"
+  ],
+  "logs": []
+}
