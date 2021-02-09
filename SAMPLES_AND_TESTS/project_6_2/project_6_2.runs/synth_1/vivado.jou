@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Sun Jan 31 00:19:24 2021
+# Process ID: 54296
+# Current directory: C:/Users/horse/Documents/Xilinx_Projects/project_6_2/project_6_2.runs/synth_1
+# Command line: vivado.exe -log nexys4ddr.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source nexys4ddr.tcl
+# Log file: C:/Users/horse/Documents/Xilinx_Projects/project_6_2/project_6_2.runs/synth_1/nexys4ddr.vds
+# Journal file: C:/Users/horse/Documents/Xilinx_Projects/project_6_2/project_6_2.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source nexys4ddr.tcl -notrace

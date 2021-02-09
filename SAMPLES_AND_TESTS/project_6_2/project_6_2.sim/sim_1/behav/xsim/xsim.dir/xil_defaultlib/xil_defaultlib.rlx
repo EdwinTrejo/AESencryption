@@ -1,0 +1,9 @@
+0.7
+2020.2
+Nov 18 2020
+09:47:47
+C:/Users/horse/Documents/Xilinx_Projects/project_6_2/project_6_2.sim/sim_1/behav/xsim/glbl.v,1573089660,verilog,,,,glbl,,,,,,,,
+C:/Users/horse/Documents/Xilinx_Projects/project_6_2/project_6_2.srcs/sim_1/new/hamming_check_tb.v,1588837939,verilog,,,,hamming_check_tb,,,,,,,,
+C:/Users/horse/Documents/Xilinx_Projects/project_6_2/project_6_2.srcs/sources_1/new/debounce.v,1588805467,verilog,,C:/Users/horse/Documents/Xilinx_Projects/project_6_2/project_6_2.srcs/sources_1/new/serial_device.v,,Edge_Detector;Filter;debounce;dff_resetless,,,,,,,,
+C:/Users/horse/Documents/Xilinx_Projects/project_6_2/project_6_2.srcs/sources_1/new/hamming_ecc.v,1589090754,verilog,,C:/Users/horse/Documents/Xilinx_Projects/project_6_2/project_6_2.srcs/sim_1/new/hamming_check_tb.v,,hamming_check;hamming_ecc,,,,,,,,
+C:/Users/horse/Documents/Xilinx_Projects/project_6_2/project_6_2.srcs/sources_1/new/serial_device.v,1588833855,verilog,,,,serial_device,,,,,,,,

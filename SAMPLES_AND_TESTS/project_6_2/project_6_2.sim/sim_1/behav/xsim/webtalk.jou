@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2019.2.1 (64-bit)
+# SW Build 2729669 on Thu Dec  5 04:49:17 MST 2019
+# IP Build 2729494 on Thu Dec  5 07:38:25 MST 2019
+# Start of session at: Thu May  7 02:54:08 2020
+# Process ID: 16052
+# Current directory: C:/Users/horse/Documents/Xilinx_Projects/project_6_2/project_6_2.sim/sim_1/behav/xsim
+# Command line: wbtcv.exe -mode batch -source C:/Users/horse/Documents/Xilinx_Projects/project_6_2/project_6_2.sim/sim_1/behav/xsim/xsim.dir/hamming_check_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: C:/Users/horse/Documents/Xilinx_Projects/project_6_2/project_6_2.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: C:/Users/horse/Documents/Xilinx_Projects/project_6_2/project_6_2.sim/sim_1/behav/xsim\webtalk.jou
+#-----------------------------------------------------------
+source C:/Users/horse/Documents/Xilinx_Projects/project_6_2/project_6_2.sim/sim_1/behav/xsim/xsim.dir/hamming_check_tb_behav/webtalk/xsim_webtalk.tcl -notrace
