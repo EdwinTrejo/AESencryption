@@ -1,7 +1,0 @@
-Running: xsim.dir/EncDecController_tb_behav/xsimk.exe -simmode gui -wdb EncDecController_tb_behav.wdb -simrunnum 0 -socket 49773
-Design successfully loaded
-Design Loading Memory Usage: 6180 KB (Peak: 6180 KB)
-Design Loading CPU Usage: 15 ms
-Simulation completed
-Simulation Memory Usage: 7120 KB (Peak: 7120 KB)
-Simulation CPU Usage: 31 ms

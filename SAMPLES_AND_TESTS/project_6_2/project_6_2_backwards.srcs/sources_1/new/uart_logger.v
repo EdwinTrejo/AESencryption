@@ -19,6 +19,17 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
+`define POS_ONE 63:56
+`define POS_TWO 55:48
+`define POS_THREE 47:40
+`define POS_FOUR 39:32
+`define POS_FIVE 31:24
+`define POS_SIX 23:16
+`define POS_SEVEN 15:8
+`define POS_EIGHT 7:0
+`define ON 1'b1
+`define OFF 1'b0
+
 // WILL ONLY ALLOW NON ASYNC FUNCTIONALITY OF UART
 module uart_logger(
     //hardware interfaces
@@ -62,9 +73,7 @@ module uart_logger(
     parameter BYTE_SEVEN = 4'h7;
     parameter BYTE_EIGHT = 4'h8;
     
-    parameter ON = 1'b1;
-    parameter OFF = 1'b0;
-    reg uart_state = OFF;
+    reg uart_state = `OFF;
     
     //state machine
     parameter SM_IDLE = 4'h1;
@@ -81,7 +90,7 @@ module uart_logger(
         sm_state <= next_sm_state;
     end : handle_states
     
-    /*
+    
     //RX registers
     parameter RX_IDLE = 0;
     parameter RX_CHECK_START = 1;
@@ -100,10 +109,11 @@ module uart_logger(
     end
 
     always @(clk) begin
-        if (tx_start == ON && uart_state == OFF) begin
+        if (received == `ON && uart_state == `OFF) begin
+            rx_data[7:0] <= received_data;
             tx_data <= tx_msg;
             next_tx_count <= BYTE_ONE;
-            uart_state <= ON;
+            uart_state <= `ON;
             sm_state <= SM_TX_SENDING;
         end
     end
@@ -137,10 +147,9 @@ module uart_logger(
     end
 
     //receive complete
-    assign rx_complete = (sm_state == SM_RX_STOP) ? ON : OFF;
+    assign rx_complete = (sm_state == SM_RX_STOP) ? `ON : `OFF;
     
-    */
-    
+        
     //TX registers    
     reg [3:0] tx_count = EMPTY;
     reg [3:0] next_tx_count = EMPTY;
@@ -148,10 +157,10 @@ module uart_logger(
     
     always @(clk)
     begin : tx_sending_start
-        if (tx_start == ON && uart_state == OFF) begin
+        if (tx_start == `ON && uart_state == `OFF) begin
             tx_data <= tx_msg;
             next_tx_count <= BYTE_ONE;
-            uart_state <= ON;
+            uart_state <= `ON;
             sm_state <= SM_TX_SENDING;
         end
     end : tx_sending_start
@@ -159,52 +168,52 @@ module uart_logger(
     always @(negedge is_transmitting | (~is_transmitting & clk))
     begin : handle_states_tx
         tx_count <= next_tx_count;
-        enable_tx <= OFF;
+        enable_tx <= `OFF;
     end : handle_states_tx
     
     always @(posedge clk & ~is_transmitting)
     begin : sending_message
         case (sm_state)
             SM_TX_SENDING: begin
-            enable_tx <= ON;
+            enable_tx <= `ON;
                 case (tx_count)
                     BYTE_ONE: begin
-                        send_data <= tx_data[63:56];
+                        send_data <= tx_data[`POS_ONE];
                         next_tx_count <= BYTE_TWO;
                     end
                     BYTE_TWO: begin
-                        send_data <= tx_data[55:48];
+                        send_data <= tx_data[`POS_TWO];
                         next_tx_count <= BYTE_THREE;
                     end
                     BYTE_THREE: begin
-                        send_data <= tx_data[47:40];
+                        send_data <= tx_data[`POS_THREE];
                         next_tx_count <= BYTE_FOUR;
                     end
                     BYTE_FOUR: begin
-                        send_data <= tx_data[39:32];
+                        send_data <= tx_data[`POS_FOUR];
                         next_tx_count <= BYTE_FIVE;
                     end
                     BYTE_FIVE: begin
-                        send_data <= tx_data[31:24];
+                        send_data <= tx_data[`POS_FIVE];
                         next_tx_count <= BYTE_SIX;
                     end
                     BYTE_SIX: begin
-                        send_data <= tx_data[23:16];
+                        send_data <= tx_data[`POS_SIX];
                         next_tx_count <= BYTE_SEVEN;
                     end
                     BYTE_SEVEN: begin
-                        send_data <= tx_data[15:8];
+                        send_data <= tx_data[`POS_SEVEN];
                         next_tx_count <= BYTE_EIGHT;
                     end
                     BYTE_EIGHT: begin
-                        send_data <= tx_data[7:0];
+                        send_data <= tx_data[`POS_EIGHT];
                         next_tx_count <= EMPTY;
                         next_sm_state <= SM_TX_STOP;
                     end
                 endcase
             end
             SM_TX_STOP: begin
-                uart_state <= OFF;
+                uart_state <= `OFF;
             end
         endcase
     end : sending_message
