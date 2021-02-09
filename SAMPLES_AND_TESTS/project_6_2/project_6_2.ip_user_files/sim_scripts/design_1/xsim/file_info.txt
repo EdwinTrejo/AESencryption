@@ -1,9 +1,0 @@
-design_1_axi_uartlite_0_1.vhd,vhdl,xil_defaultlib,../../../bd/design_1/ip/design_1_axi_uartlite_0_1/sim/design_1_axi_uartlite_0_1.vhd,
-design_1_ssd_0_0.v,verilog,xil_defaultlib,../../../bd/design_1/ip/design_1_ssd_0_0/sim/design_1_ssd_0_0.v,
-uart_axi_master_block_uart_axi_master_0_2.v,verilog,xil_defaultlib,../../../bd/design_1/ipshared/55c8/sim/uart_axi_master_block_uart_axi_master_0_2.v,
-debounce.v,verilog,xil_defaultlib,../../../bd/design_1/ipshared/55c8/src/debounce.v,
-uart_axi_master.v,verilog,xil_defaultlib,../../../bd/design_1/ipshared/55c8/src/uart_axi_master.v,
-uart_axi_master_block.v,verilog,xil_defaultlib,../../../bd/design_1/ipshared/55c8/sim/uart_axi_master_block.v,
-design_1_uart_axi_master_block_0_0.v,verilog,xil_defaultlib,../../../bd/design_1/ip/design_1_uart_axi_master_block_0_0/sim/design_1_uart_axi_master_block_0_0.v,
-design_1.v,verilog,xil_defaultlib,../../../bd/design_1/sim/design_1.v,
-glbl.v,Verilog,xil_defaultlib,glbl.v

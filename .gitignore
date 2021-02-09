@@ -1,8 +1,16 @@
 # https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#_ignoring
+#visual studio
 SERVER/**/bin/
 SERVER/**/.vs/
 SERVER/**/Debug/
 SAMPLES_AND_TESTS/**/bin/
 SAMPLES_AND_TESTS/**/.vs/
 SAMPLES_AND_TESTS/**/Debug/
+
+#vivado
 FPGA/**/.jobs/
+**/*.cache/
+**/*.runs/
+**/*.ip_user_files/
+**/*.hw/
+**/*.sim/sim_1/
