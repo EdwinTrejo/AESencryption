@@ -77,19 +77,17 @@ module uart_logger(
     
     //state machine
     parameter SM_IDLE = 4'h1;
-    parameter SM_RX_START = 4'h2;
-    parameter SM_RX_RECEIVING = 4'h3;
-    parameter SM_RX_STOP = 4'h4;
-    parameter SM_TX_SENDING = 4'h5;
-    parameter SM_TX_STOP = 4'h6;
+    parameter SM_RX_RECEIVING = 4'h2;
+    parameter SM_RX_STOP = 4'h3;
+    parameter SM_TX_SENDING = 4'h4;
+    parameter SM_TX_STOP = 4'h5;
     reg [3:0] sm_state = SM_IDLE;
     reg [3:0] next_sm_state = SM_IDLE;
     
     always @(clk)
     begin : handle_states
         sm_state <= next_sm_state;
-    end : handle_states
-    
+    end : handle_states    
     
     //RX registers
     parameter RX_IDLE = 0;
@@ -103,67 +101,70 @@ module uart_logger(
     reg [3:0] rx_count = EMPTY;
     reg [3:0] next_rx_count = EMPTY;
     reg [63:0] rx_data;
-    
-    always @(clk) begin
+        
+    always @(negedge received | (~received & clk))
+    begin : handle_states_rx
         rx_count <= next_rx_count;
-    end
-
-    always @(clk) begin
-        if (received == `ON && uart_state == `OFF) begin
-            rx_data[7:0] <= received_data;
-            tx_data <= tx_msg;
-            next_tx_count <= BYTE_ONE;
-            uart_state <= `ON;
-            sm_state <= SM_TX_SENDING;
+        if (rx_count == EMPTY & sm_state == SM_RX_STOP) begin
+            next_sm_state <= SM_IDLE;
         end
-    end
-    
-    always @(clk) begin
+    end : handle_states_rx
+
+    always @(posedge received | (received & clk))
+    begin : receiving_message
         case (sm_state)
-            SM_TX_SENDING: begin
-                case (tx_count)
-                    BYTE_ONE: begin
-                    end
+            SM_IDLE: begin
+                if (tx_start == `OFF && uart_state == `OFF) begin
+                    uart_state <= `ON;
+                    rx_data[`POS_ONE] <= received_data;
+                    next_rx_count <= BYTE_TWO;
+                    next_sm_state <= SM_RX_RECEIVING;
+                end
+            end
+            SM_RX_RECEIVING: begin
+                case (rx_count)
                     BYTE_TWO: begin
+                        rx_data[`POS_TWO] <= received_data;
+                        next_rx_count <= BYTE_THREE;
                     end
                     BYTE_THREE: begin
+                        rx_data[`POS_THREE] <= received_data;
+                        next_rx_count <= BYTE_FOUR;
                     end
                     BYTE_FOUR: begin
+                        rx_data[`POS_FOUR] <= received_data;
+                        next_rx_count <= BYTE_FIVE;
                     end
                     BYTE_FIVE: begin
+                        rx_data[`POS_FIVE] <= received_data;
+                        next_rx_count <= BYTE_SIX;
                     end
                     BYTE_SIX: begin
+                        rx_data[`POS_SIX] <= received_data;
+                        next_rx_count <= BYTE_SEVEN;
                     end
                     BYTE_SEVEN: begin
+                        rx_data[`POS_SEVEN] <= received_data;
+                        next_rx_count <= BYTE_EIGHT;
                     end
                     BYTE_EIGHT: begin
-                        tx_count <= EMPTY;
+                        rx_data[`POS_EIGHT] <= received_data;
+                        next_rx_count <= EMPTY;
+                        next_sm_state <= SM_RX_STOP;
+                        uart_state <= `OFF;
                     end
                 endcase
             end
-            SM_TX_STOP: begin
-            end
         endcase
-    end
+    end : receiving_message
 
     //receive complete
     assign rx_complete = (sm_state == SM_RX_STOP) ? `ON : `OFF;
-    
-        
-    //TX registers    
+            
+    //TX registers
     reg [3:0] tx_count = EMPTY;
     reg [3:0] next_tx_count = EMPTY;
     reg [63:0] tx_data;
-    
-    always @(clk)
-    begin : tx_sending_start
-        if (tx_start == `ON && uart_state == `OFF) begin
-            tx_data <= tx_msg;
-            next_tx_count <= BYTE_ONE;
-            uart_state <= `ON;
-            sm_state <= SM_TX_SENDING;
-        end
-    end : tx_sending_start
         
     always @(negedge is_transmitting | (~is_transmitting & clk))
     begin : handle_states_tx
@@ -174,6 +175,14 @@ module uart_logger(
     always @(posedge clk & ~is_transmitting)
     begin : sending_message
         case (sm_state)
+            SM_IDLE: begin
+                if (tx_start == `ON && uart_state == `OFF) begin
+                    tx_data <= tx_msg;
+                    next_tx_count <= BYTE_ONE;
+                    uart_state <= `ON;
+                    next_sm_state <= SM_TX_SENDING;
+                end
+            end
             SM_TX_SENDING: begin
             enable_tx <= `ON;
                 case (tx_count)
@@ -208,12 +217,10 @@ module uart_logger(
                     BYTE_EIGHT: begin
                         send_data <= tx_data[`POS_EIGHT];
                         next_tx_count <= EMPTY;
-                        next_sm_state <= SM_TX_STOP;
+                        uart_state <= `OFF;
+                        next_sm_state <= SM_IDLE;
                     end
                 endcase
-            end
-            SM_TX_STOP: begin
-                uart_state <= `OFF;
             end
         endcase
     end : sending_message
