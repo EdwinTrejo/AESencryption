@@ -2,7 +2,7 @@
 # Modified Advanced Encryption Standard **(**MAES**)**
 
 ## Students 
-* Truc Trin
+* Truc Trinh
 * Edwin Trejo
 * Faith Reichard
 * Tyler Richmond
@@ -17,10 +17,13 @@ SubProjects
 
 ## Hardware Specification
 #### xc7a100t-1csg324c
+#### possibly pynq z1
 
 ## Project Requirements
+# yes
 
 ## How To Use this project
+# yes
 
 1. thing number 1:
 
