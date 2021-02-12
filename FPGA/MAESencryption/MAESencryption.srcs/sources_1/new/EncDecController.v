@@ -20,10 +20,13 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module EncDecController(in_stream, out_stream, clk);
-    input [63:0] in_stream;
-    input clk;
-    output reg [63:0] out_stream;
+module EncDecController(
+        input clk,
+        input [63:0] in_stream,
+        output reg [63:0] out_stream,
+        input rx_complete,
+        output reg tx_start
+    );
     
     wire [63:0] encrypt_out_stream;
     reg [7:0] current_sm_state, next_sm_state;
@@ -45,7 +48,7 @@ module EncDecController(in_stream, out_stream, clk);
     
     //in_instruction
     always @(clk) begin
-        if (in_stream == 64'h1111111111111111 && current_sm_state == 0) begin
+        if (rx_complete == 1 & in_stream == 64'h1111111111111111 & current_sm_state == 0) begin
             //begin encryption
             encrypt_instruction <= 1;
             next_sm_state <= 1;
@@ -53,39 +56,43 @@ module EncDecController(in_stream, out_stream, clk);
     end
     
     always @(clk) begin
-        if (encrypt_state == 2 && current_sm_state == 1) begin
+        if (rx_complete == 1 & encrypt_state == 2 & current_sm_state == 1) begin
             encrypt_instruction <= 2;
             next_sm_state <= 2;
         end
-        else if (encrypt_state == 2 && current_sm_state == 2) begin
+        else if (rx_complete == 1 & encrypt_state == 2 & current_sm_state == 2) begin
             encrypt_instruction <= 3;
             next_sm_state <= 3;
         end
-        else if (encrypt_state == 2 && current_sm_state == 3) begin
+        else if (rx_complete == 1 & encrypt_state == 2 & current_sm_state == 3) begin
             encrypt_instruction <= 4;
             next_sm_state <= 4;
         end
-        else if (encrypt_state == 2 && current_sm_state == 4) begin
+        else if (rx_complete == 1 & encrypt_state == 2 & current_sm_state == 4) begin
             encrypt_instruction <= 5;
             next_sm_state <= 5;
         end
     end
     
-    always @(clk) begin
-        if (encrypt_state == 3 && current_sm_state == 5) begin
-            next_sm_state <= 6;
-            out_stream <= 64'h1111111111111111;
-        end
+    always @(negedge clk) begin
+        tx_start <= 0;
     end
     
     always @(clk) begin
-        if (encrypt_state == 4 && current_sm_state == 6) begin
+        if (encrypt_state == 3 & current_sm_state == 5) begin
+            next_sm_state <= 6;
+            out_stream <= 64'h1111111111111111;
+            tx_start <= 1;
+        end
+        else if (encrypt_state == 4 & current_sm_state == 6) begin
             out_stream <= encrypt_out_stream;
             next_sm_state <= 7;
+            tx_start <= 1;
         end
-        if (encrypt_state == 5 && current_sm_state == 7) begin
+        else if (encrypt_state == 5 & current_sm_state == 7) begin
             out_stream <= encrypt_out_stream;
             next_sm_state <= 0;
+            tx_start <= 1;
         end
     end
     
