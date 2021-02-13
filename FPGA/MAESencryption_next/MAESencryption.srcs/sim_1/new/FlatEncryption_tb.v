@@ -36,24 +36,26 @@ module FlatEncryption_tb();
         clk = 0;
         #1;
         //KEY
-        //H2B7E151628AED2A6 HABF7158809CF4F3C
+        //H 2B7E151628AED2A6 HABF7158809CF4F3C
+        //2B 7E 15 16 28 AE D2 A6 AB F7 15 88 09 CF 4F 3C
         //STATE
         //H0011223344556677 H8899AABBCCDDEEFF
+        //00 11 22 33 44 55 66 77 88 99 AA BB CC DD EE FF
         in_stream = 64'hZZZZZZZZZZZZZZZZ;
         in_instruction = 1;
         #2;
         in_stream = 64'H2B7E151628AED2A6;
         in_instruction = 2;
-        #2;
+        #1;
         in_stream = 64'HABF7158809CF4F3C;
         in_instruction = 3;
-        #2;
+        #1;
         in_stream = 64'H0011223344556677;
         in_instruction = 4;
-        #2;
+        #1;
         in_stream = 64'H8899AABBCCDDEEFF;
         in_instruction = 5;
-        #2;
+        #1;
         in_stream = 64'hZZZZZZZZZZZZZZZZ;
         #450;
         $finish;
@@ -68,6 +70,6 @@ module FlatEncryption_tb();
         end
     end
     
-    always #1 clk = ~clk;
+    always #0.5 clk = ~clk;
 
 endmodule

@@ -260,7 +260,13 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
             KeySchedule <= KeySchedule_next;
             KeySchedule_part <= 1;
         end
-        else if (current_sm_state == 3 && KeyExpansionDone == 1'b0 && KeySchedule > 0) begin            
+        else if (current_sm_state == 3 && KeyExpansionDone == 1'b0 && KeySchedule > 0) begin
+
+            if (KeySchedule > 10) begin
+                KeyExpansionDone <= 1'b1;
+                KeySchedule <= KeySchedule_next;
+            end
+                    
             case (KeySchedule_part)
                 1: begin
                     //do the next part of the key
@@ -306,10 +312,17 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
                     KeySchedule_part <= 10;
                 end
                 10: begin
+//                    expanded_key[KeySchedule_current_4] <= expanded_key[KeySchedule_current_3] ^ expanded_key[KeySchedule_prev_4];
+//                    //advance counter for loop
                     expanded_key[KeySchedule_current_4] <= expanded_key[KeySchedule_current_3] ^ expanded_key[KeySchedule_prev_4];
                     //advance counter for loop
                     KeySchedule <= KeySchedule_next;
-                    KeySchedule_part <= 1;
+                    if (KeySchedule < 10) begin
+                        KeySchedule_part <= 1;
+                    end
+                    else begin
+                        KeySchedule_part <= 11;
+                    end
                 end
             endcase
             

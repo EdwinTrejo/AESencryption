@@ -2,10 +2,10 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Fri Feb 12 10:32:07 2021
-# Process ID: 15996
+# Start of session at: Sat Feb 13 16:21:33 2021
+# Process ID: 8636
 # Current directory: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent17100 C:\Users\horse\Documents\Xilinx_Projects\AESencryption\FPGA\MAESencryption\MAESencryption.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent512 C:\Users\horse\Documents\Xilinx_Projects\AESencryption\FPGA\MAESencryption\MAESencryption.xpr
 # Log file: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/vivado.log
 # Journal file: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption\vivado.jou
 #-----------------------------------------------------------
@@ -19,928 +19,94 @@ INFO: [IP_Flow 19-234] Refreshing IP repositories
 WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'c:/Users/ProgramData/MATLAB/SupportPackages/R2020b/toolbox/hdlverifier/supportpackages/fpgadebug_xilinx/+hdlverifier/+fpga/+vivado'; Can't find the specified path.
 If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2019.1/data/ip'.
-open_project: Time (s): cpu = 00:00:16 ; elapsed = 00:00:07 . Memory (MB): peak = 802.719 ; gain = 115.000
+open_project: Time (s): cpu = 00:00:18 ; elapsed = 00:00:08 . Memory (MB): peak = 858.902 ; gain = 160.359
 update_compile_order -fileset sources_1
-close [ open C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart_logger.v w ]
-add_files C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart_logger.v
-update_compile_order -fileset sources_1
-close [ open C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/MAES_TOP.v w ]
-add_files C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/MAES_TOP.v
-update_compile_order -fileset sources_1
-set_property top MAES_TOP [current_fileset]
-update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
-launch_runs synth_1 -jobs 8
-[Fri Feb 12 12:55:49 2021] Launched synth_1...
-Run output will be captured here: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.runs/synth_1/runme.log
-launch_runs impl_1 -jobs 8
-[Fri Feb 12 12:57:08 2021] Launched impl_1...
-Run output will be captured here: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.runs/impl_1/runme.log
-launch_runs impl_1 -to_step write_bitstream -jobs 8
-[Fri Feb 12 12:58:41 2021] Launched impl_1...
-Run output will be captured here: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.runs/impl_1/runme.log
-open_hw
-connect_hw_server
-INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
-INFO: [Labtools 27-2222] Launching hw_server...
-INFO: [Labtools 27-2221] Launch Output:
+set_property top FlatEncryption_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+update_compile_order -fileset sim_1
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'FlatEncryption_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj FlatEncryption_tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/FlatEncryption.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module FlatEncryption
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/RotWord.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RotWord
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/SubWord.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SubWord
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/getSBoxValue.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module getSBoxValue
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/times_three.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module times_three
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/times_two.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module times_two
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sim_1/new/FlatEncryption_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module FlatEncryption_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.sim/sim_1/behav/xsim'
+"xelab -wto d9b952142d4d4e5488c1b7d6d5e432d7 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot FlatEncryption_tb_behav xil_defaultlib.FlatEncryption_tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2019.1/bin/unwrapped/win64.o/xelab.exe -wto d9b952142d4d4e5488c1b7d6d5e432d7 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot FlatEncryption_tb_behav xil_defaultlib.FlatEncryption_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.RotWord
+Compiling module xil_defaultlib.SubWord
+Compiling module xil_defaultlib.times_two
+Compiling module xil_defaultlib.times_three
+Compiling module xil_defaultlib.getSBoxValue
+Compiling module xil_defaultlib.FlatEncryption
+Compiling module xil_defaultlib.FlatEncryption_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot FlatEncryption_tb_behav
 
-****** Xilinx hw_server v2019.1
-  **** Build date : May 24 2019 at 15:13:31
+****** Webtalk v2019.1 (64-bit)
+  **** SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+  **** IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
     ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 
-
-connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 920.191 ; gain = 12.137
-open_hw_target
-INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292A6E471A
-open_hw_target: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2045.469 ; gain = 1125.277
-set_property PROGRAM.FILE {C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.runs/impl_1/MAES_TOP.bit} [get_hw_devices xc7a100t_0]
-current_hw_device [get_hw_devices xc7a100t_0]
-refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
-INFO: [Labtools 27-1435] Device xc7a100t (JTAG device index = 0) is not programmed (DONE status = 0).
-set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
-set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
-set_property PROGRAM.FILE {C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.runs/impl_1/MAES_TOP.bit} [get_hw_devices xc7a100t_0]
-program_hw_devices [get_hw_devices xc7a100t_0]
-INFO: [Labtools 27-3164] End of startup status: HIGH
-refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
-INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
-open_run impl_1
-INFO: [Device 21-403] Loading part xc7a100tcsg324-1
-INFO: [Project 1-479] Netlist was created with Vivado 2019.1
-INFO: [Project 1-570] Preparing netlist for logic optimization
-INFO: [Timing 38-478] Restoring timing data from binary archive.
-INFO: [Timing 38-479] Binary timing data restore complete.
-INFO: [Project 1-856] Restoring constraints from binary archive.
-INFO: [Project 1-853] Binary constraint restore complete.
-Reading XDEF placement.
-Reading placer database...
-Reading XDEF routing.
-Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.050 . Memory (MB): peak = 3010.340 ; gain = 0.000
-Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
-Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.050 . Memory (MB): peak = 3010.340 ; gain = 0.000
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3010.340 ; gain = 0.000
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-open_run: Time (s): cpu = 00:00:40 ; elapsed = 00:00:34 . Memory (MB): peak = 3217.328 ; gain = 1151.684
-close_design
-reset_run synth_1
-launch_runs synth_1 -jobs 8
-[Fri Feb 12 13:06:09 2021] Launched synth_1...
-Run output will be captured here: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.runs/synth_1/runme.log
-reset_run synth_1
-launch_runs synth_1 -jobs 8
-[Fri Feb 12 13:06:56 2021] Launched synth_1...
-Run output will be captured here: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.runs/synth_1/runme.log
-launch_runs impl_1 -jobs 8
-[Fri Feb 12 13:08:04 2021] Launched impl_1...
-Run output will be captured here: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.runs/impl_1/runme.log
-launch_runs impl_1 -to_step write_bitstream -jobs 8
-[Fri Feb 12 13:09:41 2021] Launched impl_1...
-Run output will be captured here: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.runs/impl_1/runme.log
-open_run impl_1
-INFO: [Project 1-479] Netlist was created with Vivado 2019.1
-INFO: [Project 1-570] Preparing netlist for logic optimization
-INFO: [Timing 38-478] Restoring timing data from binary archive.
-INFO: [Timing 38-479] Binary timing data restore complete.
-INFO: [Project 1-856] Restoring constraints from binary archive.
-INFO: [Project 1-853] Binary constraint restore complete.
-Reading XDEF placement.
-Reading placer database...
-Reading XDEF routing.
-Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.050 . Memory (MB): peak = 3249.402 ; gain = 0.000
-Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
-Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.050 . Memory (MB): peak = 3249.402 ; gain = 0.000
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3249.402 ; gain = 0.000
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-close_design
-open_run synth_1 -name synth_1
-Design is defaulting to impl run constrset: constrs_1
-Design is defaulting to synth run part: xc7a100tcsg324-1
-INFO: [Project 1-479] Netlist was created with Vivado 2019.1
-INFO: [Project 1-570] Preparing netlist for logic optimization
-Parsing XDC File [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc]
-WARNING: [Vivado 12-584] No ports matched 'SSD[0]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:59]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:59]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'SSD[1]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:60]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:60]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'SSD[2]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:61]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:61]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'SSD[3]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:62]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:62]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'SSD[4]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:63]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:63]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'SSD[5]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:64]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:64]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'SSD[6]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:65]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:65]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'AN[0]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:67]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:67]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'AN[1]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:68]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:68]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'AN[2]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:69]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:69]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'AN[3]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:70]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:70]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'AN[4]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:71]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:71]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'AN[5]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:72]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:72]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'AN[6]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:73]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:73]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'AN[7]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:74]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:74]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'BTNC'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:81]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:81]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'BTNU'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:82]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:82]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-Finished Parsing XDC File [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc]
-INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3252.086 ; gain = 0.000
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
-set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
-set_property PROGRAM.FILE {C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.runs/impl_1/MAES_TOP.bit} [get_hw_devices xc7a100t_0]
-program_hw_devices [get_hw_devices xc7a100t_0]
-INFO: [Labtools 27-3164] End of startup status: HIGH
-refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
-INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
-synth_design -rtl -name rtl_1
-Command: synth_design -rtl -name rtl_1
-Starting synth_design
-Using part: xc7a100tcsg324-1
-Top: MAES_TOP
----------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 3649.199 ; gain = 154.582
----------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'MAES_TOP' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/MAES_TOP.v:23]
-INFO: [Synth 8-6157] synthesizing module 'EncDecController' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/EncDecController.v:23]
-INFO: [Synth 8-6157] synthesizing module 'FlatEncryption' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/FlatEncryption.v:23]
-	Parameter PARTIAL_MSG_SIZE bound to: 8'b01000000 
-	Parameter FULL_MSG_SIZE bound to: 8'b10000000 
-	Parameter EXPANDED_KEYS bound to: 8'b00101100 
-	Parameter EXPANDED_KEY_PART_SIZE bound to: 8'b00100000 
-	Parameter INSTRUCTION_SIZE bound to: 8'b00001000 
-	Parameter STATE_COUNTER_SIZE bound to: 8'b00001000 
-	Parameter state0 bound to: 8'b00000000 
-	Parameter state1 bound to: 8'b00000001 
-	Parameter state2 bound to: 8'b00000010 
-	Parameter state3 bound to: 8'b00000011 
-	Parameter state4 bound to: 8'b00000100 
-	Parameter state5 bound to: 8'b00000101 
-	Parameter state6 bound to: 8'b00000110 
-	Parameter state7 bound to: 8'b00000111 
-	Parameter state8 bound to: 8'b00001000 
-	Parameter state9 bound to: 8'b00001001 
-	Parameter state10 bound to: 8'b00001010 
-	Parameter state11 bound to: 8'b00001011 
-	Parameter state12 bound to: 8'b00001100 
-	Parameter state13 bound to: 8'b00001101 
-	Parameter state14 bound to: 8'b00001110 
-	Parameter state15 bound to: 8'b00001111 
-	Parameter RCON0 bound to: -1929379840 - type: integer 
-	Parameter RCON1 bound to: 16777216 - type: integer 
-	Parameter RCON2 bound to: 33554432 - type: integer 
-	Parameter RCON3 bound to: 67108864 - type: integer 
-	Parameter RCON4 bound to: 134217728 - type: integer 
-	Parameter RCON5 bound to: 268435456 - type: integer 
-	Parameter RCON6 bound to: 536870912 - type: integer 
-	Parameter RCON7 bound to: 1073741824 - type: integer 
-	Parameter RCON8 bound to: -2147483648 - type: integer 
-	Parameter RCON9 bound to: 452984832 - type: integer 
-	Parameter RCON10 bound to: 905969664 - type: integer 
-	Parameter state_blocks bound to: 8'b00010000 
-	Parameter state_block_size bound to: 8'b00001000 
-	Parameter times_two_B bound to: 8'b00011011 
-INFO: [Synth 8-6157] synthesizing module 'RotWord' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/RotWord.v:21]
-INFO: [Synth 8-6155] done synthesizing module 'RotWord' (1#1) [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/RotWord.v:21]
-INFO: [Synth 8-6157] synthesizing module 'SubWord' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/SubWord.v:21]
-WARNING: [Synth 8-5856] 3D RAM sbox_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
-INFO: [Synth 8-6155] done synthesizing module 'SubWord' (2#1) [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/SubWord.v:21]
-INFO: [Synth 8-6157] synthesizing module 'times_two' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/times_two.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'times_two' (3#1) [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/times_two.v:23]
-INFO: [Synth 8-6157] synthesizing module 'times_three' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/times_three.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'times_three' (4#1) [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/times_three.v:23]
-INFO: [Synth 8-6157] synthesizing module 'getSBoxValue' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/getSBoxValue.v:23]
-WARNING: [Synth 8-5856] 3D RAM sbox_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
-INFO: [Synth 8-6155] done synthesizing module 'getSBoxValue' (5#1) [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/getSBoxValue.v:23]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/FlatEncryption.v:187]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/FlatEncryption.v:264]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/FlatEncryption.v:362]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/FlatEncryption.v:579]
-INFO: [Synth 8-6155] done synthesizing module 'FlatEncryption' (6#1) [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/FlatEncryption.v:23]
-WARNING: [Synth 8-567] referenced signal 'rx_complete' should be on the sensitivity list [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/EncDecController.v:50]
-WARNING: [Synth 8-567] referenced signal 'in_stream' should be on the sensitivity list [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/EncDecController.v:50]
-WARNING: [Synth 8-567] referenced signal 'current_sm_state' should be on the sensitivity list [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/EncDecController.v:50]
-WARNING: [Synth 8-567] referenced signal 'rx_complete' should be on the sensitivity list [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/EncDecController.v:58]
-WARNING: [Synth 8-567] referenced signal 'encrypt_state' should be on the sensitivity list [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/EncDecController.v:58]
-WARNING: [Synth 8-567] referenced signal 'current_sm_state' should be on the sensitivity list [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/EncDecController.v:58]
-WARNING: [Synth 8-567] referenced signal 'encrypt_state' should be on the sensitivity list [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/EncDecController.v:81]
-WARNING: [Synth 8-567] referenced signal 'current_sm_state' should be on the sensitivity list [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/EncDecController.v:81]
-WARNING: [Synth 8-567] referenced signal 'encrypt_out_stream' should be on the sensitivity list [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/EncDecController.v:81]
-INFO: [Synth 8-6155] done synthesizing module 'EncDecController' (7#1) [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/EncDecController.v:23]
-INFO: [Synth 8-6157] synthesizing module 'uart_logger' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart_logger.v:34]
-	Parameter EMPTY bound to: 4'b0000 
-	Parameter BYTE_ONE bound to: 4'b0001 
-	Parameter BYTE_TWO bound to: 4'b0010 
-	Parameter BYTE_THREE bound to: 4'b0011 
-	Parameter BYTE_FOUR bound to: 4'b0100 
-	Parameter BYTE_FIVE bound to: 4'b0101 
-	Parameter BYTE_SIX bound to: 4'b0110 
-	Parameter BYTE_SEVEN bound to: 4'b0111 
-	Parameter BYTE_EIGHT bound to: 4'b1000 
-	Parameter SM_IDLE bound to: 4'b0001 
-	Parameter SM_RX_RECEIVING bound to: 4'b0010 
-	Parameter SM_RX_STOP bound to: 4'b0011 
-	Parameter SM_TX_SENDING bound to: 4'b0100 
-	Parameter SM_TX_STOP bound to: 4'b0101 
-	Parameter RX_IDLE bound to: 0 - type: integer 
-	Parameter RX_CHECK_START bound to: 1 - type: integer 
-	Parameter RX_READ_BITS bound to: 2 - type: integer 
-	Parameter RX_CHECK_STOP bound to: 3 - type: integer 
-	Parameter RX_DELAY_RESTART bound to: 4 - type: integer 
-	Parameter RX_ERROR bound to: 5 - type: integer 
-	Parameter RX_RECEIVED bound to: 6 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'uart' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart.v:24]
-	Parameter CLOCK_DIVIDE bound to: 217 - type: integer 
-	Parameter RX_IDLE bound to: 0 - type: integer 
-	Parameter RX_CHECK_START bound to: 1 - type: integer 
-	Parameter RX_READ_BITS bound to: 2 - type: integer 
-	Parameter RX_CHECK_STOP bound to: 3 - type: integer 
-	Parameter RX_DELAY_RESTART bound to: 4 - type: integer 
-	Parameter RX_ERROR bound to: 5 - type: integer 
-	Parameter RX_RECEIVED bound to: 6 - type: integer 
-	Parameter TX_IDLE bound to: 0 - type: integer 
-	Parameter TX_SENDING bound to: 1 - type: integer 
-	Parameter TX_DELAY_RESTART bound to: 2 - type: integer 
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart.v:103]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart.v:174]
-INFO: [Synth 8-6155] done synthesizing module 'uart' (8#1) [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart.v:24]
-WARNING: [Synth 8-689] width (9) of port connection 'tx_byte' does not match port width (8) of module 'uart' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart_logger.v:57]
-WARNING: [Synth 8-689] width (9) of port connection 'rx_byte' does not match port width (8) of module 'uart' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart_logger.v:59]
-WARNING: [Synth 8-567] referenced signal 'next_sm_state' should be on the sensitivity list [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart_logger.v:87]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart_logger.v:125]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart_logger.v:115]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart_logger.v:188]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart_logger.v:177]
-WARNING: [Synth 8-6014] Unused sequential element rx_data_reg was removed.  [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart_logger.v:119]
-WARNING: [Synth 8-3848] Net rx_msg in module/entity uart_logger does not have driver. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart_logger.v:42]
-INFO: [Synth 8-6155] done synthesizing module 'uart_logger' (9#1) [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart_logger.v:34]
-INFO: [Synth 8-6155] done synthesizing module 'MAES_TOP' (10#1) [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/MAES_TOP.v:23]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[63]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[62]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[61]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[60]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[59]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[58]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[57]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[56]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[55]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[54]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[53]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[52]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[51]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[50]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[49]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[48]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[47]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[46]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[45]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[44]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[43]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[42]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[41]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[40]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[39]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[38]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[37]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[36]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[35]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[34]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[33]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[32]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[31]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[30]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[29]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[28]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[27]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[26]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[25]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[24]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[23]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[22]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[21]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[20]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[19]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[18]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[17]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[16]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[15]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[14]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[13]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[12]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[11]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[10]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[9]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[8]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[7]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[6]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[5]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[4]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[3]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[2]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[1]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[0]
----------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:07 . Memory (MB): peak = 3693.934 ; gain = 199.316
----------------------------------------------------------------------------------
-
-Report Check Netlist: 
-+------+------------------+-------+---------+-------+------------------+
-|      |Item              |Errors |Warnings |Status |Description       |
-+------+------------------+-------+---------+-------+------------------+
-|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
-+------+------------------+-------+---------+-------+------------------+
----------------------------------------------------------------------------------
-Start Handling Custom Attributes
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:07 . Memory (MB): peak = 3693.934 ; gain = 199.316
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:07 . Memory (MB): peak = 3693.934 ; gain = 199.316
----------------------------------------------------------------------------------
-INFO: [Project 1-570] Preparing netlist for logic optimization
-
-Processing XDC Constraints
-Initializing timing engine
-Parsing XDC File [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc]
-WARNING: [Vivado 12-584] No ports matched 'SSD[0]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:59]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:59]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'SSD[1]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:60]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:60]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'SSD[2]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:61]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:61]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'SSD[3]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:62]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:62]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'SSD[4]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:63]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:63]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'SSD[5]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:64]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:64]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'SSD[6]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:65]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:65]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'AN[0]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:67]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:67]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'AN[1]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:68]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:68]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'AN[2]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:69]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:69]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'AN[3]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:70]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:70]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'AN[4]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:71]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:71]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'AN[5]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:72]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:72]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'AN[6]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:73]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:73]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'AN[7]'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:74]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:74]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'BTNC'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:81]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:81]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'BTNU'. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:82]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc:82]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-Finished Parsing XDC File [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc]
-Completed Processing XDC Constraints
-
-INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 3693.934 ; gain = 0.000
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-RTL Elaboration Complete:  : Time (s): cpu = 00:00:17 ; elapsed = 00:00:15 . Memory (MB): peak = 3693.934 ; gain = 199.316
-33 Infos, 97 Warnings, 17 Critical Warnings and 0 Errors encountered.
-synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:17 ; elapsed = 00:00:15 . Memory (MB): peak = 3693.934 ; gain = 199.316
-open_run impl_1
-INFO: [Project 1-479] Netlist was created with Vivado 2019.1
-INFO: [Project 1-570] Preparing netlist for logic optimization
-INFO: [Timing 38-478] Restoring timing data from binary archive.
-INFO: [Timing 38-479] Binary timing data restore complete.
-INFO: [Project 1-856] Restoring constraints from binary archive.
-INFO: [Project 1-853] Binary constraint restore complete.
-Reading XDEF placement.
-Reading placer database...
-Reading XDEF routing.
-Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.050 . Memory (MB): peak = 3964.039 ; gain = 0.000
-Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
-Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.050 . Memory (MB): peak = 3964.039 ; gain = 0.000
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 3964.039 ; gain = 0.000
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-open_run: Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 3969.688 ; gain = 148.469
-reset_run synth_1
-launch_runs synth_1 -jobs 8
-[Fri Feb 12 13:35:22 2021] Launched synth_1...
-Run output will be captured here: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.runs/synth_1/runme.log
-launch_runs impl_1 -jobs 8
-WARNING: [Project 1-478] Design 'synth_1' is stale and will not be used when launching 'impl_1'
-[Fri Feb 12 13:36:30 2021] Launched impl_1...
-Run output will be captured here: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.runs/impl_1/runme.log
-reset_run synth_1
-launch_runs synth_1 -jobs 8
-[Fri Feb 12 13:38:05 2021] Launched synth_1...
-Run output will be captured here: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.runs/synth_1/runme.log
-launch_runs impl_1 -jobs 8
-WARNING: [Project 1-478] Design 'synth_1' is stale and will not be used when launching 'impl_1'
-[Fri Feb 12 13:45:18 2021] Launched impl_1...
-Run output will be captured here: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.runs/impl_1/runme.log
-launch_runs impl_1 -to_step write_bitstream -jobs 8
-[Fri Feb 12 13:46:55 2021] Launched impl_1...
-Run output will be captured here: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.runs/impl_1/runme.log
-refresh_design
-INFO: [Project 1-479] Netlist was created with Vivado 2019.1
-INFO: [Project 1-570] Preparing netlist for logic optimization
-INFO: [Timing 38-478] Restoring timing data from binary archive.
-INFO: [Timing 38-479] Binary timing data restore complete.
-INFO: [Project 1-856] Restoring constraints from binary archive.
-INFO: [Project 1-853] Binary constraint restore complete.
-Reading XDEF placement.
-Reading placer database...
-Reading XDEF routing.
-Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.053 . Memory (MB): peak = 4103.477 ; gain = 0.000
-Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
-Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.053 . Memory (MB): peak = 4103.477 ; gain = 0.000
-refresh_design: Time (s): cpu = 00:00:11 ; elapsed = 00:00:08 . Memory (MB): peak = 4103.477 ; gain = 16.910
-set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
-set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
-set_property PROGRAM.FILE {C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.runs/impl_1/MAES_TOP.bit} [get_hw_devices xc7a100t_0]
-program_hw_devices [get_hw_devices xc7a100t_0]
-INFO: [Labtools 27-3164] End of startup status: HIGH
-refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
-INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
-close_hw
-close_design
-close_design: Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 4125.117 ; gain = 0.000
-close_design
-close_design
-WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-z7-10:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Digilent/arty-z7-10/A.0/1.0/board.xml as part xc7z010clg400-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-z7-20:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Digilent/arty-z7-20/A.0/1.0/board.xml as part xc7z020clg400-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cora-z7-07s:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Digilent/cora-z7-07s/B.0/1.0/board.xml as part xc7z007sclg400-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cora-z7-10:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Digilent/cora-z7-10/B.0/1.0/board.xml as part xc7z010clg400-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part digilentinc.com:eclypse-z7:part0:1.0 available at C:/Xilinx/Vivado/2019.1/data/boards/board_files/eclypse-z7/A.0/board.xml as part xc7z020clg484-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part digilentinc.com:genesys2:part0:1.1 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Digilent/genesys2/H/1.1/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part digilentinc.com:gzu_3eg:part0:1.0 available at C:/Xilinx/Vivado/2019.1/data/boards/board_files/genesys-zu-3eg/B.0/board.xml as part xczu3eg-sfvc784-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part digilentinc.com:sword:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Digilent/sword/C.0/1.0/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part digilentinc.com:zedboard:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Digilent/zedboard/1.3/1.0/board.xml as part xc7z020clg484-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part digilentinc.com:zybo-z7-10:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Digilent/zybo-z7-10/A.0/1.0/board.xml as part xc7z010clg400-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part digilentinc.com:zybo-z7-20:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Digilent/zybo-z7-20/A.0/1.0/board.xml as part xc7z020clg400-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part digilentinc.com:zybo:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Digilent/zybo/B.3/1.0/board.xml as part xc7z010clg400-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part digilentinc.com:zybo:part0:2.0 available at C:/Xilinx/Vivado/2019.1/data/boards/board_files/zybo/B.4/board.xml as part xc7z010clg400-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part em.avnet.com:minized:part0:1.2 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Avnet/minized/1.2/1.2/board.xml as part xc7z007sclg225-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part em.avnet.com:picozed_7010_fmc2:part0:1.2 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Avnet/picozed_7010_fmc2/1.2/1.2/board.xml as part xc7z010clg400-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part em.avnet.com:ultra96:part0:1.2 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Avnet/ultra96/1.2/1.2/board.xml as part xczu3eg-sbva484-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0720_14s:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0720_14S/1.0/1.0/board.xml as part xc7z014sclg484-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0720_1c:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0720_1C/1.0/1.0/board.xml as part xc7z020clg484-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0720_1c:part0:2.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0720_1C/2.0/2.0/board.xml as part xc7z020clg484-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0720_1il:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0720_1IL/1.0/1.0/board.xml as part xc7z020iclg484-1l specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0720_1q:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0720_1Q/1.0/1.0/board.xml as part xa7z020clg484-1q specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0720_2e:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0720_2E/1.0/1.0/board.xml as part xc7z020clg484-2 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0720_2i:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0720_2I/1.0/1.0/board.xml as part xc7z020clg484-2 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0722:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0722/1.0/1.0/board.xml as part xc7z010clg225-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0722_7s:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0722_7S/1.0/1.0/board.xml as part xc7z007sclg225-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0722_i:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0722_I/1.0/1.0/board.xml as part xc7z010clg225-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0724_10_1i:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0724_10_1I/1.0/1.0/board.xml as part xc7z010clg400-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0724_20_1i:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0724_20_1I/1.0/1.0/board.xml as part xc7z020clg400-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0726_01:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0726/1.0/1.0/board.xml as part xc7z010clg225-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0726_7s:part0:3.1 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0726_7S/3.1/3.1/board.xml as part xc7z007sclg225-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0726_m:part0:3.1 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0726/3.1/3.1/board.xml as part xc7z010clg225-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0726_r:part0:2.1 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0726/2.1/2.1/board.xml as part xc7z010clg225-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0729_20_2i:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0729_20_2I/1.0/1.0/board.xml as part xc7z020clg484-2 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0729_20_2i:part0:2.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0729_20_2I/2.0/2.0/board.xml as part xc7z020clg484-2 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0803_2cg_1e:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0803_2CG_1E/1.0/1.0/board.xml as part xczu2cg-sfvc784-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0803_2cg_1e_tebf0808:part0:2.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0803_2CG_1E/2.0/2.0/board.xml as part xczu2cg-sfvc784-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0803_2eg_1e:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0803_2EG_1E/1.0/1.0/board.xml as part xczu2eg-sfvc784-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0803_2eg_1e_tebf0808:part0:2.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0803_2EG_1E/2.0/2.0/board.xml as part xczu2eg-sfvc784-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0803_3cg_1e:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0803_3CG_1E/1.0/1.0/board.xml as part xczu3cg-sfvc784-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0803_3cg_1e_tebf0808:part0:2.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0803_3CG_1E/2.0/2.0/board.xml as part xczu3cg-sfvc784-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0803_3eg_1e:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0803_3EG_1E/1.0/1.0/board.xml as part xczu3eg-sfvc784-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0803_3eg_1e:part0:3.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0803_3EG_1E/3.0/3.0/board.xml as part xczu3eg-sfvc784-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0803_3eg_1e_tebf0808:part0:2.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0803_3EG_1E/2.0/2.0/board.xml as part xczu3eg-sfvc784-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0803_3eg_1e_tebf0808:part0:4.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0803_3EG_1E/4.0/4.0/board.xml as part xczu3eg-sfvc784-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0803_4cg_1e:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0803_4CG_1E/1.0/1.0/board.xml as part xczu4cg-sfvc784-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0803_4cg_1e_tebf0808:part0:2.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0803_4CG_1E/2.0/2.0/board.xml as part xczu4cg-sfvc784-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0803_4eg_1e:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0803_4EG_1E/1.0/1.0/board.xml as part xczu4eg-sfvc784-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0803_4eg_1e_tebf0808:part0:2.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0803_4EG_1E/2.0/2.0/board.xml as part xczu4eg-sfvc784-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0803_4eg_1i:part0:5.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0803_4EG_1I/5.0/5.0/board.xml as part xczu4eg-sfvc784-1-i specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0803_4eg_1i_tebf0808:part0:6.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0803_4EG_1I/6.0/6.0/board.xml as part xczu4eg-sfvc784-1-i specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0803_4ev_1e:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0803_4EV_1E/1.0/1.0/board.xml as part xczu4ev-sfvc784-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0803_4ev_1e_tebf0808:part0:2.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0803_4EV_1E/2.0/2.0/board.xml as part xczu4ev-sfvc784-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0803_5ev_1e:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0803_5EV_1E/1.0/1.0/board.xml as part xczu5ev-sfvc784-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0803_5ev_1e_tebf0808:part0:2.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0803_5EV_1E/2.0/2.0/board.xml as part xczu5ev-sfvc784-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0803_5ev_1i:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0803_5EV_1I/1.0/1.0/board.xml as part xczu5ev-sfvc784-1-i specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0803_5ev_1i_tebf0808:part0:2.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0803_5EV_1I/2.0/2.0/board.xml as part xczu5ev-sfvc784-1-i specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0808_15eg_1e:part0:3.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0808_15EG_1E/3.0/3.0/board.xml as part xczu15eg-ffvc900-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0808_15eg_1e_tebf0808:part0:4.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0808_15EG_1E/4.0/4.0/board.xml as part xczu15eg-ffvc900-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0808_6eg_1e:part0:3.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0808_6EG_1E/3.0/3.0/board.xml as part xczu6eg-ffvc900-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0808_6eg_1e_tebf0808:part0:4.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0808_6EG_1E/4.0/4.0/board.xml as part xczu6eg-ffvc900-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0808_9eg_1e:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0808_9EG_1E/1.0/1.0/board.xml as part xczu9eg-ffvc900-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0808_9eg_1e:part0:3.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0808_9EG_1E/3.0/3.0/board.xml as part xczu9eg-ffvc900-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0808_9eg_1e_tebf0808:part0:2.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0808_9EG_1E/2.0/2.0/board.xml as part xczu9eg-ffvc900-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0808_9eg_1e_tebf0808:part0:4.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0808_9EG_1E/4.0/4.0/board.xml as part xczu9eg-ffvc900-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0808_9eg_2i:part0:3.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0808_9EG_2I/3.0/3.0/board.xml as part xczu9eg-ffvc900-2-i specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0808_9eg_2i_tebf0808:part0:4.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0808_9EG_2I/4.0/4.0/board.xml as part xczu9eg-ffvc900-2-i specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0820_2cg_1e:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0820_2CG_1E/1.0/1.0/board.xml as part xczu2cg-sfvc784-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0820_2eg_1e:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0820_2EG_1E/1.0/1.0/board.xml as part xczu2eg-sfvc784-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0820_2eg_1e:part0:2.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0820_2EG_1E/2.0/2.0/board.xml as part xczu2eg-sfvc784-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0820_3cg_1e:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0820_3CG_1E/1.0/1.0/board.xml as part xczu3cg-sfvc784-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0820_3eg_1e:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0820_3EG_1E/1.0/1.0/board.xml as part xczu3eg-sfvc784-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0820_4cg_1e:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0820_4CG_1E/1.0/1.0/board.xml as part xczu4cg-sfvc784-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:te0820_4ev_1e:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TE0820_4EV_1E/1.0/1.0/board.xml as part xczu4ev-sfvc784-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:teb0911_9eg_1e:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TEB0911_9EG_1E/1.0/1.0/board.xml as part xczu9eg-ffvb1156-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part trenz.biz:tec0850_15eg_1e:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Trenz_Electronic/TEC0850_15EG_1E/1.0/1.0/board.xml as part xczu15eg-ffvb1156-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part xilinx.com:au200:part0:1.2 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Xilinx/au200/1.2/1.2/board.xml as part xcu200-fsgd2104-2-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part xilinx.com:au250:part0:1.2 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Xilinx/au250/1.2/1.2/board.xml as part xcu250-figd2104-2l-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part xilinx.com:au280:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Xilinx/au280/production/1.0/1.0/board.xml as part xcu280-fsvh2892-2l-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part xilinx.com:au280_es1:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Xilinx/au280/es1/1.0/1.0/board.xml as part xcu280-fsvh2892-2l-e-es1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part xilinx.com:au280_es1:part0:1.1 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Xilinx/au280/es1/1.1/1.1/board.xml as part xcu280-fsvh2892-2l-e-es1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu118:part0:2.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Xilinx/vcu118/2.0/2.0/board.xml as part xcvu9p-flga2104-2l-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu128_es:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Xilinx/vcu128/1.0/1.0/board.xml as part xcvu37p-fsvh2892-2l-e-es1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu128_es:part0:1.1 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Xilinx/vcu128/1.1/1.1/board.xml as part xcvu37p-fsvh2892-2l-e-es1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu129:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Xilinx/vcu129/production/1.0/1.0/board.xml as part xcvu29p-fsga2577-2l-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu129_es:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Xilinx/vcu129/es/1.0/1.0/board.xml as part xcvu29p-fsga2577-2l-e-es1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-z7-10:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Digilent/arty-z7-10/A.0/1.0/board.xml as part xc7z010clg400-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-z7-20:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Digilent/arty-z7-20/A.0/1.0/board.xml as part xc7z020clg400-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cora-z7-07s:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Digilent/cora-z7-07s/B.0/1.0/board.xml as part xc7z007sclg400-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cora-z7-10:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Digilent/cora-z7-10/B.0/1.0/board.xml as part xc7z010clg400-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part digilentinc.com:eclypse-z7:part0:1.0 available at C:/Xilinx/Vivado/2019.1/data/boards/board_files/eclypse-z7/A.0/board.xml as part xc7z020clg484-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part digilentinc.com:genesys2:part0:1.1 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Digilent/genesys2/H/1.1/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part digilentinc.com:gzu_3eg:part0:1.0 available at C:/Xilinx/Vivado/2019.1/data/boards/board_files/genesys-zu-3eg/B.0/board.xml as part xczu3eg-sfvc784-1-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part digilentinc.com:sword:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Digilent/sword/C.0/1.0/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part digilentinc.com:zedboard:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Digilent/zedboard/1.3/1.0/board.xml as part xc7z020clg484-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part digilentinc.com:zybo-z7-10:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Digilent/zybo-z7-10/A.0/1.0/board.xml as part xc7z010clg400-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part digilentinc.com:zybo-z7-20:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Digilent/zybo-z7-20/A.0/1.0/board.xml as part xc7z020clg400-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part digilentinc.com:zybo:part0:1.0 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Digilent/zybo/B.3/1.0/board.xml as part xc7z010clg400-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part digilentinc.com:zybo:part0:2.0 available at C:/Xilinx/Vivado/2019.1/data/boards/board_files/zybo/B.4/board.xml as part xc7z010clg400-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part em.avnet.com:minized:part0:1.2 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Avnet/minized/1.2/1.2/board.xml as part xc7z007sclg225-1 specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part em.avnet.com:picozed_7010_fmc2:part0:1.2 available at C:/Users/horse/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store/XilinxBoardStore/Vivado/2019.1/boards/Avnet/picozed_7010_fmc2/1.2/1.2/board.xml as part xc7z010clg400-1 specified in board_part file is either invalid or not available
-INFO: [Common 17-14] Message 'Board 49-26' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart.v:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart_logger.v:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/MAES_TOP.v:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/EncDecController.v:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart.v:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart_logger.v:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/MAES_TOP.v:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/EncDecController.v:]
-ERROR: [Common 17-180] Spawn failed: No error
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart.v:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart_logger.v:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/MAES_TOP.v:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/EncDecController.v:]
-ERROR: [Common 17-180] Spawn failed: No error
-set_property board_part digilentinc.com:nexys4_ddr:part0:1.1 [current_project]
-reset_run synth_1
-launch_runs impl_1 -jobs 8
-[Fri Feb 12 13:57:26 2021] Launched synth_1...
-Run output will be captured here: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.runs/synth_1/runme.log
-[Fri Feb 12 13:57:26 2021] Launched impl_1...
-Run output will be captured here: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.runs/impl_1/runme.log
-reset_run synth_1
-launch_runs impl_1 -jobs 8
-[Fri Feb 12 14:00:29 2021] Launched synth_1...
-Run output will be captured here: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.runs/synth_1/runme.log
-[Fri Feb 12 14:00:29 2021] Launched impl_1...
-Run output will be captured here: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.runs/impl_1/runme.log
-launch_runs impl_1 -to_step write_bitstream -jobs 8
-[Fri Feb 12 14:03:13 2021] Launched impl_1...
-Run output will be captured here: C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.runs/impl_1/runme.log
-open_hw
-connect_hw_server
-INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
-INFO: [Labtools 27-2222] Launching hw_server...
-INFO: [Labtools 27-2221] Launch Output:
-
-****** Xilinx hw_server v2019.1
-  **** Build date : May 24 2019 at 15:13:31
-    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
-
-
-connect_hw_server: Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 4125.117 ; gain = 0.000
-open_hw_target
-INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292A6E471A
-set_property PROGRAM.FILE {C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.runs/impl_1/MAES_TOP.bit} [get_hw_devices xc7a100t_0]
-current_hw_device [get_hw_devices xc7a100t_0]
-refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
-INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
-set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
-set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
-set_property PROGRAM.FILE {C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.runs/impl_1/MAES_TOP.bit} [get_hw_devices xc7a100t_0]
-program_hw_devices [get_hw_devices xc7a100t_0]
-INFO: [Labtools 27-3164] End of startup status: HIGH
-refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
-INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
-open_run impl_1
-INFO: [Project 1-479] Netlist was created with Vivado 2019.1
-INFO: [Project 1-570] Preparing netlist for logic optimization
-INFO: [Timing 38-478] Restoring timing data from binary archive.
-INFO: [Timing 38-479] Binary timing data restore complete.
-INFO: [Project 1-856] Restoring constraints from binary archive.
-INFO: [Project 1-853] Binary constraint restore complete.
-Reading XDEF placement.
-Reading placer database...
-Reading XDEF routing.
-Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.050 . Memory (MB): peak = 4125.117 ; gain = 0.000
-Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
-Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.050 . Memory (MB): peak = 4125.117 ; gain = 0.000
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4125.117 ; gain = 0.000
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-close_design
-close_hw
-open_run synth_1 -name synth_1
-Design is defaulting to impl run constrset: constrs_1
-Design is defaulting to synth run part: xc7a100tcsg324-1
-INFO: [Project 1-479] Netlist was created with Vivado 2019.1
-INFO: [Project 1-570] Preparing netlist for logic optimization
-Parsing XDC File [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc]
-Finished Parsing XDC File [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc]
-INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4125.117 ; gain = 0.000
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-close_design
-synth_design -rtl -name rtl_1
-Command: synth_design -rtl -name rtl_1
-Starting synth_design
-Using part: xc7a100tcsg324-1
-Top: MAES_TOP
----------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 4125.117 ; gain = 0.000
----------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'MAES_TOP' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/MAES_TOP.v:23]
-INFO: [Synth 8-6157] synthesizing module 'EncDecController' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/EncDecController.v:23]
-INFO: [Synth 8-6157] synthesizing module 'FlatEncryption' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/FlatEncryption.v:23]
-	Parameter PARTIAL_MSG_SIZE bound to: 8'b01000000 
-	Parameter FULL_MSG_SIZE bound to: 8'b10000000 
-	Parameter EXPANDED_KEYS bound to: 8'b00101100 
-	Parameter EXPANDED_KEY_PART_SIZE bound to: 8'b00100000 
-	Parameter INSTRUCTION_SIZE bound to: 8'b00001000 
-	Parameter STATE_COUNTER_SIZE bound to: 8'b00001000 
-	Parameter state0 bound to: 8'b00000000 
-	Parameter state1 bound to: 8'b00000001 
-	Parameter state2 bound to: 8'b00000010 
-	Parameter state3 bound to: 8'b00000011 
-	Parameter state4 bound to: 8'b00000100 
-	Parameter state5 bound to: 8'b00000101 
-	Parameter state6 bound to: 8'b00000110 
-	Parameter state7 bound to: 8'b00000111 
-	Parameter state8 bound to: 8'b00001000 
-	Parameter state9 bound to: 8'b00001001 
-	Parameter state10 bound to: 8'b00001010 
-	Parameter state11 bound to: 8'b00001011 
-	Parameter state12 bound to: 8'b00001100 
-	Parameter state13 bound to: 8'b00001101 
-	Parameter state14 bound to: 8'b00001110 
-	Parameter state15 bound to: 8'b00001111 
-	Parameter RCON0 bound to: -1929379840 - type: integer 
-	Parameter RCON1 bound to: 16777216 - type: integer 
-	Parameter RCON2 bound to: 33554432 - type: integer 
-	Parameter RCON3 bound to: 67108864 - type: integer 
-	Parameter RCON4 bound to: 134217728 - type: integer 
-	Parameter RCON5 bound to: 268435456 - type: integer 
-	Parameter RCON6 bound to: 536870912 - type: integer 
-	Parameter RCON7 bound to: 1073741824 - type: integer 
-	Parameter RCON8 bound to: -2147483648 - type: integer 
-	Parameter RCON9 bound to: 452984832 - type: integer 
-	Parameter RCON10 bound to: 905969664 - type: integer 
-	Parameter state_blocks bound to: 8'b00010000 
-	Parameter state_block_size bound to: 8'b00001000 
-	Parameter times_two_B bound to: 8'b00011011 
-INFO: [Synth 8-6157] synthesizing module 'RotWord' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/RotWord.v:21]
-INFO: [Synth 8-6155] done synthesizing module 'RotWord' (1#1) [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/RotWord.v:21]
-INFO: [Synth 8-6157] synthesizing module 'SubWord' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/SubWord.v:21]
-WARNING: [Synth 8-5856] 3D RAM sbox_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
-INFO: [Synth 8-6155] done synthesizing module 'SubWord' (2#1) [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/SubWord.v:21]
-INFO: [Synth 8-6157] synthesizing module 'times_two' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/times_two.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'times_two' (3#1) [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/times_two.v:23]
-INFO: [Synth 8-6157] synthesizing module 'times_three' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/times_three.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'times_three' (4#1) [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/times_three.v:23]
-INFO: [Synth 8-6157] synthesizing module 'getSBoxValue' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/getSBoxValue.v:23]
-WARNING: [Synth 8-5856] 3D RAM sbox_reg  for this pattern/configuration is not supported. This will most likely be implemented in registers
-INFO: [Synth 8-6155] done synthesizing module 'getSBoxValue' (5#1) [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/getSBoxValue.v:23]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/FlatEncryption.v:187]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/FlatEncryption.v:264]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/FlatEncryption.v:362]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/FlatEncryption.v:579]
-INFO: [Synth 8-6155] done synthesizing module 'FlatEncryption' (6#1) [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/FlatEncryption.v:23]
-WARNING: [Synth 8-567] referenced signal 'rx_complete' should be on the sensitivity list [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/EncDecController.v:50]
-WARNING: [Synth 8-567] referenced signal 'in_stream' should be on the sensitivity list [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/EncDecController.v:50]
-WARNING: [Synth 8-567] referenced signal 'current_sm_state' should be on the sensitivity list [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/EncDecController.v:50]
-WARNING: [Synth 8-567] referenced signal 'rx_complete' should be on the sensitivity list [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/EncDecController.v:58]
-WARNING: [Synth 8-567] referenced signal 'encrypt_state' should be on the sensitivity list [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/EncDecController.v:58]
-WARNING: [Synth 8-567] referenced signal 'current_sm_state' should be on the sensitivity list [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/EncDecController.v:58]
-WARNING: [Synth 8-567] referenced signal 'encrypt_state' should be on the sensitivity list [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/EncDecController.v:81]
-WARNING: [Synth 8-567] referenced signal 'current_sm_state' should be on the sensitivity list [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/EncDecController.v:81]
-WARNING: [Synth 8-567] referenced signal 'encrypt_out_stream' should be on the sensitivity list [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/EncDecController.v:81]
-INFO: [Synth 8-6155] done synthesizing module 'EncDecController' (7#1) [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/EncDecController.v:23]
-INFO: [Synth 8-6157] synthesizing module 'uart_logger' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart_logger.v:34]
-	Parameter EMPTY bound to: 4'b0000 
-	Parameter BYTE_ONE bound to: 4'b0001 
-	Parameter BYTE_TWO bound to: 4'b0010 
-	Parameter BYTE_THREE bound to: 4'b0011 
-	Parameter BYTE_FOUR bound to: 4'b0100 
-	Parameter BYTE_FIVE bound to: 4'b0101 
-	Parameter BYTE_SIX bound to: 4'b0110 
-	Parameter BYTE_SEVEN bound to: 4'b0111 
-	Parameter BYTE_EIGHT bound to: 4'b1000 
-	Parameter SM_IDLE bound to: 4'b0001 
-	Parameter SM_RX_RECEIVING bound to: 4'b0010 
-	Parameter SM_RX_STOP bound to: 4'b0011 
-	Parameter SM_TX_SENDING bound to: 4'b0100 
-	Parameter SM_TX_STOP bound to: 4'b0101 
-	Parameter RX_IDLE bound to: 0 - type: integer 
-	Parameter RX_CHECK_START bound to: 1 - type: integer 
-	Parameter RX_READ_BITS bound to: 2 - type: integer 
-	Parameter RX_CHECK_STOP bound to: 3 - type: integer 
-	Parameter RX_DELAY_RESTART bound to: 4 - type: integer 
-	Parameter RX_ERROR bound to: 5 - type: integer 
-	Parameter RX_RECEIVED bound to: 6 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'uart' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart.v:24]
-	Parameter CLOCK_DIVIDE bound to: 217 - type: integer 
-	Parameter RX_IDLE bound to: 0 - type: integer 
-	Parameter RX_CHECK_START bound to: 1 - type: integer 
-	Parameter RX_READ_BITS bound to: 2 - type: integer 
-	Parameter RX_CHECK_STOP bound to: 3 - type: integer 
-	Parameter RX_DELAY_RESTART bound to: 4 - type: integer 
-	Parameter RX_ERROR bound to: 5 - type: integer 
-	Parameter RX_RECEIVED bound to: 6 - type: integer 
-	Parameter TX_IDLE bound to: 0 - type: integer 
-	Parameter TX_SENDING bound to: 1 - type: integer 
-	Parameter TX_DELAY_RESTART bound to: 2 - type: integer 
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart.v:103]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart.v:174]
-INFO: [Synth 8-6155] done synthesizing module 'uart' (8#1) [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart.v:24]
-WARNING: [Synth 8-689] width (9) of port connection 'tx_byte' does not match port width (8) of module 'uart' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart_logger.v:57]
-WARNING: [Synth 8-689] width (9) of port connection 'rx_byte' does not match port width (8) of module 'uart' [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart_logger.v:59]
-WARNING: [Synth 8-567] referenced signal 'next_sm_state' should be on the sensitivity list [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart_logger.v:87]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart_logger.v:125]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart_logger.v:115]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart_logger.v:188]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart_logger.v:177]
-WARNING: [Synth 8-6014] Unused sequential element rx_data_reg was removed.  [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart_logger.v:119]
-WARNING: [Synth 8-3848] Net rx_msg in module/entity uart_logger does not have driver. [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart_logger.v:42]
-INFO: [Synth 8-6155] done synthesizing module 'uart_logger' (9#1) [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/uart_logger.v:34]
-INFO: [Synth 8-6155] done synthesizing module 'MAES_TOP' (10#1) [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sources_1/new/MAES_TOP.v:23]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[63]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[62]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[61]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[60]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[59]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[58]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[57]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[56]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[55]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[54]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[53]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[52]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[51]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[50]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[49]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[48]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[47]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[46]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[45]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[44]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[43]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[42]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[41]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[40]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[39]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[38]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[37]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[36]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[35]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[34]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[33]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[32]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[31]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[30]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[29]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[28]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[27]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[26]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[25]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[24]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[23]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[22]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[21]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[20]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[19]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[18]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[17]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[16]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[15]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[14]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[13]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[12]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[11]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[10]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[9]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[8]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[7]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[6]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[5]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[4]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[3]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[2]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[1]
-WARNING: [Synth 8-3331] design uart_logger has unconnected port rx_msg[0]
----------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 4125.117 ; gain = 0.000
----------------------------------------------------------------------------------
-
-Report Check Netlist: 
-+------+------------------+-------+---------+-------+------------------+
-|      |Item              |Errors |Warnings |Status |Description       |
-+------+------------------+-------+---------+-------+------------------+
-|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
-+------+------------------+-------+---------+-------+------------------+
----------------------------------------------------------------------------------
-Start Handling Custom Attributes
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:07 . Memory (MB): peak = 4125.117 ; gain = 0.000
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 4125.117 ; gain = 0.000
----------------------------------------------------------------------------------
-INFO: [Project 1-570] Preparing netlist for logic optimization
-
-Processing XDC Constraints
-Initializing timing engine
-Parsing XDC File [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc]
-Finished Parsing XDC File [C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/constrs_1/new/Nexys-4-DDR-Master.xdc]
-Completed Processing XDC Constraints
-
-INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 4125.117 ; gain = 0.000
-INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
-
-RTL Elaboration Complete:  : Time (s): cpu = 00:00:16 ; elapsed = 00:00:14 . Memory (MB): peak = 4125.117 ; gain = 0.000
-33 Infos, 80 Warnings, 0 Critical Warnings and 0 Errors encountered.
-synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:16 ; elapsed = 00:00:14 . Memory (MB): peak = 4125.117 ; gain = 0.000
+source C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.sim/sim_1/behav/xsim/xsim.dir/FlatEncryption_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] 'C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.sim/sim_1/behav/xsim/xsim.dir/FlatEncryption_tb_behav/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Sat Feb 13 16:29:06 2021. For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/Vivado/2019.1/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Sat Feb 13 16:29:06 2021...
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:09 . Memory (MB): peak = 904.125 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '9' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "FlatEncryption_tb_behav -key {Behavioral:sim_1:Functional:FlatEncryption_tb} -tclbatch {FlatEncryption_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.1
+Time resolution is 1 ps
+source FlatEncryption_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+$finish called at time : 461 ns : File "C:/Users/horse/Documents/Xilinx_Projects/AESencryption/FPGA/MAESencryption/MAESencryption.srcs/sim_1/new/FlatEncryption_tb.v" Line 59
+xsim: Time (s): cpu = 00:00:10 ; elapsed = 00:00:05 . Memory (MB): peak = 937.852 ; gain = 31.199
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'FlatEncryption_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:13 ; elapsed = 00:00:17 . Memory (MB): peak = 937.852 ; gain = 33.727
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+close_sim: Time (s): cpu = 00:00:04 ; elapsed = 00:00:08 . Memory (MB): peak = 944.430 ; gain = 4.988
 exit
-INFO: [Common 17-206] Exiting Vivado at Fri Feb 12 14:09:14 2021...
+INFO: [Common 17-206] Exiting Vivado at Sat Feb 13 16:30:41 2021...
