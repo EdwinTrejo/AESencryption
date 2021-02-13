@@ -24,7 +24,7 @@
 module uart(
     input clk, // The master clock for this module
     input rst, // Synchronous reset.
-    input rx, // Incoming serial line
+    input wire rx, // Incoming serial line
     output tx, // Outgoing serial line
     input transmit, // Signal to transmit
     input [7:0] tx_byte, // Byte to transmit

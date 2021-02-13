@@ -37,17 +37,17 @@ module EncDecController(
     FlatEncryption FlatEncryption_uut(.in_stream(in_stream), .in_instruction(encrypt_instruction), .out_stream(encrypt_out_stream), .out_instruction(encrypt_state), .clk(clk));
     
     //NOT SYNTHESIZABLE
-    initial begin
-        current_sm_state = 0;
-        next_sm_state = 0;
-    end
+    //    initial begin
+    //        current_sm_state = 0;
+    //        next_sm_state = 0;
+    //    end
     
-    always @(posedge clk) begin
+    always @(*) begin
         current_sm_state = next_sm_state;
     end
     
     //in_instruction
-    always @(clk) begin
+    always @(*) begin
         if (rx_complete == 1 & in_stream == 64'h1111111111111111 & current_sm_state == 0) begin
             //begin encryption
             encrypt_instruction <= 1;
@@ -55,7 +55,7 @@ module EncDecController(
         end
     end
     
-    always @(clk) begin
+    always @(*) begin
         if (rx_complete == 1 & encrypt_state == 2 & current_sm_state == 1) begin
             encrypt_instruction <= 2;
             next_sm_state <= 2;
@@ -74,11 +74,11 @@ module EncDecController(
         end
     end
     
-    always @(negedge clk) begin
+    always @(*) begin
         tx_start <= 0;
     end
     
-    always @(clk) begin
+    always @(*) begin
         if (encrypt_state == 3 & current_sm_state == 5) begin
             next_sm_state <= 6;
             out_stream <= 64'h1111111111111111;

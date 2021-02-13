@@ -34,7 +34,7 @@
 module uart_logger(
     //hardware interfaces
     input wire clk,
-    input UART_TXD_IN,
+    input wire UART_TXD_IN,
     output wire UART_RXD_OUT,
     //software interfaces
     input wire [63:0] tx_msg,

@@ -22,15 +22,28 @@
 
 module MAES_TOP(
         input UART_TXD_IN,
-        output wire UART_RXD_OUT,
-        
-        input clk
+        output UART_RXD_OUT,
+        input clk,
+        input BTNC,
+        output wire LED[2:0],
+        input CPU_RESETN
     );
-        
+    
+    wire output_disable;
+    wire UART_RXD_OUT_REPLACE;
+    wire normal_reset;
+           
     wire [63:0] tx_msg;
     wire [63:0] rx_msg;
     wire tx_start;
     wire rx_complete;
+    
+    assign output_disable = (BTNC == 1'b1) ? 1'b1 : 1'b0;
+    assign UART_RXD_OUT = output_disable ? 1'b1 : UART_RXD_OUT_REPLACE;
+    assign LED[0] = UART_TXD_IN ? 1'b0 : 1'b1;
+    assign LED[1] = UART_RXD_OUT ? 1'b0 : 1'b1;
+    assign LED[2] = tx_start;
+    assign normal_reset = CPU_RESETN ? 1'b0 : 1'b1;
     
     //input wire clk,
     //input wire [63:0] in_stream,
@@ -57,7 +70,7 @@ module MAES_TOP(
     uart_logger uart_logger_uut(
         .clk(clk),
         .UART_TXD_IN(UART_TXD_IN),
-        .UART_RXD_OUT(UART_RXD_OUT),
+        .UART_RXD_OUT(UART_RXD_OUT_REPLACE),
         .tx_msg(tx_msg),
         .tx_start(tx_start),
         .rx_msg(rx_msg),
