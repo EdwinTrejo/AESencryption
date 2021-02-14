@@ -24,18 +24,18 @@
 module times_two(word_in, word_out);
 
     input [7:0] word_in;
-//    output wire [7:0] word_out;
-    output reg [7:0] word_out;
+    output wire [7:0] word_out;
+//    output reg [7:0] word_out;
     
-//    assign word_out = (word_in[7] == 1'b1) ?  ((word_in << 1) ^ `TIMES_TWO_VAL) : (word_in << 1);
+    assign word_out = (word_in[7] == 1'b1) ?  ((word_in << 1) ^ `TIMES_TWO_VAL) : (word_in << 1);
     
-    always @(*) begin
-        // shift left 1 bit
-        word_out = word_in << 1;
+//    always @(*) begin
+//        // shift left 1 bit
+//        word_out = word_in << 1;
     
-        if (word_in[7] == 1'b1) begin
-            word_out = word_out ^ 8'h1B;
-        end
-    end
+//        if (word_in[7] == 1'b1) begin
+//            word_out = word_out ^ 8'h1B;
+//        end
+//    end
 
 endmodule
