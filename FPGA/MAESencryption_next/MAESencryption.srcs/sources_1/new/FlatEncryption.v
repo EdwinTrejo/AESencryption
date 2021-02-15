@@ -136,6 +136,18 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
     
     //THIS may look like a state machine with pipelining but it isnt since the whole process cannot be completely pipelined
     
+    //TODO
+    //new work under here is to change that behaviour and make it a correct format
+    //current multi driven nets
+    //next_sm_state
+    //xtime_next
+    //xtime
+    //encryption_done
+    //out_instruction
+    
+    //TODO
+    //move to IEEE format with always at *
+    
     //waiting state
     always @(posedge clk) begin
         if (in_instruction == 1) begin
