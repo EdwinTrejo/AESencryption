@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<FlatEncryption>
+    <wait_state>
+        <!-- waiting here -->
+    </wait_state>
+    <input_states>
+        <input_state id="1">
+            <!-- starting state -->
+        </input_state>
+        <input_state id="2">
+            <!-- receive key state -->
+        </input_state>
+        <input_state id="3">
+            <!-- receive state state -->
+        </input_state>
+    </input_states>
+    <key_expansion_states>
+        <key_expansion_state id="1">
+        </key_expansion_state>
+        <key_expansion_state id="2">
+        </key_expansion_state>
+        <key_expansion_state id="3">
+        </key_expansion_state>
+        <key_expansion_state id="4">
+        </key_expansion_state>
+        <key_expansion_state id="5">
+        </key_expansion_state>
+        <key_expansion_state id="6">
+        </key_expansion_state>
+        <key_expansion_state id="7">
+        </key_expansion_state>
+        <key_expansion_state id="8">
+        </key_expansion_state>
+        <key_expansion_state id="9">
+        </key_expansion_state>
+        <key_expansion_state id="10">
+        </key_expansion_state>
+        <key_expansion_state id="11">
+        </key_expansion_state>
+    </key_expansion_states>
+    <add_first_key />
+    <encryption_states>
+        <encryption_state id="1">
+        </encryption_state>
+        <encryption_state id="2">
+        </encryption_state>
+        <encryption_state id="3">
+        </encryption_state>
+        <encryption_state id="4">
+        </encryption_state>
+        <encryption_state id="5">
+        </encryption_state>
+        <encryption_state id="6">
+        </encryption_state>
+        <encryption_state id="7">
+        </encryption_state>
+        <encryption_state id="8">
+        </encryption_state>
+        <encryption_state id="9">
+        </encryption_state>
+        <encryption_state id="10">
+        </encryption_state>
+        <encryption_state id="11">
+        </encryption_state>
+    </encryption_states>
+    <output_states>
+        <output_state id="1">
+            <!-- send encryption complete signal -->
+        </output_state>
+        <output_state id="2">
+            <!-- send the result part 1 upper 8 bytes -->
+        </output_state>
+        <output_state id="3">
+            <!-- send the result part 1 lower 8 bytes -->
+        </output_state>
+        <output_state id="4">
+            <!-- cleanup -->
+        </output_state>
+    </output_states>
+</FlatEncryption>

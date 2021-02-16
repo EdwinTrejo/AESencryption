@@ -56,19 +56,24 @@ module EncDecController(
     end
     
     always @(*) begin
+    
         if (rx_complete == 1 & encrypt_state == 2 & current_sm_state == 1) begin
+            // key part1
             encrypt_instruction <= 2;
             next_sm_state <= 2;
         end
         else if (rx_complete == 1 & encrypt_state == 2 & current_sm_state == 2) begin
+            // key part2
             encrypt_instruction <= 3;
             next_sm_state <= 3;
         end
         else if (rx_complete == 1 & encrypt_state == 2 & current_sm_state == 3) begin
+            // state part1
             encrypt_instruction <= 4;
             next_sm_state <= 4;
         end
         else if (rx_complete == 1 & encrypt_state == 2 & current_sm_state == 4) begin
+            //state part2
             encrypt_instruction <= 5;
             next_sm_state <= 5;
         end

@@ -19,6 +19,22 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
+`define state0 8'h00
+`define state1 8'h01
+`define state2 8'h02
+`define state3 8'h03
+`define state4 8'h04
+`define state5 8'h05
+`define state6 8'h06
+`define state7 8'h07
+`define state8 8'h08
+`define state9 8'h09
+`define state10 8'h0A
+`define state11 8'h0B
+`define state12 8'h0C
+`define state13 8'h0D
+`define state14 8'h0E, 
+`define state15 8'h0F;
 
 module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, clk);
     //size references
@@ -28,7 +44,7 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
     parameter EXPANDED_KEY_PART_SIZE = 8'h20;//32
     parameter INSTRUCTION_SIZE = 8'h08;//8
     parameter STATE_COUNTER_SIZE = 8'h08;//8
-    parameter state0 = 8'h00, state1 = 8'h01, state2 = 8'h02, state3 = 8'h03, state4 = 8'h04, state5 = 8'h05, state6 = 8'h06, state7 = 8'h07, state8 = 8'h08, state9 = 8'h09, state10 = 8'h0A, state11 = 8'h0B, state12 = 8'h0C, state13 = 8'h0D, state14 = 8'h0E, state15 = 8'h0F;
+    //parameter state0 = 8'h00, state1 = 8'h01, state2 = 8'h02, state3 = 8'h03, state4 = 8'h04, state5 = 8'h05, state6 = 8'h06, state7 = 8'h07, state8 = 8'h08, state9 = 8'h09, state10 = 8'h0A, state11 = 8'h0B, state12 = 8'h0C, state13 = 8'h0D, state14 = 8'h0E, state15 = 8'h0F;
 
     //key expansin round addition value
     parameter RCON0 = 32'h8d000000, RCON1 = 32'h01000000, RCON2 = 32'h02000000, RCON3 = 32'h04000000, RCON4 = 32'h08000000, RCON5 = 32'h10000000;
@@ -44,7 +60,9 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
     //state machine management
     reg [FULL_MSG_SIZE-1:0] key;
     reg [FULL_MSG_SIZE-1:0] state;
-    reg [STATE_COUNTER_SIZE-1:0] current_sm_state, next_sm_state;
+    reg [STATE_COUNTER_SIZE-1:0] current_sm_state = 8'h00, next_sm_state = 8'h00;
+    reg start_key_expansion = 1'b0, key_expansion_done = 1'b0;
+    reg start_encryption = 1'b0, encryption_done = 1'b0;
 
     //key expansion
     reg [STATE_COUNTER_SIZE-1:0] KeySchedule, KeySchedule_next, KeySchedule_part;
@@ -65,7 +83,7 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
     reg [state_block_size-1:0] block_state [0:state_blocks-1];
     reg [state_block_size-1:0] block_key [0:state_blocks-1];
     reg [STATE_COUNTER_SIZE-1:0] xtime, xtime_next, xtime_part;
-    reg encryption_done;
+
     //encryption mixcolumns
     parameter times_two_B = 8'h1B;
     //reg [state_block_size-1:0] MixColumns1, MixColumns2, MixColumns3, MixColumns4, MixColumns5, MixColumns6, MixColumns7, MixColumns8, MixColumns9, MixColumns10, MixColumns11, MixColumns12, MixColumns13, MixColumns14, MixColumns15, MixColumns16;
@@ -127,13 +145,9 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
     getSBoxValue getSBoxValue_uut15(msg_in_subbyte15, msg_out_subbyte15);
     getSBoxValue getSBoxValue_uut16(msg_in_subbyte16, msg_out_subbyte16);
     
-    
- 
-    
-    always @(negedge clk) begin
-        current_sm_state <= next_sm_state;
-    end
-    
+    reg transmit_done = 1'b0, transmit_result_1 = 1'b0, transmit_result_2 = 1'b0;
+    reg receive_key1 = 1'b0, receive_key2 = 1'b0, receive_state1 = 1'b0, receive_state2 = 1'b0; 
+        
     //THIS may look like a state machine with pipelining but it isnt since the whole process cannot be completely pipelined
     
     //TODO
@@ -148,22 +162,108 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
     //TODO
     //move to IEEE format with always at *
     
-    //waiting state
-    always @(posedge clk) begin
+    always @(*) begin
+        current_sm_state <= next_sm_state;
+    end
+    
+    always @(*) begin
         if (in_instruction == 1) begin
-            //end waiting state
-            //current_sm_state <= state1; //only nessesary becuase of unkown states and fixed by using negative edges
-            next_sm_state <= state1;
+            next_sm_state <= `state1;
             out_instruction <= 2;
             encryption_done <= 1'b0;
             KeyExpansionDone <= 1'b0;
         end
-        else if (current_sm_state == 0 && in_instruction != 1) begin
+        else if (current_sm_state == `state0 && in_instruction != 1) begin
             //waiting state
+            //dont put this one above because the state will never be reached
             out_instruction <= 1;
-            next_sm_state <= state0;
+            next_sm_state <= `state0;
+        end
+        else if (current_sm_state == `state1 && in_instruction == 2) begin
+            //receiveing first part of key
+            receive_key1 <= 1'b1;
+        end
+        else if (current_sm_state == `state1 && in_instruction == 3) begin
+            //reciving second part of key
+            receive_key1 <= 1'b0;
+            receive_key2 <= 1'b1;
+            next_sm_state <= `state2;
+        end
+        else if (current_sm_state == `state2 && in_instruction == 4) begin
+            //reciving first part of state
+            receive_key2 <= 1'b0;
+            receive_state1 <= 1'b1;
+        end
+        else if (current_sm_state == `state2 && in_instruction == 5) begin
+            //reciving second part of state
+            receive_state2 <= 1'b1;
+            receive_state1 <= 1'b0;
+            next_sm_state <= `state3;
+        end
+        else if (current_sm_state == `state3 && key_expansion_done != 1)  begin
+            //start key expansion
+            receive_state2 <= 1'b0;
+            start_key_expansion <= 1'b1;
+        end
+        else if (current_sm_state == `state3 && start_key_expansion == 1)  begin
+            //turn off key expansion start
+            start_key_expansion <= 1'b0;
+        end
+        else if (current_sm_state == `state3 && key_expansion_done == 1)  begin
+            //key expansion done
+            next_sm_state <= `state4;
+        end
+        else if (current_sm_state == `state4)  begin
+            //add initial first key
+            next_sm_state <= `state5;
+        end
+         else if (current_sm_state == `state5 && encryption_done != 1)  begin
+            //start encryption
+            start_encryption <= 1'b1;
+        end
+        else if (current_sm_state == `state5 && start_encryption == 1)  begin
+            //turn off emcryption start
+            start_encryption <= 1'b0;
+        end
+        else if (current_sm_state == `state5 && encryption_done == 1)  begin
+            //encryption done
+            next_sm_state <= `state6;
+        end
+        else if (current_sm_state == `state5 && encryption_done == 1)  begin
+            //encryption done
+            next_sm_state <= `state6;
+        end
+        else if (current_sm_state == `state6 && transmit_done != 1)  begin
+            //encryption done
+            next_sm_state <= `state6;
         end
     end
+    
+//        waiting state
+//    always @(*) begin
+//        if (in_instruction == 1) begin
+//            //end waiting state
+//            //current_sm_state <= state1; //only nessesary becuase of unkown states and fixed by using negative edges
+//            next_sm_state <= state1;
+//            out_instruction <= 2;
+//            encryption_done <= 1'b0;
+//            KeyExpansionDone <= 1'b0;
+//        end
+//        else if (current_sm_state == 0 && in_instruction != 1) begin
+//            //waiting state
+//            out_instruction <= 1;
+//            next_sm_state <= state0;
+//        end
+//        else if (encryption_done == 1'b1) begin
+//            out_instruction <= 3;
+//        end
+//        else if (result_1 == 1'b1) begin
+//            out_instruction <= 4;
+//        end
+//        else if (result_2 == 1'b1) begin
+//            out_instruction <= 5;
+//        end
+//    end
     
     //receiving the key
     always @(posedge clk) begin
@@ -173,7 +273,7 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
         end
         else if (current_sm_state == 1 && in_instruction == 3) begin
             key[63:0] <= in_stream;
-            next_sm_state <= state2;
+            next_sm_state <= `state2;
         end
     end
     
@@ -793,21 +893,20 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
             state[119:112] <= block_state[14];
             state[127:120] <= block_state[15];
             next_sm_state <= state7;
-            out_instruction <= 3;
+            encryption_done <= 1'b1;
         end
-    end
-    
-    //send the output
-    always @(posedge clk) begin
+        
         if (current_sm_state == 7) begin
             out_stream <= state[127:64];
             next_sm_state <= state8;
-            out_instruction <= 4;
+            result_1 <= 1'b1;
+            encryption_done <= 1'b0;
         end
         else if (current_sm_state == 8) begin
             out_stream <= state[63:0];
             next_sm_state <= state0;
-            out_instruction <= 5;
+            result_2 <= 1'b1;
+            result_1 <= 1'b0;
         end
     end
 endmodule
