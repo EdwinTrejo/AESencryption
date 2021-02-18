@@ -55,13 +55,13 @@ module FlatEncryption_tb();
         #1;
         in_stream = 64'H8899AABBCCDDEEFF;
         in_instruction = 5;
-        #1;
+        #2;
         in_stream = 64'hZZZZZZZZZZZZZZZZ;
         #450;
         $finish;
     end
     
-    always @(*) begin
+    always @(clk) begin
         if (out_instruction == 4) begin
             full_out_state[127:64] = out_stream;
         end

@@ -11,13 +11,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="23788fs"></ZoomEndTime>
-      <Cursor1Time time="6000fs"></Cursor1Time>
+      <ZoomStartTime time="76334fs"></ZoomStartTime>
+      <ZoomEndTime time="534334fs"></ZoomEndTime>
+      <Cursor1Time time="458000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="200"></NameColumnWidth>
-      <ValueColumnWidth column_width="96"></ValueColumnWidth>
+      <ValueColumnWidth column_width="91"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="18" />
    <wvobject fp_name="/FlatEncryption_tb/in_stream" type="array">
@@ -84,12 +84,12 @@
       <obj_property name="ElementShortName">KeySchedule[7:0]</obj_property>
       <obj_property name="ObjectShortName">KeySchedule[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/FlatEncryption_tb/FlatEncryption_uut/internal_key_expansion_done" type="logic">
-      <obj_property name="ElementShortName">internal_key_expansion_done</obj_property>
-      <obj_property name="ObjectShortName">internal_key_expansion_done</obj_property>
-   </wvobject>
    <wvobject fp_name="/FlatEncryption_tb/FlatEncryption_uut/key_expansion_done" type="logic">
       <obj_property name="ElementShortName">key_expansion_done</obj_property>
       <obj_property name="ObjectShortName">key_expansion_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FlatEncryption_tb/FlatEncryption_uut/encryption_done" type="logic">
+      <obj_property name="ElementShortName">encryption_done</obj_property>
+      <obj_property name="ObjectShortName">encryption_done</obj_property>
    </wvobject>
 </wave_config>

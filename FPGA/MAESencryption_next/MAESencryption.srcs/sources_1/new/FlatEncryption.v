@@ -19,22 +19,22 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-`define state0 8'h00
-`define state1 8'h01
-`define state2 8'h02
-`define state3 8'h03
-`define state4 8'h04
-`define state5 8'h05
-`define state6 8'h06
-`define state7 8'h07
-`define state8 8'h08
-`define state9 8'h09
-`define state10 8'h0A
-`define state11 8'h0B
-`define state12 8'h0C
-`define state13 8'h0D
-`define state14 8'h0E, 
-`define state15 8'h0F;
+`define state0 0
+`define state1 1
+`define state2 2
+`define state3 3
+`define state4 4
+`define state5 5
+`define state6 6
+`define state7 7
+`define state8 8
+`define state9 9
+`define state10 10
+`define state11 11
+`define state12 12
+`define state13 13
+`define state14 14 
+`define state15 15
 
 module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, clk);
     //size references
@@ -163,54 +163,56 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
     //TODO
     //move to IEEE format with always at *
     
-    always @(*) begin
+    always @(clk) begin
         current_sm_state <= next_sm_state;
     end
     
-    always @(*) begin
+    always @(clk) begin
         if (in_instruction == 1) begin
             next_sm_state <= `state1;
             out_instruction <= 2;
         end
-        else if (current_sm_state == `state0 & in_instruction != 1) begin
+        else if (current_sm_state == `state0 && in_instruction != 1) begin
             //waiting state
             //dont put this one above because the state will never be reached
             out_instruction <= 1;
             next_sm_state <= `state0;
         end
-        else if (current_sm_state == `state1 & key_received == 1) begin
+        else if (current_sm_state == `state1 && key_received == 1'b1) begin
             //receiveing first part of key
             next_sm_state <= `state2;
         end
-        else if (current_sm_state == `state2 & state_received == 1) begin
+        else if (current_sm_state == `state2 && state_received == 1'b1) begin
             //reciving first part of state
             next_sm_state <= `state3;
         end
-        else if (current_sm_state == `state3 & key_expansion_done != 1 & start_key_expansion != 1)  begin
+        else if (current_sm_state == `state3 && key_expansion_done != 1'b1 && start_key_expansion != 1'b1 && run_key_expansion != 1'b1)  begin
             //start key expansion
             start_key_expansion <= 1'b1;
         end
-        else if (current_sm_state == `state3 & start_key_expansion == 1)  begin
+        else if (current_sm_state == `state3 && key_expansion_done != 1'b1 && start_key_expansion == 1'b1 && run_key_expansion != 1'b1)  begin
             //turn off key expansion start
             start_key_expansion <= 1'b0;
+            run_key_expansion <= 1'b1;
         end
-        else if (current_sm_state == `state3 & key_expansion_done == 1)  begin
+        else if (current_sm_state == `state3 && key_expansion_done == 1'b1 && start_key_expansion != 1'b1 && run_key_expansion == 1'b1) begin
             //key expansion done
+            run_key_expansion <= 1'b0;
             next_sm_state <= `state4;
         end
         else if (current_sm_state == `state4)  begin
             //add initial first key
             next_sm_state <= `state5;
         end
-        else if (current_sm_state == `state5 & encryption_done != 1)  begin
+        else if (current_sm_state == `state5 && encryption_done != 1'b1 && start_encryption != 1'b1)  begin
             //start encryption
             start_encryption <= 1'b1;
         end
-        else if (current_sm_state == `state5 & start_encryption == 1)  begin
+        else if (current_sm_state == `state5 && encryption_done != 1'b1 && start_encryption == 1'b1)  begin
             //turn off emcryption start
             start_encryption <= 1'b0;
         end
-        else if (current_sm_state == `state5 & encryption_done == 1)  begin
+        else if (current_sm_state == `state5 && encryption_done == 1'b1 && start_encryption != 1'b1)  begin
             //encryption done
             next_sm_state <= `state6;
         end
@@ -231,34 +233,34 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
         end
         else if (current_sm_state == `state9)  begin
             //clear everything and back to idle/waiting
+            //needs the second clock for the register write
             next_sm_state <= `state0;
-            out_instruction <= 1;
         end
     end
     
     //receiving the key
-    always @(*) begin
-        if (current_sm_state == `state1 & in_instruction == 2) begin
+    always @(clk) begin
+        if (current_sm_state == `state1 && in_instruction == 2) begin
             //from 128 to 64
             key_received <= 1'b0;
             state_received <= 1'b0;
             key[127:64] <= in_stream;
         end
-        else if (current_sm_state == `state1 & in_instruction == 3) begin
+        else if (current_sm_state == `state1 && in_instruction == 3) begin
             key[63:0] <= in_stream;
             key_received <= 1'b1;
         end
         //receiving the state
-        else if (current_sm_state == `state2 & in_instruction == 4) begin
+        else if (current_sm_state == `state2 && in_instruction == 4) begin
             //from 128 to 64
             state[127:64] <= in_stream;
             key_received <= 1'b0;
         end
-        else if (current_sm_state == `state2 & in_instruction == 5) begin
+        else if (current_sm_state == `state2 && in_instruction == 5) begin
             state[63:0] <= in_stream;
             state_received <= 1'b1;
         end
-        else if (current_sm_state == `state2) begin
+        else if (current_sm_state == `state3) begin
             state_received <= 1'b0;
         end
         //send encryption done signal and place into the state register
@@ -291,145 +293,132 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
             state_received <= 0;
         end
     end
-    
-    //run key expansion here and store in block ram (NEGATIVE EDGE)
-    always @(*) begin
-        if (current_sm_state == `state1) begin
-            KeySchedule_next <= 1;
-        end        
-        else if (current_sm_state == `state3 & internal_key_expansion_done == 1'b0 & KeySchedule > 0 & start_key_expansion == 1'b0)
-        begin
-            //for clarity I dont want to do this but it appears this will/might be nessesary for synthesis
-            case (KeySchedule)
-                1: begin
-                    KeySchedule_current_1 <= 4; KeySchedule_current_2 <= 5; KeySchedule_current_3 <= 6; KeySchedule_current_4 <= 7;
-                    KeySchedule_prev_1 <= 0; KeySchedule_prev_2 <= 1; KeySchedule_prev_3 <= 2; KeySchedule_prev_4 <= 3;
-                    KeySchedule_current_rcon <= RCON1;
-                    KeySchedule_next <= 2;
-                end
-                2: begin
-                    KeySchedule_current_1 <= 8; KeySchedule_current_2 <= 9; KeySchedule_current_3 <= 10; KeySchedule_current_4 <= 11;
-                    KeySchedule_prev_1 <= 4; KeySchedule_prev_2 <= 5; KeySchedule_prev_3 <= 6; KeySchedule_prev_4 <= 7;
-                    KeySchedule_current_rcon <= RCON2;
-                    KeySchedule_next <= 3;
-                end
-                3: begin
-                    KeySchedule_current_1 <= 12; KeySchedule_current_2 <= 13; KeySchedule_current_3 <= 14; KeySchedule_current_4 <= 15;
-                    KeySchedule_prev_1 <= 8; KeySchedule_prev_2 <= 9; KeySchedule_prev_3 <= 10; KeySchedule_prev_4 <= 11;
-                    KeySchedule_current_rcon <= RCON3;
-                    KeySchedule_next <= 4;
-                end
-                4: begin
-                    KeySchedule_current_1 <= 16; KeySchedule_current_2 <= 17; KeySchedule_current_3 <= 18; KeySchedule_current_4 <= 19;
-                    KeySchedule_prev_1 <= 12; KeySchedule_prev_2 <= 13; KeySchedule_prev_3 <= 14; KeySchedule_prev_4 <= 15;
-                    KeySchedule_current_rcon <= RCON4;
-                    KeySchedule_next <= 5;
-                end
-                5: begin
-                    KeySchedule_current_1 <= 20; KeySchedule_current_2 <= 21; KeySchedule_current_3 <= 22; KeySchedule_current_4 <= 23;
-                    KeySchedule_prev_1 <= 16; KeySchedule_prev_2 <= 17; KeySchedule_prev_3 <= 18; KeySchedule_prev_4 <= 19;
-                    KeySchedule_current_rcon <= RCON5;
-                    KeySchedule_next <= 6;
-                end
-                6: begin
-                    KeySchedule_current_1 <= 24; KeySchedule_current_2 <= 25; KeySchedule_current_3 <= 26; KeySchedule_current_4 <= 27;
-                    KeySchedule_prev_1 <= 20; KeySchedule_prev_2 <= 21; KeySchedule_prev_3 <= 22; KeySchedule_prev_4 <= 23;
-                    KeySchedule_current_rcon <= RCON6;
-                    KeySchedule_next <= 7;
-                end
-                7: begin
-                    KeySchedule_current_1 <= 28; KeySchedule_current_2 <= 29; KeySchedule_current_3 <= 30; KeySchedule_current_4 <= 31;
-                    KeySchedule_prev_1 <= 24; KeySchedule_prev_2 <= 25; KeySchedule_prev_3 <= 26; KeySchedule_prev_4 <= 27;
-                    KeySchedule_current_rcon <= RCON7;
-                    KeySchedule_next <= 8;
-                end
-                8: begin
-                    KeySchedule_current_1 <= 32; KeySchedule_current_2 <= 33; KeySchedule_current_3 <= 34; KeySchedule_current_4 <= 35;
-                    KeySchedule_prev_1 <= 28; KeySchedule_prev_2 <= 29; KeySchedule_prev_3 <= 30; KeySchedule_prev_4 <= 31;
-                    KeySchedule_current_rcon <= RCON8;
-                    KeySchedule_next <= 9;
-                end
-                9: begin
-                    KeySchedule_current_1 <= 36; KeySchedule_current_2 <= 37; KeySchedule_current_3 <= 38; KeySchedule_current_4 <= 39;
-                    KeySchedule_prev_1 <= 32; KeySchedule_prev_2 <= 33; KeySchedule_prev_3 <= 34; KeySchedule_prev_4 <= 35;
-                    KeySchedule_current_rcon <= RCON9;
-                    KeySchedule_next <= 10;
-                end
-                10: begin
-                    KeySchedule_current_1 <= 40; KeySchedule_current_2 <= 41; KeySchedule_current_3 <= 42; KeySchedule_current_4 <= 43;
-                    KeySchedule_prev_1 <= 36; KeySchedule_prev_2 <= 37; KeySchedule_prev_3 <= 38; KeySchedule_prev_4 <= 39;
-                    KeySchedule_current_rcon <= RCON10;
-                    KeySchedule_next <= 11;
-                end
-            endcase
-        end
-    end
-    
+        
     //run key expansion here and store in block ram
-    always @(*) begin
-        if (current_sm_state == `state2 & internal_key_expansion_done == 1'b0 & KeySchedule_next == 1) begin
+    always @(clk) begin
+        if (current_sm_state == `state3 && start_key_expansion == 1'b1) begin
             //load key into from original key
             expanded_key[3] <= key[31:0];
             expanded_key[2] <= key[63:32];
             expanded_key[1] <= key[95:64];
             expanded_key[0] <= key[127:96];
-            KeySchedule <= KeySchedule_next;
-            KeySchedule_part <= 1'b1;
+            KeySchedule <= 1;
+            KeySchedule_part <= 1;
             key_expansion_done <= 1'b0;
-            internal_key_expansion_done <= 1'b0;
+            KeySchedule_next <= 1;
         end
-        else if (current_sm_state == `state3 & internal_key_expansion_done == 1'b0 & KeySchedule > 0) begin
-
-//            if (KeySchedule > 10) begin
-//                internal_key_expansion_done <= 1'b1;
-//                KeySchedule <= KeySchedule_next;
-//            end
-                    
+        else if (current_sm_state == `state3 && start_key_expansion == 1'b0 && run_key_expansion == 1'b1 && KeySchedule > 0 && KeySchedule < 11) begin
             case (KeySchedule_part)
-                1: begin
-                    //do the next part of the key
-                    expanded_key[KeySchedule_current_1] <= expanded_key[KeySchedule_prev_4];
+                    1: begin
+                        //load the current key from key schedule
+                        case (KeySchedule)
+                            1: begin
+                                KeySchedule_current_1 <= 4; KeySchedule_current_2 <= 5; KeySchedule_current_3 <= 6; KeySchedule_current_4 <= 7;
+                                KeySchedule_prev_1 <= 0; KeySchedule_prev_2 <= 1; KeySchedule_prev_3 <= 2; KeySchedule_prev_4 <= 3;
+                                KeySchedule_current_rcon <= RCON1;
+                                KeySchedule_next <= 2;
+                            end
+                            2: begin
+                                KeySchedule_current_1 <= 8; KeySchedule_current_2 <= 9; KeySchedule_current_3 <= 10; KeySchedule_current_4 <= 11;
+                                KeySchedule_prev_1 <= 4; KeySchedule_prev_2 <= 5; KeySchedule_prev_3 <= 6; KeySchedule_prev_4 <= 7;
+                                KeySchedule_current_rcon <= RCON2;
+                                KeySchedule_next <= 3;
+                            end
+                            3: begin
+                                KeySchedule_current_1 <= 12; KeySchedule_current_2 <= 13; KeySchedule_current_3 <= 14; KeySchedule_current_4 <= 15;
+                                KeySchedule_prev_1 <= 8; KeySchedule_prev_2 <= 9; KeySchedule_prev_3 <= 10; KeySchedule_prev_4 <= 11;
+                                KeySchedule_current_rcon <= RCON3;
+                                KeySchedule_next <= 4;
+                            end
+                            4: begin
+                                KeySchedule_current_1 <= 16; KeySchedule_current_2 <= 17; KeySchedule_current_3 <= 18; KeySchedule_current_4 <= 19;
+                                KeySchedule_prev_1 <= 12; KeySchedule_prev_2 <= 13; KeySchedule_prev_3 <= 14; KeySchedule_prev_4 <= 15;
+                                KeySchedule_current_rcon <= RCON4;
+                                KeySchedule_next <= 5;
+                            end
+                            5: begin
+                                KeySchedule_current_1 <= 20; KeySchedule_current_2 <= 21; KeySchedule_current_3 <= 22; KeySchedule_current_4 <= 23;
+                                KeySchedule_prev_1 <= 16; KeySchedule_prev_2 <= 17; KeySchedule_prev_3 <= 18; KeySchedule_prev_4 <= 19;
+                                KeySchedule_current_rcon <= RCON5;
+                                KeySchedule_next <= 6;
+                            end
+                            6: begin
+                                KeySchedule_current_1 <= 24; KeySchedule_current_2 <= 25; KeySchedule_current_3 <= 26; KeySchedule_current_4 <= 27;
+                                KeySchedule_prev_1 <= 20; KeySchedule_prev_2 <= 21; KeySchedule_prev_3 <= 22; KeySchedule_prev_4 <= 23;
+                                KeySchedule_current_rcon <= RCON6;
+                                KeySchedule_next <= 7;
+                            end
+                            7: begin
+                                KeySchedule_current_1 <= 28; KeySchedule_current_2 <= 29; KeySchedule_current_3 <= 30; KeySchedule_current_4 <= 31;
+                                KeySchedule_prev_1 <= 24; KeySchedule_prev_2 <= 25; KeySchedule_prev_3 <= 26; KeySchedule_prev_4 <= 27;
+                                KeySchedule_current_rcon <= RCON7;
+                                KeySchedule_next <= 8;
+                            end
+                            8: begin
+                                KeySchedule_current_1 <= 32; KeySchedule_current_2 <= 33; KeySchedule_current_3 <= 34; KeySchedule_current_4 <= 35;
+                                KeySchedule_prev_1 <= 28; KeySchedule_prev_2 <= 29; KeySchedule_prev_3 <= 30; KeySchedule_prev_4 <= 31;
+                                KeySchedule_current_rcon <= RCON8;
+                                KeySchedule_next <= 9;
+                            end
+                            9: begin
+                                KeySchedule_current_1 <= 36; KeySchedule_current_2 <= 37; KeySchedule_current_3 <= 38; KeySchedule_current_4 <= 39;
+                                KeySchedule_prev_1 <= 32; KeySchedule_prev_2 <= 33; KeySchedule_prev_3 <= 34; KeySchedule_prev_4 <= 35;
+                                KeySchedule_current_rcon <= RCON9;
+                                KeySchedule_next <= 10;
+                            end
+                            10: begin
+                                KeySchedule_current_1 <= 40; KeySchedule_current_2 <= 41; KeySchedule_current_3 <= 42; KeySchedule_current_4 <= 43;
+                                KeySchedule_prev_1 <= 36; KeySchedule_prev_2 <= 37; KeySchedule_prev_3 <= 38; KeySchedule_prev_4 <= 39;
+                                KeySchedule_current_rcon <= RCON10;
+                                KeySchedule_next <= 11;
+                            end
+                        endcase
                     KeySchedule_part <= 2;
                 end
                 2: begin
-                    //rotate word 1
-                    msg_in_rotword <= expanded_key[KeySchedule_current_1];
+                    //do the next part of the key
+                    expanded_key[KeySchedule_current_1] <= expanded_key[KeySchedule_prev_4];
                     KeySchedule_part <= 3;
                 end
                 3: begin
-                    //rotate word 2
-                    expanded_key[KeySchedule_current_1] <= msg_out_rotword;
+                    //rotate word 1
+                    msg_in_rotword <= expanded_key[KeySchedule_current_1];
                     KeySchedule_part <= 4;
                 end
                 4: begin
-                    //subword 1
-                    msg_in_subword <= expanded_key[KeySchedule_current_1];
+                    //rotate word 2
+                    expanded_key[KeySchedule_current_1] <= msg_out_rotword;
                     KeySchedule_part <= 5;
                 end
                 5: begin
-                    //subword 2
-                    expanded_key[KeySchedule_current_1] <= msg_out_subword;
+                    //subword 1
+                    msg_in_subword <= expanded_key[KeySchedule_current_1];
                     KeySchedule_part <= 6;
                 end
                 6: begin
-                    //rcon
-                    expanded_key[KeySchedule_current_1] <= expanded_key[KeySchedule_current_1] ^ KeySchedule_current_rcon;
+                    //subword 2
+                    expanded_key[KeySchedule_current_1] <= msg_out_subword;
                     KeySchedule_part <= 7;
                 end
                 7: begin
-                    //addkey
-                    expanded_key[KeySchedule_current_1] <= expanded_key[KeySchedule_current_1] ^ expanded_key[KeySchedule_prev_1];
+                    //rcon
+                    expanded_key[KeySchedule_current_1] <= expanded_key[KeySchedule_current_1] ^ KeySchedule_current_rcon;
                     KeySchedule_part <= 8;
                 end
                 8: begin
-                    expanded_key[KeySchedule_current_2] <= expanded_key[KeySchedule_current_1] ^ expanded_key[KeySchedule_prev_2];
+                    //addkey
+                    expanded_key[KeySchedule_current_1] <= expanded_key[KeySchedule_current_1] ^ expanded_key[KeySchedule_prev_1];
                     KeySchedule_part <= 9;
                 end
                 9: begin
-                    expanded_key[KeySchedule_current_3] <= expanded_key[KeySchedule_current_2] ^ expanded_key[KeySchedule_prev_3];
+                    expanded_key[KeySchedule_current_2] <= expanded_key[KeySchedule_current_1] ^ expanded_key[KeySchedule_prev_2];
                     KeySchedule_part <= 10;
                 end
                 10: begin
+                    expanded_key[KeySchedule_current_3] <= expanded_key[KeySchedule_current_2] ^ expanded_key[KeySchedule_prev_3];
+                    KeySchedule_part <= 11;
+                end
+                11: begin
 //                    expanded_key[KeySchedule_current_4] <= expanded_key[KeySchedule_current_3] ^ expanded_key[KeySchedule_prev_4];
 //                    //advance counter for loop
                     expanded_key[KeySchedule_current_4] <= expanded_key[KeySchedule_current_3] ^ expanded_key[KeySchedule_prev_4];
@@ -439,275 +428,32 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
                         KeySchedule_part <= 1;
                     end
                     else begin
-                        KeySchedule_part <= 11;
+                        KeySchedule_part <= 12;
                     end
                 end
             endcase
-            
-            //done
-            if (KeySchedule > 10) begin
-                internal_key_expansion_done <= 1'b1;
-            end
         end
-        else if (current_sm_state == `state3 & internal_key_expansion_done == 1'b1) begin
+        else if (current_sm_state == `state3 && KeySchedule == 11) begin
             key_expansion_done <= 1'b1;
-            internal_key_expansion_done <= 1'b0;
             KeySchedule <= 0;
             KeySchedule_next <= 0;
         end
-        else if (current_sm_state == `state1) begin
+        else if (current_sm_state == `state4) begin
+            KeySchedule <= 0;
+            KeySchedule_part <= 0;
             key_expansion_done <= 1'b0;
-            KeySchedule <= 0;
             KeySchedule_next <= 0;
         end
     end
-    
-    //add initial key
-//    always @(*) begin
-//        if (current_sm_state == 4) begin
-//            xtime_next <= 1;
-//            xtime_part <= 1;
-//            encryption_done <= 0;            
-//            block_state[0] <= state[7:0] ^ key[7:0];
-//            block_state[1] <= state[15:8] ^ key[15:8];
-//            block_state[2] <= state[23:16] ^ key[23:16];
-//            block_state[3] <= state[31:24] ^ key[31:24];
-//            block_state[4] <= state[39:32] ^ key[39:32];
-//            block_state[5] <= state[47:40] ^ key[47:40];
-//            block_state[6] <= state[55:48] ^ key[55:48];
-//            block_state[7] <= state[63:56] ^ key[63:56];
-//            block_state[8] <= state[71:64] ^ key[71:64];
-//            block_state[9] <= state[79:72] ^ key[79:72];
-//            block_state[10] <= state[87:80] ^ key[87:80];
-//            block_state[11] <= state[95:88] ^ key[95:88];
-//            block_state[12] <= state[103:96] ^ key[103:96];
-//            block_state[13] <= state[111:104] ^ key[111:104];
-//            block_state[14] <= state[119:112] ^ key[119:112];
-//            block_state[15] <= state[127:120] ^ key[127:120];
-//        end
-//    end
 
-    //run full encryption NEGEDGE
-    always @(*) begin
-        //block_state, block_key
-        //xtime, xtime_next, xtime_part
-        //MixColumns_current_1, MixColumns_current_2, MixColumns_current_3, MixColumns_current_4
-        if (current_sm_state == `state5 & encryption_done == 0 & xtime > 0) begin
-            case (xtime)
-                1: begin
-                    //4 to 7
-                    block_key[0] <= expanded_key[7][7:0];
-                    block_key[1] <= expanded_key[7][15:8];
-                    block_key[2] <= expanded_key[7][23:16];
-                    block_key[3] <= expanded_key[7][31:24];
-                    block_key[4] <= expanded_key[6][7:0];
-                    block_key[5] <= expanded_key[6][15:8];
-                    block_key[6] <= expanded_key[6][23:16];
-                    block_key[7] <= expanded_key[6][31:24];
-                    block_key[8] <= expanded_key[5][7:0];
-                    block_key[9] <= expanded_key[5][15:8];
-                    block_key[10] <= expanded_key[5][23:16];
-                    block_key[11] <= expanded_key[5][31:24];
-                    block_key[12] <= expanded_key[4][7:0];
-                    block_key[13] <= expanded_key[4][15:8];
-                    block_key[14] <= expanded_key[4][23:16];
-                    block_key[15] <= expanded_key[4][31:24];
-                    xtime_next <= 2;
-                end
-                2: begin
-                    //8 to 11
-                    block_key[0] <= expanded_key[11][7:0];
-                    block_key[1] <= expanded_key[11][15:8];
-                    block_key[2] <= expanded_key[11][23:16];
-                    block_key[3] <= expanded_key[11][31:24];
-                    block_key[4] <= expanded_key[10][7:0];
-                    block_key[5] <= expanded_key[10][15:8];
-                    block_key[6] <= expanded_key[10][23:16];
-                    block_key[7] <= expanded_key[10][31:24];
-                    block_key[8] <= expanded_key[9][7:0];
-                    block_key[9] <= expanded_key[9][15:8];
-                    block_key[10] <= expanded_key[9][23:16];
-                    block_key[11] <= expanded_key[9][31:24];
-                    block_key[12] <= expanded_key[8][7:0];
-                    block_key[13] <= expanded_key[8][15:8];
-                    block_key[14] <= expanded_key[8][23:16];
-                    block_key[15] <= expanded_key[8][31:24];
-                    xtime_next <= 3;
-                end
-                3: begin
-                    //12 to 15
-                    block_key[0] <= expanded_key[15][7:0];
-                    block_key[1] <= expanded_key[15][15:8];
-                    block_key[2] <= expanded_key[15][23:16];
-                    block_key[3] <= expanded_key[15][31:24];
-                    block_key[4] <= expanded_key[14][7:0];
-                    block_key[5] <= expanded_key[14][15:8];
-                    block_key[6] <= expanded_key[14][23:16];
-                    block_key[7] <= expanded_key[14][31:24];
-                    block_key[8] <= expanded_key[13][7:0];
-                    block_key[9] <= expanded_key[13][15:8];
-                    block_key[10] <= expanded_key[13][23:16];
-                    block_key[11] <= expanded_key[13][31:24];
-                    block_key[12] <= expanded_key[12][7:0];
-                    block_key[13] <= expanded_key[12][15:8];
-                    block_key[14] <= expanded_key[12][23:16];
-                    block_key[15] <= expanded_key[12][31:24];
-                    xtime_next <= 4;
-                end
-                4: begin
-                    //16 to 19
-                    block_key[0] <= expanded_key[19][7:0];
-                    block_key[1] <= expanded_key[19][15:8];
-                    block_key[2] <= expanded_key[19][23:16];
-                    block_key[3] <= expanded_key[19][31:24];
-                    block_key[4] <= expanded_key[18][7:0];
-                    block_key[5] <= expanded_key[18][15:8];
-                    block_key[6] <= expanded_key[18][23:16];
-                    block_key[7] <= expanded_key[18][31:24];
-                    block_key[8] <= expanded_key[17][7:0];
-                    block_key[9] <= expanded_key[17][15:8];
-                    block_key[10] <= expanded_key[17][23:16];
-                    block_key[11] <= expanded_key[17][31:24];
-                    block_key[12] <= expanded_key[16][7:0];
-                    block_key[13] <= expanded_key[16][15:8];
-                    block_key[14] <= expanded_key[16][23:16];
-                    block_key[15] <= expanded_key[16][31:24];
-                    xtime_next <= 5;
-                end
-                5: begin
-                    //20 to 23
-                    block_key[0] <= expanded_key[23][7:0];
-                    block_key[1] <= expanded_key[23][15:8];
-                    block_key[2] <= expanded_key[23][23:16];
-                    block_key[3] <= expanded_key[23][31:24];
-                    block_key[4] <= expanded_key[22][7:0];
-                    block_key[5] <= expanded_key[22][15:8];
-                    block_key[6] <= expanded_key[22][23:16];
-                    block_key[7] <= expanded_key[22][31:24];
-                    block_key[8] <= expanded_key[21][7:0];
-                    block_key[9] <= expanded_key[21][15:8];
-                    block_key[10] <= expanded_key[21][23:16];
-                    block_key[11] <= expanded_key[21][31:24];
-                    block_key[12] <= expanded_key[20][7:0];
-                    block_key[13] <= expanded_key[20][15:8];
-                    block_key[14] <= expanded_key[20][23:16];
-                    block_key[15] <= expanded_key[20][31:24];
-                    xtime_next <= 6;
-                end
-                6: begin
-                    //24 to 27
-                    block_key[0] <= expanded_key[27][7:0];
-                    block_key[1] <= expanded_key[27][15:8];
-                    block_key[2] <= expanded_key[27][23:16];
-                    block_key[3] <= expanded_key[27][31:24];
-                    block_key[4] <= expanded_key[26][7:0];
-                    block_key[5] <= expanded_key[26][15:8];
-                    block_key[6] <= expanded_key[26][23:16];
-                    block_key[7] <= expanded_key[26][31:24];
-                    block_key[8] <= expanded_key[25][7:0];
-                    block_key[9] <= expanded_key[25][15:8];
-                    block_key[10] <= expanded_key[25][23:16];
-                    block_key[11] <= expanded_key[25][31:24];
-                    block_key[12] <= expanded_key[24][7:0];
-                    block_key[13] <= expanded_key[24][15:8];
-                    block_key[14] <= expanded_key[24][23:16];
-                    block_key[15] <= expanded_key[24][31:24];
-                    xtime_next <= 7;
-                end
-                7: begin
-                    //28 to 31
-                    block_key[0] <= expanded_key[31][7:0];
-                    block_key[1] <= expanded_key[31][15:8];
-                    block_key[2] <= expanded_key[31][23:16];
-                    block_key[3] <= expanded_key[31][31:24];
-                    block_key[4] <= expanded_key[30][7:0];
-                    block_key[5] <= expanded_key[30][15:8];
-                    block_key[6] <= expanded_key[30][23:16];
-                    block_key[7] <= expanded_key[30][31:24];
-                    block_key[8] <= expanded_key[29][7:0];
-                    block_key[9] <= expanded_key[29][15:8];
-                    block_key[10] <= expanded_key[29][23:16];
-                    block_key[11] <= expanded_key[29][31:24];
-                    block_key[12] <= expanded_key[28][7:0];
-                    block_key[13] <= expanded_key[28][15:8];
-                    block_key[14] <= expanded_key[28][23:16];
-                    block_key[15] <= expanded_key[28][31:24];
-                    xtime_next <= 8;
-                end
-                8: begin
-                    //32 to 35
-                    block_key[0] <= expanded_key[35][7:0];
-                    block_key[1] <= expanded_key[35][15:8];
-                    block_key[2] <= expanded_key[35][23:16];
-                    block_key[3] <= expanded_key[35][31:24];
-                    block_key[4] <= expanded_key[34][7:0];
-                    block_key[5] <= expanded_key[34][15:8];
-                    block_key[6] <= expanded_key[34][23:16];
-                    block_key[7] <= expanded_key[34][31:24];
-                    block_key[8] <= expanded_key[33][7:0];
-                    block_key[9] <= expanded_key[33][15:8];
-                    block_key[10] <= expanded_key[33][23:16];
-                    block_key[11] <= expanded_key[33][31:24];
-                    block_key[12] <= expanded_key[32][7:0];
-                    block_key[13] <= expanded_key[32][15:8];
-                    block_key[14] <= expanded_key[32][23:16];
-                    block_key[15] <= expanded_key[32][31:24];
-                    xtime_next <= 9;
-                end
-                9: begin
-                    //36 to 39
-                    block_key[0] <= expanded_key[39][7:0];
-                    block_key[1] <= expanded_key[39][15:8];
-                    block_key[2] <= expanded_key[39][23:16];
-                    block_key[3] <= expanded_key[39][31:24];
-                    block_key[4] <= expanded_key[38][7:0];
-                    block_key[5] <= expanded_key[38][15:8];
-                    block_key[6] <= expanded_key[38][23:16];
-                    block_key[7] <= expanded_key[38][31:24];
-                    block_key[8] <= expanded_key[37][7:0];
-                    block_key[9] <= expanded_key[37][15:8];
-                    block_key[10] <= expanded_key[37][23:16];
-                    block_key[11] <= expanded_key[37][31:24];
-                    block_key[12] <= expanded_key[36][7:0];
-                    block_key[13] <= expanded_key[36][15:8];
-                    block_key[14] <= expanded_key[36][23:16];
-                    block_key[15] <= expanded_key[36][31:24];
-                    xtime_next <= 10;
-                end
-                10: begin
-                    //40 to 43
-                    block_key[0] <= expanded_key[43][7:0];
-                    block_key[1] <= expanded_key[43][15:8];
-                    block_key[2] <= expanded_key[43][23:16];
-                    block_key[3] <= expanded_key[43][31:24];
-                    block_key[4] <= expanded_key[42][7:0];
-                    block_key[5] <= expanded_key[42][15:8];
-                    block_key[6] <= expanded_key[42][23:16];
-                    block_key[7] <= expanded_key[42][31:24];
-                    block_key[8] <= expanded_key[41][7:0];
-                    block_key[9] <= expanded_key[41][15:8];
-                    block_key[10] <= expanded_key[41][23:16];
-                    block_key[11] <= expanded_key[41][31:24];
-                    block_key[12] <= expanded_key[40][7:0];
-                    block_key[13] <= expanded_key[40][15:8];
-                    block_key[14] <= expanded_key[40][23:16];
-                    block_key[15] <= expanded_key[40][31:24];
-                    xtime_next <= 11;
-                end
-                11: begin
-                    
-                end
-            endcase
-        end
-    end
-    
     //run full encryption
-    always @(*) begin
+    always @(clk) begin
         //add initial key
-        if (current_sm_state == 4) begin
+        if (current_sm_state == `state4) begin
             xtime <= 1;
             xtime_part <= 1;
-            encryption_done <= 0;            
+            xtime_next <= 1;
+            encryption_done <= 0;
             block_state[0] <= state[7:0] ^ key[7:0];
             block_state[1] <= state[15:8] ^ key[15:8];
             block_state[2] <= state[23:16] ^ key[23:16];
@@ -729,7 +475,7 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
         //xtime, xtime_next, xtime_part
 
         //THIS ONE might take a lot of steps
-        else if (current_sm_state == `state5 & encryption_done == 0 & xtime > 0) begin
+        else if (current_sm_state == `state5 && encryption_done == 0 && xtime > 0 && xtime < 11) begin
             //steps
             //1 subbytes
             //2 shiftrows
@@ -737,6 +483,211 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
             //4 addkey
             case (xtime_part)
                 1: begin
+                    case (xtime)
+                        1: begin
+                            //4 to 7
+                            block_key[0] <= expanded_key[7][7:0];
+                            block_key[1] <= expanded_key[7][15:8];
+                            block_key[2] <= expanded_key[7][23:16];
+                            block_key[3] <= expanded_key[7][31:24];
+                            block_key[4] <= expanded_key[6][7:0];
+                            block_key[5] <= expanded_key[6][15:8];
+                            block_key[6] <= expanded_key[6][23:16];
+                            block_key[7] <= expanded_key[6][31:24];
+                            block_key[8] <= expanded_key[5][7:0];
+                            block_key[9] <= expanded_key[5][15:8];
+                            block_key[10] <= expanded_key[5][23:16];
+                            block_key[11] <= expanded_key[5][31:24];
+                            block_key[12] <= expanded_key[4][7:0];
+                            block_key[13] <= expanded_key[4][15:8];
+                            block_key[14] <= expanded_key[4][23:16];
+                            block_key[15] <= expanded_key[4][31:24];
+                            xtime_next <= 2;
+                        end
+                        2: begin
+                            //8 to 11
+                            block_key[0] <= expanded_key[11][7:0];
+                            block_key[1] <= expanded_key[11][15:8];
+                            block_key[2] <= expanded_key[11][23:16];
+                            block_key[3] <= expanded_key[11][31:24];
+                            block_key[4] <= expanded_key[10][7:0];
+                            block_key[5] <= expanded_key[10][15:8];
+                            block_key[6] <= expanded_key[10][23:16];
+                            block_key[7] <= expanded_key[10][31:24];
+                            block_key[8] <= expanded_key[9][7:0];
+                            block_key[9] <= expanded_key[9][15:8];
+                            block_key[10] <= expanded_key[9][23:16];
+                            block_key[11] <= expanded_key[9][31:24];
+                            block_key[12] <= expanded_key[8][7:0];
+                            block_key[13] <= expanded_key[8][15:8];
+                            block_key[14] <= expanded_key[8][23:16];
+                            block_key[15] <= expanded_key[8][31:24];
+                            xtime_next <= 3;
+                        end
+                        3: begin
+                            //12 to 15
+                            block_key[0] <= expanded_key[15][7:0];
+                            block_key[1] <= expanded_key[15][15:8];
+                            block_key[2] <= expanded_key[15][23:16];
+                            block_key[3] <= expanded_key[15][31:24];
+                            block_key[4] <= expanded_key[14][7:0];
+                            block_key[5] <= expanded_key[14][15:8];
+                            block_key[6] <= expanded_key[14][23:16];
+                            block_key[7] <= expanded_key[14][31:24];
+                            block_key[8] <= expanded_key[13][7:0];
+                            block_key[9] <= expanded_key[13][15:8];
+                            block_key[10] <= expanded_key[13][23:16];
+                            block_key[11] <= expanded_key[13][31:24];
+                            block_key[12] <= expanded_key[12][7:0];
+                            block_key[13] <= expanded_key[12][15:8];
+                            block_key[14] <= expanded_key[12][23:16];
+                            block_key[15] <= expanded_key[12][31:24];
+                            xtime_next <= 4;
+                        end
+                        4: begin
+                            //16 to 19
+                            block_key[0] <= expanded_key[19][7:0];
+                            block_key[1] <= expanded_key[19][15:8];
+                            block_key[2] <= expanded_key[19][23:16];
+                            block_key[3] <= expanded_key[19][31:24];
+                            block_key[4] <= expanded_key[18][7:0];
+                            block_key[5] <= expanded_key[18][15:8];
+                            block_key[6] <= expanded_key[18][23:16];
+                            block_key[7] <= expanded_key[18][31:24];
+                            block_key[8] <= expanded_key[17][7:0];
+                            block_key[9] <= expanded_key[17][15:8];
+                            block_key[10] <= expanded_key[17][23:16];
+                            block_key[11] <= expanded_key[17][31:24];
+                            block_key[12] <= expanded_key[16][7:0];
+                            block_key[13] <= expanded_key[16][15:8];
+                            block_key[14] <= expanded_key[16][23:16];
+                            block_key[15] <= expanded_key[16][31:24];
+                            xtime_next <= 5;
+                        end
+                        5: begin
+                            //20 to 23
+                            block_key[0] <= expanded_key[23][7:0];
+                            block_key[1] <= expanded_key[23][15:8];
+                            block_key[2] <= expanded_key[23][23:16];
+                            block_key[3] <= expanded_key[23][31:24];
+                            block_key[4] <= expanded_key[22][7:0];
+                            block_key[5] <= expanded_key[22][15:8];
+                            block_key[6] <= expanded_key[22][23:16];
+                            block_key[7] <= expanded_key[22][31:24];
+                            block_key[8] <= expanded_key[21][7:0];
+                            block_key[9] <= expanded_key[21][15:8];
+                            block_key[10] <= expanded_key[21][23:16];
+                            block_key[11] <= expanded_key[21][31:24];
+                            block_key[12] <= expanded_key[20][7:0];
+                            block_key[13] <= expanded_key[20][15:8];
+                            block_key[14] <= expanded_key[20][23:16];
+                            block_key[15] <= expanded_key[20][31:24];
+                            xtime_next <= 6;
+                        end
+                        6: begin
+                            //24 to 27
+                            block_key[0] <= expanded_key[27][7:0];
+                            block_key[1] <= expanded_key[27][15:8];
+                            block_key[2] <= expanded_key[27][23:16];
+                            block_key[3] <= expanded_key[27][31:24];
+                            block_key[4] <= expanded_key[26][7:0];
+                            block_key[5] <= expanded_key[26][15:8];
+                            block_key[6] <= expanded_key[26][23:16];
+                            block_key[7] <= expanded_key[26][31:24];
+                            block_key[8] <= expanded_key[25][7:0];
+                            block_key[9] <= expanded_key[25][15:8];
+                            block_key[10] <= expanded_key[25][23:16];
+                            block_key[11] <= expanded_key[25][31:24];
+                            block_key[12] <= expanded_key[24][7:0];
+                            block_key[13] <= expanded_key[24][15:8];
+                            block_key[14] <= expanded_key[24][23:16];
+                            block_key[15] <= expanded_key[24][31:24];
+                            xtime_next <= 7;
+                        end
+                        7: begin
+                            //28 to 31
+                            block_key[0] <= expanded_key[31][7:0];
+                            block_key[1] <= expanded_key[31][15:8];
+                            block_key[2] <= expanded_key[31][23:16];
+                            block_key[3] <= expanded_key[31][31:24];
+                            block_key[4] <= expanded_key[30][7:0];
+                            block_key[5] <= expanded_key[30][15:8];
+                            block_key[6] <= expanded_key[30][23:16];
+                            block_key[7] <= expanded_key[30][31:24];
+                            block_key[8] <= expanded_key[29][7:0];
+                            block_key[9] <= expanded_key[29][15:8];
+                            block_key[10] <= expanded_key[29][23:16];
+                            block_key[11] <= expanded_key[29][31:24];
+                            block_key[12] <= expanded_key[28][7:0];
+                            block_key[13] <= expanded_key[28][15:8];
+                            block_key[14] <= expanded_key[28][23:16];
+                            block_key[15] <= expanded_key[28][31:24];
+                            xtime_next <= 8;
+                        end
+                        8: begin
+                            //32 to 35
+                            block_key[0] <= expanded_key[35][7:0];
+                            block_key[1] <= expanded_key[35][15:8];
+                            block_key[2] <= expanded_key[35][23:16];
+                            block_key[3] <= expanded_key[35][31:24];
+                            block_key[4] <= expanded_key[34][7:0];
+                            block_key[5] <= expanded_key[34][15:8];
+                            block_key[6] <= expanded_key[34][23:16];
+                            block_key[7] <= expanded_key[34][31:24];
+                            block_key[8] <= expanded_key[33][7:0];
+                            block_key[9] <= expanded_key[33][15:8];
+                            block_key[10] <= expanded_key[33][23:16];
+                            block_key[11] <= expanded_key[33][31:24];
+                            block_key[12] <= expanded_key[32][7:0];
+                            block_key[13] <= expanded_key[32][15:8];
+                            block_key[14] <= expanded_key[32][23:16];
+                            block_key[15] <= expanded_key[32][31:24];
+                            xtime_next <= 9;
+                        end
+                        9: begin
+                            //36 to 39
+                            block_key[0] <= expanded_key[39][7:0];
+                            block_key[1] <= expanded_key[39][15:8];
+                            block_key[2] <= expanded_key[39][23:16];
+                            block_key[3] <= expanded_key[39][31:24];
+                            block_key[4] <= expanded_key[38][7:0];
+                            block_key[5] <= expanded_key[38][15:8];
+                            block_key[6] <= expanded_key[38][23:16];
+                            block_key[7] <= expanded_key[38][31:24];
+                            block_key[8] <= expanded_key[37][7:0];
+                            block_key[9] <= expanded_key[37][15:8];
+                            block_key[10] <= expanded_key[37][23:16];
+                            block_key[11] <= expanded_key[37][31:24];
+                            block_key[12] <= expanded_key[36][7:0];
+                            block_key[13] <= expanded_key[36][15:8];
+                            block_key[14] <= expanded_key[36][23:16];
+                            block_key[15] <= expanded_key[36][31:24];
+                            xtime_next <= 10;
+                        end
+                        10: begin
+                            //40 to 43
+                            block_key[0] <= expanded_key[43][7:0];
+                            block_key[1] <= expanded_key[43][15:8];
+                            block_key[2] <= expanded_key[43][23:16];
+                            block_key[3] <= expanded_key[43][31:24];
+                            block_key[4] <= expanded_key[42][7:0];
+                            block_key[5] <= expanded_key[42][15:8];
+                            block_key[6] <= expanded_key[42][23:16];
+                            block_key[7] <= expanded_key[42][31:24];
+                            block_key[8] <= expanded_key[41][7:0];
+                            block_key[9] <= expanded_key[41][15:8];
+                            block_key[10] <= expanded_key[41][23:16];
+                            block_key[11] <= expanded_key[41][31:24];
+                            block_key[12] <= expanded_key[40][7:0];
+                            block_key[13] <= expanded_key[40][15:8];
+                            block_key[14] <= expanded_key[40][23:16];
+                            block_key[15] <= expanded_key[40][31:24];
+                            xtime_next <= 11;
+                        end
+                    endcase
+                    xtime_part <= 2;
+                end
+                2: begin
                     //subbytes
                     msg_in_subbyte1 <= block_state[0];
                     msg_in_subbyte2 <= block_state[1];
@@ -754,9 +705,9 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
                     msg_in_subbyte14 <= block_state[13];
                     msg_in_subbyte15 <= block_state[14];
                     msg_in_subbyte16 <= block_state[15];
-                    xtime_part <= 2;
+                    xtime_part <= 3;
                 end
-                2: begin
+                3: begin
                     //subbytes
                     block_state[0] <= msg_out_subbyte1;
                     block_state[1] <= msg_out_subbyte2;
@@ -774,9 +725,9 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
                     block_state[13] <= msg_out_subbyte14;
                     block_state[14] <= msg_out_subbyte15;
                     block_state[15] <= msg_out_subbyte16;
-                    xtime_part <= 3;
+                    xtime_part <= 4;
                 end
-                3: begin
+                4: begin
                     //shiftrows
                     //  15  14  13  12  11  10  9   8   7   6   5   4   3   2   1   0
                     //  15  10  5   0   11  6   1   12  7   2   13  8   3   12  9   4
@@ -796,9 +747,9 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
                     block_state[13] <= block_state[5];
                     block_state[14] <= block_state[10];
                     block_state[15] <= block_state[15];
-                    xtime_part <= 4;
+                    xtime_part <= 5;
                 end
-                4: begin
+                5: begin
                     //mixcolumns
                     //times_two_B = 8'h1B;
                     //MixColumns1
@@ -841,10 +792,10 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
                     MixColumns2_14 <= block_state[13]; MixColumns3_14 <= block_state[12];
                     MixColumns2_15 <= block_state[14]; MixColumns3_15 <= block_state[13];
                     MixColumns2_16 <= block_state[15]; MixColumns3_16 <= block_state[14];
-                                       
-                    xtime_part <= 5;
+                    
+                    xtime_part <= 6;
                 end
-                5: begin
+                6: begin
                     //mixcolumns
                     if (xtime < 10) begin
                         //MixColumns2out_1 MixColumns3out_1
@@ -868,9 +819,9 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
                         block_state[14] <= MixColumns2out_15 ^ MixColumns3out_15 ^ block_state[12] ^ block_state[15];
                         block_state[15] <= MixColumns2out_16 ^ MixColumns3out_16 ^ block_state[12] ^ block_state[13];
                     end
-                    xtime_part <= 6;
+                    xtime_part <= 7;
                 end
-                6: begin
+                7: begin
                     //addkey
                     block_state[0] <= block_state[0] ^ block_key[0];
                     block_state[1] <= block_state[1] ^ block_key[1];
@@ -888,23 +839,26 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
                     block_state[13] <= block_state[13] ^ block_key[13];
                     block_state[14] <= block_state[14] ^ block_key[14];
                     block_state[15] <= block_state[15] ^ block_key[15];
-                    xtime_part <= 7;
+                    xtime_part <= 8;
                 end
-                7: begin
-                    xtime_part <= 1;
+                8: begin
                     xtime <= xtime_next;
+                    if (xtime < 10) begin
+                        xtime_part <= 1;
+                    end
+                    else begin
+                        xtime_part <= 9;
+                        encryption_done <= 1'b1;
+                    end
                 end
             endcase
-            if (xtime > 10) begin
-                encryption_done <= 1'b1;
-            end
         end
-        else if (current_sm_state == 5 & encryption_done == 1'b1) begin
+        else if (current_sm_state == `state5 && encryption_done == 1'b1) begin
             encryption_done <= 1'b0;
             xtime <= 0;
             xtime_part <= 0;
         end
-        else begin
+        else if (current_sm_state == `state1) begin
             encryption_done <= 1'b0;
         end
     end
