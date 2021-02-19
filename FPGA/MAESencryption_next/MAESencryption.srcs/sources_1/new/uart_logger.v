@@ -39,6 +39,7 @@ module uart_logger(
     //software interfaces
     input wire [63:0] tx_msg,
     input wire tx_start,
+    output wire tx_free,
     output wire [63:0] rx_msg,
     output wire rx_complete
 );
@@ -101,6 +102,8 @@ module uart_logger(
     reg [3:0] rx_count = EMPTY;
     reg [3:0] next_rx_count = EMPTY;
     reg [63:0] rx_data;
+    
+    assign tx_free = (sm_state == SM_IDLE) ? 1'b1 : 1'b0;
         
     always @(negedge received | (~received & clk))
     begin : handle_states_rx

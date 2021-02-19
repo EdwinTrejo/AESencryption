@@ -24,7 +24,7 @@ module MAES_TOP(
         output wire UART_RXD_OUT,
         input wire clk,
         input wire BTNC,
-        output wire LEDS[2:0],
+        output wire [2:0] LED,
         input wire CPU_RESETN
     );
     
@@ -32,16 +32,14 @@ module MAES_TOP(
     wire UART_RXD_OUT_REPLACE;
     wire normal_reset;
            
-    wire [63:0] tx_msg;
-    wire [63:0] rx_msg;
-    wire tx_start;
-    wire rx_complete;
+    wire [63:0] tx_msg, rx_msg;
+    wire tx_start, tx_free, rx_complete;
     
     assign output_disable = (BTNC == 1'b1) ? 1'b1 : 1'b0;
     assign UART_RXD_OUT = output_disable ? 1'b1 : UART_RXD_OUT_REPLACE;
-    assign LEDS[0] = UART_TXD_IN ? 1'b0 : 1'b1;
-    assign LEDS[1] = UART_RXD_OUT ? 1'b0 : 1'b1;
-    assign LEDS[2] = tx_start;
+    assign LED[0] = UART_TXD_IN ? 1'b0 : 1'b1;
+    assign LED[1] = UART_RXD_OUT ? 1'b0 : 1'b1;
+    assign LED[2] = tx_start;
     assign normal_reset = CPU_RESETN ? 1'b0 : 1'b1;
     
     //input wire clk,
@@ -54,7 +52,8 @@ module MAES_TOP(
         .in_stream(rx_msg),
         .out_stream(tx_msg),
         .rx_complete(rx_complete),
-        .tx_start(tx_start)
+        .tx_start(tx_start),
+        .tx_free(tx_free)
     );
     
     ////hardware interfaces
@@ -72,6 +71,7 @@ module MAES_TOP(
         .UART_RXD_OUT(UART_RXD_OUT_REPLACE),
         .tx_msg(tx_msg),
         .tx_start(tx_start),
+        .tx_free(tx_free),
         .rx_msg(rx_msg),
         .rx_complete(rx_complete)
     );
