@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="FlatEncryption_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="FlatEncryption_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="76334fs"></ZoomStartTime>
+      <ZoomEndTime time="534334fs"></ZoomEndTime>
+      <Cursor1Time time="458000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="200"></NameColumnWidth>
+      <ValueColumnWidth column_width="91"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="18" />
+   <wvobject fp_name="/FlatEncryption_tb/in_stream" type="array">
+      <obj_property name="ElementShortName">in_stream[63:0]</obj_property>
+      <obj_property name="ObjectShortName">in_stream[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FlatEncryption_tb/in_instruction" type="array">
+      <obj_property name="ElementShortName">in_instruction[7:0]</obj_property>
+      <obj_property name="ObjectShortName">in_instruction[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FlatEncryption_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FlatEncryption_tb/out_stream" type="array">
+      <obj_property name="ElementShortName">out_stream[63:0]</obj_property>
+      <obj_property name="ObjectShortName">out_stream[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FlatEncryption_tb/out_instruction" type="array">
+      <obj_property name="ElementShortName">out_instruction[7:0]</obj_property>
+      <obj_property name="ObjectShortName">out_instruction[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FlatEncryption_tb/full_out_state" type="array">
+      <obj_property name="ElementShortName">full_out_state[127:0]</obj_property>
+      <obj_property name="ObjectShortName">full_out_state[127:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FlatEncryption_tb/FlatEncryption_uut/block_state" type="array">
+      <obj_property name="ElementShortName">block_state[0:15][7:0]</obj_property>
+      <obj_property name="ObjectShortName">block_state[0:15][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FlatEncryption_tb/FlatEncryption_uut/block_key" type="array">
+      <obj_property name="ElementShortName">block_key[0:15][7:0]</obj_property>
+      <obj_property name="ObjectShortName">block_key[0:15][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FlatEncryption_tb/FlatEncryption_uut/expanded_key" type="array">
+      <obj_property name="ElementShortName">expanded_key[0:43][31:0]</obj_property>
+      <obj_property name="ObjectShortName">expanded_key[0:43][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FlatEncryption_tb/FlatEncryption_uut/current_sm_state" type="array">
+      <obj_property name="ElementShortName">current_sm_state[7:0]</obj_property>
+      <obj_property name="ObjectShortName">current_sm_state[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FlatEncryption_tb/FlatEncryption_uut/next_sm_state" type="array">
+      <obj_property name="ElementShortName">next_sm_state[7:0]</obj_property>
+      <obj_property name="ObjectShortName">next_sm_state[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FlatEncryption_tb/FlatEncryption_uut/state" type="array">
+      <obj_property name="ElementShortName">state[127:0]</obj_property>
+      <obj_property name="ObjectShortName">state[127:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FlatEncryption_tb/FlatEncryption_uut/key" type="array">
+      <obj_property name="ElementShortName">key[127:0]</obj_property>
+      <obj_property name="ObjectShortName">key[127:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FlatEncryption_tb/FlatEncryption_uut/KeySchedule_next" type="array">
+      <obj_property name="ElementShortName">KeySchedule_next[7:0]</obj_property>
+      <obj_property name="ObjectShortName">KeySchedule_next[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FlatEncryption_tb/FlatEncryption_uut/KeySchedule_part" type="array">
+      <obj_property name="ElementShortName">KeySchedule_part[7:0]</obj_property>
+      <obj_property name="ObjectShortName">KeySchedule_part[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FlatEncryption_tb/FlatEncryption_uut/KeySchedule" type="array">
+      <obj_property name="ElementShortName">KeySchedule[7:0]</obj_property>
+      <obj_property name="ObjectShortName">KeySchedule[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FlatEncryption_tb/FlatEncryption_uut/key_expansion_done" type="logic">
+      <obj_property name="ElementShortName">key_expansion_done</obj_property>
+      <obj_property name="ObjectShortName">key_expansion_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FlatEncryption_tb/FlatEncryption_uut/encryption_done" type="logic">
+      <obj_property name="ElementShortName">encryption_done</obj_property>
+      <obj_property name="ObjectShortName">encryption_done</obj_property>
+   </wvobject>
+</wave_config>

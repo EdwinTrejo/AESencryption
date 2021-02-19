@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="hamming_check_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="hamming_check_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="4000fs"></ZoomEndTime>
+      <Cursor1Time time="4000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="140"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="12" />
+   <wvobject fp_name="/hamming_check_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hamming_check_tb/code" type="array">
+      <obj_property name="ElementShortName">code[6:0]</obj_property>
+      <obj_property name="ObjectShortName">code[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hamming_check_tb/return_sequence" type="array">
+      <obj_property name="ElementShortName">return_sequence[6:0]</obj_property>
+      <obj_property name="ObjectShortName">return_sequence[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hamming_check_tb/DED" type="logic">
+      <obj_property name="ElementShortName">DED</obj_property>
+      <obj_property name="ObjectShortName">DED</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hamming_check_tb/hamming_check_uut/second_error_pos" type="array">
+      <obj_property name="ElementShortName">second_error_pos[2:0]</obj_property>
+      <obj_property name="ObjectShortName">second_error_pos[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hamming_check_tb/hamming_check_uut/first_error_pos" type="array">
+      <obj_property name="ElementShortName">first_error_pos[2:0]</obj_property>
+      <obj_property name="ObjectShortName">first_error_pos[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hamming_check_tb/hamming_check_uut/error_flag_one" type="logic">
+      <obj_property name="ElementShortName">error_flag_one</obj_property>
+      <obj_property name="ObjectShortName">error_flag_one</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hamming_check_tb/hamming_check_uut/error_flag_two" type="logic">
+      <obj_property name="ElementShortName">error_flag_two</obj_property>
+      <obj_property name="ObjectShortName">error_flag_two</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hamming_check_tb/hamming_check_uut/code_reg" type="array">
+      <obj_property name="ElementShortName">code_reg[6:0]</obj_property>
+      <obj_property name="ObjectShortName">code_reg[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hamming_check_tb/hamming_check_uut/first_check_output" type="array">
+      <obj_property name="ElementShortName">first_check_output[6:0]</obj_property>
+      <obj_property name="ObjectShortName">first_check_output[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hamming_check_tb/hamming_check_uut/second_check_output" type="array">
+      <obj_property name="ElementShortName">second_check_output[6:0]</obj_property>
+      <obj_property name="ObjectShortName">second_check_output[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/hamming_check_tb/hamming_check_uut/first_check_failed" type="logic">
+      <obj_property name="ElementShortName">first_check_failed</obj_property>
+      <obj_property name="ObjectShortName">first_check_failed</obj_property>
+   </wvobject>
+</wave_config>
