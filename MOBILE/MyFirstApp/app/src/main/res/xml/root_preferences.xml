@@ -1,0 +1,47 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/settings_category_header">
+
+        <EditTextPreference
+            android:defaultValue="@string/server_ip_val"
+            android:key="@string/server_ip_key"
+            android:title="@string/server_title"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            android:defaultValue="@string/server_port_val"
+            android:key="@string/server_port_key"
+            android:title="@string/server_port_title"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            android:defaultValue="@string/receiver_val"
+            android:key="@string/receiver_key"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/receiver_title"
+            app:useSimpleSummaryProvider="true" />
+        <EditTextPreference
+            android:defaultValue="@string/charscheme_val"
+            android:key="@string/charscheme_key"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/charscheme_title"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            android:defaultValue="@string/key_val"
+            android:key="@string/key_key"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/key_title"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

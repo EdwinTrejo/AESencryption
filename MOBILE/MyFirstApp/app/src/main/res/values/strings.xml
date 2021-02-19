@@ -1,5 +1,34 @@
 <resources>
-    <string name="app_name">MAES TEST APP</string>
+    <string name="app_name">MAES Messenger</string>
     <string name="edit_message">Enter a message</string>
+    <string name="edit_message_hint">Type message here</string>
     <string name="button_send">Send</string>
+    <string name="button_config">Config</string>
+
+
+    <!-- Preference Titles -->
+    <string name="settings_category_header">MAES Configuration</string>
+
+    <!-- Preferences -->
+    <string name="server_title">Server Hostname</string>
+    <string name="server_ip_key">server_ip</string>
+    <string name="server_ip_val">173.59.238.239</string>
+
+    <string name="server_port_title">Server Port</string>
+    <string name="server_port_key">server_port</string>
+    <string name="server_port_val">23442</string>
+
+    <string name="receiver_title">Receiving Device Hostname</string>
+    <string name="receiver_key">receiver_ip</string>
+    <string name="receiver_val">some ip</string>
+
+    <string name="charscheme_title">Character Scheme ID #</string>
+    <string name="charscheme_key">char_schema_id</string>
+    <string name="charscheme_val">1</string>
+
+    <string name="key_title">Key</string>
+    <string name="key_key">key</string>
+    <string name="key_val">sixteen_byte_key</string>
+
+    <string name="title_activity_settings">Settings</string>
 </resources>
