@@ -97,11 +97,13 @@ module EncDecController(
                             next_sm_state = `state1;
                         end
                         64'hBBBBBBBBBBBBBBBB: begin
-                            encrypting = `decrypt;
-                            write_enable = 1;
-                            address = 0;
-                            write_data = in_stream;
-                            next_sm_state = `state1;
+//                            encrypting = `decrypt;
+//                            write_enable = 1;
+//                            address = 0;
+//                            write_data = in_stream;
+//                            next_sm_state = `state1;
+                            encrypting = `nothing;
+                            next_sm_state = `state0;
                         end
                         default: begin
                             encrypting = `nothing;
@@ -201,46 +203,50 @@ module EncDecController(
                     encrypt_instruction = `state0;
                     next_sm_state = `state16;
                     write_enable_enc = 1;
-                    enc_address = 1;
                 end
             end
             `state16: begin
                 if (encrypting == `encrypt && encrypt_state == 4) begin
-                    write_enable_enc = 1;
-                    enc_address = 2;
+                    enc_address = 1;
                     next_sm_state = `state17;
                 end
             end
             `state17: begin
-                next_sm_state = `state18;
-                write_enable_enc = 1;
+                if (encrypting == `encrypt && encrypt_state == 5) begin
+                    enc_address = 2;
+                    next_sm_state = `state18;
+                end
             end
             `state18: begin
+                next_sm_state = `state19;
+                write_enable_enc = 1;
+            end
+            `state19: begin
                 write_enable_enc = 0;
                 if (tx_free == 1'b1) begin
                     tx_start = 1;
                     enc_address = 1;
                     out_stream = read_data_enc;
-                    next_sm_state = `state19;
+                    next_sm_state = `state20;
                 end
             end
-            `state19: begin
-                tx_start = 0;
-                next_sm_state = `state20;
-            end
             `state20: begin
+                tx_start = 0;
+                next_sm_state = `state21;
+            end
+            `state21: begin
                 if (tx_free == 1'b1) begin
                     tx_start = 1;
                     enc_address = 2;
                     out_stream = read_data_enc;
-                    next_sm_state = `state21;
+                    next_sm_state = `state22;
                 end
             end
-            `state21: begin
-                tx_start = 0;
-                next_sm_state = `state22;
-            end
             `state22: begin
+                tx_start = 0;
+                next_sm_state = `state23;
+            end
+            `state23: begin
                 next_sm_state = `state0;
             end
         endcase

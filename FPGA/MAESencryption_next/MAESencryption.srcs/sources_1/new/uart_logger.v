@@ -19,6 +19,33 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
+`define state0 0
+`define state1 1
+`define state2 2
+`define state3 3
+`define state4 4
+`define state5 5
+`define state6 6
+`define state7 7
+`define state8 8
+`define state9 9
+`define state10 10
+`define state11 11
+`define state12 12
+`define state13 13
+`define state14 14 
+`define state15 15
+`define state16 16
+`define state17 17
+`define state18 18
+`define state19 19
+`define state20 20
+`define state21 21
+`define state22 22
+`define state23 23
+`define state24 24 
+`define state25 25
+
 `define POS_ONE 63:56
 `define POS_TWO 55:48
 `define POS_THREE 47:40
@@ -27,6 +54,7 @@
 `define POS_SIX 23:16
 `define POS_SEVEN 15:8
 `define POS_EIGHT 7:0
+
 `define ON 1'b1
 `define OFF 1'b0
 
