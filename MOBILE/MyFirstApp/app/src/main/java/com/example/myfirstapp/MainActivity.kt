@@ -3,6 +3,9 @@ package com.example.myfirstapp
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
@@ -11,6 +14,9 @@ import androidx.preference.PreferenceManager
 import org.json.*
 import java.io.IOException
 import java.net.*
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 
 class SoftOptions {
@@ -32,6 +38,24 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle item selection
+        return when (item.itemId) {
+            R.id.menu_item_settings -> {
+                startActivity(Intent(this, SettingsActivity::class.java))
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+
     /** Called when the user taps the send button */
     fun sendMessage(view: View) {
         val prefs = PreferenceManager.getDefaultSharedPreferences(view.context)
@@ -43,10 +67,15 @@ class MainActivity : AppCompatActivity() {
         json.put("data", message)
         json.put("charSchemaID", prefs.getString("char_schema_id", "3"))
         json.put("key", prefs.getString("key", "3"))
+        json.put("messageType", "1") // for encryption
 
         val textView = findViewById<TextView>(R.id.sentTextView).apply {
             text = message
         }
+        textView.setBackgroundResource(R.drawable.back)
+        findViewById<TextView>(R.id.sentTimeTextView).setText(LocalDateTime.now().format(
+            DateTimeFormatter.ofPattern("EEE, d MMM hh:mm:ss")))
+
         val aesTextView = findViewById<TextView>(R.id.aesTextView)
 
         val udpConnect = Thread(ClientSend(json.toString()))
@@ -54,11 +83,6 @@ class MainActivity : AppCompatActivity() {
         udpConnect.join()
 
         aesTextView.setText(JSONObject(aesmsg).getString("DATA"))
-    }
-
-    fun openConfig(view: View) {
-        val intent = Intent(this, SettingsActivity::class.java)
-        startActivity(intent)
     }
 
     fun testButton(view: View) {
