@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="uart_logger_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="uart_logger_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="157475406fs"></ZoomEndTime>
+      <Cursor1Time time="100005000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="164"></NameColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="26" />
+   <wvobject fp_name="/uart_logger_tb/uart_logger_uut/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_logger_tb/uart_logger_uut/UART_TXD_IN" type="logic">
+      <obj_property name="ElementShortName">UART_TXD_IN</obj_property>
+      <obj_property name="ObjectShortName">UART_TXD_IN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_logger_tb/uart_logger_uut/UART_RXD_OUT" type="logic">
+      <obj_property name="ElementShortName">UART_RXD_OUT</obj_property>
+      <obj_property name="ObjectShortName">UART_RXD_OUT</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_logger_tb/uart_logger_uut/tx_msg" type="array">
+      <obj_property name="ElementShortName">tx_msg[63:0]</obj_property>
+      <obj_property name="ObjectShortName">tx_msg[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_logger_tb/uart_logger_uut/tx_start" type="logic">
+      <obj_property name="ElementShortName">tx_start</obj_property>
+      <obj_property name="ObjectShortName">tx_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_logger_tb/uart_logger_uut/tx_free" type="logic">
+      <obj_property name="ElementShortName">tx_free</obj_property>
+      <obj_property name="ObjectShortName">tx_free</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_logger_tb/uart_logger_uut/rx_msg" type="array">
+      <obj_property name="ElementShortName">rx_msg[63:0]</obj_property>
+      <obj_property name="ObjectShortName">rx_msg[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_logger_tb/uart_logger_uut/rx_complete" type="logic">
+      <obj_property name="ElementShortName">rx_complete</obj_property>
+      <obj_property name="ObjectShortName">rx_complete</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_logger_tb/uart_logger_uut/send_data" type="array">
+      <obj_property name="ElementShortName">send_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">send_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_logger_tb/uart_logger_uut/full_message_received" type="logic">
+      <obj_property name="ElementShortName">full_message_received</obj_property>
+      <obj_property name="ObjectShortName">full_message_received</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_logger_tb/uart_logger_uut/enable_tx" type="logic">
+      <obj_property name="ElementShortName">enable_tx</obj_property>
+      <obj_property name="ObjectShortName">enable_tx</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_logger_tb/uart_logger_uut/received_data" type="array">
+      <obj_property name="ElementShortName">received_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">received_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_logger_tb/uart_logger_uut/received" type="logic">
+      <obj_property name="ElementShortName">received</obj_property>
+      <obj_property name="ObjectShortName">received</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_logger_tb/uart_logger_uut/is_transmitting" type="logic">
+      <obj_property name="ElementShortName">is_transmitting</obj_property>
+      <obj_property name="ObjectShortName">is_transmitting</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_logger_tb/uart_logger_uut/uart_state" type="logic">
+      <obj_property name="ElementShortName">uart_state</obj_property>
+      <obj_property name="ObjectShortName">uart_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_logger_tb/uart_logger_uut/sm_state" type="array">
+      <obj_property name="ElementShortName">sm_state[7:0]</obj_property>
+      <obj_property name="ObjectShortName">sm_state[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_logger_tb/uart_logger_uut/next_sm_state" type="array">
+      <obj_property name="ElementShortName">next_sm_state[7:0]</obj_property>
+      <obj_property name="ObjectShortName">next_sm_state[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_logger_tb/uart_logger_uut/rx_count" type="array">
+      <obj_property name="ElementShortName">rx_count[3:0]</obj_property>
+      <obj_property name="ObjectShortName">rx_count[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_logger_tb/uart_logger_uut/next_rx_count" type="array">
+      <obj_property name="ElementShortName">next_rx_count[3:0]</obj_property>
+      <obj_property name="ObjectShortName">next_rx_count[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_logger_tb/uart_logger_uut/rx_count_state" type="array">
+      <obj_property name="ElementShortName">rx_count_state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">rx_count_state[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_logger_tb/uart_logger_uut/rx_data" type="array">
+      <obj_property name="ElementShortName">rx_data[63:0]</obj_property>
+      <obj_property name="ObjectShortName">rx_data[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_logger_tb/uart_logger_uut/tx_count" type="array">
+      <obj_property name="ElementShortName">tx_count[3:0]</obj_property>
+      <obj_property name="ObjectShortName">tx_count[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_logger_tb/uart_logger_uut/next_tx_count" type="array">
+      <obj_property name="ElementShortName">next_tx_count[3:0]</obj_property>
+      <obj_property name="ObjectShortName">next_tx_count[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_logger_tb/uart_logger_uut/tx_count_state" type="array">
+      <obj_property name="ElementShortName">tx_count_state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">tx_count_state[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_logger_tb/uart_logger_uut/tx_data" type="array">
+      <obj_property name="ElementShortName">tx_data[63:0]</obj_property>
+      <obj_property name="ObjectShortName">tx_data[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/uart_logger_tb/uart_logger_uut/wait_for_is_transmitting" type="logic">
+      <obj_property name="ElementShortName">wait_for_is_transmitting</obj_property>
+      <obj_property name="ObjectShortName">wait_for_is_transmitting</obj_property>
+   </wvobject>
+</wave_config>

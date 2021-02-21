@@ -19,32 +19,22 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-`define state0 0
-`define state1 1
-`define state2 2
-`define state3 3
-`define state4 4
-`define state5 5
-`define state6 6
-`define state7 7
-`define state8 8
-`define state9 9
-`define state10 10
-`define state11 11
-`define state12 12
-`define state13 13
-`define state14 14 
-`define state15 15
-`define state16 16
-`define state17 17
-`define state18 18
-`define state19 19
-`define state20 20
-`define state21 21
-`define state22 22
-`define state23 23
-`define state24 24 
-`define state25 25
+`define SM_IDLE 1
+`define SM_RX_RECEIVING 2
+`define SM_RX_STOP 3
+`define SM_TX_SENDING 4
+`define SM_TX_STOP 5
+`define SM_TX_START 6
+
+`define EMPTY 0
+`define BYTE_ONE 1
+`define BYTE_TWO 2
+`define BYTE_THREE 3
+`define BYTE_FOUR 4
+`define BYTE_FIVE 5
+`define BYTE_SIX 6
+`define BYTE_SEVEN 7
+`define BYTE_EIGHT 8
 
 `define POS_ONE 63:56
 `define POS_TWO 55:48
@@ -59,22 +49,22 @@
 `define OFF 1'b0
 
 // WILL ONLY ALLOW NON ASYNC FUNCTIONALITY OF UART
-module uart_logger(
-    //hardware interfaces
-    input wire clk,
-    input wire UART_TXD_IN,
-    output wire UART_RXD_OUT,
-    //software interfaces
-    input wire [63:0] tx_msg,
-    input wire tx_start,
-    output wire tx_free,
-    output wire [63:0] rx_msg,
-    output wire rx_complete
-);
+module uart_logger(clk, UART_TXD_IN, UART_RXD_OUT,  tx_msg, tx_start, tx_free, rx_msg, rx_complete);
 
-    reg [8:0] send_data;
+    //hardware interfaces
+    input wire clk;
+    input wire UART_TXD_IN;
+    output wire UART_RXD_OUT;
+    //software interfaces
+    input wire [63:0] tx_msg;
+    input wire tx_start;
+    output wire tx_free;
+    output wire [63:0] rx_msg;
+    output wire rx_complete;
+
+    reg [7:0] send_data;
     reg full_message_received, enable_tx;
-    wire [8:0] received_data;
+    wire [7:0] received_data;
     wire received, is_transmitting;
 
     uart uart_uut ( 
@@ -90,170 +80,302 @@ module uart_logger(
         .is_transmitting(is_transmitting),
         .recv_error()
     );
-    
-    //parameters
-    parameter EMPTY = 4'h0;
-    parameter BYTE_ONE = 4'h1;
-    parameter BYTE_TWO = 4'h2;
-    parameter BYTE_THREE = 4'h3;
-    parameter BYTE_FOUR = 4'h4;
-    parameter BYTE_FIVE = 4'h5;
-    parameter BYTE_SIX = 4'h6;
-    parameter BYTE_SEVEN = 4'h7;
-    parameter BYTE_EIGHT = 4'h8;
-    
+        
     reg uart_state = `OFF;
-    
-    //state machine
-    parameter SM_IDLE = 4'h1;
-    parameter SM_RX_RECEIVING = 4'h2;
-    parameter SM_RX_STOP = 4'h3;
-    parameter SM_TX_SENDING = 4'h4;
-    parameter SM_TX_STOP = 4'h5;
-    reg [3:0] sm_state = SM_IDLE;
-    reg [3:0] next_sm_state = SM_IDLE;
-    
-    always @(clk)
-    begin : handle_states
-        sm_state <= next_sm_state;
-    end : handle_states    
+    reg [7:0] sm_state = `SM_IDLE, next_sm_state = `SM_IDLE;
     
     //RX registers
-    parameter RX_IDLE = 0;
-    parameter RX_CHECK_START = 1;
-    parameter RX_READ_BITS = 2;
-    parameter RX_CHECK_STOP = 3;
-    parameter RX_DELAY_RESTART = 4;
-    parameter RX_ERROR = 5;
-    parameter RX_RECEIVED = 6;
-
-    reg [3:0] rx_count = EMPTY;
-    reg [3:0] next_rx_count = EMPTY;
+    reg [3:0] rx_count = `EMPTY;
+    reg [3:0] next_rx_count = `EMPTY, rx_count_state = `EMPTY;
     reg [63:0] rx_data;
     
-    assign tx_free = (sm_state == SM_IDLE) ? 1'b1 : 1'b0;
-        
-    always @(negedge received | (~received & clk))
-    begin : handle_states_rx
-        rx_count <= next_rx_count;
-        if (rx_count == EMPTY & sm_state == SM_RX_STOP) begin
-            next_sm_state <= SM_IDLE;
-        end
-    end : handle_states_rx
-
-    always @(posedge received | (received & clk))
-    begin : receiving_message
-        case (sm_state)
-            SM_IDLE: begin
-                if (tx_start == `OFF && uart_state == `OFF) begin
-                    uart_state <= `ON;
-                    rx_data[`POS_ONE] <= received_data;
-                    next_rx_count <= BYTE_TWO;
-                    next_sm_state <= SM_RX_RECEIVING;
-                end
-            end
-            SM_RX_RECEIVING: begin
-                case (rx_count)
-                    BYTE_TWO: begin
-                        rx_data[`POS_TWO] <= received_data;
-                        next_rx_count <= BYTE_THREE;
-                    end
-                    BYTE_THREE: begin
-                        rx_data[`POS_THREE] <= received_data;
-                        next_rx_count <= BYTE_FOUR;
-                    end
-                    BYTE_FOUR: begin
-                        rx_data[`POS_FOUR] <= received_data;
-                        next_rx_count <= BYTE_FIVE;
-                    end
-                    BYTE_FIVE: begin
-                        rx_data[`POS_FIVE] <= received_data;
-                        next_rx_count <= BYTE_SIX;
-                    end
-                    BYTE_SIX: begin
-                        rx_data[`POS_SIX] <= received_data;
-                        next_rx_count <= BYTE_SEVEN;
-                    end
-                    BYTE_SEVEN: begin
-                        rx_data[`POS_SEVEN] <= received_data;
-                        next_rx_count <= BYTE_EIGHT;
-                    end
-                    BYTE_EIGHT: begin
-                        rx_data[`POS_EIGHT] <= received_data;
-                        next_rx_count <= EMPTY;
-                        next_sm_state <= SM_RX_STOP;
-                        uart_state <= `OFF;
-                    end
-                endcase
-            end
-        endcase
-    end : receiving_message
-
-    //receive complete
-    assign rx_complete = (sm_state == SM_RX_STOP) ? `ON : `OFF;
-            
     //TX registers
-    reg [3:0] tx_count = EMPTY;
-    reg [3:0] next_tx_count = EMPTY;
+    reg [3:0] tx_count = `BYTE_ONE;
+    reg [3:0] next_tx_count = `BYTE_ONE, tx_count_state = `SM_TX_START;
     reg [63:0] tx_data;
-        
-    always @(negedge is_transmitting | (~is_transmitting & clk))
-    begin : handle_states_tx
-        tx_count <= next_tx_count;
-        enable_tx <= `OFF;
-    end : handle_states_tx
+    reg wait_for_is_transmitting = `OFF;
     
-    always @(posedge clk & ~is_transmitting)
-    begin : sending_message
+    //transmission is only available when the whole state machine is free
+    assign tx_free = sm_state != `SM_IDLE ? `OFF : `ON;
+    
+    always @(posedge clk) begin
+        sm_state = next_sm_state;
+    end
+        
+    always @(posedge clk) begin
         case (sm_state)
-            SM_IDLE: begin
+            `SM_IDLE: begin
                 if (tx_start == `ON && uart_state == `OFF) begin
-                    tx_data <= tx_msg;
-                    next_tx_count <= BYTE_ONE;
-                    uart_state <= `ON;
-                    next_sm_state <= SM_TX_SENDING;
+                    //tx
+                    tx_data = tx_msg;
+                    //next_tx_count = `BYTE_ONE;
+                    uart_state = `ON;
+                    next_sm_state = `SM_TX_SENDING;
+                end
+                else if  (received == `ON && uart_state == `OFF) begin
+                    //rx
+                    uart_state = `ON;
+                    rx_data[`POS_ONE] = received_data;
+                    next_rx_count = `BYTE_TWO;
+                    next_sm_state = `SM_RX_RECEIVING;
+                end
+                else begin
+                    next_sm_state = `SM_IDLE;
                 end
             end
-            SM_TX_SENDING: begin
-            enable_tx <= `ON;
-                case (tx_count)
-                    BYTE_ONE: begin
-                        send_data <= tx_data[`POS_ONE];
-                        next_tx_count <= BYTE_TWO;
+            `SM_RX_RECEIVING: begin
+                if (received == `ON) begin
+                    case (rx_count)
+                        `BYTE_TWO: begin
+                            rx_data[`POS_TWO] = received_data;
+                            next_rx_count = `BYTE_THREE;
+                        end
+                        `BYTE_THREE: begin
+                            rx_data[`POS_THREE] = received_data;
+                            next_rx_count = `BYTE_FOUR;
+                        end
+                        `BYTE_FOUR: begin
+                            rx_data[`POS_FOUR] = received_data;
+                            next_rx_count = `BYTE_FIVE;
+                        end
+                        `BYTE_FIVE: begin
+                            rx_data[`POS_FIVE] = received_data;
+                            next_rx_count = `BYTE_SIX;
+                        end
+                        `BYTE_SIX: begin
+                            rx_data[`POS_SIX] = received_data;
+                            next_rx_count = `BYTE_SEVEN;
+                        end
+                        `BYTE_SEVEN: begin
+                            rx_data[`POS_SEVEN] = received_data;
+                            next_rx_count = `BYTE_EIGHT;
+                        end
+                        `BYTE_EIGHT: begin
+                            rx_data[`POS_EIGHT] = received_data;
+                            next_rx_count = `EMPTY;
+                            next_sm_state = `SM_RX_STOP;
+                        end
+                    endcase
+                end
+            end
+            `SM_RX_STOP: begin
+                next_sm_state = `SM_IDLE;
+                uart_state <= `OFF;
+            end
+            `SM_TX_SENDING: begin
+                case(tx_count_state)
+                    `SM_TX_START: begin
+                        enable_tx = `ON;
+                        wait_for_is_transmitting = `ON;
+                        
+                        case (tx_count)
+                            `BYTE_ONE: begin
+                                send_data = tx_data[`POS_ONE];
+                                next_tx_count = `BYTE_TWO;
+                            end
+                            `BYTE_TWO: begin
+                                send_data = tx_data[`POS_TWO];
+                                next_tx_count = `BYTE_THREE;
+                            end
+                            `BYTE_THREE: begin
+                                send_data = tx_data[`POS_THREE];
+                                next_tx_count = `BYTE_FOUR;
+                            end
+                            `BYTE_FOUR: begin
+                                send_data = tx_data[`POS_FOUR];
+                                next_tx_count = `BYTE_FIVE;
+                            end
+                            `BYTE_FIVE: begin
+                                send_data = tx_data[`POS_FIVE];
+                                next_tx_count = `BYTE_SIX;
+                            end
+                            `BYTE_SIX: begin
+                                send_data = tx_data[`POS_SIX];
+                                next_tx_count = `BYTE_SEVEN;
+                            end
+                            `BYTE_SEVEN: begin
+                                send_data = tx_data[`POS_SEVEN];
+                                next_tx_count = `BYTE_EIGHT;
+                            end
+                            `BYTE_EIGHT: begin
+                                send_data = tx_data[`POS_EIGHT];
+                                next_tx_count = `BYTE_ONE;
+                            end
+                        endcase
                     end
-                    BYTE_TWO: begin
-                        send_data <= tx_data[`POS_TWO];
-                        next_tx_count <= BYTE_THREE;
+                    `SM_TX_SENDING: begin
+                        enable_tx = `OFF;
                     end
-                    BYTE_THREE: begin
-                        send_data <= tx_data[`POS_THREE];
-                        next_tx_count <= BYTE_FOUR;
-                    end
-                    BYTE_FOUR: begin
-                        send_data <= tx_data[`POS_FOUR];
-                        next_tx_count <= BYTE_FIVE;
-                    end
-                    BYTE_FIVE: begin
-                        send_data <= tx_data[`POS_FIVE];
-                        next_tx_count <= BYTE_SIX;
-                    end
-                    BYTE_SIX: begin
-                        send_data <= tx_data[`POS_SIX];
-                        next_tx_count <= BYTE_SEVEN;
-                    end
-                    BYTE_SEVEN: begin
-                        send_data <= tx_data[`POS_SEVEN];
-                        next_tx_count <= BYTE_EIGHT;
-                    end
-                    BYTE_EIGHT: begin
-                        send_data <= tx_data[`POS_EIGHT];
-                        next_tx_count <= EMPTY;
-                        uart_state <= `OFF;
-                        next_sm_state <= SM_IDLE;
+                    `SM_TX_STOP: begin
+                        wait_for_is_transmitting = `OFF;
+                        if (tx_count == `BYTE_EIGHT) begin
+                            next_sm_state = `SM_TX_STOP;
+                        end
                     end
                 endcase
             end
+            `SM_TX_STOP: begin
+                next_sm_state = `SM_IDLE;
+                enable_tx = `OFF;
+                uart_state = `OFF;
+            end
         endcase
-    end : sending_message
+    end
+    
+    always @(posedge clk) begin
+        //handle tx states
+//        if (sm_state == `SM_IDLE && tx_count_state == `SM_TX_START) begin
+//            tx_count = `BYTE_ONE;
+//        end
+        
+        case(tx_count_state)
+            `SM_TX_START: begin
+                if (wait_for_is_transmitting == `ON && is_transmitting == `ON) begin
+                    //wait until it knows it has to transmit
+                    tx_count_state = `SM_TX_SENDING;
+                end
+            end
+            `SM_TX_SENDING: begin
+                if (wait_for_is_transmitting == `ON && is_transmitting == `OFF) begin
+                    //wait until the byte has been trasnmitted
+                    tx_count_state = `SM_TX_STOP;
+                end
+            end
+            `SM_TX_STOP: begin
+                tx_count_state = `SM_TX_START;
+                tx_count = next_tx_count;
+            end
+        endcase
+    end
+    
+    always @(posedge clk) begin
+        //handle rx states
+        if (~received) begin
+            rx_count = next_rx_count;
+        end
+    end
+     
+//    always @(negedge received | (~received & clk))
+//    begin : handle_states_rx
+//        rx_count <= next_rx_count;
+//        if (rx_count == EMPTY & sm_state == SM_RX_STOP) begin
+//            next_sm_state <= SM_IDLE;
+//        end
+//    end : handle_states_rx
+
+//    always @(posedge received | (received & clk))
+//    begin : receiving_message
+//        case (sm_state)
+//            SM_IDLE: begin
+//                if (tx_start == `OFF && uart_state == `OFF) begin
+//                    uart_state <= `ON;
+//                    rx_data[`POS_ONE] <= received_data;
+//                    next_rx_count <= BYTE_TWO;
+//                    next_sm_state <= SM_RX_RECEIVING;
+//                end
+//            end
+//            SM_RX_RECEIVING: begin
+//                case (rx_count)
+//                    BYTE_TWO: begin
+//                        rx_data[`POS_TWO] <= received_data;
+//                        next_rx_count <= BYTE_THREE;
+//                    end
+//                    BYTE_THREE: begin
+//                        rx_data[`POS_THREE] <= received_data;
+//                        next_rx_count <= BYTE_FOUR;
+//                    end
+//                    BYTE_FOUR: begin
+//                        rx_data[`POS_FOUR] <= received_data;
+//                        next_rx_count <= BYTE_FIVE;
+//                    end
+//                    BYTE_FIVE: begin
+//                        rx_data[`POS_FIVE] <= received_data;
+//                        next_rx_count <= BYTE_SIX;
+//                    end
+//                    BYTE_SIX: begin
+//                        rx_data[`POS_SIX] <= received_data;
+//                        next_rx_count <= BYTE_SEVEN;
+//                    end
+//                    BYTE_SEVEN: begin
+//                        rx_data[`POS_SEVEN] <= received_data;
+//                        next_rx_count <= BYTE_EIGHT;
+//                    end
+//                    BYTE_EIGHT: begin
+//                        rx_data[`POS_EIGHT] <= received_data;
+//                        next_rx_count <= EMPTY;
+//                        next_sm_state <= SM_RX_STOP;
+//                        uart_state <= `OFF;
+//                    end
+//                endcase
+//            end
+//        endcase
+//    end : receiving_message
+
+//    //receive complete
+//    assign rx_complete = (sm_state == SM_RX_STOP) ? `ON : `OFF;
+            
+//    //TX registers
+//    reg [3:0] tx_count = EMPTY;
+//    reg [3:0] next_tx_count = EMPTY;
+//    reg [63:0] tx_data;
+        
+//    always @(negedge is_transmitting | (~is_transmitting & clk))
+//    begin : handle_states_tx
+//        tx_count <= next_tx_count;
+//        enable_tx <= `OFF;
+//    end : handle_states_tx
+    
+//    always @(posedge clk & ~is_transmitting)
+//    begin : sending_message
+//        case (sm_state)
+//            SM_IDLE: begin
+//                if (tx_start == `ON && uart_state == `OFF) begin
+//                    tx_data <= tx_msg;
+//                    next_tx_count <= BYTE_ONE;
+//                    uart_state <= `ON;
+//                    next_sm_state <= SM_TX_SENDING;
+//                end
+//            end
+//            SM_TX_SENDING: begin
+//            enable_tx <= `ON;
+//                case (tx_count)
+//                    BYTE_ONE: begin
+//                        send_data <= tx_data[`POS_ONE];
+//                        next_tx_count <= BYTE_TWO;
+//                    end
+//                    BYTE_TWO: begin
+//                        send_data <= tx_data[`POS_TWO];
+//                        next_tx_count <= BYTE_THREE;
+//                    end
+//                    BYTE_THREE: begin
+//                        send_data <= tx_data[`POS_THREE];
+//                        next_tx_count <= BYTE_FOUR;
+//                    end
+//                    BYTE_FOUR: begin
+//                        send_data <= tx_data[`POS_FOUR];
+//                        next_tx_count <= BYTE_FIVE;
+//                    end
+//                    BYTE_FIVE: begin
+//                        send_data <= tx_data[`POS_FIVE];
+//                        next_tx_count <= BYTE_SIX;
+//                    end
+//                    BYTE_SIX: begin
+//                        send_data <= tx_data[`POS_SIX];
+//                        next_tx_count <= BYTE_SEVEN;
+//                    end
+//                    BYTE_SEVEN: begin
+//                        send_data <= tx_data[`POS_SEVEN];
+//                        next_tx_count <= BYTE_EIGHT;
+//                    end
+//                    BYTE_EIGHT: begin
+//                        send_data <= tx_data[`POS_EIGHT];
+//                        next_tx_count <= EMPTY;
+//                        uart_state <= `OFF;
+//                        next_sm_state <= SM_IDLE;
+//                    end
+//                endcase
+//            end
+//        endcase
+//    end : sending_message
     
 endmodule

@@ -84,7 +84,7 @@ module EncDecController(
         current_sm_state = next_sm_state;
     end
     
-    always @(clk) begin
+    always @(*) begin
         case(current_sm_state)
             `state0: begin
                 if (rx_complete == 1) begin
