@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="208800fs"></ZoomStartTime>
-      <ZoomEndTime time="222200fs"></ZoomEndTime>
-      <Cursor1Time time="215608fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="1000001fs"></ZoomEndTime>
+      <Cursor1Time time="1000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="189"></NameColumnWidth>
+      <NameColumnWidth column_width="184"></NameColumnWidth>
       <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="21" />
+   <WVObjectSize size="17" />
    <wvobject fp_name="/EncDecController_tb/in_stream" type="array">
       <obj_property name="ElementShortName">in_stream[63:0]</obj_property>
       <obj_property name="ObjectShortName">in_stream[63:0]</obj_property>
@@ -36,14 +36,6 @@
       <obj_property name="ElementShortName">rx_complete</obj_property>
       <obj_property name="ObjectShortName">rx_complete</obj_property>
    </wvobject>
-   <wvobject fp_name="/EncDecController_tb/tx_start" type="logic">
-      <obj_property name="ElementShortName">tx_start</obj_property>
-      <obj_property name="ObjectShortName">tx_start</obj_property>
-   </wvobject>
-   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/tx_free" type="logic">
-      <obj_property name="ElementShortName">tx_free</obj_property>
-      <obj_property name="ObjectShortName">tx_free</obj_property>
-   </wvobject>
    <wvobject fp_name="/EncDecController_tb/EncDecController_uut/current_sm_state" type="array">
       <obj_property name="ElementShortName">current_sm_state[15:0]</obj_property>
       <obj_property name="ObjectShortName">current_sm_state[15:0]</obj_property>
@@ -55,10 +47,6 @@
    <wvobject fp_name="/EncDecController_tb/EncDecController_uut/in_stream" type="array">
       <obj_property name="ElementShortName">in_stream[63:0]</obj_property>
       <obj_property name="ObjectShortName">in_stream[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/out_stream" type="array">
-      <obj_property name="ElementShortName">out_stream[63:0]</obj_property>
-      <obj_property name="ObjectShortName">out_stream[63:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/EncDecController_tb/EncDecController_uut/encrypt_out_stream" type="array">
       <obj_property name="ElementShortName">encrypt_out_stream[63:0]</obj_property>
@@ -88,20 +76,16 @@
       <obj_property name="ElementShortName">state[127:0]</obj_property>
       <obj_property name="ObjectShortName">state[127:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/register_file_uut/read_data" type="array">
-      <obj_property name="ElementShortName">read_data[63:0]</obj_property>
-      <obj_property name="ObjectShortName">read_data[63:0]</obj_property>
+   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/out_stream" type="array">
+      <obj_property name="ElementShortName">out_stream[63:0]</obj_property>
+      <obj_property name="ObjectShortName">out_stream[63:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/register_file_uut_enc/BLOCK_RAM" type="array">
-      <obj_property name="ElementShortName">BLOCK_RAM[4:0][63:0]</obj_property>
-      <obj_property name="ObjectShortName">BLOCK_RAM[4:0][63:0]</obj_property>
+   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/tx_start" type="logic">
+      <obj_property name="ElementShortName">tx_start</obj_property>
+      <obj_property name="ObjectShortName">tx_start</obj_property>
    </wvobject>
-   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/register_file_uut_enc/write_data" type="array">
-      <obj_property name="ElementShortName">write_data[63:0]</obj_property>
-      <obj_property name="ObjectShortName">write_data[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/register_file_uut_enc/write_enable" type="logic">
-      <obj_property name="ElementShortName">write_enable</obj_property>
-      <obj_property name="ObjectShortName">write_enable</obj_property>
+   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/tx_free" type="logic">
+      <obj_property name="ElementShortName">tx_free</obj_property>
+      <obj_property name="ObjectShortName">tx_free</obj_property>
    </wvobject>
 </wave_config>

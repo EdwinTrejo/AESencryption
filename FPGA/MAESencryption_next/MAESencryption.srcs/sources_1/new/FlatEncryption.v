@@ -163,11 +163,11 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
     //TODO
     //move to IEEE format with always at *
     
-    always @(clk) begin
+    always @(*) begin
         current_sm_state <= next_sm_state;
     end
     
-    always @(clk) begin
+    always @(*) begin
         if (in_instruction == 1) begin
             next_sm_state <= `state1;
             out_instruction <= 2;
@@ -239,7 +239,7 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
     end
     
     //receiving the key
-    always @(clk) begin
+    always @(*) begin
         if (current_sm_state == `state1 && in_instruction == 2) begin
             //from 128 to 64
             key_received <= 1'b0;
@@ -295,7 +295,7 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
     end
         
     //run key expansion here and store in block ram
-    always @(clk) begin
+    always @(*) begin
         if (current_sm_state == `state3 && start_key_expansion == 1'b1) begin
             //load key into from original key
             expanded_key[3] <= key[31:0];
@@ -447,7 +447,7 @@ module FlatEncryption(in_stream, in_instruction, out_stream, out_instruction, cl
     end
 
     //run full encryption
-    always @(clk) begin
+    always @(*) begin
         //add initial key
         if (current_sm_state == `state4) begin
             xtime <= 1;
