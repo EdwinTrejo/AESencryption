@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="109501fs"></ZoomEndTime>
-      <Cursor1Time time="109500fs"></Cursor1Time>
+      <ZoomStartTime time="78047fs"></ZoomStartTime>
+      <ZoomEndTime time="106791fs"></ZoomEndTime>
+      <Cursor1Time time="100000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="200"></NameColumnWidth>
-      <ValueColumnWidth column_width="86"></ValueColumnWidth>
+      <ValueColumnWidth column_width="81"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="18" />
+   <WVObjectSize size="21" />
    <wvobject fp_name="/FlatEncryption_tb/in_stream" type="array">
       <obj_property name="ElementShortName">in_stream[63:0]</obj_property>
       <obj_property name="ObjectShortName">in_stream[63:0]</obj_property>
@@ -47,10 +47,24 @@
    <wvobject fp_name="/FlatEncryption_tb/FlatEncryption_uut/block_state" type="array">
       <obj_property name="ElementShortName">block_state[0:15][7:0]</obj_property>
       <obj_property name="ObjectShortName">block_state[0:15][7:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject fp_name="/FlatEncryption_tb/FlatEncryption_uut/block_key" type="array">
       <obj_property name="ElementShortName">block_key[0:15][7:0]</obj_property>
       <obj_property name="ObjectShortName">block_key[0:15][7:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/FlatEncryption_tb/FlatEncryption_uut/xtime" type="array">
+      <obj_property name="ElementShortName">xtime[7:0]</obj_property>
+      <obj_property name="ObjectShortName">xtime[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FlatEncryption_tb/FlatEncryption_uut/xtime_next" type="array">
+      <obj_property name="ElementShortName">xtime_next[7:0]</obj_property>
+      <obj_property name="ObjectShortName">xtime_next[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/FlatEncryption_tb/FlatEncryption_uut/xtime_part" type="array">
+      <obj_property name="ElementShortName">xtime_part[7:0]</obj_property>
+      <obj_property name="ObjectShortName">xtime_part[7:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/FlatEncryption_tb/FlatEncryption_uut/expanded_key" type="array">
       <obj_property name="ElementShortName">expanded_key[0:43][31:0]</obj_property>

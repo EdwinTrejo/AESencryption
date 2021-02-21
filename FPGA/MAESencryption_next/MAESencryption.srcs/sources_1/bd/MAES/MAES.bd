@@ -1,0 +1,334 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x738FAF6E43ADC09E",
+      "device": "xc7a100tcsg324-1",
+      "name": "MAES",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2020.2",
+      "validated": "true"
+    },
+    "design_tree": {
+      "EncDecController_0": "",
+      "MAES_MANAGER_0": "",
+      "uart_logger_0": ""
+    },
+    "ports": {
+      "LED": {
+        "type": "data",
+        "direction": "O",
+        "left": "2",
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
+      },
+      "BTNC": {
+        "direction": "I"
+      },
+      "UART_RXD": {
+        "type": "data",
+        "direction": "I",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
+      },
+      "UART_TXD": {
+        "type": "data",
+        "direction": "O",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
+      },
+      "CPU_RESETN": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW"
+          }
+        }
+      },
+      "clk": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "ASSOCIATED_RESET": {
+            "value": "CPU_RESETN",
+            "value_src": "default"
+          },
+          "CLK_DOMAIN": {
+            "value": "MAES_sys_clock",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.000"
+          }
+        }
+      }
+    },
+    "components": {
+      "EncDecController_0": {
+        "vlnv": "xilinx.com:module_ref:EncDecController:1.0",
+        "xci_name": "MAES_EncDecController_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "EncDecController",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "reset",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "user_prop"
+              },
+              "PHASE": {
+                "value": "0.000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "MAES_sys_clock",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "in_stream": {
+            "direction": "I",
+            "left": "63",
+            "right": "0"
+          },
+          "out_stream": {
+            "direction": "O",
+            "left": "63",
+            "right": "0"
+          },
+          "rx_complete": {
+            "direction": "I"
+          },
+          "tx_start": {
+            "direction": "O"
+          },
+          "tx_free": {
+            "direction": "I"
+          },
+          "reset": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "user_prop"
+              }
+            }
+          }
+        }
+      },
+      "MAES_MANAGER_0": {
+        "vlnv": "xilinx.com:module_ref:MAES_MANAGER:1.0",
+        "xci_name": "MAES_MAES_MANAGER_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "MAES_MANAGER",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "BTNC": {
+            "direction": "I"
+          },
+          "LED": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "UART_RXD_IN": {
+            "direction": "I",
+            "parameters": {
+              "LAYERED_METADATA": {
+                "value": "undef",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "tx_start": {
+            "direction": "I"
+          },
+          "UART_TXD_IN": {
+            "direction": "I"
+          },
+          "UART_TXD_OUT": {
+            "direction": "O"
+          }
+        }
+      },
+      "uart_logger_0": {
+        "vlnv": "xilinx.com:module_ref:uart_logger:1.0",
+        "xci_name": "MAES_uart_logger_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "uart_logger",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "user_prop"
+              },
+              "PHASE": {
+                "value": "0.000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "MAES_sys_clock",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "UART_TXD_IN": {
+            "direction": "I",
+            "parameters": {
+              "LAYERED_METADATA": {
+                "value": "undef",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "UART_RXD_OUT": {
+            "direction": "O"
+          },
+          "tx_msg": {
+            "direction": "I",
+            "left": "63",
+            "right": "0"
+          },
+          "tx_start": {
+            "direction": "I"
+          },
+          "tx_free": {
+            "direction": "O"
+          },
+          "rx_msg": {
+            "direction": "O",
+            "left": "63",
+            "right": "0"
+          },
+          "rx_complete": {
+            "direction": "O"
+          }
+        }
+      }
+    },
+    "nets": {
+      "EncDecController_0_out_stream": {
+        "ports": [
+          "EncDecController_0/out_stream",
+          "uart_logger_0/tx_msg"
+        ]
+      },
+      "EncDecController_0_tx_start": {
+        "ports": [
+          "EncDecController_0/tx_start",
+          "MAES_MANAGER_0/tx_start",
+          "uart_logger_0/tx_start"
+        ]
+      },
+      "uart_logger_0_rx_msg": {
+        "ports": [
+          "uart_logger_0/rx_msg",
+          "EncDecController_0/in_stream"
+        ]
+      },
+      "uart_logger_0_rx_complete": {
+        "ports": [
+          "uart_logger_0/rx_complete",
+          "EncDecController_0/rx_complete"
+        ]
+      },
+      "uart_logger_0_tx_free": {
+        "ports": [
+          "uart_logger_0/tx_free",
+          "EncDecController_0/tx_free"
+        ]
+      },
+      "MAES_MANAGER_0_LED": {
+        "ports": [
+          "MAES_MANAGER_0/LED",
+          "LED"
+        ]
+      },
+      "BTNC_1": {
+        "ports": [
+          "BTNC",
+          "MAES_MANAGER_0/BTNC"
+        ]
+      },
+      "uart_logger_0_UART_RXD_OUT": {
+        "ports": [
+          "uart_logger_0/UART_RXD_OUT",
+          "MAES_MANAGER_0/UART_TXD_IN"
+        ]
+      },
+      "MAES_MANAGER_0_UART_TXD_OUT": {
+        "ports": [
+          "MAES_MANAGER_0/UART_TXD_OUT",
+          "UART_TXD"
+        ]
+      },
+      "UART_RXD_1": {
+        "ports": [
+          "UART_RXD",
+          "MAES_MANAGER_0/UART_RXD_IN",
+          "uart_logger_0/UART_TXD_IN"
+        ]
+      },
+      "clk_wiz_0_clk_out1": {
+        "ports": [
+          "clk",
+          "EncDecController_0/clk",
+          "uart_logger_0/clk"
+        ]
+      },
+      "reset_1": {
+        "ports": [
+          "CPU_RESETN",
+          "EncDecController_0/reset"
+        ]
+      }
+    }
+  }
+}

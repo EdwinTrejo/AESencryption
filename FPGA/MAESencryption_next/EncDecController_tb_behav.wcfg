@@ -11,23 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="1000001fs"></ZoomEndTime>
-      <Cursor1Time time="1000000fs"></Cursor1Time>
+      <ZoomStartTime time="221138fs"></ZoomStartTime>
+      <ZoomEndTime time="338039fs"></ZoomEndTime>
+      <Cursor1Time time="236500fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="184"></NameColumnWidth>
-      <ValueColumnWidth column_width="72"></ValueColumnWidth>
+      <NameColumnWidth column_width="234"></NameColumnWidth>
+      <ValueColumnWidth column_width="97"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="17" />
-   <wvobject fp_name="/EncDecController_tb/in_stream" type="array">
-      <obj_property name="ElementShortName">in_stream[63:0]</obj_property>
-      <obj_property name="ObjectShortName">in_stream[63:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/EncDecController_tb/out_stream" type="array">
-      <obj_property name="ElementShortName">out_stream[63:0]</obj_property>
-      <obj_property name="ObjectShortName">out_stream[63:0]</obj_property>
-   </wvobject>
+   <WVObjectSize size="27" />
    <wvobject fp_name="/EncDecController_tb/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -36,37 +28,37 @@
       <obj_property name="ElementShortName">rx_complete</obj_property>
       <obj_property name="ObjectShortName">rx_complete</obj_property>
    </wvobject>
-   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/current_sm_state" type="array">
-      <obj_property name="ElementShortName">current_sm_state[15:0]</obj_property>
-      <obj_property name="ObjectShortName">current_sm_state[15:0]</obj_property>
+   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/write_enable" type="logic">
+      <obj_property name="ElementShortName">write_enable</obj_property>
+      <obj_property name="ObjectShortName">write_enable</obj_property>
    </wvobject>
-   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/next_sm_state" type="array">
-      <obj_property name="ElementShortName">next_sm_state[15:0]</obj_property>
-      <obj_property name="ObjectShortName">next_sm_state[15:0]</obj_property>
+   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/write_enable_enc" type="logic">
+      <obj_property name="ElementShortName">write_enable_enc</obj_property>
+      <obj_property name="ObjectShortName">write_enable_enc</obj_property>
    </wvobject>
-   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/in_stream" type="array">
-      <obj_property name="ElementShortName">in_stream[63:0]</obj_property>
-      <obj_property name="ObjectShortName">in_stream[63:0]</obj_property>
+   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/FlatEncryption_uut/state_pt1_received" type="logic">
+      <obj_property name="ElementShortName">state_pt1_received</obj_property>
+      <obj_property name="ObjectShortName">state_pt1_received</obj_property>
    </wvobject>
-   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/encrypt_out_stream" type="array">
-      <obj_property name="ElementShortName">encrypt_out_stream[63:0]</obj_property>
-      <obj_property name="ObjectShortName">encrypt_out_stream[63:0]</obj_property>
+   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/FlatEncryption_uut/state_received" type="logic">
+      <obj_property name="ElementShortName">state_received</obj_property>
+      <obj_property name="ObjectShortName">state_received</obj_property>
    </wvobject>
-   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/current_sm_state" type="array">
-      <obj_property name="ElementShortName">current_sm_state[15:0]</obj_property>
-      <obj_property name="ObjectShortName">current_sm_state[15:0]</obj_property>
+   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/FlatEncryption_uut/key_pt1_received" type="logic">
+      <obj_property name="ElementShortName">key_pt1_received</obj_property>
+      <obj_property name="ObjectShortName">key_pt1_received</obj_property>
    </wvobject>
-   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/next_sm_state" type="array">
-      <obj_property name="ElementShortName">next_sm_state[15:0]</obj_property>
-      <obj_property name="ObjectShortName">next_sm_state[15:0]</obj_property>
+   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/FlatEncryption_uut/key_received" type="logic">
+      <obj_property name="ElementShortName">key_received</obj_property>
+      <obj_property name="ObjectShortName">key_received</obj_property>
    </wvobject>
-   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/encrypt_instruction" type="array">
-      <obj_property name="ElementShortName">encrypt_instruction[7:0]</obj_property>
-      <obj_property name="ObjectShortName">encrypt_instruction[7:0]</obj_property>
+   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/FlatEncryption_uut/current_sm_state" type="array">
+      <obj_property name="ElementShortName">current_sm_state[7:0]</obj_property>
+      <obj_property name="ObjectShortName">current_sm_state[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/encrypt_state" type="array">
-      <obj_property name="ElementShortName">encrypt_state[7:0]</obj_property>
-      <obj_property name="ObjectShortName">encrypt_state[7:0]</obj_property>
+   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/FlatEncryption_uut/in_instruction" type="array">
+      <obj_property name="ElementShortName">in_instruction[7:0]</obj_property>
+      <obj_property name="ObjectShortName">in_instruction[7:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/EncDecController_tb/EncDecController_uut/FlatEncryption_uut/key" type="array">
       <obj_property name="ElementShortName">key[127:0]</obj_property>
@@ -76,10 +68,6 @@
       <obj_property name="ElementShortName">state[127:0]</obj_property>
       <obj_property name="ObjectShortName">state[127:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/out_stream" type="array">
-      <obj_property name="ElementShortName">out_stream[63:0]</obj_property>
-      <obj_property name="ObjectShortName">out_stream[63:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/EncDecController_tb/EncDecController_uut/tx_start" type="logic">
       <obj_property name="ElementShortName">tx_start</obj_property>
       <obj_property name="ObjectShortName">tx_start</obj_property>
@@ -87,5 +75,57 @@
    <wvobject fp_name="/EncDecController_tb/EncDecController_uut/tx_free" type="logic">
       <obj_property name="ElementShortName">tx_free</obj_property>
       <obj_property name="ObjectShortName">tx_free</obj_property>
+   </wvobject>
+   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/address" type="array">
+      <obj_property name="ElementShortName">address[2:0]</obj_property>
+      <obj_property name="ObjectShortName">address[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/register_file_uut_enc/BLOCK_RAM" type="array">
+      <obj_property name="ElementShortName">BLOCK_RAM[4:0][63:0]</obj_property>
+      <obj_property name="ObjectShortName">BLOCK_RAM[4:0][63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/register_file_uut/BLOCK_RAM" type="array">
+      <obj_property name="ElementShortName">BLOCK_RAM[4:0][63:0]</obj_property>
+      <obj_property name="ObjectShortName">BLOCK_RAM[4:0][63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/read_data" type="array">
+      <obj_property name="ElementShortName">read_data[63:0]</obj_property>
+      <obj_property name="ObjectShortName">read_data[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/current_sm_state" type="array">
+      <obj_property name="ElementShortName">current_sm_state[15:0]</obj_property>
+      <obj_property name="ObjectShortName">current_sm_state[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/encrypt_instruction" type="array">
+      <obj_property name="ElementShortName">encrypt_instruction[7:0]</obj_property>
+      <obj_property name="ObjectShortName">encrypt_instruction[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/encrypt_out_stream" type="array">
+      <obj_property name="ElementShortName">encrypt_out_stream[63:0]</obj_property>
+      <obj_property name="ObjectShortName">encrypt_out_stream[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/encrypt_state" type="array">
+      <obj_property name="ElementShortName">encrypt_state[7:0]</obj_property>
+      <obj_property name="ObjectShortName">encrypt_state[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/encrypting" type="array">
+      <obj_property name="ElementShortName">encrypting[2:0]</obj_property>
+      <obj_property name="ObjectShortName">encrypting[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/in_stream" type="array">
+      <obj_property name="ElementShortName">in_stream[63:0]</obj_property>
+      <obj_property name="ObjectShortName">in_stream[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/next_sm_state" type="array">
+      <obj_property name="ElementShortName">next_sm_state[15:0]</obj_property>
+      <obj_property name="ObjectShortName">next_sm_state[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/out_stream" type="array">
+      <obj_property name="ElementShortName">out_stream[63:0]</obj_property>
+      <obj_property name="ObjectShortName">out_stream[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/EncDecController_tb/EncDecController_uut/write_data" type="array">
+      <obj_property name="ElementShortName">write_data[63:0]</obj_property>
+      <obj_property name="ObjectShortName">write_data[63:0]</obj_property>
    </wvobject>
 </wave_config>

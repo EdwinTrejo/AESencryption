@@ -27,12 +27,13 @@ module EncDecController_tb();
     wire [63:0] out_stream;
     reg clk, rx_complete, tx_free;
     wire tx_start;
+    reg reset = 0;
     
     //KEY
-    //H 2B7E151628AED2A6 HABF7158809CF4F3C
+    //H 2B7E151628AED2A6 H ABF7158809CF4F3C
     //2B 7E 15 16 28 AE D2 A6 AB F7 15 88 09 CF 4F 3C
     //STATE
-    //H0011223344556677 H8899AABBCCDDEEFF
+    //H 0011223344556677 H 8899AABBCCDDEEFF
     //00 11 22 33 44 55 66 77 88 99 AA BB CC DD EE FF
     
     //27d8d055d6e4d64b 8df4e9aac5c7573a
@@ -44,7 +45,8 @@ module EncDecController_tb();
         .clk(clk),
         .rx_complete(rx_complete),
         .tx_start(tx_start),
-        .tx_free(tx_free)
+        .tx_free(tx_free),
+        .reset(reset)
         );
     
     always #0.5 clk = ~clk;
@@ -52,7 +54,7 @@ module EncDecController_tb();
     initial begin
         clk = 0;
         tx_free = 0;
-        #4
+        #4.5
         in_stream = 64'h1111111111111111;
         rx_complete = 1;
         #1
@@ -92,7 +94,7 @@ module EncDecController_tb();
         $finish;
     end
     
-    always @(*) begin
+    always @(posedge clk) begin
         if (out_stream == 64'h8df4e9aac5c7573a) begin
             #80
             tx_free = 1;

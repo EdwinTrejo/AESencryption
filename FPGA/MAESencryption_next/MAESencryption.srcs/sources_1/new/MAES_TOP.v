@@ -47,13 +47,15 @@ module MAES_TOP(
     //output reg [63:0] out_stream,
     //input wire rx_complete,
     //output reg tx_start
+    //EncDecController(clk, in_stream, out_stream, rx_complete, tx_start, tx_free, reset);
     EncDecController EncDecController_uut(
         .clk(clk),
         .in_stream(rx_msg),
         .out_stream(tx_msg),
         .rx_complete(rx_complete),
         .tx_start(tx_start),
-        .tx_free(tx_free)
+        .tx_free(tx_free),
+        .reset(normal_reset)
     );
     
     ////hardware interfaces
@@ -77,12 +79,3 @@ module MAES_TOP(
     );
     
 endmodule
-
-
-
-
-
-
-
-
-

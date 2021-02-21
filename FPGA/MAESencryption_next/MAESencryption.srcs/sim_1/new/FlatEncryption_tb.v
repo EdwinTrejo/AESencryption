@@ -52,7 +52,7 @@ module FlatEncryption_tb();
         #1;
         in_stream = 64'H0011223344556677;
         in_instruction = 4;
-        #1;
+        #2;
         in_stream = 64'H8899AABBCCDDEEFF;
         in_instruction = 5;
         #2;
@@ -67,6 +67,7 @@ module FlatEncryption_tb();
         end
         else if (out_instruction == 5) begin
             full_out_state[63:0] = out_stream;
+            #4
             $finish;
         end
     end
