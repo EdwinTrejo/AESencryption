@@ -1,34 +1,26 @@
 package com.example.myfirstapp
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
-import android.view.View
+import android.util.TypedValue
+import android.view.*
 import android.widget.EditText
+import android.widget.LinearLayout
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.Group
+import androidx.core.view.marginBottom
 import androidx.preference.PreferenceManager
 import org.json.*
 import java.io.IOException
 import java.net.*
-import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-
-class SoftOptions {
-    var RemoteHost: String = "173.59.238.239"
-    var RemotePort: Int = 23442
-
-    constructor()
-    init{}
-}
-
 // Global
-val Settings = SoftOptions()
 var aesmsg = ""
 const val EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE"
 
@@ -51,6 +43,10 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this, SettingsActivity::class.java))
                 true
             }
+            R.id.menu_item_clear -> {
+                findViewById<LinearLayout>(R.id.linearLayout).removeAllViews()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -64,25 +60,64 @@ class MainActivity : AppCompatActivity() {
         val message = editText.text.toString()
 
         val json = JSONObject()
-        json.put("data", message)
-        json.put("charSchemaID", prefs.getString("char_schema_id", "3"))
-        json.put("key", prefs.getString("key", "3"))
-        json.put("messageType", "1") // for encryption
+        json.put("UserText", message)
+        json.put("CharSchemaId", prefs.getString("char_schema_id", "3"))
+        json.put("UserKey", prefs.getString("key", "3"))
+        json.put("MessageType", "1") // for encryption
+        json.put("ServerIp", prefs.getString("server_ip", "127.0.0.1"))
+        json.put("ServerPort", prefs.getString("server_port", "23442"))
 
-        val textView = findViewById<TextView>(R.id.sentTextView).apply {
+        val layout = findViewById<LinearLayout>(R.id.linearLayout)
+
+        val msgLayout = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+        }
+
+        // Create TextView programmatically.
+        val newTimeTextView = TextView(this)
+        // setting height and width
+        newTimeTextView.layoutParams = LinearLayout.LayoutParams(
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        // setting text
+        newTimeTextView.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("EEE, d MMM hh:mm:ss")))
+        newTimeTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10F)
+        msgLayout.addView(newTimeTextView)
+        // Create TextView programmatically.
+        val newTextView = TextView(this)
+        // setting height and width
+        newTextView.layoutParams = LinearLayout.LayoutParams(
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        // setting text
+        newTextView.setText(message)
+        newTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14F)
+        newTextView.setTextColor(Color.parseColor("#FFFFFF"))
+        newTextView.setBackgroundResource(R.drawable.back)
+        msgLayout.addView(newTextView)
+
+        layout?.addView(msgLayout)
+
+        /*val textView = findViewById<TextView>(R.id.sentTextView).apply {
             text = message
         }
         textView.setBackgroundResource(R.drawable.back)
-        findViewById<TextView>(R.id.sentTimeTextView).setText(LocalDateTime.now().format(
-            DateTimeFormatter.ofPattern("EEE, d MMM hh:mm:ss")))
+        findViewById<TextView>(R.id.sentTimeTextView).setText(
+            LocalDateTime.now().format(
+                DateTimeFormatter.ofPattern("EEE, d MMM hh:mm:ss")
+            )
+        )*/
 
         val aesTextView = findViewById<TextView>(R.id.aesTextView)
 
-        val udpConnect = Thread(ClientSend(json.toString()))
+        val udpConnect = Thread(ClientSend(json))
         udpConnect.start()
         udpConnect.join()
 
-        aesTextView.setText(JSONObject(aesmsg).getString("DATA"))
+
+        //aesTextView.setText(JSONObject(aesmsg).getString("UserText"))
     }
 
     fun testButton(view: View) {
@@ -99,15 +134,16 @@ class MainActivity : AppCompatActivity() {
 
 }
 
-class ClientSend(message: String) : Runnable {
-    private val msg = message
+class ClientSend(json: JSONObject) : Runnable {
+    private val data = json
+    private val msg = data.toString()
     override fun run() {
         var run = true
         try {
             val udpSocket = DatagramSocket()
             val sockAddr = InetSocketAddress(
-                InetAddress.getByName(Settings.RemoteHost),
-                Settings.RemotePort
+                InetAddress.getByName(data.getString("ServerIp")),
+                data.getString("ServerPort").toInt()
             )
             val buf = msg.toByteArray()
             val packet = DatagramPacket(buf, buf.size, sockAddr)
