@@ -136,14 +136,17 @@ void loop()
 	print_state(plaintext);
 	print_state(userkey);
 
-	if (current_operation == M_ENCRYPT){
+	if (current_operation == M_ENCRYPT)
+	{
 		encrypt_hold = (byte *)malloc(sizeof(byte) * MSGSIZE);
 		memcpy(encrypt_hold, plaintext, 16 * sizeof(byte));
 		encrypt_hold = Encrypt(plaintext, userkey, encrypt_hold);
 		Serial.println("done");
 		print_state(encrypt_hold);
 		free(encrypt_hold);
-	}else if  (current_operation == M_DECRYPT){
+	}
+	else if (current_operation == M_DECRYPT)
+	{
 		decrypt_hold = (byte *)malloc(sizeof(byte) * MSGSIZE);
 		memcpy(decrypt_hold, plaintext, 16 * sizeof(byte));
 		decrypt_hold = Decrypt(plaintext, userkey, decrypt_hold);
@@ -151,7 +154,7 @@ void loop()
 		print_state(decrypt_hold);
 		free(decrypt_hold);
 	}
-	
+
 	free(plaintext);
 	free(userkey);
 }
@@ -226,25 +229,28 @@ byte *Decrypt(byte *state, byte *key, byte *local_state)
 	KeyExpansion(expanded_key, local_key);
 
 	//run first addkey
-	PackKey(local_key, expanded_key[4 * 10], expanded_key[4 * 10 + 1], expanded_key[4 * 10 + 2], expanded_key[4 * 10 + 3]);
+	PackKey(local_key, expanded_key[40], expanded_key[41], expanded_key[42], expanded_key[43]);
 	addKey(local_state, local_key);
+	InverseShiftRows(local_state);
+	InverseSubBytes(local_state);
 
 	//AES rounds
-	for (int i = 0; i < 10;)
+	for (int i = 9; i >= 1; i--)
 	{
-		//inverseSubBytes
-		InverseSubBytes(local_state);
+		print_state(local_key);
+		//XOR with key
+		PackKey(local_key, expanded_key[4 * i], expanded_key[4 * i + 1], expanded_key[4 * i + 2], expanded_key[4 * i + 3]);
+		addKey(local_state, local_key);
+		//mix columns
+		InverseMixColumns(local_state);
 		//shift rows
 		InverseShiftRows(local_state);
-		//mix columns
-		if (i < 9)
-		{
-			InverseMixColumns(local_state);
-		}
-		//XOR with key
-		PackKey(local_key, expanded_key[4 * (10 - (i + 1))], expanded_key[4 * (10 - (i + 1)) + 1], expanded_key[4 * (10 - (i + 1)) + 2], expanded_key[4 * (10 - (i + 1)) + 3]);
-		addKey(local_state, local_key);
+		//inverseSubBytes
+		InverseSubBytes(local_state);
 	}
+
+	PackKey(local_key, expanded_key[0], expanded_key[1], expanded_key[2], expanded_key[3]);
+	addKey(local_state, local_key);
 
 	free(expanded_key);
 	free(local_key);
@@ -311,7 +317,7 @@ void InverseShiftRows(byte *state)
 	temp_state[13] = state[10];
 	temp_state[14] = state[5];
 	temp_state[15] = state[0];
-	
+
 	memcpy(state, temp_state, 16 * sizeof(byte));
 	free(temp_state);
 }
@@ -342,7 +348,7 @@ byte TimesThree(byte num)
 	return TimesTwo(num) ^ num;
 }
 
- // + is xor
+// + is xor
 byte TimesNine(byte num)
 {
 	// (((x ×2)×2)×2)+x
