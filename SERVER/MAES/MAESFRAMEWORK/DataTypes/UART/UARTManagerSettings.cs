@@ -12,6 +12,9 @@ namespace MAESFRAMEWORK.DataTypes.UART
         public int baudrate;
         public int ReadTimeout;
         public int WriteTimeout;
+        public System.IO.Ports.Parity parity;
+        public System.IO.Ports.StopBits stopBits;
+        public bool enableRtsCts;
         public SerialPort serialPort;
     }
 }

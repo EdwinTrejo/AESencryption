@@ -47,6 +47,9 @@ namespace MAESFRAMEWORK.CodeProcessors.UART
             _manager.serialPort = new SerialPort(_manager.port, _manager.baudrate);
             _manager.serialPort.ReadTimeout = _manager.ReadTimeout;
             _manager.serialPort.WriteTimeout = _manager.WriteTimeout;
+            _manager.serialPort.Parity = _manager.parity;
+            _manager.serialPort.StopBits = _manager.stopBits;
+            _manager.serialPort.RtsEnable = _manager.enableRtsCts;
             try
             {
                 _manager.serialPort.Open();
@@ -61,7 +64,7 @@ namespace MAESFRAMEWORK.CodeProcessors.UART
             }
         }
 
-        public UARTManager(string port, int baudrate, int ReadTimeout, int WriteTimeout)
+        public UARTManager(string port, int baudrate, int ReadTimeout, int WriteTimeout, bool enableRtsCts = true, System.IO.Ports.Parity parity = Parity.Even, System.IO.Ports.StopBits stopBits = StopBits.Two)
         {
             _manager = new UARTManagerSettings();
             _manager.name = $"UART::{port}";
@@ -71,6 +74,9 @@ namespace MAESFRAMEWORK.CodeProcessors.UART
             _manager.baudrate = baudrate;
             _manager.ReadTimeout = ReadTimeout;
             _manager.WriteTimeout = WriteTimeout;
+            _manager.parity = parity;
+            _manager.stopBits = stopBits;
+            _manager.enableRtsCts = enableRtsCts;
             device_ready = false;
         }
 

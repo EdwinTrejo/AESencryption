@@ -10,7 +10,7 @@ namespace GenerateConversionLibrary
 {
     public class Program
     {
-        public static List<HashSet<Tuple<char, char>>> Replacements = new List<HashSet<Tuple<char, char>>>();
+        public static List<HashSet<Tuple<char, char>>> Schemas = new List<HashSet<Tuple<char, char>>>();
         public static List<HashSet<int>> orders = new List<HashSet<int>>();
         public static List<char> charss = new List<char>() 
         { 
@@ -54,14 +54,14 @@ namespace GenerateConversionLibrary
                 {
                     newAlphabet.Add(Tuple.Create(charss[i], charss[orders[j].ElementAt(i) - 1]));
                 }
-                Replacements.Add(newAlphabet);
+                Schemas.Add(newAlphabet);
             }
         }
 
         public static void WriteToLog()
         {
             int i = 0;
-            foreach(var charReplacement in Replacements)
+            foreach(var charReplacement in Schemas)
             {
                 i++;
                 string path = Directory.GetCurrentDirectory();

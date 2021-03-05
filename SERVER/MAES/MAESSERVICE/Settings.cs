@@ -59,8 +59,8 @@ namespace MAESSERVICE
         #region uart manager settings
         private static UARTManager m_uart;
         private const string uart_port = "COM5";
-        private const int baudrate = 9600;
-        private const int ReadTimeout = 1500;
+        private const int baudrate = 115200;
+        private const int ReadTimeout = 1000;
         private const int WriteTimeout = 1500;
         #endregion
 
