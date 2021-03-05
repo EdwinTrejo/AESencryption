@@ -62,6 +62,12 @@ byte TimesThree(byte num);
 byte TimesTwo(byte num);
 byte *Encrypt(byte state[16], byte key[16], byte *local_state);
 void print_state(byte *state);
+void InverseShiftRows(byte *state);
+void InverseMixColumns(byte *state);
+byte TimesNine(byte num);
+byte TimesEleven(byte num);
+byte TimesThirteen(byte num);
+byte TimesFourteen(byte num);
 
 void setup()
 {
@@ -523,4 +529,107 @@ byte getSBoxValue(byte number)
 {
 	//ascii numbering
 	return sbox[number];
+}
+
+
+void InverseShiftRows(byte *state)
+{
+	//byte temp_state[16] = { 0 };
+	byte *temp_state = (byte *)malloc(sizeof(byte) * 16);
+	//top row
+	temp_state[0] = state[11];
+	temp_state[1] = state[6];
+	temp_state[2] = state[1];
+	temp_state[3] = state[12];
+	//1 row
+	temp_state[4] = state[7];
+	temp_state[5] = state[2];
+	temp_state[6] = state[13];
+	temp_state[7] = state[8];
+	//2 row
+	temp_state[8] = state[3];
+	temp_state[9] = state[14];
+	temp_state[10] = state[9];
+	temp_state[11] = state[4];
+	//3 row
+	temp_state[12] = state[15];
+	temp_state[13] = state[10];
+	temp_state[14] = state[5];
+	temp_state[15] = state[0];
+	
+	memcpy(state, temp_state, 16 * sizeof(byte));
+	free(temp_state);
+}
+
+
+void InverseMixColumns(byte *state)
+{
+	//byte temp_state[16] = { 0 };
+	byte *temp_state = (byte *)malloc(sizeof(byte) * 16);
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			int current = i * 4 + j;
+			//byte s0 = 0x02 * state[current];
+			//byte s1 = 0x03 * state[current + 1];
+			//byte a = s0 ^ s1;
+			//byte b = state[current + 2] ^ state[current + 3];
+			//byte c = a ^ b;
+			switch (j)
+			{
+			case 0:
+				temp_state[current] = TimesFourteen(state[current]) ^ TimesEleven(state[current + 1]) ^ TimesThirteen(state[current + 2]) ^ TimesNine(state[current + 3]);
+				break;
+			case 1:
+				temp_state[current] = TimesNine(state[current - 1]) ^ TimesFourteen(state[current]) ^ TimesEleven(state[current + 1]) ^ TimesThirteen(state[current + 2]);
+				break;
+			case 2:
+				temp_state[current] = TimesThirteen(state[current - 2]) ^ TimesNine(state[current - 1]) ^ TimesFourteen(state[current]) ^ TimesEleven(state[current + 1]);
+				break;
+			case 3:
+				temp_state[current] = TimesEleven(state[current - 3]) ^ TimesThirteen(state[current - 2]) ^ TimesNine(state[current - 1]) ^ TimesFourteen(state[current]);
+				break;
+			}
+		}
+	}
+	memcpy(state, temp_state, 16 * sizeof(byte));
+	free(temp_state);
+}
+
+
+ // + is xor
+byte TimesNine(byte num)
+{
+	// (((x ×2)×2)×2)+x
+
+	return TimesTwo(TimesTwo(TimesTwo(num))) ^ num;
+}
+
+byte TimesEleven(byte num)
+{
+	// ((((x ×2)×2)+x)×2)+x
+	byte num2 = TimesTwo(TimesTwo(num)) ^ num;
+
+	return TimesTwo(num2) ^ num;
+}
+
+byte TimesThirteen(byte num)
+{
+	// ((((x ×2)+x)×2)×2)+x
+
+	byte num2 = TimesTwo(num) ^ num;
+
+	return TimesTwo(TimesTwo(num2)) ^ num;
+}
+
+byte TimesFourteen(byte num)
+{
+	// ((((x ×2)+x)×2)+x)×2
+
+	byte num2 = TimesTwo(num) ^ num;
+
+	byte num3 = TimesTwo(num2) ^ num;
+
+	return TimesTwo(num3);
 }
