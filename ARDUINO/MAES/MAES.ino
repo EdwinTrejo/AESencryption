@@ -107,7 +107,7 @@ string maes_instruction;
 void loop()
 {
 	// put your main code here, to run repeatedly:
-	delay(50);
+	delay(1000);
 	plaintext = (byte *)malloc(sizeof(byte) * MSGSIZE);
 	userkey = (byte *)malloc(sizeof(byte) * MSGSIZE);
 
@@ -140,8 +140,6 @@ void loop()
 
 	get_plaintext();
 	get_key();
-	//print_state(plaintext);
-	//print_state(userkey);
 
 	if (current_operation == M_ENCRYPT)
 	{
@@ -168,14 +166,11 @@ void loop()
 
 void print_state(byte *state)
 {
-	Serial.println("-----------------------------------------------------------------");
 	for (int i = 0; i < 16; i++)
 	{
 		Serial.print("  ");
 		Serial.print(state[i], HEX);
 	}
-	Serial.println("");
-	Serial.println("-----------------------------------------------------------------");
 }
 
 byte *Encrypt(byte *state, byte *key, byte *local_state)
@@ -237,14 +232,9 @@ byte *Decrypt(byte *state, byte *key, byte *local_state)
 
 	//run first addkey
 	PackKey(local_key, expanded_key[40], expanded_key[41], expanded_key[42], expanded_key[43]);
-	print_state(local_state);
-	addKey(local_state, local_key);
-	print_state(local_state);
-	
+	addKey(local_state, local_key);	
 	InverseShiftRows(local_state);
-	print_state(local_state);
 	InverseSubBytes(local_state);
-	print_state(local_state);
 
 	//AES rounds
 	for (int i = 9; i >= 1; i--)
