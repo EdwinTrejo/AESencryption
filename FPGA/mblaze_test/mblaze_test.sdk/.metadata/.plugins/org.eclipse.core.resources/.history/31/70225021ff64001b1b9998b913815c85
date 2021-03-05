@@ -1,7 +1,0 @@
-#include "allleters.h"
-
-uint8_t getLetterValue(uint8_t number)
-{
-  //ascii numbering
-  return LETTER_REPLACE[number];
-}

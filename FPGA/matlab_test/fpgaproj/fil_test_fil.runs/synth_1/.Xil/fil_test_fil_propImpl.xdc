@@ -1,7 +1,0 @@
-set_property SRC_FILE_INFO {cfile:C:/Users/horse/Documents/Xilinx_Projects/AESencryption/matlab_test/filsrc/fil_test_fil.xdc rfile:../../../../filsrc/fil_test_fil.xdc id:1} [current_design]
-set_property src_info {type:XDC file:1 line:2 export:INPUT save:INPUT read:READ} [current_design]
-set_property PACKAGE_PIN E3 [get_ports sysclk]
-set_property src_info {type:XDC file:1 line:5 export:INPUT save:INPUT read:READ} [current_design]
-set_false_path -from [get_clocks clk_out1_clk_wiz_0] -to [get_clocks TCK]
-set_property src_info {type:XDC file:1 line:6 export:INPUT save:INPUT read:READ} [current_design]
-set_false_path -from [get_clocks TCK] -to [get_clocks clk_out1_clk_wiz_0]

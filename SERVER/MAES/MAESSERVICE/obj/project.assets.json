@@ -495,37 +495,41 @@
   },
   "packageFolders": {
     "C:\\Users\\horse\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\horse\\Documents\\Xilinx_Projects\\AESencryption\\SERVER\\MAES\\MAESSERVICE\\MAESSERVICE.csproj",
+      "projectUniqueName": "F:\\Xilinx_Projects\\AESencryption\\SERVER\\MAES\\MAESSERVICE\\MAESSERVICE.csproj",
       "projectName": "MAESSERVICE",
-      "projectPath": "C:\\Users\\horse\\Documents\\Xilinx_Projects\\AESencryption\\SERVER\\MAES\\MAESSERVICE\\MAESSERVICE.csproj",
+      "projectPath": "F:\\Xilinx_Projects\\AESencryption\\SERVER\\MAES\\MAESSERVICE\\MAESSERVICE.csproj",
       "packagesPath": "C:\\Users\\horse\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\horse\\Documents\\Xilinx_Projects\\AESencryption\\SERVER\\MAES\\MAESSERVICE\\obj\\",
+      "outputPath": "F:\\Xilinx_Projects\\AESencryption\\SERVER\\MAES\\MAESSERVICE\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
         "C:\\Users\\horse\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Users\\horse\\source\\repos\\RHR\\RHR_FRAMEWORK\\bin\\Debug": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\horse\\Documents\\Xilinx_Projects\\AESencryption\\SERVER\\MAES\\MAESFRAMEWORK\\MAESFRAMEWORK.csproj": {
-              "projectPath": "C:\\Users\\horse\\Documents\\Xilinx_Projects\\AESencryption\\SERVER\\MAES\\MAESFRAMEWORK\\MAESFRAMEWORK.csproj"
+            "F:\\Xilinx_Projects\\AESencryption\\SERVER\\MAES\\MAESFRAMEWORK\\MAESFRAMEWORK.csproj": {
+              "projectPath": "F:\\Xilinx_Projects\\AESencryption\\SERVER\\MAES\\MAESFRAMEWORK\\MAESFRAMEWORK.csproj"
             }
           }
         }
@@ -564,7 +568,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

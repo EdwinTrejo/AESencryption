@@ -15,3 +15,8 @@ SAMPLES_AND_TESTS/**/Debug/
 **/*.ip_user_files/
 **/*.hw/
 **/*.sim/sim_1/
+**/bd/ip/
+**/bd/ipshared/
+**/bd/sim/
+**/bd/synth/
+**/bd/ui/
