@@ -129,12 +129,19 @@ void loop()
 			current_operation = M_DECRYPT;
 			intruction_allowed = true;
 		}
+		else
+		{
+			//2b7e151628aed2a6abf7158809cf4f3c
+			//00112233445566778899AABBCCDDEEFF
+			//8DF4E9AAC5C7573A27D8D055D6E4D64B
+			intruction_allowed = false;
+		}
 	}
 
 	get_plaintext();
 	get_key();
-	print_state(plaintext);
-	print_state(userkey);
+	//print_state(plaintext);
+	//print_state(userkey);
 
 	if (current_operation == M_ENCRYPT)
 	{
@@ -230,14 +237,19 @@ byte *Decrypt(byte *state, byte *key, byte *local_state)
 
 	//run first addkey
 	PackKey(local_key, expanded_key[40], expanded_key[41], expanded_key[42], expanded_key[43]);
+	print_state(local_state);
 	addKey(local_state, local_key);
+	print_state(local_state);
+	
 	InverseShiftRows(local_state);
+	print_state(local_state);
 	InverseSubBytes(local_state);
+	print_state(local_state);
 
 	//AES rounds
 	for (int i = 9; i >= 1; i--)
 	{
-		print_state(local_key);
+		//print_state(local_state);
 		//XOR with key
 		PackKey(local_key, expanded_key[4 * i], expanded_key[4 * i + 1], expanded_key[4 * i + 2], expanded_key[4 * i + 3]);
 		addKey(local_state, local_key);
@@ -298,25 +310,25 @@ void InverseShiftRows(byte *state)
 	//byte temp_state[16] = { 0 };
 	byte *temp_state = (byte *)malloc(sizeof(byte) * 16);
 	//top row
-	temp_state[0] = state[11];
-	temp_state[1] = state[6];
-	temp_state[2] = state[1];
-	temp_state[3] = state[12];
+	temp_state[0] = state[0];
+	temp_state[1] = state[13];
+	temp_state[2] = state[10];
+	temp_state[3] = state[7];
 	//1 row
-	temp_state[4] = state[7];
-	temp_state[5] = state[2];
-	temp_state[6] = state[13];
-	temp_state[7] = state[8];
+	temp_state[4] = state[4];
+	temp_state[5] = state[1];
+	temp_state[6] = state[14];
+	temp_state[7] = state[11];
 	//2 row
-	temp_state[8] = state[3];
-	temp_state[9] = state[14];
-	temp_state[10] = state[9];
-	temp_state[11] = state[4];
+	temp_state[8] = state[8];
+	temp_state[9] = state[5];
+	temp_state[10] = state[2];
+	temp_state[11] = state[15];
 	//3 row
-	temp_state[12] = state[15];
-	temp_state[13] = state[10];
-	temp_state[14] = state[5];
-	temp_state[15] = state[0];
+	temp_state[12] = state[12];
+	temp_state[13] = state[9];
+	temp_state[14] = state[6];
+	temp_state[15] = state[3];
 
 	memcpy(state, temp_state, 16 * sizeof(byte));
 	free(temp_state);
