@@ -68,6 +68,12 @@ byte TimesNine(byte num);
 byte TimesEleven(byte num);
 byte TimesThirteen(byte num);
 byte TimesFourteen(byte num);
+byte InverseGetSBoxValue(byte number);
+void InverseSubBytes(byte *state);
+byte *Decrypt(byte *state, byte *key, byte *local_state);
+void get_instruction();
+void get_plaintext();
+void get_key();
 
 void setup()
 {
@@ -97,44 +103,6 @@ byte *userkey;
 byte *encrypt_hold;
 byte *decrypt_hold;
 string maes_instruction;
-
-void get_instruction()
-{
-	Serial.println("instruction?");
-	while (!Serial.available())
-	{
-	}
-	maes_instruction = Serial.readString();
-	Serial.println("recv_complete?");
-}
-
-void get_plaintext()
-{
-	Serial.println("plaintext?");
-	while (!Serial.available())
-	{
-	}
-	string recv_msg = Serial.readString();
-	for (int i = 0; i < MSGSIZE; i++)
-	{
-		plaintext[i] = recv_msg[i];
-	}
-	Serial.println("recv_complete?");
-}
-
-void get_key()
-{
-	Serial.println("key?");
-	while (!Serial.available())
-	{
-	}
-	string recv_msg = Serial.readString();
-	for (int i = 0; i < MSGSIZE; i++)
-	{
-		userkey[i] = recv_msg[i];
-	}
-	Serial.println("recv_complete?");
-}
 
 void loop()
 {
@@ -178,6 +146,8 @@ void loop()
 	}else if  (current_operation == M_DECRYPT){
 		decrypt_hold = (byte *)malloc(sizeof(byte) * MSGSIZE);
 		memcpy(decrypt_hold, plaintext, 16 * sizeof(byte));
+		decrypt_hold = Decrypt(plaintext, userkey, decrypt_hold);
+		Serial.println("done");
 		print_state(decrypt_hold);
 		free(decrypt_hold);
 	}
@@ -196,10 +166,6 @@ void print_state(byte *state)
 	}
 	Serial.println("");
 	Serial.println("-----------------------------------------------------------------");
-}
-
-byte *Decrypt(byte *state, byte *key, byte *local_state)
-{
 }
 
 byte *Encrypt(byte *state, byte *key, byte *local_state)
@@ -247,6 +213,44 @@ byte *Encrypt(byte *state, byte *key, byte *local_state)
 	return local_state;
 }
 
+byte *Decrypt(byte *state, byte *key, byte *local_state)
+{
+	unsigned long *expanded_key = (unsigned long *)malloc(sizeof(unsigned long) * 44);
+	//byte *local_state = malloc(sizeof(byte) * 16);
+	byte *local_key = (byte *)malloc(sizeof(byte) * 16);
+
+	//copy state
+	memcpy(local_state, state, 16 * sizeof(byte));
+	memcpy(local_key, key, 16 * sizeof(byte));
+	//run key expansion
+	KeyExpansion(expanded_key, local_key);
+
+	//run first addkey
+	PackKey(local_key, expanded_key[4 * 10], expanded_key[4 * 10 + 1], expanded_key[4 * 10 + 2], expanded_key[4 * 10 + 3]);
+	addKey(local_state, local_key);
+
+	//AES rounds
+	for (int i = 0; i < 10;)
+	{
+		//inverseSubBytes
+		InverseSubBytes(local_state);
+		//shift rows
+		InverseShiftRows(local_state);
+		//mix columns
+		if (i < 9)
+		{
+			InverseMixColumns(local_state);
+		}
+		//XOR with key
+		PackKey(local_key, expanded_key[4 * (10 - (i + 1))], expanded_key[4 * (10 - (i + 1)) + 1], expanded_key[4 * (10 - (i + 1)) + 2], expanded_key[4 * (10 - (i + 1)) + 3]);
+		addKey(local_state, local_key);
+	}
+
+	free(expanded_key);
+	free(local_key);
+	return local_state;
+}
+
 void addKey(byte *state, byte *key)
 {
 	for (int i = 0; i < 16; i++)
@@ -283,6 +287,35 @@ void ShiftRows(byte *state)
 	free(temp_state);
 }
 
+void InverseShiftRows(byte *state)
+{
+	//byte temp_state[16] = { 0 };
+	byte *temp_state = (byte *)malloc(sizeof(byte) * 16);
+	//top row
+	temp_state[0] = state[11];
+	temp_state[1] = state[6];
+	temp_state[2] = state[1];
+	temp_state[3] = state[12];
+	//1 row
+	temp_state[4] = state[7];
+	temp_state[5] = state[2];
+	temp_state[6] = state[13];
+	temp_state[7] = state[8];
+	//2 row
+	temp_state[8] = state[3];
+	temp_state[9] = state[14];
+	temp_state[10] = state[9];
+	temp_state[11] = state[4];
+	//3 row
+	temp_state[12] = state[15];
+	temp_state[13] = state[10];
+	temp_state[14] = state[5];
+	temp_state[15] = state[0];
+	
+	memcpy(state, temp_state, 16 * sizeof(byte));
+	free(temp_state);
+}
+
 byte TimesTwo(byte num)
 {
 	// ab = example of num, hex byte
@@ -307,6 +340,42 @@ byte TimesThree(byte num)
 
 	// 3 times  = (2 times x) xor x
 	return TimesTwo(num) ^ num;
+}
+
+ // + is xor
+byte TimesNine(byte num)
+{
+	// (((x ×2)×2)×2)+x
+
+	return TimesTwo(TimesTwo(TimesTwo(num))) ^ num;
+}
+
+byte TimesEleven(byte num)
+{
+	// ((((x ×2)×2)+x)×2)+x
+	byte num2 = TimesTwo(TimesTwo(num)) ^ num;
+
+	return TimesTwo(num2) ^ num;
+}
+
+byte TimesThirteen(byte num)
+{
+	// ((((x ×2)+x)×2)×2)+x
+
+	byte num2 = TimesTwo(num) ^ num;
+
+	return TimesTwo(TimesTwo(num2)) ^ num;
+}
+
+byte TimesFourteen(byte num)
+{
+	// ((((x ×2)+x)×2)+x)×2
+
+	byte num2 = TimesTwo(num) ^ num;
+
+	byte num3 = TimesTwo(num2) ^ num;
+
+	return TimesTwo(num3);
 }
 
 void MixColumns(byte *state)
@@ -336,6 +405,41 @@ void MixColumns(byte *state)
 				break;
 			case 3:
 				temp_state[current] = TimesThree(state[current - 3]) ^ state[current - 2] ^ state[current - 1] ^ TimesTwo(state[current]);
+				break;
+			}
+		}
+	}
+	memcpy(state, temp_state, 16 * sizeof(byte));
+	free(temp_state);
+}
+
+void InverseMixColumns(byte *state)
+{
+	//byte temp_state[16] = { 0 };
+	byte *temp_state = (byte *)malloc(sizeof(byte) * 16);
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			int current = i * 4 + j;
+			//byte s0 = 0x02 * state[current];
+			//byte s1 = 0x03 * state[current + 1];
+			//byte a = s0 ^ s1;
+			//byte b = state[current + 2] ^ state[current + 3];
+			//byte c = a ^ b;
+			switch (j)
+			{
+			case 0:
+				temp_state[current] = TimesFourteen(state[current]) ^ TimesEleven(state[current + 1]) ^ TimesThirteen(state[current + 2]) ^ TimesNine(state[current + 3]);
+				break;
+			case 1:
+				temp_state[current] = TimesNine(state[current - 1]) ^ TimesFourteen(state[current]) ^ TimesEleven(state[current + 1]) ^ TimesThirteen(state[current + 2]);
+				break;
+			case 2:
+				temp_state[current] = TimesThirteen(state[current - 2]) ^ TimesNine(state[current - 1]) ^ TimesFourteen(state[current]) ^ TimesEleven(state[current + 1]);
+				break;
+			case 3:
+				temp_state[current] = TimesEleven(state[current - 3]) ^ TimesThirteen(state[current - 2]) ^ TimesNine(state[current - 1]) ^ TimesFourteen(state[current]);
 				break;
 			}
 		}
@@ -503,6 +607,14 @@ void SubBytes(byte *state)
 	}
 }
 
+void InverseSubBytes(byte *state)
+{
+	for (int i = 0; i < 16; i++)
+	{
+		state[i] = InverseGetSBoxValue(state[i]);
+	}
+}
+
 unsigned long RotWord(unsigned long word2)
 {
 	//rotate word2 for KeyExpansion
@@ -531,105 +643,46 @@ byte getSBoxValue(byte number)
 	return sbox[number];
 }
 
-
-void InverseShiftRows(byte *state)
+byte InverseGetSBoxValue(byte number)
 {
-	//byte temp_state[16] = { 0 };
-	byte *temp_state = (byte *)malloc(sizeof(byte) * 16);
-	//top row
-	temp_state[0] = state[11];
-	temp_state[1] = state[6];
-	temp_state[2] = state[1];
-	temp_state[3] = state[12];
-	//1 row
-	temp_state[4] = state[7];
-	temp_state[5] = state[2];
-	temp_state[6] = state[13];
-	temp_state[7] = state[8];
-	//2 row
-	temp_state[8] = state[3];
-	temp_state[9] = state[14];
-	temp_state[10] = state[9];
-	temp_state[11] = state[4];
-	//3 row
-	temp_state[12] = state[15];
-	temp_state[13] = state[10];
-	temp_state[14] = state[5];
-	temp_state[15] = state[0];
-	
-	memcpy(state, temp_state, 16 * sizeof(byte));
-	free(temp_state);
+	//ascii numbering
+	return rsbox[number];
 }
 
-
-void InverseMixColumns(byte *state)
+void get_instruction()
 {
-	//byte temp_state[16] = { 0 };
-	byte *temp_state = (byte *)malloc(sizeof(byte) * 16);
-	for (int i = 0; i < 4; i++)
+	Serial.println("instruction?");
+	while (!Serial.available())
 	{
-		for (int j = 0; j < 4; j++)
-		{
-			int current = i * 4 + j;
-			//byte s0 = 0x02 * state[current];
-			//byte s1 = 0x03 * state[current + 1];
-			//byte a = s0 ^ s1;
-			//byte b = state[current + 2] ^ state[current + 3];
-			//byte c = a ^ b;
-			switch (j)
-			{
-			case 0:
-				temp_state[current] = TimesFourteen(state[current]) ^ TimesEleven(state[current + 1]) ^ TimesThirteen(state[current + 2]) ^ TimesNine(state[current + 3]);
-				break;
-			case 1:
-				temp_state[current] = TimesNine(state[current - 1]) ^ TimesFourteen(state[current]) ^ TimesEleven(state[current + 1]) ^ TimesThirteen(state[current + 2]);
-				break;
-			case 2:
-				temp_state[current] = TimesThirteen(state[current - 2]) ^ TimesNine(state[current - 1]) ^ TimesFourteen(state[current]) ^ TimesEleven(state[current + 1]);
-				break;
-			case 3:
-				temp_state[current] = TimesEleven(state[current - 3]) ^ TimesThirteen(state[current - 2]) ^ TimesNine(state[current - 1]) ^ TimesFourteen(state[current]);
-				break;
-			}
-		}
 	}
-	memcpy(state, temp_state, 16 * sizeof(byte));
-	free(temp_state);
+	maes_instruction = Serial.readString();
+	Serial.println("recv_complete?");
 }
 
-
- // + is xor
-byte TimesNine(byte num)
+void get_plaintext()
 {
-	// (((x ×2)×2)×2)+x
-
-	return TimesTwo(TimesTwo(TimesTwo(num))) ^ num;
+	Serial.println("plaintext?");
+	while (!Serial.available())
+	{
+	}
+	string recv_msg = Serial.readString();
+	for (int i = 0; i < MSGSIZE; i++)
+	{
+		plaintext[i] = recv_msg[i];
+	}
+	Serial.println("recv_complete?");
 }
 
-byte TimesEleven(byte num)
+void get_key()
 {
-	// ((((x ×2)×2)+x)×2)+x
-	byte num2 = TimesTwo(TimesTwo(num)) ^ num;
-
-	return TimesTwo(num2) ^ num;
-}
-
-byte TimesThirteen(byte num)
-{
-	// ((((x ×2)+x)×2)×2)+x
-
-	byte num2 = TimesTwo(num) ^ num;
-
-	return TimesTwo(TimesTwo(num2)) ^ num;
-}
-
-byte TimesFourteen(byte num)
-{
-	// ((((x ×2)+x)×2)+x)×2
-
-	byte num2 = TimesTwo(num) ^ num;
-
-	byte num3 = TimesTwo(num2) ^ num;
-
-	return TimesTwo(num3);
+	Serial.println("key?");
+	while (!Serial.available())
+	{
+	}
+	string recv_msg = Serial.readString();
+	for (int i = 0; i < MSGSIZE; i++)
+	{
+		userkey[i] = recv_msg[i];
+	}
+	Serial.println("recv_complete?");
 }
