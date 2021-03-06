@@ -1,8 +1,0 @@
-C:\Users\horse\source\repos\MAES\MAESFRAMEWORK\bin\Debug\netcoreapp3.1\MAESFRAMEWORK.deps.json
-C:\Users\horse\source\repos\MAES\MAESFRAMEWORK\bin\Debug\netcoreapp3.1\MAESFRAMEWORK.dll
-C:\Users\horse\source\repos\MAES\MAESFRAMEWORK\bin\Debug\netcoreapp3.1\MAESFRAMEWORK.pdb
-C:\Users\horse\source\repos\MAES\MAESFRAMEWORK\obj\Debug\netcoreapp3.1\MAESFRAMEWORK.AssemblyInfoInputs.cache
-C:\Users\horse\source\repos\MAES\MAESFRAMEWORK\obj\Debug\netcoreapp3.1\MAESFRAMEWORK.AssemblyInfo.cs
-C:\Users\horse\source\repos\MAES\MAESFRAMEWORK\obj\Debug\netcoreapp3.1\MAESFRAMEWORK.csproj.CoreCompileInputs.cache
-C:\Users\horse\source\repos\MAES\MAESFRAMEWORK\obj\Debug\netcoreapp3.1\MAESFRAMEWORK.dll
-C:\Users\horse\source\repos\MAES\MAESFRAMEWORK\obj\Debug\netcoreapp3.1\MAESFRAMEWORK.pdb
