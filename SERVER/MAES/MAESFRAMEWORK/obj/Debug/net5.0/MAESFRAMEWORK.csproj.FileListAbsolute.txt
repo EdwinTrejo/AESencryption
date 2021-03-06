@@ -21,3 +21,15 @@ C:\Users\horse\Documents\Xilinx_Projects\AESencryption\SERVER\MAES\MAESFRAMEWORK
 C:\Users\horse\Documents\Xilinx_Projects\AESencryption\SERVER\MAES\MAESFRAMEWORK\obj\Debug\net5.0\MAESFRAMEWORK.dll
 C:\Users\horse\Documents\Xilinx_Projects\AESencryption\SERVER\MAES\MAESFRAMEWORK\obj\Debug\net5.0\ref\MAESFRAMEWORK.dll
 C:\Users\horse\Documents\Xilinx_Projects\AESencryption\SERVER\MAES\MAESFRAMEWORK\obj\Debug\net5.0\MAESFRAMEWORK.pdb
+F:\Xilinx_Projects\AESencryption\SERVER\MAES\MAESFRAMEWORK\bin\Debug\net5.0\MAESFRAMEWORK.deps.json
+F:\Xilinx_Projects\AESencryption\SERVER\MAES\MAESFRAMEWORK\bin\Debug\net5.0\MAESFRAMEWORK.dll
+F:\Xilinx_Projects\AESencryption\SERVER\MAES\MAESFRAMEWORK\bin\Debug\net5.0\ref\MAESFRAMEWORK.dll
+F:\Xilinx_Projects\AESencryption\SERVER\MAES\MAESFRAMEWORK\bin\Debug\net5.0\MAESFRAMEWORK.pdb
+F:\Xilinx_Projects\AESencryption\SERVER\MAES\MAESFRAMEWORK\obj\Debug\net5.0\MAESFRAMEWORK.csprojAssemblyReference.cache
+F:\Xilinx_Projects\AESencryption\SERVER\MAES\MAESFRAMEWORK\obj\Debug\net5.0\MAESFRAMEWORK.GeneratedMSBuildEditorConfig.editorconfig
+F:\Xilinx_Projects\AESencryption\SERVER\MAES\MAESFRAMEWORK\obj\Debug\net5.0\MAESFRAMEWORK.AssemblyInfoInputs.cache
+F:\Xilinx_Projects\AESencryption\SERVER\MAES\MAESFRAMEWORK\obj\Debug\net5.0\MAESFRAMEWORK.AssemblyInfo.cs
+F:\Xilinx_Projects\AESencryption\SERVER\MAES\MAESFRAMEWORK\obj\Debug\net5.0\MAESFRAMEWORK.csproj.CoreCompileInputs.cache
+F:\Xilinx_Projects\AESencryption\SERVER\MAES\MAESFRAMEWORK\obj\Debug\net5.0\MAESFRAMEWORK.dll
+F:\Xilinx_Projects\AESencryption\SERVER\MAES\MAESFRAMEWORK\obj\Debug\net5.0\ref\MAESFRAMEWORK.dll
+F:\Xilinx_Projects\AESencryption\SERVER\MAES\MAESFRAMEWORK\obj\Debug\net5.0\MAESFRAMEWORK.pdb

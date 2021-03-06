@@ -59,7 +59,7 @@ namespace MAESFRAMEWORK.CodeProcessors.UDP
         public UDPManager(IPAddress send_ip, int send_port, int receive_port)
         {
             _manager = new UDPManagerSettings();
-            _manager.name = $"UDP::{send_ip}::{send_port}::{receive_port}";
+            _manager.DeviceName = $"UDP::{send_ip}::{send_port}::{receive_port}";
             identifier_one = send_ip.ToString();
             identifier_two = send_port.ToString();
             _manager.send_ip = send_ip;

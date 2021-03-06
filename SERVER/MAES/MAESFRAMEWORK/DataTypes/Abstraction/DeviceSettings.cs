@@ -6,6 +6,9 @@ namespace MAESFRAMEWORK.DataTypes.Abstraction
 {
     public abstract class DeviceSettings
     {
-        public string name { get; set; }
+        /// <summary>
+        /// Name of device
+        /// </summary>
+        public string DeviceName { get; set; }
     }
 }

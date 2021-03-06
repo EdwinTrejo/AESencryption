@@ -8,6 +8,7 @@ SAMPLES_AND_TESTS/**/bin/
 SAMPLES_AND_TESTS/**/.vs/
 SAMPLES_AND_TESTS/**/Debug/
 **/*csprojAssemblyReference.cache
+**/obj/Debug/net*/
 
 #vivado
 **/*.jobs/

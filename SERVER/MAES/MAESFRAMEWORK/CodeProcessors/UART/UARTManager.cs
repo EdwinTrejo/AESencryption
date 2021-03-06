@@ -53,7 +53,7 @@ namespace MAESFRAMEWORK.CodeProcessors.UART
             try
             {
                 _manager.serialPort.Open();
-                Console.WriteLine($"started {_manager.name} service");
+                Console.WriteLine($"started {_manager.DeviceName} service");
                 device_ready = true;
             }
             catch (Exception e)
@@ -67,7 +67,7 @@ namespace MAESFRAMEWORK.CodeProcessors.UART
         public UARTManager(string port, int baudrate, int ReadTimeout, int WriteTimeout, bool enableRtsCts = true, System.IO.Ports.Parity parity = Parity.Even, System.IO.Ports.StopBits stopBits = StopBits.Two)
         {
             _manager = new UARTManagerSettings();
-            _manager.name = $"UART::{port}";
+            _manager.DeviceName = $"UART::{port}";
             identifier_one = port;
             identifier_two = baudrate.ToString();
             _manager.port = port;
