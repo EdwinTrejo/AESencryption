@@ -3,12 +3,12 @@
 #visual studio and visual studio code
 SERVER/**/bin/
 SERVER/**/.vs/
-SERVER/**/Debug/
+SERVER/**/obj/
+
 SAMPLES_AND_TESTS/**/bin/
 SAMPLES_AND_TESTS/**/.vs/
-SAMPLES_AND_TESTS/**/Debug/
-**/*csprojAssemblyReference.cache
-**/obj/Debug/net*/
+SAMPLES_AND_TESTS/**/obj/
+SAMPLES_AND_TESTS/**/packages/
 
 #vivado
 **/*.jobs/

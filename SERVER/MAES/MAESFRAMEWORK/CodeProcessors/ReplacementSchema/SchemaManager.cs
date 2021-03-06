@@ -11,27 +11,41 @@ namespace MAESFRAMEWORK.CodeProcessors.ReplacementSchema
     {
         public Encoding encode_set { get { return Encoding.ASCII; } }
 
-        public CharReplacedText CharacterReplacePlaintext(CharReplacedText plaintext)
+        private const int chunk_size = 16;
+
+        public ReplacedMessage CharacterReplacePlaintext(CharReplacedText plaintext)
         {
+            //before encryption
             ReplacementSchemaType schema = GetSchema(plaintext.SchemaId);
             string plaintext_str = encode_set.GetString(plaintext.Text);
-            string char_replaced_string = ChangeWordToNewAlphabet(plaintext_str, schema);
+            List<string> split_strings = SplitChunks(plaintext_str).ToList();
+            ReplacedMessage return_replaced_message = new ReplacedMessage(schema.SchemaId);
+            
+            foreach (string chunk in split_strings)
+            {
+                string char_replaced_string = ChangeWordToNewAlphabet(chunk, schema);
+                CharReplacedText replaced_text = new CharReplacedText(schema.SchemaId);
+                replaced_text.Text = encode_set.GetBytes(char_replaced_string);
+                return_replaced_message.replacedTexts.Add(replaced_text);
+            }
 
-            CharReplacedText replaced_text = new CharReplacedText();
-            replaced_text.SchemaId = schema.SchemaId;
-            replaced_text.Text = encode_set.GetBytes(char_replaced_string);
-            return replaced_text;
+            return return_replaced_message;
         }
 
-        public CharReplacedText CharacterReplaceCyphertext(CharReplacedText cyphertext)
+        public CharReplacedText CharacterReplaceCyphertext(ReplacedMessage cyphertext)
         {
+            //after decryption
+            List<byte> new_string = new List<byte>();
             ReplacementSchemaType schema = GetSchema(cyphertext.SchemaId);
-            string cyphertext_str = encode_set.GetString(cyphertext.Text);
-            string char_replaced_string = ChangeToBaseAlphabet(cyphertext_str, schema);
-
-            CharReplacedText replaced_text = new CharReplacedText();
-            replaced_text.SchemaId = schema.SchemaId;
-            replaced_text.Text = encode_set.GetBytes(char_replaced_string);
+            CharReplacedText replaced_text = new CharReplacedText(schema.SchemaId);
+            foreach (CharReplacedText replacedText in cyphertext.replacedTexts)
+            {
+                string cyphertext_str = encode_set.GetString(replacedText.Text);
+                string char_replaced_string = ChangeToBaseAlphabet(cyphertext_str, schema);
+                //add to end
+                new_string.Concat(encode_set.GetBytes(char_replaced_string));
+            }
+            replaced_text.Text = new_string.ToArray();
             return replaced_text;
         }
 
@@ -70,6 +84,27 @@ namespace MAESFRAMEWORK.CodeProcessors.ReplacementSchema
                     sr.Append(replacedChar);
             }
             return sr.ToString();
+        }
+
+        private IEnumerable<string> SplitChunks(string str)
+        {
+            List<string> return_list = SplitChunkableChunks(str).ToList();
+            //find out if we didnt pad the whole thing
+            double str_size = str.Length;
+            int real_chunk_amount = (int)System.Math.Ceiling(str_size / chunk_size);
+            if (real_chunk_amount > return_list.Count())
+            {
+                int start_position = (return_list.Count() * chunk_size) - 1;
+                string last_chunk = str.Substring(start_position).PadRight(chunk_size, ' ');
+                return_list.Add(last_chunk);
+            }
+            return return_list;
+        }
+
+        private IEnumerable<string> SplitChunkableChunks(string str)
+        {
+            return Enumerable.Range(0, str.Length / chunk_size)
+                .Select(i => str.Substring(i * chunk_size, chunk_size));
         }
     }
 }
