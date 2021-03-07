@@ -54,6 +54,7 @@ namespace MAESFRAMEWORK.CodeProcessors.UDP
         {
             _manager.send_client = new UdpClient(_manager.send_port);
             _manager.receive_client = new UdpClient(_manager.receive_port);
+            Console.WriteLine($"started {_manager.DeviceName} service");
         }
 
         public UDPManager(IPAddress send_ip, int send_port, int receive_port)

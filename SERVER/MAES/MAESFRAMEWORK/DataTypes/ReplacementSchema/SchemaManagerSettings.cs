@@ -21,6 +21,17 @@ namespace MAESFRAMEWORK.DataTypes.ReplacementSchema
         
         private const int number_of_replaceable_chars = 75;
 
+        public bool RequestDeleteSchema(int SchemaId)
+        {
+            return DeleteSchema(SchemaId);
+        }
+
+        private bool DeleteSchema(int SchemaId)
+        {
+            ReplacementSchemaType schema = GetSchema(SchemaId);
+            return schemas.Remove(schema);
+        }
+
         public ReplacementSchemaType GetSchema(int SchemaId)
         {
             bool found = false;

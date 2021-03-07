@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using MAESFRAMEWORK.DataTypes.AES;
+using MAESFRAMEWORK.DataTypes.ReplacementSchema;
 using Newtonsoft.Json;
 
 namespace MAESSERVICE
@@ -13,9 +13,23 @@ namespace MAESSERVICE
     {
         static void Main(string[] args)
         {
-            InitProcs();
+            //process can only be run as admin realtime
+            Process[] processes = Process.GetProcessesByName("MAESSERVICE");
+            foreach (var proc in processes)
+            {
+                proc.PriorityClass = ProcessPriorityClass.RealTime;
+            }
+            //UART init
+            InitUARTService();
+            //UDP init
+            InitUDPService();
+            //generate 4 replacement schemas
+            schemaManager.RequestNewSchema();
+            schemaManager.RequestNewSchema();
+            schemaManager.RequestNewSchema();
+            schemaManager.RequestNewSchema();
+            //start main thread
             MessageControllerService();
-            charSchemas = new Dictionary<int, CharSchema[]>();
         }
 
         //TODO: Make Service Scalable (OPTIONAL)
@@ -27,7 +41,7 @@ namespace MAESSERVICE
             while (true)
             {
                 //message flow will happen here
-                WaitForOrderFromUDP();
+                byte[] from_udp = WaitForOrderFromUDP();
                 try
                 {
                     //MessageType 1 Encrypt this
@@ -36,37 +50,31 @@ namespace MAESSERVICE
                     //MessageType 4 Decryption Result
                     //MessageType 5 new Character Replacement Schema
                     //MessageType 6 delete Character Replacement Schema
+                    //MessageType 7 notify new Character Replacement Schema
                     AESMessage incoming_message = JsonConvert.DeserializeObject<AESMessage>(from_udp.ToString());
+                    int CharSchemaId = incoming_message.SchemaId;
+
                     switch (incoming_message.MessageType)
                     {
                         case 1:
                             {
-                                Encrypt();
+                                Encrypt(incoming_message);
                                 break;
                             };
                         case 2:
                             {
-                                Decrypt();
+                                Decrypt(incoming_message);
                                 break;
                             };
                         case 5:
+                            {
+                                int new_schema = schemaManager.RequestNewSchema();
+                                break;
+                            }
                         case 6:
                             {
-                                CharSchema[] CharSchema = incoming_message.ReplacementSchema;
-                                if (incoming_message.CharSchemaId == null)
-                                    throw new InvalidCastException("No Char Replacement Schema Provided");
-                                
-                                int CharSchemaId = (int)incoming_message.CharSchemaId;
-                                
-                                if (incoming_message.MessageType == 5 && incoming_message.ReplacementSchema.Length < 1)
-                                    throw new ArgumentNullException("Trying to create a New Char Replacement Schema with no schema");
-                                
-                                ManageCharacterReplacementSchema(incoming_message.MessageType, CharSchemaId, incoming_message.ReplacementSchema);
+                                schemaManager.RequestDeleteSchema(CharSchemaId);
                                 break;
-                            };
-                        default:
-                            {
-                                throw new NotImplementedException($"Message Type is not an acceptable value {incoming_message.MessageType}");
                             }
                     }
                 }
@@ -74,83 +82,79 @@ namespace MAESSERVICE
                 {
                     Console.WriteLine(e.StackTrace);
                 }
-                Thread.Sleep(1000);
+                Thread.Sleep(50);
             }
         }
 
-        private static void WaitForOrderFromUDP()
+        private static void Encrypt(AESMessage plaintext)
         {
             lock (m_lock)
             {
-                udp_receive_complete = false;
-                udp_receive_ready = true;
-                while (!udp_receive_complete)
+                //get the details for the newly created message
+                //padding and char replacement
+                CharReplacedText charReplacedText = new CharReplacedText(plaintext.SchemaId);
+                charReplacedText.Text = plaintext.UserText;
+                ReplacedMessage full_message = schemaManager.CharacterReplacePlaintext(charReplacedText);
+                byte[] userkey = plaintext.UserKey;
+
+                List<byte> encryption_result = new List<byte>();
+
+                //send to uart
+                //receive from uart
+                foreach (CharReplacedText byte_block in full_message.replacedTexts)
                 {
-                    Thread.Sleep(1000);
+                    List<byte> enc_rslt = SendEncryptInstruction(byte_block.Text, userkey).ToList(); ;
+                    encryption_result.Concat(enc_rslt);
                 }
+
+                //create return message
+                AESMessage encrypt_result = new AESMessage();
+                encrypt_result.MessageType = (int)MAES_INSTRUCTION.ENCRYPTRESULT;
+                encrypt_result.SchemaId = full_message.SchemaId;
+                encrypt_result.ServerText = encryption_result.ToArray();
+
+                //send message back to the device it came from
+                SendAESMessage(encrypt_result);
             }
         }
 
-        private static void Encrypt()
+        private static void Decrypt(AESMessage cyphertext)
         {
             lock (m_lock)
             {
-            }
-        }
+                //get the details for the newly created message
+                //padding and char replacement
+                CharReplacedText charReplacedText = new CharReplacedText(cyphertext.SchemaId);
+                charReplacedText.Text = cyphertext.UserText;
+                ReplacedMessage full_message = schemaManager.CharacterReplacePlaintext(charReplacedText);
+                byte[] userkey = cyphertext.UserKey;
 
-        private static void Decrypt()
-        {
-            lock (m_lock)
-            {
-            }
-        }
+                List<byte> decryption_result = new List<byte>();
 
-        private static void ManageCharacterReplacementSchema(int MessageType, int CharSchemaId, CharSchema[] ReplacementSchema)
-        {
-            //code will go here
-            lock (m_lock)
-            {
-                if (MessageType == 5)
+                //send to uart
+                //receive from uart
+                foreach (CharReplacedText byte_block in full_message.replacedTexts)
                 {
-                    //add dictionary
-                    if (charSchemas.ContainsKey(CharSchemaId)) throw new InvalidOperationException("Dictionary Already exists");
+                    List<byte> dec_rslt = SendDecryptInstruction(byte_block.Text, userkey).ToList(); ;
+                    decryption_result.Concat(dec_rslt);
                 }
-                else if (MessageType == 6)
-                {
-                    //delete dictionary
-                }
+
+                //create return message
+                AESMessage decrypt_result = new AESMessage();
+                decrypt_result.MessageType = (int)MAES_INSTRUCTION.DECRYPTRESULT;
+                decrypt_result.SchemaId = full_message.SchemaId;
+                decrypt_result.ServerText = decryption_result.ToArray();
+
+                //send message back to the device it came from
+                SendAESMessage(decrypt_result);
             }
-        }
-
-        private static void InitProcs()
-        {
-            //create threads;
-            uart_send_svc = new Thread(UARTServiceSend);
-            uart_recv_svc = new Thread(UARTServiceReceive);
-            udp_send_svc = new Thread(UDPServiceSend);
-            udp_recv_svc = new Thread(UDPServiceReceive);
-
-            uart_send_svc.Name = "uart_send_svc";
-            uart_recv_svc.Name = "uart_recv_svc";
-            udp_send_svc.Name = "udp_send_svc";
-            udp_recv_svc.Name = "udp_recv_svc";
-
-            //start threads
-            uart_send_svc.Start();
-            uart_recv_svc.Start();
-            udp_send_svc.Start();
-            udp_recv_svc.Start();
         }
 
         ~MAESService()
         {
             //close gracefully
-#pragma warning disable SYSLIB0006
-            uart_send_svc.Abort();
-            uart_recv_svc.Abort();
-            udp_send_svc.Abort();
-            udp_recv_svc.Abort();
-#pragma warning restore SYSLIB0006
+            #pragma warning disable SYSLIB0006
+            #pragma warning restore SYSLIB0006
         }
     }
 }

@@ -8,62 +8,33 @@ namespace MAESSERVICE
 {
     public partial class MAESService
     {
-        private static void UARTServiceSend()
-        {
-            //thread init
-            lock (uart_lock)
-            {
-                if (m_uart == null)
-                {
-                    m_uart = new UARTManager(uart_port, baudrate, ReadTimeout, WriteTimeout);
-                    m_uart.Initialize();
-                }
-            }
+        //16 bytes long
+        private static byte[] ENCRYPT_INSTRUCTION = Encoding.ASCII.GetBytes("MAESENCRYPTMAESE");
+        private static byte[] DECRYPT_INSTRUCTION = Encoding.ASCII.GetBytes("MAESDECRYPTMAESD");
 
-            while (true)
+        private static void InitUARTService()
+        {
+            if (m_uart == null)
             {
-                //wait for send message
-                if (uart_send_ready && m_uart.ready)
-                {
-                    lock (uart_lock)
-                    {
-                        uart_send_complete = false;
-                        foreach (byte sendbyte in to_uart)
-                        {
-                            uart_send_complete = m_uart.Send(new byte[] { sendbyte });
-                        }
-                    }
-                }
-                Thread.Sleep(1000);
+                m_uart = new UARTManager(uart_port, baudrate, ReadTimeout, WriteTimeout);
+                m_uart.Initialize();
             }
         }
 
-        private static void UARTServiceReceive()
+        private static byte[] SendEncryptInstruction(byte[] plaintext, byte[] key)
         {
-            //thread init
-            lock (uart_lock)
-            {
-                if (m_uart == null)
-                {
-                    m_uart = new UARTManager(uart_port, baudrate, ReadTimeout, WriteTimeout);
-                    m_uart.Initialize();
-                }
-            }
+            m_uart.SendTransaction(ENCRYPT_INSTRUCTION);
+            m_uart.SendTransaction(plaintext);
+            m_uart.SendTransaction(key);
+            return m_uart.Receive();
+        }
 
-            while (true)
-            {
-                //wait for receive message
-                if (uart_receive_ready && m_uart.ready)
-                {
-                    lock (uart_lock)
-                    {
-                        byte[] uart_rec = m_uart.Receive();
-                        from_uart = uart_rec;
-                        uart_receive_complete = true;
-                    }
-                }
-                Thread.Sleep(1000);
-            }
+        private static byte[] SendDecryptInstruction(byte[] cyphertext, byte[] key)
+        {
+            m_uart.SendTransaction(DECRYPT_INSTRUCTION);
+            m_uart.SendTransaction(cyphertext);
+            m_uart.SendTransaction(key);
+            return m_uart.Receive();
         }
     }
 }

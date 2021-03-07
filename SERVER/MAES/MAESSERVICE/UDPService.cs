@@ -1,4 +1,6 @@
 ﻿using MAESFRAMEWORK.CodeProcessors.UDP;
+using MAESFRAMEWORK.DataTypes.AES;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,61 +10,29 @@ namespace MAESSERVICE
 {
     public partial class MAESService
     {
-        private static void UDPServiceSend()
-        {
-            //thread init
-            lock (udp_lock)
-            {
-                if (m_udp == null)
-                {
-                    m_udp = new UDPManager(send_ip, send_port, receive_port);
-                    m_udp.Initialize();
-                }
-            }
 
-            while (true)
+        private static void SendAESMessage(AESMessage msg)
+        {
+            byte[] encoded_text = encode_set.GetBytes(JsonConvert.SerializeObject(msg));
+            m_udp.Send(encoded_text);
+        }
+
+        private static void InitUDPService()
+        {
+            if (m_udp == null)
             {
-                //wait for send message
-                if (udp_send_ready && m_udp.ready)
-                {
-                    lock (udp_lock)
-                    {
-                        udp_send_complete = false;
-                        udp_send_complete = m_udp.Send(to_udp);
-                        Console.WriteLine($"Message Sent to {m_udp.identifier_one}:{m_udp.identifier_two}");
-                    }
-                }
-                Thread.Sleep(1000);
+                m_udp = new UDPManager(send_ip, send_port, receive_port);
+                m_udp.Initialize();
             }
         }
-        
-        private static void UDPServiceReceive()
-        {
-            //thread init
-            lock (udp_lock)
-            {
-                if (m_udp == null)
-                {
-                    m_udp = new UDPManager(send_ip, send_port, receive_port);
-                    m_udp.Initialize();
-                }
-            }
 
-            while (true)
+        private static byte[] WaitForOrderFromUDP()
+        {
+            lock (m_lock)
             {
-                //wait for receive message
-                if (udp_receive_ready && m_udp.ready)
-                {
-                    lock (udp_lock)
-                    {
-                        byte[] udp_rec = m_udp.Receive();
-                        from_udp = udp_rec;
-                        Console.WriteLine($"Message Received from {m_udp.identifier_one}:{m_udp.identifier_two}");
-                        udp_receive_complete = true;
-                        udp_receive_ready = false;
-                    }
-                }
-                Thread.Sleep(1000);
+                byte[] udp_rec = m_udp.Receive();
+                Console.WriteLine($"Message Received from {m_udp.identifier_one}:{m_udp.identifier_two}");
+                return udp_rec;
             }
         }
     }

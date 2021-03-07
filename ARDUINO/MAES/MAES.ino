@@ -48,6 +48,11 @@ static const byte rsbox[256] = {
 static const unsigned long Rcon[11] = {
 	0x8d000000, 0x01000000, 0x02000000, 0x04000000, 0x08000000, 0x10000000, 0x20000000, 0x40000000, 0x80000000, 0x1b000000, 0x36000000};
 
+static const string MSG_RECV = "message_received";
+// static const string GET_INS = "instructioninstr";
+// static const string GET_KEY = "keykeykeykeykey";
+// static const string GET_TEXT = "plaintextplainte";
+
 unsigned long SubWord(unsigned long word2);
 byte getSBoxValue(byte number);
 unsigned long RotWord(unsigned long word2);
@@ -107,7 +112,7 @@ string maes_instruction;
 void loop()
 {
 	// put your main code here, to run repeatedly:
-	delay(1000);
+	delay(1500);
 	plaintext = (byte *)malloc(sizeof(byte) * MSGSIZE);
 	userkey = (byte *)malloc(sizeof(byte) * MSGSIZE);
 
@@ -119,12 +124,12 @@ void loop()
 	while (!intruction_allowed)
 	{
 		get_instruction();
-		if (maes_instruction.equals("MAESEncrypt"))
+		if (maes_instruction.equals("MAESENCRYPTMAESE"))
 		{
 			current_operation = M_ENCRYPT;
 			intruction_allowed = true;
 		}
-		else if (maes_instruction.equals("MAESDecrypt"))
+		else if (maes_instruction.equals("MAESDECRYPTMAESD"))
 		{
 			current_operation = M_DECRYPT;
 			intruction_allowed = true;
@@ -659,38 +664,41 @@ byte InverseGetSBoxValue(byte number)
 
 void get_instruction()
 {
-	Serial.println("instruction?");
+	// Serial.println(GET_INS);
 	while (!Serial.available())
 	{
+		delay(1);
 	}
 	maes_instruction = Serial.readString();
-	Serial.println("recv_complete?");
+	Serial.println(MSG_RECV);
 }
 
 void get_plaintext()
 {
-	Serial.println("plaintext?");
+	// Serial.println(GET_TEXT);
 	while (!Serial.available())
 	{
+		delay(1);
 	}
 	string recv_msg = Serial.readString();
 	for (int i = 0; i < MSGSIZE; i++)
 	{
 		plaintext[i] = recv_msg[i];
 	}
-	Serial.println("recv_complete?");
+	Serial.println(MSG_RECV);
 }
 
 void get_key()
 {
-	Serial.println("key?");
+	// Serial.println(GET_KEY);
 	while (!Serial.available())
 	{
+		delay(1);
 	}
 	string recv_msg = Serial.readString();
 	for (int i = 0; i < MSGSIZE; i++)
 	{
 		userkey[i] = recv_msg[i];
 	}
-	Serial.println("recv_complete?");
+	Serial.println(MSG_RECV);
 }

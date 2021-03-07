@@ -25,15 +25,8 @@ namespace MAESFRAMEWORK.DataTypes.AES
         /// User created character replacements saved on system
         /// if null, will use system default or no replacement
         /// </summary>
-        [JsonProperty("CharSchemaId", Required = Newtonsoft.Json.Required.AllowNull)]
-        public int? CharSchemaId { get; set; }
-
-        /// <summary>
-        /// creates a new character schema replacement on system
-        /// or deletes a character schema
-        /// </summary>
-        [JsonProperty("ReplacementSchema")]
-        public CharSchema[] ReplacementSchema { get; set; }
+        [JsonProperty("SchemaId", Required = Newtonsoft.Json.Required.Always)]
+        public int SchemaId { get; set; }
 
         /// <summary>
         /// Encryption or Decryption text
@@ -52,14 +45,5 @@ namespace MAESFRAMEWORK.DataTypes.AES
         /// </summary>
         [JsonProperty("ServerText")]
         public byte[] ServerText { get; set; }
-    }
-
-    public class CharSchema
-    {
-        [JsonProperty("NormalChar")]
-        public char NormalChar { get; set; }
-
-        [JsonProperty("ReplacementChar")]
-        public char ReplacementChar { get; set; }
     }
 }

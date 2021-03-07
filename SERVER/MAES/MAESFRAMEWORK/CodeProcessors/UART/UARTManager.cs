@@ -12,16 +12,32 @@ namespace MAESFRAMEWORK.CodeProcessors.UART
     {
         private UARTManagerSettings _manager;
 
+        private static byte[] MSG_RECV = Encoding.ASCII.GetBytes("message_received");
+
         /// <summary>
         /// Size in bytes
         /// </summary>
-        public int MessageSize = 1;
+        public int MessageSize = 16;
 
         private bool device_ready;
 
         public override Encoding encode_set { get { return Encoding.ASCII; } }
 
         public override bool ready { get { return device_ready; } }
+
+        public bool SendTransaction(byte[] send_trans, bool wait_for_response = true)
+        {
+            bool transaction_success = false;
+            if (Send(send_trans))
+            {
+                byte[] get_ret = Receive();
+                // correct response
+                if (get_ret == MSG_RECV) transaction_success = true;
+                //we dont care if it was received
+                else if (wait_for_response == false) transaction_success = true;
+            }
+            return transaction_success;
+        }
 
         public override bool Send(byte[] message)
         {
