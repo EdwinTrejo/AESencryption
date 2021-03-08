@@ -33,8 +33,7 @@ namespace MAESSERVICE
         #region udp manager settings
         private static UDPManager m_udp;
         private static IPAddress send_ip = IPAddress.Parse("127.0.0.1");
-        private const int send_port = 23443;
-        private const int receive_port = 23442;
+        private const int port = 23443;
         #endregion
     }
 }

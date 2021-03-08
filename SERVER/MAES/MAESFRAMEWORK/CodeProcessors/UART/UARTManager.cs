@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO.Ports;
 using System.Text;
+using System.Threading;
 
 namespace MAESFRAMEWORK.CodeProcessors.UART
 {
@@ -12,7 +13,7 @@ namespace MAESFRAMEWORK.CodeProcessors.UART
     {
         private UARTManagerSettings _manager;
 
-        private static byte[] MSG_RECV = Encoding.ASCII.GetBytes("message_received");
+        private static string MSG_RECV = "message_received";
 
         /// <summary>
         /// Size in bytes
@@ -30,9 +31,12 @@ namespace MAESFRAMEWORK.CodeProcessors.UART
             bool transaction_success = false;
             if (Send(send_trans))
             {
+                //wait for the arduino to send a response
+                Thread.Sleep(1500);
                 byte[] get_ret = Receive();
                 // correct response
-                if (get_ret == MSG_RECV) transaction_success = true;
+                string compare_str = encode_set.GetString(get_ret);
+                if (compare_str == MSG_RECV) transaction_success = true;
                 //we dont care if it was received
                 else if (wait_for_response == false) transaction_success = true;
             }
@@ -44,6 +48,9 @@ namespace MAESFRAMEWORK.CodeProcessors.UART
             bool message_send_success = false;
             try
             {
+#if DEBUG
+                Console.WriteLine($"{_manager.DeviceName }::TX::{BitConverter.ToString(message)}");
+#endif
                 _manager.serialPort.Write(message, 0, MessageSize);
                 message_send_success = true;
             }
@@ -55,6 +62,9 @@ namespace MAESFRAMEWORK.CodeProcessors.UART
         {
             byte[] return_message = new byte[MessageSize];
             _manager.serialPort.Read(return_message, 0, MessageSize);
+#if DEBUG
+            Console.WriteLine($"{_manager.DeviceName }::RX::{BitConverter.ToString(return_message)}");
+#endif
             return return_message;
         }
 
@@ -80,7 +90,7 @@ namespace MAESFRAMEWORK.CodeProcessors.UART
             }
         }
 
-        public UARTManager(string port, int baudrate, int ReadTimeout, int WriteTimeout, bool enableRtsCts = true, System.IO.Ports.Parity parity = Parity.Even, System.IO.Ports.StopBits stopBits = StopBits.Two)
+        public UARTManager(string port, int baudrate, int ReadTimeout, int WriteTimeout, bool enableRtsCts = false, System.IO.Ports.Parity parity = Parity.Even, System.IO.Ports.StopBits stopBits = StopBits.Two)
         {
             _manager = new UARTManagerSettings();
             _manager.DeviceName = $"UART::{port}";
@@ -100,7 +110,7 @@ namespace MAESFRAMEWORK.CodeProcessors.UART
         {
             //close gracefully
             device_ready = false;
-            _manager.serialPort.Close();
+            //_manager.serialPort.Close();
         }
     }
 }

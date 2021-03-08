@@ -14,11 +14,6 @@ namespace MAESFRAMEWORK.CodeProcessors.UDP
     {
         private UDPManagerSettings _manager;
 
-        /// <summary>
-        /// Size in bytes
-        /// </summary>
-        public int MessageSize = 1;
-
         private bool device_ready;
 
         public override Encoding encode_set { get { return Encoding.ASCII; } }
@@ -30,8 +25,8 @@ namespace MAESFRAMEWORK.CodeProcessors.UDP
             bool message_send_success = false;
             try
             {
-                _manager.send_client.Send(message, message.Length, _manager.send_ip.ToString(), _manager.send_port);
-                identifier_two = _manager.send_port.ToString();
+                _manager.client.Send(message, message.Length, _manager.send_ip.ToString(), _manager.port);
+                identifier_two = _manager.port.ToString();
                 message_send_success = true;
             }
             catch (Exception e) { Console.WriteLine(e.StackTrace); }
@@ -40,32 +35,30 @@ namespace MAESFRAMEWORK.CodeProcessors.UDP
 
         public override byte[] Receive()
         {
-            byte[] receiveBytes = _manager.receive_client.Receive(ref _manager.RemoteIpEndPoint);
+            byte[] receiveBytes = _manager.client.Receive(ref _manager.RemoteIpEndPoint);
             if (_manager.RemoteIpEndPoint.Address != _manager.send_ip)
             {
                 _manager.send_ip = _manager.RemoteIpEndPoint.Address;
                 identifier_one = _manager.RemoteIpEndPoint.Address.ToString();
-                identifier_two = _manager.receive_port.ToString();
+                identifier_two = _manager.port.ToString();
             }
             return receiveBytes;
         }
 
         public override void Initialize()
         {
-            _manager.send_client = new UdpClient(_manager.send_port);
-            _manager.receive_client = new UdpClient(_manager.receive_port);
+            _manager.client = new UdpClient(_manager.port);
             Console.WriteLine($"started {_manager.DeviceName} service");
         }
 
-        public UDPManager(IPAddress send_ip, int send_port, int receive_port)
+        public UDPManager(IPAddress send_ip, int port)
         {
             _manager = new UDPManagerSettings();
-            _manager.DeviceName = $"UDP::{send_ip}::{send_port}::{receive_port}";
+            _manager.DeviceName = $"UDP::{send_ip}::{port}";
             identifier_one = send_ip.ToString();
-            identifier_two = send_port.ToString();
+            identifier_two = port.ToString();
             _manager.send_ip = send_ip;
-            _manager.send_port = send_port;
-            _manager.receive_port = receive_port;
+            _manager.port = port;
             device_ready = false;
         }
 
@@ -73,8 +66,7 @@ namespace MAESFRAMEWORK.CodeProcessors.UDP
         {
             //close gracefully
             device_ready = false;
-            _manager.receive_client.Close();
-            _manager.send_client.Close();
+            _manager.client.Close();
         }
     }
 }

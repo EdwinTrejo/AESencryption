@@ -21,7 +21,7 @@ namespace MAESSERVICE
         {
             if (m_udp == null)
             {
-                m_udp = new UDPManager(send_ip, send_port, receive_port);
+                m_udp = new UDPManager(send_ip, port);
                 m_udp.Initialize();
             }
         }
