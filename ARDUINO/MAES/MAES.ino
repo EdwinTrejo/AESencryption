@@ -670,7 +670,7 @@ void get_instruction()
 		delay(1);
 	}
 	maes_instruction = Serial.readString();
-	Serial.println(MSG_RECV);
+	Serial.print(MSG_RECV);
 }
 
 void get_plaintext()
@@ -685,7 +685,7 @@ void get_plaintext()
 	{
 		plaintext[i] = recv_msg[i];
 	}
-	Serial.println(MSG_RECV);
+	Serial.print(MSG_RECV);
 }
 
 void get_key()
@@ -700,5 +700,5 @@ void get_key()
 	{
 		userkey[i] = recv_msg[i];
 	}
-	Serial.println(MSG_RECV);
+	Serial.print(MSG_RECV);
 }

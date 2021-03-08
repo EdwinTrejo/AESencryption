@@ -42,6 +42,7 @@ namespace MAESSERVICE
             {
                 //message flow will happen here
                 byte[] from_udp = WaitForOrderFromUDP();
+                string json_string = encode_set.GetString(from_udp);
                 try
                 {
                     //MessageType 1 Encrypt this
@@ -51,27 +52,27 @@ namespace MAESSERVICE
                     //MessageType 5 new Character Replacement Schema
                     //MessageType 6 delete Character Replacement Schema
                     //MessageType 7 notify new Character Replacement Schema
-                    AESMessage incoming_message = JsonConvert.DeserializeObject<AESMessage>(from_udp.ToString());
+                    AESMessage incoming_message = JsonConvert.DeserializeObject<AESMessage>(json_string);
                     int CharSchemaId = incoming_message.SchemaId;
 
                     switch (incoming_message.MessageType)
                     {
-                        case 1:
+                        case (int)MAES_INSTRUCTION.ENCRYPT:
                             {
                                 Encrypt(incoming_message);
                                 break;
                             };
-                        case 2:
+                        case (int)MAES_INSTRUCTION.DECRYPT:
                             {
                                 Decrypt(incoming_message);
                                 break;
                             };
-                        case 5:
+                        case (int)MAES_INSTRUCTION.NEWSCHEMA:
                             {
                                 int new_schema = schemaManager.RequestNewSchema();
                                 break;
                             }
-                        case 6:
+                        case (int)MAES_INSTRUCTION.DELSCHEMA:
                             {
                                 schemaManager.RequestDeleteSchema(CharSchemaId);
                                 break;
@@ -81,6 +82,7 @@ namespace MAESSERVICE
                 catch (Exception e)
                 {
                     Console.WriteLine(e.StackTrace);
+                    Console.WriteLine(json_string);
                 }
                 Thread.Sleep(50);
             }
@@ -103,7 +105,7 @@ namespace MAESSERVICE
                 //receive from uart
                 foreach (CharReplacedText byte_block in full_message.replacedTexts)
                 {
-                    List<byte> enc_rslt = SendEncryptInstruction(byte_block.Text, userkey).ToList(); ;
+                    List<byte> enc_rslt = SendEncryptInstruction(byte_block.Text, userkey).ToList();
                     encryption_result.Concat(enc_rslt);
                 }
 

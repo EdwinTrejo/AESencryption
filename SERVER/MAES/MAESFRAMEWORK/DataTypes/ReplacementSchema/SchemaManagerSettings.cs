@@ -29,6 +29,7 @@ namespace MAESFRAMEWORK.DataTypes.ReplacementSchema
         private bool DeleteSchema(int SchemaId)
         {
             ReplacementSchemaType schema = GetSchema(SchemaId);
+            orders.RemoveAt(schema.OrderId);
             return schemas.Remove(schema);
         }
 
