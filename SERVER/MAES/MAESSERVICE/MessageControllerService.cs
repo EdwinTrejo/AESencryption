@@ -6,6 +6,8 @@ using System.Threading;
 using MAESFRAMEWORK.DataTypes.AES;
 using MAESFRAMEWORK.DataTypes.ReplacementSchema;
 using Newtonsoft.Json;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace MAESSERVICE
 {
@@ -52,7 +54,15 @@ namespace MAESSERVICE
                     //MessageType 5 new Character Replacement Schema
                     //MessageType 6 delete Character Replacement Schema
                     //MessageType 7 notify new Character Replacement Schema
-                    AESMessage incoming_message = JsonConvert.DeserializeObject<AESMessage>(json_string);
+
+                    string replace_null = json_string.Replace("\"null\"", "null");
+#if DEBUG
+                    Console.WriteLine(replace_null);
+#endif
+                    string jsonString = System.Text.Json.JsonSerializer.Serialize(replace_null);
+
+                    AESMessage incoming_message = JsonConvert.DeserializeObject<AESMessage>(replace_null);
+
                     int CharSchemaId = incoming_message.SchemaId;
 
                     switch (incoming_message.MessageType)
@@ -82,7 +92,7 @@ namespace MAESSERVICE
                 catch (Exception e)
                 {
                     Console.WriteLine(e.StackTrace);
-                    Console.WriteLine(json_string);
+                    //Console.WriteLine(json_string);
                 }
                 Thread.Sleep(50);
             }

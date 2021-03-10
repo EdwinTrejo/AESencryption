@@ -19,10 +19,12 @@ namespace MAESFRAMEWORK.CodeProcessors.UART
         /// Size in bytes
         /// </summary>
         public int MessageSize = 16;
+        private int HexPairSize = 2;
 
         private bool device_ready;
 
         public override Encoding encode_set { get { return Encoding.ASCII; } }
+        public override Encoding user_encode_set { get { return Encoding.UTF8; } }
 
         public override bool ready { get { return device_ready; } }
 
@@ -35,7 +37,7 @@ namespace MAESFRAMEWORK.CodeProcessors.UART
                 Thread.Sleep(1500);
                 byte[] get_ret = Receive();
                 // correct response
-                string compare_str = encode_set.GetString(get_ret);
+                string compare_str = user_encode_set.GetString(get_ret);
                 if (compare_str == MSG_RECV) transaction_success = true;
                 //we dont care if it was received
                 else if (wait_for_response == false) transaction_success = true;
@@ -48,10 +50,14 @@ namespace MAESFRAMEWORK.CodeProcessors.UART
             bool message_send_success = false;
             try
             {
+                string send_msg = encode_set.GetString(message);
 #if DEBUG
                 Console.WriteLine($"{_manager.DeviceName }::TX::{BitConverter.ToString(message)}");
+                //Console.WriteLine($"{_manager.DeviceName }::TX::{send_msg}");
 #endif
-                _manager.serialPort.Write(message, 0, MessageSize);
+                //to string
+                //_manager.serialPort.Write(message, 0, MessageSize);
+                _manager.serialPort.Write(send_msg);
                 message_send_success = true;
             }
             catch (Exception e) { Console.WriteLine(e.StackTrace); }
@@ -62,10 +68,27 @@ namespace MAESFRAMEWORK.CodeProcessors.UART
         {
             byte[] return_message = new byte[MessageSize];
             _manager.serialPort.Read(return_message, 0, MessageSize);
+            string recv_msg = user_encode_set.GetString(return_message);
 #if DEBUG
-            Console.WriteLine($"{_manager.DeviceName }::RX::{BitConverter.ToString(return_message)}");
+            Console.WriteLine($"{_manager.DeviceName }::RX::STR::{BitConverter.ToString(return_message)}");
+            //Console.WriteLine($"{_manager.DeviceName }::RX::STR::{recv_msg}");
 #endif
             return return_message;
+        }
+
+        public byte[] ReceiveByByte()
+        {
+            List<byte> recv_msg = new List<byte>();
+            for (int i = 0; i < MessageSize; i++)
+            {
+                byte[] current_hex = new byte[1];
+                _manager.serialPort.Read(current_hex, 0, 1);
+                recv_msg.Add(current_hex[0]);
+            }
+#if DEBUG
+            Console.WriteLine($"{_manager.DeviceName }::RX::BYT::{BitConverter.ToString(recv_msg.ToArray())}");
+#endif
+            return recv_msg.ToArray();
         }
 
         public override void Initialize()
@@ -106,11 +129,16 @@ namespace MAESFRAMEWORK.CodeProcessors.UART
             device_ready = false;
         }
 
+        public void Close()
+        {
+            _manager.serialPort.Close();
+        }
+
         ~UARTManager()
         {
             //close gracefully
             device_ready = false;
-            //_manager.serialPort.Close();
+            _manager.serialPort.Close();
         }
     }
 }

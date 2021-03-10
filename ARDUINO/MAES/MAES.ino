@@ -151,8 +151,8 @@ void loop()
 		encrypt_hold = (byte *)malloc(sizeof(byte) * MSGSIZE);
 		memcpy(encrypt_hold, plaintext, 16 * sizeof(byte));
 		encrypt_hold = Encrypt(plaintext, userkey, encrypt_hold);
-		Serial.println("done");
-		print_state(encrypt_hold);
+		//Serial.println("done");
+		print_state_as_string(encrypt_hold);
 		free(encrypt_hold);
 	}
 	else if (current_operation == M_DECRYPT)
@@ -160,8 +160,8 @@ void loop()
 		decrypt_hold = (byte *)malloc(sizeof(byte) * MSGSIZE);
 		memcpy(decrypt_hold, plaintext, 16 * sizeof(byte));
 		decrypt_hold = Decrypt(plaintext, userkey, decrypt_hold);
-		Serial.println("done");
-		print_state(decrypt_hold);
+		//Serial.println("done");
+		print_state_as_string(decrypt_hold);
 		free(decrypt_hold);
 	}
 
@@ -176,6 +176,12 @@ void print_state(byte *state)
 		Serial.print("  ");
 		Serial.print(state[i], HEX);
 	}
+}
+
+void print_state_as_string(byte *state)
+{
+	String state_string = String((char *)state);
+	Serial.print(state_string);
 }
 
 byte *Encrypt(byte *state, byte *key, byte *local_state)

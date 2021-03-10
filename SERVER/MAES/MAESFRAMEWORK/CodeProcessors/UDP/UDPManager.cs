@@ -17,6 +17,7 @@ namespace MAESFRAMEWORK.CodeProcessors.UDP
         private bool device_ready;
 
         public override Encoding encode_set { get { return Encoding.ASCII; } }
+        public override Encoding user_encode_set { get { return Encoding.ASCII; } }
 
         public override bool ready { get { return device_ready; } }
 

@@ -18,6 +18,11 @@ namespace MAESFRAMEWORK.CodeProcessors.Abstraction
         public abstract Encoding encode_set { get; }
 
         /// <summary>
+        /// Encoder type to use for user input
+        /// </summary>
+        public abstract Encoding user_encode_set { get; }
+
+        /// <summary>
         /// name, ip, or port some sort of identifier
         /// </summary>
         public string identifier_one { get; set; }

@@ -14,6 +14,9 @@ namespace MAESSERVICE
         private static void SendAESMessage(AESMessage msg)
         {
             byte[] encoded_text = encode_set.GetBytes(JsonConvert.SerializeObject(msg));
+#if DEBUG
+            Console.WriteLine(JsonConvert.SerializeObject(msg));
+#endif
             m_udp.Send(encoded_text);
         }
 
