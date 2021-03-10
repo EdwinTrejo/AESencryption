@@ -8,5 +8,5 @@
         android:title="@string/title_activity_settings" />
     <item
         android:id="@+id/menu_item_clear"
-        android:title="Clear" />
+        android:title="@string/title_clear_messages" />
 </menu>

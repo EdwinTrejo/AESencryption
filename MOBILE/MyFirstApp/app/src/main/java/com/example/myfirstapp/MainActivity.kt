@@ -19,6 +19,10 @@ import java.io.IOException
 import java.net.*
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+import java.util.*
+import java.util.Base64.*
+import kotlin.text.Charsets.US_ASCII
+
 
 // Global
 var aesmsg = ""
@@ -60,10 +64,14 @@ class MainActivity : AppCompatActivity() {
         val message = editText.text.toString()
 
         val json = JSONObject()
-        json.put("UserText", message)
-        json.put("CharSchemaId", prefs.getString("char_schema_id", "3"))
-        json.put("UserKey", prefs.getString("key", "3"))
-        json.put("MessageType", "1") // for encryption
+        json.put("MessageType", 1) // for encryption
+        prefs.getString("char_schema_id", "3")?.let { json.put("SchemaId", it.toInt()) }
+        json.put("UserText", getEncoder().encodeToString(message.toByteArray(US_ASCII)))
+        json.put("UserKey", getEncoder().encodeToString(
+            prefs.getString("key", "3")?.toByteArray(
+                US_ASCII)
+        ))
+        json.put("ServerText", "null")
         json.put("ServerIp", prefs.getString("server_ip", "127.0.0.1"))
         json.put("ServerPort", prefs.getString("server_port", "23442"))
 
@@ -145,8 +153,11 @@ class ClientSend(json: JSONObject) : Runnable {
                 InetAddress.getByName(data.getString("ServerIp")),
                 data.getString("ServerPort").toInt()
             )
-            val buf = msg.toByteArray()
-            val packet = DatagramPacket(buf, buf.size, sockAddr)
+            data.remove("ServerPort")
+            data.remove("ServerIp")
+            val buf = data.toString()
+            val buf2 = buf.toByteArray(US_ASCII)
+            val packet = DatagramPacket(buf2, buf2.size, sockAddr)
             udpSocket.send(packet)
             while (run) {
                 try {
