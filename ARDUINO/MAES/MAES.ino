@@ -8,7 +8,7 @@
 #define MSGSIZE 16
 #define SERVER_PORT Serial
 #define DEBUG_PORT Serial1
-#define DEBUG_ENABLED true
+#define DEBUG_ENABLED false
 
 static const byte sbox[256] = {
 	//0     1    2      3     4    5     6     7      8    9     A      B    C     D     E     F
@@ -54,8 +54,9 @@ byte MAESENCRYPTMAESE[MSGSIZE] = {0x4d, 0x41, 0x45, 0x53, 0x45, 0x4e, 0x43, 0x52
 
 byte MAESDECRYPTMAESD[MSGSIZE] = {0x4d, 0x41, 0x45, 0x53, 0x44, 0x45, 0x43, 0x52, 0x59, 0x50, 0x54, 0x4d, 0x41, 0x45, 0x53, 0x44};
 
-static const string MSG_RECV = "message_received";
-static const string MSG_NOT_RECV = "deviecer_egassem";
+const string MSG_RECV = "message_received";
+
+const string MSG_NOT_RECV = "deviecer_egassem";
 
 void KeyExpansion(unsigned long *w, byte *key);
 void BreakWordDown(byte *ret_word, unsigned long word2);
@@ -102,21 +103,25 @@ enum MAES_OPERATION
 	M_DECRYPT
 };
 
-const uint8_t SERIAL_CONN = SERIAL_8E2;
+#define SERIAL_CONN SERIAL_8E2
+#define SERIAL_RATE 115200
 byte *instruction;
 byte *plaintext;
 byte *userkey;
 byte *encrypt_hold;
 byte *decrypt_hold;
-//string maes_instruction;
+
+//clock sync
+const int AVG_DELAY = 50;
+#define WAIT_STEP delay(AVG_DELAY);
 
 void setup()
 {
 	// put your setup code here, to run once:
 	// Open serial communications and wait for port to open:
-	SERVER_PORT.begin(38400, SERIAL_CONN);
+	SERVER_PORT.begin(SERIAL_RATE, SERIAL_CONN);
 	#if DEBUG_ENABLED
-		DEBUG_PORT.begin(38400, SERIAL_CONN);
+		DEBUG_PORT.begin(SERIAL_RATE, SERIAL_CONN);
 		while (!DEBUG_PORT)
 		{
 			; // wait for serial port to connect. Needed for native USB port only
@@ -146,7 +151,7 @@ void setup()
 void loop()
 {
 	// put your main code here, to run repeatedly:
-	delay(100);
+	delay(10);
 	plaintext = (byte *)malloc(sizeof(byte) * MSGSIZE);
 	userkey = (byte *)malloc(sizeof(byte) * MSGSIZE);
 
@@ -198,10 +203,15 @@ void loop()
 		free(instruction);
 	}
 
-	get_plaintext();
-	get_key();
+	//WAIT_STEP
+	get_plaintext();	
 	#if DEBUG_ENABLED
 		debug_print_state(plaintext);
+	#endif
+
+	//WAIT_STEP
+	get_key();
+	#if DEBUG_ENABLED
 		debug_print_state(userkey);
 	#endif
 
@@ -210,6 +220,7 @@ void loop()
 		encrypt_hold = (byte *)malloc(sizeof(byte) * MSGSIZE);
 		memcpy(encrypt_hold, plaintext, 16 * sizeof(byte));
 		encrypt_hold = Encrypt(plaintext, userkey, encrypt_hold);
+		//WAIT_STEP
 		server_print_state_as_string(encrypt_hold);
 		#if DEBUG_ENABLED
 			debug_print_state(encrypt_hold);
@@ -221,6 +232,7 @@ void loop()
 		decrypt_hold = (byte *)malloc(sizeof(byte) * MSGSIZE);
 		memcpy(decrypt_hold, plaintext, 16 * sizeof(byte));
 		decrypt_hold = Decrypt(plaintext, userkey, decrypt_hold);
+		//WAIT_STEP
 		server_print_state_as_string(decrypt_hold);
 		#if DEBUG_ENABLED
 			debug_print_state(decrypt_hold);
