@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -14,6 +14,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="NUnit" Version="3.13.1" />
     <PackageReference Include="NUnit.Console" Version="3.12.0" />
     <PackageReference Include="NUnit.Engine" Version="3.12.0" />
@@ -22,6 +23,21 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MAESFRAMEWORK\MAESFRAMEWORK.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="AES\decrypt_instruction.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="AES\del_schema.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="AES\encrypt_instruction.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="AES\new_schema.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

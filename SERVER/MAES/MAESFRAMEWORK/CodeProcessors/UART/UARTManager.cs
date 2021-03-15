@@ -48,6 +48,9 @@ namespace MAESFRAMEWORK.CodeProcessors.UART
 
         public override bool Send(byte[] message)
         {
+#if DEBUG
+            Console.WriteLine("{0}::TX::TRANS::{1}", _manager.DeviceName, System.DateTime.Now.ToString("HH:mm:ss:ffff"));
+#endif
             bool message_send_success = false;
             try
             {
@@ -99,7 +102,7 @@ namespace MAESFRAMEWORK.CodeProcessors.UART
         public override byte[] Receive()
         {
 #if DEBUG
-            Console.WriteLine("{0}::TRANS::{1}", _manager.DeviceName, System.DateTime.Now.ToString("HH:mm:ss:ffff"));
+            Console.WriteLine("{0}::RX::TRANS::{1}", _manager.DeviceName, System.DateTime.Now.ToString("HH:mm:ss:ffff"));
 #endif
             byte[] return_message = new byte[MessageSize];
             try
@@ -146,7 +149,7 @@ namespace MAESFRAMEWORK.CodeProcessors.UART
                 _manager.serialPort.Open();
                 _manager.serialPort.DiscardOutBuffer();
                 _manager.serialPort.DiscardInBuffer();
-                Console.WriteLine($"{_manager.DeviceName}::SERVICE::START");
+                Console.WriteLine("{0}::SERVICE::START", _manager.DeviceName);
                 device_ready = true;
             }
             catch (Exception ex)

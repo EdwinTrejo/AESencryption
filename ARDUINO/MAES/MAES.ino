@@ -54,6 +54,8 @@ byte MAESENCRYPTMAESE[MSGSIZE] = {0x4d, 0x41, 0x45, 0x53, 0x45, 0x4e, 0x43, 0x52
 
 byte MAESDECRYPTMAESD[MSGSIZE] = {0x4d, 0x41, 0x45, 0x53, 0x44, 0x45, 0x43, 0x52, 0x59, 0x50, 0x54, 0x4d, 0x41, 0x45, 0x53, 0x44};
 
+byte MAESTESTINGMAEST[MSGSIZE] = {0x4d, 0x41, 0x45, 0x53, 0x54, 0x45, 0x53, 0x54, 0x49, 0x4e, 0x47, 0x4d, 0x41, 0x45, 0x53, 0x54};
+
 const string MSG_RECV = "message_received";
 
 const string MSG_NOT_RECV = "deviecer_egassem";
@@ -100,7 +102,8 @@ enum MAES_OPERATION
 {
 	M_NONE,
 	M_ENCRYPT,
-	M_DECRYPT
+	M_DECRYPT,
+	M_TESTING
 };
 
 #define SERIAL_CONN SERIAL_8E2
@@ -158,6 +161,7 @@ void loop()
 	//0 nothing
 	//1 encrypt
 	//2 decrypt
+	//3 init test
 	MAES_OPERATION current_operation = M_NONE;
 	bool intruction_allowed = false;
 	while (!intruction_allowed)
@@ -171,9 +175,10 @@ void loop()
 
 		int compare_encrypt = 0;
 		int compare_decrypt = 0;
+		int compare_testing = 0;
 		compare_encrypt = memcmp(instruction, MAESENCRYPTMAESE, MSGSIZE);
 		compare_decrypt = memcmp(instruction, MAESDECRYPTMAESD, MSGSIZE);
-
+		compare_testing = memcmp(instruction, MAESTESTINGMAEST, MSGSIZE);
 		#if DEBUG_ENABLED
     	DEBUG_PORT.println(compare_encrypt, DEC);
 			DEBUG_PORT.println(compare_decrypt, DEC);
@@ -190,6 +195,12 @@ void loop()
 			SERVER_PORT.print(MSG_RECV);
 			current_operation = M_DECRYPT;
 			intruction_allowed = true;
+		}
+		else if (compare_testing == 0)
+		{
+			SERVER_PORT.print(MSG_RECV);
+			current_operation = M_TESTING;
+			intruction_allowed = false;
 		}
 		else
 		{
