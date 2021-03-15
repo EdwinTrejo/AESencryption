@@ -6,7 +6,9 @@
 
 #define string String
 #define MSGSIZE 16
-#define INSSIZE 32
+#define SERVER_PORT Serial
+#define DEBUG_PORT Serial1
+#define DEBUG_ENABLED true
 
 static const byte sbox[256] = {
 	//0     1    2      3     4    5     6     7      8    9     A      B    C     D     E     F
@@ -48,53 +50,50 @@ static const byte rsbox[256] = {
 static const unsigned long Rcon[11] = {
 	0x8d000000, 0x01000000, 0x02000000, 0x04000000, 0x08000000, 0x10000000, 0x20000000, 0x40000000, 0x80000000, 0x1b000000, 0x36000000};
 
-static const string MSG_RECV = "message_received";
-// static const string GET_INS = "instructioninstr";
-// static const string GET_KEY = "keykeykeykeykey";
-// static const string GET_TEXT = "plaintextplainte";
+byte MAESENCRYPTMAESE[MSGSIZE] = {0x4d, 0x41, 0x45, 0x53, 0x45, 0x4e, 0x43, 0x52, 0x59, 0x50, 0x54, 0x4d, 0x41, 0x45, 0x53, 0x45};
 
-unsigned long SubWord(unsigned long word2);
-byte getSBoxValue(byte number);
-unsigned long RotWord(unsigned long word2);
-void BreakWordDown(byte *ret_word, unsigned long word2);
+byte MAESDECRYPTMAESD[MSGSIZE] = {0x4d, 0x41, 0x45, 0x53, 0x44, 0x45, 0x43, 0x52, 0x59, 0x50, 0x54, 0x4d, 0x41, 0x45, 0x53, 0x44};
+
+static const string MSG_RECV = "message_received";
+static const string MSG_NOT_RECV = "deviecer_egassem";
+
 void KeyExpansion(unsigned long *w, byte *key);
+void BreakWordDown(byte *ret_word, unsigned long word2);
+unsigned long SubWord(unsigned long word2);
+unsigned long RotWord(unsigned long word2);
+
 void addKey(byte *state, byte *key);
 void PackKey(byte *key, unsigned long key_part1, unsigned long key_part2, unsigned long key_part3, unsigned long key_part4);
-void ShiftRows(byte *state);
 void SubBytes(byte *state);
+void InverseSubBytes(byte *state);
 void MixColumns(byte *state);
-byte TimesThree(byte num);
-byte TimesTwo(byte num);
-byte *Encrypt(byte state[16], byte key[16], byte *local_state);
-void print_state(byte *state);
-void InverseShiftRows(byte *state);
 void InverseMixColumns(byte *state);
+void ShiftRows(byte *state);
+void InverseShiftRows(byte *state);
+
+byte TimesTwo(byte num);
+byte TimesThree(byte num);
 byte TimesNine(byte num);
 byte TimesEleven(byte num);
 byte TimesThirteen(byte num);
 byte TimesFourteen(byte num);
+
+byte getSBoxValue(byte number);
 byte InverseGetSBoxValue(byte number);
-void InverseSubBytes(byte *state);
+
+byte *Encrypt(byte state[16], byte key[16], byte *local_state);
 byte *Decrypt(byte *state, byte *key, byte *local_state);
+
 void get_instruction();
 void get_plaintext();
 void get_key();
 
-void setup()
-{
-	// put your setup code here, to run once:
-	// Open serial communications and wait for port to open:
-	Serial.begin(115200, SERIAL_8E2);
-	while (!Serial)
-	{
-		; // wait for serial port to connect. Needed for native USB port only
-	}
-	//ms * s
-	int timeout = 1000 * 15;
-	//Serial.setTimeout(timeout);
-}
+void server_print_state(byte *state);
+void debug_print_state(byte *state);
+void server_print_state_as_string(byte *state);
+void debug_print_state_as_string(byte *state);
 
-int incomingByte = 0; // for incoming serial data
+void recvWithEndMarker();
 
 enum MAES_OPERATION
 {
@@ -103,16 +102,51 @@ enum MAES_OPERATION
 	M_DECRYPT
 };
 
+const uint8_t SERIAL_CONN = SERIAL_8E2;
+byte *instruction;
 byte *plaintext;
 byte *userkey;
 byte *encrypt_hold;
 byte *decrypt_hold;
-string maes_instruction;
+//string maes_instruction;
+
+void setup()
+{
+	// put your setup code here, to run once:
+	// Open serial communications and wait for port to open:
+	SERVER_PORT.begin(38400, SERIAL_CONN);
+	#if DEBUG_ENABLED
+		DEBUG_PORT.begin(38400, SERIAL_CONN);
+		while (!DEBUG_PORT)
+		{
+			; // wait for serial port to connect. Needed for native USB port only
+		}
+	#endif
+
+	#if DEBUG_ENABLED
+		DEBUG_PORT.println("MAES DEBUG START");
+		DEBUG_PORT.println("DEBUG_PORT connected");
+	#endif
+  
+	while (!SERVER_PORT)
+	{
+		; // wait for serial port to connect. Needed for native USB port only
+	}
+
+	#if DEBUG_ENABLED
+  	DEBUG_PORT.println("SERVER_PORT connected");
+		DEBUG_PORT.flush();
+	#endif
+	SERVER_PORT.flush();
+	//ms * s
+	//int timeout = 1000 * 15;
+	//Serial.setTimeout(timeout);
+}
 
 void loop()
 {
 	// put your main code here, to run repeatedly:
-	delay(1500);
+	delay(100);
 	plaintext = (byte *)malloc(sizeof(byte) * MSGSIZE);
 	userkey = (byte *)malloc(sizeof(byte) * MSGSIZE);
 
@@ -123,36 +157,63 @@ void loop()
 	bool intruction_allowed = false;
 	while (!intruction_allowed)
 	{
+		instruction = (byte *)malloc(sizeof(byte) * MSGSIZE);
+		#if DEBUG_ENABLED
+    	DEBUG_PORT.println("Waiting for instruction ... ");
+			DEBUG_PORT.flush();
+		#endif
 		get_instruction();
-		if (maes_instruction.equals("MAESENCRYPTMAESE"))
+
+		int compare_encrypt = 0;
+		int compare_decrypt = 0;
+		compare_encrypt = memcmp(instruction, MAESENCRYPTMAESE, MSGSIZE);
+		compare_decrypt = memcmp(instruction, MAESDECRYPTMAESD, MSGSIZE);
+
+		#if DEBUG_ENABLED
+    	DEBUG_PORT.println(compare_encrypt, DEC);
+			DEBUG_PORT.println(compare_decrypt, DEC);
+		#endif
+
+		if (compare_encrypt == 0)
 		{
+			SERVER_PORT.print(MSG_RECV);
 			current_operation = M_ENCRYPT;
 			intruction_allowed = true;
 		}
-		else if (maes_instruction.equals("MAESDECRYPTMAESD"))
+		else if (compare_decrypt == 0)
 		{
+			SERVER_PORT.print(MSG_RECV);
 			current_operation = M_DECRYPT;
 			intruction_allowed = true;
 		}
 		else
 		{
-			//2b7e151628aed2a6abf7158809cf4f3c
-			//00112233445566778899AABBCCDDEEFF
-			//8DF4E9AAC5C7573A27D8D055D6E4D64B
+			//MSG_NOT_RECV
+			SERVER_PORT.print(MSG_NOT_RECV);
+			#if DEBUG_ENABLED
+				debug_print_state_as_string(instruction);
+			#endif
 			intruction_allowed = false;
 		}
+		free(instruction);
 	}
 
 	get_plaintext();
 	get_key();
+	#if DEBUG_ENABLED
+		debug_print_state(plaintext);
+		debug_print_state(userkey);
+	#endif
 
 	if (current_operation == M_ENCRYPT)
 	{
 		encrypt_hold = (byte *)malloc(sizeof(byte) * MSGSIZE);
 		memcpy(encrypt_hold, plaintext, 16 * sizeof(byte));
 		encrypt_hold = Encrypt(plaintext, userkey, encrypt_hold);
-		//Serial.println("done");
-		print_state_as_string(encrypt_hold);
+		server_print_state_as_string(encrypt_hold);
+		#if DEBUG_ENABLED
+			debug_print_state(encrypt_hold);
+		#endif
 		free(encrypt_hold);
 	}
 	else if (current_operation == M_DECRYPT)
@@ -160,8 +221,10 @@ void loop()
 		decrypt_hold = (byte *)malloc(sizeof(byte) * MSGSIZE);
 		memcpy(decrypt_hold, plaintext, 16 * sizeof(byte));
 		decrypt_hold = Decrypt(plaintext, userkey, decrypt_hold);
-		//Serial.println("done");
-		print_state_as_string(decrypt_hold);
+		server_print_state_as_string(decrypt_hold);
+		#if DEBUG_ENABLED
+			debug_print_state(decrypt_hold);
+		#endif
 		free(decrypt_hold);
 	}
 
@@ -169,19 +232,37 @@ void loop()
 	free(userkey);
 }
 
-void print_state(byte *state)
+void server_print_state(byte *state)
 {
+	SERVER_PORT.println();
 	for (int i = 0; i < 16; i++)
 	{
-		Serial.print("  ");
-		Serial.print(state[i], HEX);
+		SERVER_PORT.print(state[i], HEX);
+		SERVER_PORT.print("  ");
 	}
 }
 
-void print_state_as_string(byte *state)
+void debug_print_state(byte *state)
+{
+	DEBUG_PORT.println("---STATE---");
+	for (int i = 0; i < 16; i++)
+	{
+		DEBUG_PORT.print(state[i], HEX);
+		DEBUG_PORT.print(" ");
+	}
+	DEBUG_PORT.println("\r\n-----------");
+}
+
+void server_print_state_as_string(byte *state)
 {
 	String state_string = String((char *)state);
-	Serial.print(state_string);
+	SERVER_PORT.print(state_string);
+}
+
+void debug_print_state_as_string(byte *state)
+{
+	String state_string = String((char *)state);
+	DEBUG_PORT.print(state_string);
 }
 
 byte *Encrypt(byte *state, byte *key, byte *local_state)
@@ -670,41 +751,29 @@ byte InverseGetSBoxValue(byte number)
 
 void get_instruction()
 {
-	// Serial.println(GET_INS);
-	while (!Serial.available())
+	while (!SERVER_PORT.available())
 	{
 		delay(1);
 	}
-	maes_instruction = Serial.readString();
-	Serial.print(MSG_RECV);
+	SERVER_PORT.readBytes(instruction, MSGSIZE);
 }
 
 void get_plaintext()
 {
-	// Serial.println(GET_TEXT);
-	while (!Serial.available())
+	while (!SERVER_PORT.available())
 	{
 		delay(1);
 	}
-	string recv_msg = Serial.readString();
-	for (int i = 0; i < MSGSIZE; i++)
-	{
-		plaintext[i] = recv_msg[i];
-	}
-	Serial.print(MSG_RECV);
+	SERVER_PORT.readBytes(plaintext, MSGSIZE);
+	SERVER_PORT.print(MSG_RECV);
 }
 
 void get_key()
 {
-	// Serial.println(GET_KEY);
-	while (!Serial.available())
+	while (!SERVER_PORT.available())
 	{
 		delay(1);
 	}
-	string recv_msg = Serial.readString();
-	for (int i = 0; i < MSGSIZE; i++)
-	{
-		userkey[i] = recv_msg[i];
-	}
-	Serial.print(MSG_RECV);
+	SERVER_PORT.readBytes(userkey, MSGSIZE);
+	SERVER_PORT.print(MSG_RECV);
 }

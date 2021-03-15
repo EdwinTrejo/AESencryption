@@ -19,6 +19,11 @@ namespace MAESFRAMEWORK.DataTypes.UART
         public int baudrate;
 
         /// <summary>
+        /// Gets or sets the standard length of data bits per byte.
+        /// </summary>
+        public int databits;
+
+        /// <summary>
         /// How to long to wait for input
         /// </summary>
         public int ReadTimeout;
@@ -41,7 +46,7 @@ namespace MAESFRAMEWORK.DataTypes.UART
         /// <summary>
         /// RTC CTS flow controls
         /// </summary>
-        public bool enableRtsCts;
+        public System.IO.Ports.Handshake handshake;
 
         /// <summary>
         /// The device itself
