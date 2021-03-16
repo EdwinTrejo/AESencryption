@@ -60,16 +60,10 @@ namespace UnitTests.AES
         public void CanParseDecryptFile()
         {
             //open file and get json string
-            string[] decrypt_text_array = File.ReadAllLines(decrypt_instruction_filepath);
-            StringBuilder decrypt_sr = new StringBuilder();
-            foreach (string line in decrypt_text_array) decrypt_sr.AppendLine(line);
-            string decrypt_text = decrypt_sr.ToString();
-
-            //clear null
-            string decrypt_text_rep_null = decrypt_text.Replace("\"null\"", "null");
+            string decrypt_text = GetFileStringContent(decrypt_instruction_filepath);
 
             //deserialize message
-            AESMessage decrypt_message = JsonConvert.DeserializeObject<AESMessage>(decrypt_text_rep_null);
+            AESMessage decrypt_message = ParseJson(decrypt_text);
 
             //check if the plaintext is correct
             List<byte> result_output1 = new List<byte>(decrypt_message.UserText);
@@ -86,22 +80,18 @@ namespace UnitTests.AES
             //check if the schema id is correct
             int result_output4 = decrypt_message.SchemaId;
             Assert.AreEqual(SCHEMA_ID, result_output4);
+
+            dec_msg = decrypt_message;
         }
 
-        [Test, Order(2)]
+        [Test, Order(3)]
         public void CanParseEncryptFile()
         {
             //open file and get json string
-            string[] encrypt_text_array = File.ReadAllLines(encrypt_instruction_filepath);
-            StringBuilder encrypt_sr = new StringBuilder();
-            foreach (string line in encrypt_text_array) encrypt_sr.AppendLine(line);
-            string encrypt_text = encrypt_sr.ToString();
-
-            //clear null
-            string encrypt_text_rep_null = encrypt_text.Replace("\"null\"", "null");
+            string encrypt_text = GetFileStringContent(encrypt_instruction_filepath);
 
             //deserialize message
-            AESMessage encrypt_message = JsonConvert.DeserializeObject<AESMessage>(encrypt_text_rep_null);
+            AESMessage encrypt_message = ParseJson(encrypt_text);
 
             //check if the plaintext is correct
             List<byte> result_output1 = new List<byte>(encrypt_message.UserText);
@@ -118,6 +108,24 @@ namespace UnitTests.AES
             //check if the schema id is correct
             int result_output4 = encrypt_message.SchemaId;
             Assert.AreEqual(SCHEMA_ID, result_output4);
+        }
+
+        public string GetFileStringContent(string filepath)
+        {
+            //open file and get json string
+            string[] text_array = File.ReadAllLines(encrypt_instruction_filepath);
+            StringBuilder sr = new StringBuilder();
+            foreach (string line in text_array) sr.AppendLine(line);
+            return sr.ToString();
+        }
+
+        public AESMessage ParseJson(string json_file_text)
+        {
+            //clear null
+            string message_replace_null = json_file_text.Replace("\"null\"", "null");
+
+            //deserialize message
+            return JsonConvert.DeserializeObject<AESMessage>(message_replace_null);
         }
     }
 }
