@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace MAESFRAMEWORK.CodeProcessors.ReplacementSchema
 {
+    /// <summary>
+    /// Class that handles replacing normal text to a replacement schema and back
+    /// </summary>
     public class SchemaManager : SchemaManagerSettings
     {
         public Encoding encode_set { get { return Encoding.ASCII; } }

@@ -6,10 +6,16 @@ using System.Threading.Tasks;
 
 namespace MAESFRAMEWORK.DataTypes.ReplacementSchema
 {
+    /// <summary>
+    /// Schema manager settings creates new schemas, adds them, and deletes them
+    /// </summary>
     public class SchemaManagerSettings
     {
+        // list of schemas that exist
         private List<ReplacementSchemaType> schemas = new List<ReplacementSchemaType>();
         
+        // permutation of numbers 1 - 75
+        // random numbers
         private List<HashSet<int>> orders = new List<HashSet<int>>();
         
         private readonly List<char> replaceable_chars = new List<char>()

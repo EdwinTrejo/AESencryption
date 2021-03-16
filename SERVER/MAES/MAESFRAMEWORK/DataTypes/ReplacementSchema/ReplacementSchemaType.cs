@@ -9,7 +9,7 @@ namespace MAESFRAMEWORK.DataTypes.ReplacementSchema
     public class ReplacementSchemaType
     {
         /// <summary>
-        /// Unique identifier for a schema
+        /// Unique identifier for a schema, number (whatever you want)
         /// </summary>
         public int SchemaId { get; set; }
 
