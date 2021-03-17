@@ -27,13 +27,15 @@ namespace MAESFRAMEWORK.CodeProcessors.ReplacementSchema
             string plaintext_str = encode_set.GetString(plaintext.Text);
             List<string> split_strings = SplitChunks(plaintext_str).ToList();
             ReplacedMessage return_replaced_message = new ReplacedMessage(schema.SchemaId);
-            
+            int i = 0;
             foreach (string chunk in split_strings)
             {
                 string char_replaced_string = ChangeWordToNewAlphabet(chunk, schema);
                 CharReplacedText replaced_text = new CharReplacedText(schema.SchemaId);
                 replaced_text.Text = encode_set.GetBytes(char_replaced_string);
+                replaced_text.TextPosition = i;
                 return_replaced_message.replacedTexts.Add(replaced_text);
+                i++;
             }
 
             return return_replaced_message;
@@ -42,17 +44,18 @@ namespace MAESFRAMEWORK.CodeProcessors.ReplacementSchema
         public CharReplacedText CharacterReplaceCyphertext(ReplacedMessage cyphertext)
         {
             //after decryption
-            List<byte> new_string = new List<byte>();
+            //List<byte> new_string = new List<byte>();
             ReplacementSchemaType schema = GetSchema(cyphertext.SchemaId);
             CharReplacedText replaced_text = new CharReplacedText(schema.SchemaId);
+            StringBuilder sr = new StringBuilder();
             foreach (CharReplacedText replacedText in cyphertext.replacedTexts)
             {
                 string cyphertext_str = encode_set.GetString(replacedText.Text);
                 string char_replaced_string = ChangeToBaseAlphabet(cyphertext_str, schema);
-                //add to end
-                new_string.Concat(encode_set.GetBytes(char_replaced_string));
+                sr.Append(char_replaced_string);
             }
-            replaced_text.Text = new_string.ToArray();
+            //new_string = encode_set.GetBytes(sr.ToString()).ToList();
+            replaced_text.Text = encode_set.GetBytes(sr.ToString().Trim());
             return replaced_text;
         }
 
@@ -101,7 +104,7 @@ namespace MAESFRAMEWORK.CodeProcessors.ReplacementSchema
             int real_chunk_amount = (int)System.Math.Ceiling(str_size / chunk_size);
             if (real_chunk_amount > return_list.Count())
             {
-                int start_position = (return_list.Count() * chunk_size) - 1;
+                int start_position = (return_list.Count() * chunk_size);
                 string last_chunk = str.Substring(start_position).PadRight(chunk_size, ' ');
                 return_list.Add(last_chunk);
             }
