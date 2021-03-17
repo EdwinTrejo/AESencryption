@@ -14,7 +14,11 @@ namespace MAESFRAMEWORK.CodeProcessors.ReplacementSchema
     {
         public Encoding encode_set { get { return Encoding.ASCII; } }
 
+        public int max_replaceable_nums {  get { return number_of_replaceable_chars; } }
+
         private const int chunk_size = 16;
+
+        public int schemas_count { get { return num_schemas; } }
 
         public ReplacedMessage CharacterReplacePlaintext(CharReplacedText plaintext)
         {

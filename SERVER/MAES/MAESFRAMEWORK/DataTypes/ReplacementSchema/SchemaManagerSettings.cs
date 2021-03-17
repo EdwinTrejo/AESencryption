@@ -27,6 +27,8 @@ namespace MAESFRAMEWORK.DataTypes.ReplacementSchema
         
         public const int number_of_replaceable_chars = 75;
 
+        public int num_schemas { get { return schemas.Count(); } }
+
         public bool RequestDeleteSchema(int SchemaId)
         {
             return DeleteSchema(SchemaId);
@@ -108,7 +110,7 @@ namespace MAESFRAMEWORK.DataTypes.ReplacementSchema
             HashSet<Tuple<char, char>> new_schema_set = new HashSet<Tuple<char, char>>();
             for (int i = 0; i < number_of_replaceable_chars; i++)
             {
-                new_schema_set.Add(Tuple.Create(replaceable_chars[i], replaceable_chars[orders[order_id].ElementAt(i) - 1]));
+                new_schema_set.Add(Tuple.Create(replaceable_chars[i], replaceable_chars[orders[order_id].ElementAt(i)]));
             }
             ReplacementSchemaType new_schema = new ReplacementSchemaType();
             new_schema.SchemaId = new_schema_id;

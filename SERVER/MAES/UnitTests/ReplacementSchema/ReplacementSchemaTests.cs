@@ -27,12 +27,13 @@ namespace UnitTests.ReplacementSchema
         public void Init()
         {
             m_schema = new SchemaManager();
+            GenerateConstantSchema();
         }
 
         [OneTimeTearDown]
         public void Cleanup()
         {
-            // 
+            //
         }
 
         // add schema to list of schemas
@@ -44,6 +45,20 @@ namespace UnitTests.ReplacementSchema
         // using external schema, test replacement (going back to normal)
 
         [Test, Order(0)]
+        public void TestExternalSchemaAdd()
+        {
+            //the original constant schema
+            Assert.AreEqual(1, m_schema.schemas_count);
+
+            //add more schemas and test the number
+            m_schema.RequestNewSchema();
+            m_schema.RequestNewSchema();
+            m_schema.RequestNewSchema();
+
+            Assert.AreEqual(4, m_schema.schemas_count);
+        }
+
+        [Test, Order(1)]
         public void ReplacePlaintextTest()
         {
             int num = m_schema.RequestNewSchema();
@@ -52,13 +67,21 @@ namespace UnitTests.ReplacementSchema
             //Assert.AreEqual(true, return_replaced_message.replacedTexts); // this needs to be fixed a lot
         }
 
-        [Test, Order(1)]
+        [Test, Order(2)]
         public void ReplaceCyphertextTest()
         {
             //CharReplacedText replaced_text = m_schema.CharacterReplaceCyphertext(CYPHERTEXT);
             //Assert.AreEqual(true, replaced_text.Text); // this needs to be fixed a lot
         }
 
-
+        private void GenerateConstantSchema()
+        {
+            HashSet<int> new_order = new HashSet<int>();
+            for (int i = m_schema.max_replaceable_nums - 1; i >= 0; i--)
+            {
+                new_order.Add(i);
+            }
+            m_schema.AddExternalSchema(new_order);
+        }
     }
 }
