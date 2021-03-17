@@ -16,6 +16,7 @@ namespace UnitTests.AES
         private enum MAES_INSTRUCTION { NONE, ENCRYPT, DECRYPT, ENCRYPTRESULT, DECRYPTRESULT, NEWSCHEMA, DELSCHEMA }
 
         private readonly int SCHEMA_ID = 1;
+        private readonly int NEW_SCHEMA_ID = 2;
 
         //00112233445566778899aabbccddeeff
         //ABEiM0RVZneImaq7zN3u/w==
@@ -84,7 +85,7 @@ namespace UnitTests.AES
             dec_msg = decrypt_message;
         }
 
-        [Test, Order(3)]
+        [Test, Order(2)]
         public void CanParseEncryptFile()
         {
             //open file and get json string
@@ -108,12 +109,37 @@ namespace UnitTests.AES
             //check if the schema id is correct
             int result_output4 = encrypt_message.SchemaId;
             Assert.AreEqual(SCHEMA_ID, result_output4);
+
+            enc_msg = encrypt_message;
+        }
+
+        [Test, Order(3)]
+        public void CanParseSchemaFiles()
+        {
+            //open file and get json string
+            string new_msg_text = GetFileStringContent(new_schema_instruction_filepath);
+            string del_msg_text = GetFileStringContent(del_schema_instruction_filepath);
+
+            //deserialize message
+            AESMessage new_schema_msg = ParseJson(new_msg_text);
+            AESMessage del_schema_msg = ParseJson(del_msg_text);
+
+            /// check if the message type is correct
+            Assert.AreEqual((int)MAES_INSTRUCTION.NEWSCHEMA, new_schema_msg.MessageType);
+            Assert.AreEqual((int)MAES_INSTRUCTION.DELSCHEMA, del_schema_msg.MessageType);
+
+            //check if the schema id is correct
+            Assert.AreEqual(NEW_SCHEMA_ID, new_schema_msg.SchemaId);
+            Assert.AreEqual(NEW_SCHEMA_ID, del_schema_msg.SchemaId);
+
+            new_msg = new_schema_msg;
+            del_msg = del_schema_msg;
         }
 
         public string GetFileStringContent(string filepath)
         {
             //open file and get json string
-            string[] text_array = File.ReadAllLines(encrypt_instruction_filepath);
+            string[] text_array = File.ReadAllLines(filepath);
             StringBuilder sr = new StringBuilder();
             foreach (string line in text_array) sr.AppendLine(line);
             return sr.ToString();
