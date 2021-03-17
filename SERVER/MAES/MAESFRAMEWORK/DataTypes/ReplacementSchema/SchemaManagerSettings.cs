@@ -25,7 +25,7 @@ namespace MAESFRAMEWORK.DataTypes.ReplacementSchema
             '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '!', '@', '#', '$', '&', '*', '(', ')', '-', '_', '+', '='
         };
         
-        private const int number_of_replaceable_chars = 75;
+        public const int number_of_replaceable_chars = 75;
 
         public bool RequestDeleteSchema(int SchemaId)
         {
@@ -61,6 +61,13 @@ namespace MAESFRAMEWORK.DataTypes.ReplacementSchema
             };
         }
 
+        public int AddExternalSchema(HashSet<int> new_order)
+        {
+            orders.Add(new_order);
+            int order_pos = orders.IndexOf(new_order);
+            return CreateSchema(order_pos);
+        }
+
         public int RequestNewSchema()
         {
             return CreateSchema();
@@ -90,6 +97,23 @@ namespace MAESFRAMEWORK.DataTypes.ReplacementSchema
             new_schema.SchemaId = new_schema_id;
             new_schema.SchemaSet = new_schema_set;
             new_schema.OrderId = current_order;
+            schemas.Add(new_schema);
+            return new_schema_id;
+        }
+
+        private int CreateSchema(int order_id)
+        {
+            GenerateRandomNumbersOnEnglishDictionary();
+            int new_schema_id = GetNextSchemaId();
+            HashSet<Tuple<char, char>> new_schema_set = new HashSet<Tuple<char, char>>();
+            for (int i = 0; i < number_of_replaceable_chars; i++)
+            {
+                new_schema_set.Add(Tuple.Create(replaceable_chars[i], replaceable_chars[orders[order_id].ElementAt(i) - 1]));
+            }
+            ReplacementSchemaType new_schema = new ReplacementSchemaType();
+            new_schema.SchemaId = new_schema_id;
+            new_schema.SchemaSet = new_schema_set;
+            new_schema.OrderId = order_id;
             schemas.Add(new_schema);
             return new_schema_id;
         }

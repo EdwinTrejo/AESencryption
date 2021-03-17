@@ -14,7 +14,6 @@ namespace UnitTests.ReplacementSchema
     [Category("ReplacementSchema")]
     public class ReplacementSchemaTests
     {
-
         // add things here
         private SchemaManager m_schema = null;
 
