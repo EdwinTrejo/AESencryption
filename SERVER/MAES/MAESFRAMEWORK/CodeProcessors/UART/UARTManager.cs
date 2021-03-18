@@ -11,8 +11,6 @@ namespace MAESFRAMEWORK.CodeProcessors.UART
 {
     public class UARTManager : DeviceManager
     {
-
-
         private readonly UARTManagerSettings _manager;
 
         private static readonly string MSG_RECV = "message_received";
@@ -71,28 +69,6 @@ namespace MAESFRAMEWORK.CodeProcessors.UART
             return message_send_success;
         }
 
-        public bool Send(string message)
-        {
-            bool message_send_success = false;
-            try
-            {
-                _manager.serialPort.DiscardInBuffer();
-                _manager.serialPort.DiscardOutBuffer();
-#if DEBUG
-                Console.WriteLine("{0}::TX::{1}", _manager.DeviceName, message);
-#endif
-                _manager.serialPort.Write(message);
-                message_send_success = true;
-            }
-            catch (Exception ex)
-            {
-#if DEBUG
-                Console.WriteLine(ex.StackTrace);
-#endif
-            }
-            return message_send_success;
-        }
-
         public byte[] Receive(int delay)
         {
             Thread.Sleep(delay);
@@ -122,21 +98,6 @@ namespace MAESFRAMEWORK.CodeProcessors.UART
             return return_message;
         }
 
-        public byte[] ReceiveByByte()
-        {
-            List<byte> recv_msg = new List<byte>();
-            for (int i = 0; i < MessageSize; i++)
-            {
-                byte[] current_hex = new byte[1];
-                _manager.serialPort.Read(current_hex, 0, 1);
-                recv_msg.Add(current_hex[0]);
-            }
-#if DEBUG
-            Console.WriteLine("{0}::RX::BYT::{1}", _manager.DeviceName, BitConverter.ToString(recv_msg.ToArray()));
-#endif
-            return recv_msg.ToArray();
-        }
-
         public override void Initialize()
         {
             _manager.serialPort = new SerialPort(_manager.port, _manager.baudrate, _manager.parity, _manager.databits, _manager.stopBits);
@@ -144,6 +105,7 @@ namespace MAESFRAMEWORK.CodeProcessors.UART
             _manager.serialPort.WriteTimeout = _manager.WriteTimeout;
             _manager.serialPort.Handshake = _manager.handshake;
             _manager.serialPort.Encoding = encode_set;
+            _manager.serialPort.DiscardNull = false;
             try
             {
                 _manager.serialPort.Open();
