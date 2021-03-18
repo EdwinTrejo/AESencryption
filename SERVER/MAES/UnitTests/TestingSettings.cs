@@ -15,13 +15,13 @@ namespace UnitTests
         public UARTManager m_uart = null;
         public const string uart_port = "COM5";
         public const int baudrate = 115200;
-        public const int ReadTimeout = 2000; // -1 infiniteTimeout
-        public const int WriteTimeout = 2000; //infiniteTimeout
+        public const int ReadTimeout = 1000; // -1 infiniteTimeout
+        public const int WriteTimeout = 1000; //infiniteTimeout
         public const Handshake handshake = Handshake.None;
         public const Parity parity = Parity.Even;
         public const StopBits stopBits = StopBits.Two;
         public const int send_delay = 10;
-        public const int send_delay_for_start = 50;
+        public const int send_delay_for_start = 20;
 
         //MAESTESTINGMAEST
         //4d41455354455354494e474d41455354
