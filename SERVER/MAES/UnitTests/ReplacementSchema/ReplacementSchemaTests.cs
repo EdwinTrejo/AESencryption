@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using Newtonsoft.Json;
+using uint8_t = System.Byte;
 
 namespace UnitTests.ReplacementSchema
 {
@@ -15,14 +16,6 @@ namespace UnitTests.ReplacementSchema
     [Category("ReplacementSchema")]
     public class ReplacementSchemaTests : TestingUtilities
     {
-        // add things here
-        private SchemaManager m_schema = null;
-
-        // actually needs to be of type char replaced text
-        private readonly byte[] text_to_replace = Encoding.ASCII.GetBytes("\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"");
-        int new_const_schema;
-        string replaced_text = "";
-
         // needs to be a ReplacedMessage
         private readonly byte[] CYPHERTEXT = { };
 

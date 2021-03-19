@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using uint8_t = System.Byte;
 
 namespace MAESFRAMEWORK.DataTypes.ReplacementSchema
 {
@@ -13,21 +14,32 @@ namespace MAESFRAMEWORK.DataTypes.ReplacementSchema
     {
         // list of schemas that exist
         private List<ReplacementSchemaType> schemas = new List<ReplacementSchemaType>();
-        
+
         // permutation of numbers 1 - 75
         // random numbers
         private List<HashSet<int>> orders = new List<HashSet<int>>();
-        
-        private readonly List<char> replaceable_chars = new List<char>()
-        {
-            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', ' ',
-            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-            '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '!', '@', '#', '$', '&', '*', '(', ')', '-', '_', '+', '='
-        };
-        
-        public const int number_of_replaceable_chars = 75;
+
+        //private readonly List<char> replaceable_chars = new List<char>()
+        //{
+        //    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', ' ',
+        //    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+        //    '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '!', '@', '#', '$', '&', '*', '(', ')', '-', '_', '+', '='
+        //};
+
+        private readonly List<uint8_t> replaceable_chars = new List<uint8_t>();
+
+        public const int number_of_replaceable_chars = 256;
 
         public int num_schemas { get { return schemas.Count(); } }
+
+        public void GenerateReplaceableChars()
+        {
+            for (int i = 0; i < number_of_replaceable_chars; i++)
+            {
+                uint8_t num = Convert.ToByte(i);
+                replaceable_chars.Add(num);
+            }
+        }
 
         public bool RequestDeleteSchema(int SchemaId)
         {
@@ -45,7 +57,7 @@ namespace MAESFRAMEWORK.DataTypes.ReplacementSchema
         {
             bool found = false;
             ReplacementSchemaType return_schema = new ReplacementSchemaType();
-            
+
             foreach (ReplacementSchemaType schema in schemas)
             {
                 if (schema.SchemaId == SchemaId)
@@ -57,10 +69,11 @@ namespace MAESFRAMEWORK.DataTypes.ReplacementSchema
             }
 
             if (found) return return_schema;
-            else {
+            else
+            {
                 int generate_new_schema = RequestNewSchema();
                 return GetSchema(generate_new_schema);
-            };
+            }
         }
 
         public int AddExternalSchema(HashSet<int> new_order)
@@ -87,10 +100,9 @@ namespace MAESFRAMEWORK.DataTypes.ReplacementSchema
 
         private int CreateSchema()
         {
-            GenerateRandomNumbersOnEnglishDictionary();
+            int current_order = GenerateRandomNumbersOnEnglishDictionary();
             int new_schema_id = GetNextSchemaId();
-            int current_order = CurrentOrderId();
-            HashSet<Tuple<char, char>> new_schema_set = new HashSet<Tuple<char, char>>();
+            HashSet<Tuple<uint8_t, uint8_t>> new_schema_set = new HashSet<Tuple<uint8_t, uint8_t>>();
             for (int i = 0; i < number_of_replaceable_chars; i++)
             {
                 new_schema_set.Add(Tuple.Create(replaceable_chars[i], replaceable_chars[orders[current_order].ElementAt(i) - 1]));
@@ -105,9 +117,8 @@ namespace MAESFRAMEWORK.DataTypes.ReplacementSchema
 
         private int CreateSchema(int order_id)
         {
-            GenerateRandomNumbersOnEnglishDictionary();
             int new_schema_id = GetNextSchemaId();
-            HashSet<Tuple<char, char>> new_schema_set = new HashSet<Tuple<char, char>>();
+            HashSet<Tuple<uint8_t, uint8_t>> new_schema_set = new HashSet<Tuple<uint8_t, uint8_t>>();
             for (int i = 0; i < number_of_replaceable_chars; i++)
             {
                 new_schema_set.Add(Tuple.Create(replaceable_chars[i], replaceable_chars[orders[order_id].ElementAt(i)]));
@@ -120,7 +131,7 @@ namespace MAESFRAMEWORK.DataTypes.ReplacementSchema
             return new_schema_id;
         }
 
-        private void GenerateRandomNumbersOnEnglishDictionary()
+        private int GenerateRandomNumbersOnEnglishDictionary()
         {
             HashSet<int> newHash = new HashSet<int>();
             Random random = new Random();
@@ -133,6 +144,7 @@ namespace MAESFRAMEWORK.DataTypes.ReplacementSchema
                     i--;
             }
             orders.Add(newHash);
+            return orders.IndexOf(newHash);
         }
     }
 }

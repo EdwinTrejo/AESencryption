@@ -46,7 +46,7 @@ namespace MAESFRAMEWORK.CodeProcessors.UART
 
         public override bool Send(byte[] message)
         {
-#if DEBUG
+#if RELEASE
             Console.WriteLine("{0}::TX::TRANS::{1}", _manager.DeviceName, System.DateTime.Now.ToString("HH:mm:ss:ffff"));
 #endif
             bool message_send_success = false;
@@ -77,7 +77,7 @@ namespace MAESFRAMEWORK.CodeProcessors.UART
 
         public override byte[] Receive()
         {
-#if DEBUG
+#if RELEASE
             Console.WriteLine("{0}::RX::TRANS::{1}", _manager.DeviceName, System.DateTime.Now.ToString("HH:mm:ss:ffff"));
 #endif
             byte[] return_message = new byte[MessageSize];
@@ -125,7 +125,7 @@ namespace MAESFRAMEWORK.CodeProcessors.UART
             }
         }
 
-        public UARTManager(string port, int baudrate, int ReadTimeout, int WriteTimeout, System.IO.Ports.Handshake handshake = Handshake.RequestToSend, System.IO.Ports.Parity parity = Parity.Even, System.IO.Ports.StopBits stopBits = StopBits.Two, int databits = 8)
+        public UARTManager(string port, int baudrate, int ReadTimeout, int WriteTimeout, System.IO.Ports.Handshake handshake, System.IO.Ports.Parity parity, System.IO.Ports.StopBits stopBits, int databits)
         {
             _manager = new UARTManagerSettings()
             {

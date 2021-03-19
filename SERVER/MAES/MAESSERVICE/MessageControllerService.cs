@@ -13,7 +13,7 @@ namespace MAESSERVICE
 {
     public partial class MAESService
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             //process can only be run as admin realtime
             Process[] processes = Process.GetProcessesByName("MAESSERVICE");
@@ -21,6 +21,7 @@ namespace MAESSERVICE
             {
                 proc.PriorityClass = ProcessPriorityClass.RealTime;
             }
+            Console.WriteLine("MAES::Admin::RealTime");
             //UART init
             InitUARTService();
             //UDP init
@@ -57,10 +58,8 @@ namespace MAESSERVICE
 
                     string replace_null = json_string.Replace("\"null\"", "null");
 #if DEBUG
-                    Console.WriteLine(replace_null);
+                    Console.WriteLine("UDP::MSG::{0}", replace_null);
 #endif
-                    string jsonString = System.Text.Json.JsonSerializer.Serialize(replace_null);
-
                     AESMessage incoming_message = JsonConvert.DeserializeObject<AESMessage>(replace_null);
 
                     int CharSchemaId = incoming_message.SchemaId;
@@ -79,12 +78,12 @@ namespace MAESSERVICE
                             };
                         case (int)MAES_INSTRUCTION.NEWSCHEMA:
                             {
-                                int new_schema = schemaManager.RequestNewSchema();
+                                NewSchema(incoming_message);
                                 break;
                             }
                         case (int)MAES_INSTRUCTION.DELSCHEMA:
                             {
-                                schemaManager.RequestDeleteSchema(CharSchemaId);
+                                DelSchema(incoming_message);
                                 break;
                             }
                     }
@@ -92,7 +91,6 @@ namespace MAESSERVICE
                 catch (Exception e)
                 {
                     Console.WriteLine(e.StackTrace);
-                    //Console.WriteLine(json_string);
                 }
                 Thread.Sleep(50);
             }
@@ -100,73 +98,84 @@ namespace MAESSERVICE
 
         private static void Encrypt(AESMessage plaintext)
         {
-            lock (m_lock)
+            //get the details for the newly created message
+            //padding and char replacement
+            CharReplacedText charReplacedText = new CharReplacedText(plaintext.SchemaId);
+            charReplacedText.Text = plaintext.UserText;
+            ReplacedMessage full_message = schemaManager.CharacterReplacePlaintext(charReplacedText);
+            byte[] userkey = plaintext.UserKey;
+
+            List<byte> encryption_result = new List<byte>();
+
+            //send to uart
+            //receive from uart
+            foreach (CharReplacedText byte_block in full_message.replacedTexts)
             {
-                //get the details for the newly created message
-                //padding and char replacement
-                CharReplacedText charReplacedText = new CharReplacedText(plaintext.SchemaId);
-                charReplacedText.Text = plaintext.UserText;
-                ReplacedMessage full_message = schemaManager.CharacterReplacePlaintext(charReplacedText);
-                byte[] userkey = plaintext.UserKey;
-
-                List<byte> encryption_result = new List<byte>();
-
-                //send to uart
-                //receive from uart
-                foreach (CharReplacedText byte_block in full_message.replacedTexts)
-                {
-                    List<byte> enc_rslt = SendEncryptInstruction(byte_block.Text, userkey).ToList();
-                    encryption_result.Concat(enc_rslt);
-                }
-
-                //create return message
-                AESMessage encrypt_result = new AESMessage();
-                encrypt_result.MessageType = (int)MAES_INSTRUCTION.ENCRYPTRESULT;
-                encrypt_result.SchemaId = full_message.SchemaId;
-                encrypt_result.ServerText = encryption_result.ToArray();
-
-                //send message back to the device it came from
-                SendAESMessage(encrypt_result);
+                List<byte> enc_rslt = SendEncryptInstruction(byte_block.Text, userkey).ToList();
+                encryption_result.AddRange(enc_rslt);
             }
+
+            //create return message
+            AESMessage encrypt_result = new AESMessage();
+            encrypt_result.MessageType = (int)MAES_INSTRUCTION.ENCRYPTRESULT;
+            encrypt_result.SchemaId = full_message.SchemaId;
+            encrypt_result.ServerText = encryption_result.ToArray();
+
+            //send message back to the device it came from
+            SendAESMessage(encrypt_result);
         }
 
         private static void Decrypt(AESMessage cyphertext)
         {
-            lock (m_lock)
+            //get the details for the newly created message
+            //padding and char replacement
+            CharReplacedText charReplacedText = new CharReplacedText(cyphertext.SchemaId);
+            charReplacedText.Text = cyphertext.UserText;
+            ReplacedMessage full_message = schemaManager.CharacterReplacePlaintext(charReplacedText);
+            byte[] userkey = cyphertext.UserKey;
+
+            List<byte> decryption_result = new List<byte>();
+
+            //send to uart
+            //receive from uart
+            foreach (CharReplacedText byte_block in full_message.replacedTexts)
             {
-                //get the details for the newly created message
-                //padding and char replacement
-                CharReplacedText charReplacedText = new CharReplacedText(cyphertext.SchemaId);
-                charReplacedText.Text = cyphertext.UserText;
-                ReplacedMessage full_message = schemaManager.CharacterReplacePlaintext(charReplacedText);
-                byte[] userkey = cyphertext.UserKey;
-
-                List<byte> decryption_result = new List<byte>();
-
-                //send to uart
-                //receive from uart
-                foreach (CharReplacedText byte_block in full_message.replacedTexts)
-                {
-                    List<byte> dec_rslt = SendDecryptInstruction(byte_block.Text, userkey).ToList(); ;
-                    decryption_result.Concat(dec_rslt);
-                }
-
-                //create return message
-                AESMessage decrypt_result = new AESMessage();
-                decrypt_result.MessageType = (int)MAES_INSTRUCTION.DECRYPTRESULT;
-                decrypt_result.SchemaId = full_message.SchemaId;
-                decrypt_result.ServerText = decryption_result.ToArray();
-
-                //send message back to the device it came from
-                SendAESMessage(decrypt_result);
+                List<byte> dec_rslt = SendDecryptInstruction(byte_block.Text, userkey).ToList(); ;
+                decryption_result.Concat(dec_rslt);
             }
+
+            //create return message
+            AESMessage decrypt_result = new AESMessage();
+            decrypt_result.MessageType = (int)MAES_INSTRUCTION.DECRYPTRESULT;
+            decrypt_result.SchemaId = full_message.SchemaId;
+            decrypt_result.ServerText = decryption_result.ToArray();
+
+            //send message back to the device it came from
+            SendAESMessage(decrypt_result);
+        }
+
+        private static void NewSchema(AESMessage message)
+        {
+            int new_schema = schemaManager.RequestNewSchema();
+            AESMessage result = new AESMessage()
+            {
+                MessageType = (int)MAES_INSTRUCTION.NEWSCHEMARESULT,
+                SchemaId = new_schema
+            };
+            SendAESMessage(result);
+        }
+
+        private static void DelSchema(AESMessage message)
+        {
+            bool can_delete = schemaManager.RequestDeleteSchema(message.SchemaId);
+            if (!can_delete) throw new KeyNotFoundException("Schema::Delete::Request::NOT::FOUND");
         }
 
         ~MAESService()
         {
             //close gracefully
-            #pragma warning disable SYSLIB0006
-            #pragma warning restore SYSLIB0006
+#pragma warning disable SYSLIB0006
+#pragma warning restore SYSLIB0006
         }
     }
 }

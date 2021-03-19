@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using uint8_t = System.Byte;
 
 namespace MAESFRAMEWORK.CodeProcessors.ReplacementSchema
 {
@@ -14,30 +15,36 @@ namespace MAESFRAMEWORK.CodeProcessors.ReplacementSchema
     {
         public Encoding encode_set { get { return Encoding.ASCII; } }
 
+        public Encoding user_encode_set { get { return Encoding.UTF8; } }
+
         public int max_replaceable_nums {  get { return number_of_replaceable_chars; } }
 
         private const int chunk_size = 16;
 
         public int schemas_count { get { return num_schemas; } }
 
+        public SchemaManager()
+        {
+            GenerateReplaceableChars();
+        }
+
         public ReplacedMessage CharacterReplacePlaintext(CharReplacedText plaintext)
         {
             //before encryption
             ReplacementSchemaType schema = GetSchema(plaintext.SchemaId);
-            string plaintext_str = encode_set.GetString(plaintext.Text);
-            List<string> split_strings = SplitChunks(plaintext_str).ToList();
+            //string plaintext_str = encode_set.GetString(plaintext.Text);
+            List<byte[]> split_strings = SplitChunks(plaintext.Text, true).ToList();
             ReplacedMessage return_replaced_message = new ReplacedMessage(schema.SchemaId);
             int i = 0;
-            foreach (string chunk in split_strings)
+            foreach (byte[] chunk in split_strings)
             {
-                string char_replaced_string = ChangeWordToNewAlphabet(chunk, schema);
+                byte[] char_replaced_string = ChangeWordToNewAlphabet(chunk, schema);
                 CharReplacedText replaced_text = new CharReplacedText(schema.SchemaId);
-                replaced_text.Text = encode_set.GetBytes(char_replaced_string);
+                replaced_text.Text = char_replaced_string;
                 replaced_text.TextPosition = i;
                 return_replaced_message.replacedTexts.Add(replaced_text);
                 i++;
             }
-
             return return_replaced_message;
         }
 
@@ -50,8 +57,7 @@ namespace MAESFRAMEWORK.CodeProcessors.ReplacementSchema
             StringBuilder sr = new StringBuilder();
             foreach (CharReplacedText replacedText in cyphertext.replacedTexts)
             {
-                string cyphertext_str = encode_set.GetString(replacedText.Text);
-                string char_replaced_string = ChangeToBaseAlphabet(cyphertext_str, schema);
+                string char_replaced_string = encode_set.GetString(ChangeToBaseAlphabet(replacedText.Text, schema));
                 sr.Append(char_replaced_string);
             }
             //new_string = encode_set.GetBytes(sr.ToString()).ToList();
@@ -66,34 +72,57 @@ namespace MAESFRAMEWORK.CodeProcessors.ReplacementSchema
         /// <param name="plaintext"></param>
         /// <param name="SchemaId"></param>
         /// <returns></returns>
-        private string ChangeWordToNewAlphabet(string plaintext, ReplacementSchemaType schema)
+        private byte[] ChangeWordToNewAlphabet(byte[] plaintext, ReplacementSchemaType schema)
         {
-            StringBuilder sr = new StringBuilder();
+            List<uint8_t> current_char_list = new List<uint8_t>();
             //same as for int i and number of chars in word unless we are going from stream
             //in which case a stream would have to be performed on using binary operations here
-            foreach (char character in plaintext)
+            foreach (uint8_t character in plaintext)
             {
-                char replacedChar = schema.SchemaSet.Where(x => x.Item1 == character).Select(x => x.Item2).FirstOrDefault(); //LINQ have to rethink
-                if (replacedChar == '\0')
-                    sr.Append(character);
-                else
-                    sr.Append(replacedChar);
+                uint8_t replacedChar = schema.SchemaSet.Where(x => x.Item1 == character).Select(x => x.Item2).FirstOrDefault(); //LINQ have to rethink
+                current_char_list.Add(replacedChar);
             }
-            return sr.ToString();
+            return current_char_list.ToArray();
         }
 
-        private string ChangeToBaseAlphabet(string cyphertext, ReplacementSchemaType schema)
+        private byte[] ChangeToBaseAlphabet(byte[] cyphertext, ReplacementSchemaType schema)
         {
-            StringBuilder sr = new StringBuilder();
-            foreach (char character in cyphertext)
+            List<uint8_t> current_char_list = new List<uint8_t>();
+            foreach (uint8_t character in cyphertext)
             {
-                char replacedChar = schema.SchemaSet.Where(x => x.Item2 == character).Select(x => x.Item1).FirstOrDefault(); //LINQ have to rethink
-                if (replacedChar == '\0')
-                    sr.Append(character);
-                else
-                    sr.Append(replacedChar);
+                uint8_t replacedChar = schema.SchemaSet.Where(x => x.Item2 == character).Select(x => x.Item1).FirstOrDefault(); //LINQ have to rethink
+                current_char_list.Add(replacedChar);
             }
-            return sr.ToString();
+            return current_char_list.ToArray();
+        }
+
+        private IEnumerable<uint8_t[]> SplitChunks(byte[] str, bool something_not_used)
+        {
+            List<uint8_t[]> return_list = new List<uint8_t[]>();
+            //find out if we didnt pad the whole thing
+            double str_size = str.Length;
+            int real_chunk_amount = (int)System.Math.Ceiling(str_size / chunk_size);
+
+            for (int i = 0; i < real_chunk_amount; i++)
+            {
+                List<uint8_t> new_chunk = new List<uint8_t>();
+                for (int j = 0; j < chunk_size; j++)
+                {
+                    int original_str_pos = (i * chunk_size) + j;
+                    if (original_str_pos >= str_size)
+                    {
+                        //over the size
+                        new_chunk.Add(Convert.ToByte(' '));
+                    }
+                    else
+                    {
+                        //below the size
+                        new_chunk.Add(str[original_str_pos]);
+                    }
+                }
+                return_list.Add(new_chunk.ToArray());
+            }
+            return return_list;
         }
 
         private IEnumerable<string> SplitChunks(string str)

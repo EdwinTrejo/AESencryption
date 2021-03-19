@@ -31,12 +31,14 @@ namespace MAESSERVICE
 
         private static byte[] WaitForOrderFromUDP()
         {
-            lock (m_lock)
-            {
-                byte[] udp_rec = m_udp.Receive();
-                Console.WriteLine($"Message Received from {m_udp.identifier_one}:{m_udp.identifier_two}");
-                return udp_rec;
-            }
+            byte[] udp_rec = m_udp.Receive();
+#if RELEASE
+            Console.WriteLine($"Message Received from {m_udp.identifier_one}");
+#endif
+#if DEBUG
+            Console.WriteLine($"Message Received from {m_udp.identifier_one}:{m_udp.identifier_two}");
+#endif
+            return udp_rec;
         }
     }
 }

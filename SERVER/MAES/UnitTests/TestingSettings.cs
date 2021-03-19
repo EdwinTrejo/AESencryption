@@ -1,4 +1,5 @@
-﻿using MAESFRAMEWORK.CodeProcessors.UART;
+﻿using MAESFRAMEWORK.CodeProcessors.ReplacementSchema;
+using MAESFRAMEWORK.CodeProcessors.UART;
 using MAESFRAMEWORK.DataTypes.AES;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ namespace UnitTests
         public const Handshake handshake = Handshake.None;
         public const Parity parity = Parity.Even;
         public const StopBits stopBits = StopBits.Two;
+        public const int dataBits = 8;
         public const int send_delay = 10;
         public const int send_delay_for_start = 20;
 
@@ -52,7 +54,7 @@ namespace UnitTests
         #endregion
 
         #region AES
-        public enum MAES_INSTRUCTION { NONE, ENCRYPT, DECRYPT, ENCRYPTRESULT, DECRYPTRESULT, NEWSCHEMA, DELSCHEMA }
+        public enum MAES_INSTRUCTION { NONE, ENCRYPT, DECRYPT, ENCRYPTRESULT, DECRYPTRESULT, NEWSCHEMA, DELSCHEMA, NEWSCHEMARESULT }
 
         public readonly int SCHEMA_ID = 1;
         public readonly int NEW_SCHEMA_ID = 2;
@@ -66,6 +68,12 @@ namespace UnitTests
         #endregion
 
         #region ReplacementSchema
+        // add things here
+        public SchemaManager m_schema = null;
+
+        // actually needs to be of type char replaced text
+        public readonly byte[] text_to_replace = Encoding.ASCII.GetBytes("\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"");
+        public int new_const_schema;
         public readonly string broken_json_filepath = @"ReplacementSchema\broken_text.json";
         #endregion
     }

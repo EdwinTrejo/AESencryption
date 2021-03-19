@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using uint8_t = System.Byte;
 
 namespace MAESFRAMEWORK.DataTypes.ReplacementSchema
 {
@@ -21,6 +22,6 @@ namespace MAESFRAMEWORK.DataTypes.ReplacementSchema
         /// <summary>
         /// Replacement set identifier
         /// </summary>
-        public HashSet<Tuple<char, char>> SchemaSet { get; set; }
+        public HashSet<Tuple<uint8_t, uint8_t>> SchemaSet { get; set; }
     }
 }

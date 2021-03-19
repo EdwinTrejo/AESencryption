@@ -40,7 +40,7 @@ namespace UnitTests
             }
             else
             {
-                m_uart = new UARTManager(uart_port, baudrate, ReadTimeout, WriteTimeout, handshake, parity, stopBits);
+                m_uart = new UARTManager(uart_port, baudrate, ReadTimeout, WriteTimeout, handshake, parity, stopBits, dataBits);
                 if (!m_uart.ready)
                 {
                     m_uart.Initialize();
