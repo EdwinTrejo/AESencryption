@@ -129,26 +129,28 @@ namespace MAESSERVICE
         {
             //get the details for the newly created message
             //padding and char replacement
-            CharReplacedText charReplacedText = new CharReplacedText(cyphertext.SchemaId);
-            charReplacedText.Text = cyphertext.UserText;
-            ReplacedMessage full_message = schemaManager.CharacterReplacePlaintext(charReplacedText);
+            ReplacedMessage decrypted_text = new ReplacedMessage(cyphertext.SchemaId);
+            List<CharReplacedText> decrypt_these_blocks = schemaManager.SplitChunks(cyphertext.UserText, decrypted_text.SchemaId).ToList();
             byte[] userkey = cyphertext.UserKey;
-
-            List<byte> decryption_result = new List<byte>();
 
             //send to uart
             //receive from uart
-            foreach (CharReplacedText byte_block in full_message.replacedTexts)
+            foreach (CharReplacedText byte_block in decrypt_these_blocks)
             {
-                List<byte> dec_rslt = SendDecryptInstruction(byte_block.Text, userkey).ToList(); ;
-                decryption_result.Concat(dec_rslt);
+                List<byte> dec_rslt = SendDecryptInstruction(byte_block.Text, userkey).ToList();
+                CharReplacedText decrypted_block = new CharReplacedText(decrypted_text.SchemaId);
+                decrypted_block.TextPosition = byte_block.TextPosition;
+                decrypted_block.Text = dec_rslt.ToArray();
+                decrypted_text.replacedTexts.Add(decrypted_block);
             }
+
+            CharReplacedText replacedMessage = schemaManager.CharacterReplaceCyphertext(decrypted_text);
 
             //create return message
             AESMessage decrypt_result = new AESMessage();
             decrypt_result.MessageType = (int)MAES_INSTRUCTION.DECRYPTRESULT;
-            decrypt_result.SchemaId = full_message.SchemaId;
-            decrypt_result.ServerText = decryption_result.ToArray();
+            decrypt_result.SchemaId = replacedMessage.SchemaId;
+            decrypt_result.ServerText = replacedMessage.Text;
 
             //send message back to the device it came from
             SendAESMessage(decrypt_result);

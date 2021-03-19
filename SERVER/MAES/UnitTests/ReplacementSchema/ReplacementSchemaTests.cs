@@ -16,9 +16,6 @@ namespace UnitTests.ReplacementSchema
     [Category("ReplacementSchema")]
     public class ReplacementSchemaTests : TestingUtilities
     {
-        // needs to be a ReplacedMessage
-        private readonly byte[] CYPHERTEXT = { };
-
         [OneTimeSetUp]
         public void Init()
         {
@@ -61,24 +58,15 @@ namespace UnitTests.ReplacementSchema
             plaintext.Text = text_to_replace;
             ReplacedMessage rep_text = m_schema.CharacterReplacePlaintext(plaintext);
 
-            string jsonn = JsonConvert.SerializeObject(rep_text);
-
-            //"!gdqivmfcaivrgj
+            //string jsonn = JsonConvert.SerializeObject(rep_text);
             //"Lorem ipsum dol
-            //" "
-            //! L
-            //g o
-            //d r
-            //q e
-            //i m
-            //v   <-- space
-
-            Assert.AreEqual(0x22, rep_text.replacedTexts[0].Text[0]);
-            Assert.AreEqual(0x21, rep_text.replacedTexts[0].Text[1]);
-            Assert.AreEqual(0x64, rep_text.replacedTexts[0].Text[3]);
-            Assert.AreEqual(0x71, rep_text.replacedTexts[0].Text[4]);
-            Assert.AreEqual(0x69, rep_text.replacedTexts[0].Text[5]);
-            Assert.AreEqual(0x76, rep_text.replacedTexts[0].Text[6]);
+            Assert.AreEqual(28, rep_text.replacedTexts.Count);
+            Assert.AreEqual(0xdd, rep_text.replacedTexts[0].Text[0]);
+            Assert.AreEqual(0xb3, rep_text.replacedTexts[0].Text[1]);
+            Assert.AreEqual(0x8C, rep_text.replacedTexts[1].Text[3]);
+            Assert.AreEqual(0x9A, rep_text.replacedTexts[2].Text[4]);
+            Assert.AreEqual(0x93, rep_text.replacedTexts[3].Text[5]);
+            Assert.AreEqual(0x90, rep_text.replacedTexts[27].Text[6]);
         }
 
         [Test, Order(2)]
@@ -91,7 +79,7 @@ namespace UnitTests.ReplacementSchema
             //string replace_text_compare = Encoding.ASCII.GetString(ssad.Text);
             //432 115 116
             //432 101 115 116
-            CollectionAssert.AreEqual(text_to_replace, back_to_normal.Text);
+            CollectionAssert.AreEqual(Encoding.ASCII.GetString(text_to_replace).Trim(), Encoding.ASCII.GetString(back_to_normal.Text).Trim());
         }
     }
 }

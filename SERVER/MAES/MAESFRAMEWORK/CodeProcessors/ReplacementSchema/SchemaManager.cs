@@ -33,7 +33,7 @@ namespace MAESFRAMEWORK.CodeProcessors.ReplacementSchema
             //before encryption
             ReplacementSchemaType schema = GetSchema(plaintext.SchemaId);
             //string plaintext_str = encode_set.GetString(plaintext.Text);
-            List<byte[]> split_strings = SplitChunks(plaintext.Text, true).ToList();
+            List<byte[]> split_strings = SplitChunks(plaintext.Text).ToList();
             ReplacedMessage return_replaced_message = new ReplacedMessage(schema.SchemaId);
             int i = 0;
             foreach (byte[] chunk in split_strings)
@@ -54,14 +54,15 @@ namespace MAESFRAMEWORK.CodeProcessors.ReplacementSchema
             //List<byte> new_string = new List<byte>();
             ReplacementSchemaType schema = GetSchema(cyphertext.SchemaId);
             CharReplacedText replaced_text = new CharReplacedText(schema.SchemaId);
-            StringBuilder sr = new StringBuilder();
+            List<uint8_t> combine_blocks = new List<uint8_t>();
+            ///CHANGE TO USING BYTE[]
             foreach (CharReplacedText replacedText in cyphertext.replacedTexts)
             {
-                string char_replaced_string = encode_set.GetString(ChangeToBaseAlphabet(replacedText.Text, schema));
-                sr.Append(char_replaced_string);
+                byte[] char_replaced_string = ChangeToBaseAlphabet(replacedText.Text, schema);
+                combine_blocks.AddRange(char_replaced_string.ToList());
             }
             //new_string = encode_set.GetBytes(sr.ToString()).ToList();
-            replaced_text.Text = encode_set.GetBytes(sr.ToString().Trim());
+            replaced_text.Text = combine_blocks.ToArray();
             return replaced_text;
         }
 
@@ -96,7 +97,7 @@ namespace MAESFRAMEWORK.CodeProcessors.ReplacementSchema
             return current_char_list.ToArray();
         }
 
-        private IEnumerable<uint8_t[]> SplitChunks(byte[] str, bool something_not_used)
+        public IEnumerable<uint8_t[]> SplitChunks(byte[] str)
         {
             List<uint8_t[]> return_list = new List<uint8_t[]>();
             //find out if we didnt pad the whole thing
@@ -123,6 +124,22 @@ namespace MAESFRAMEWORK.CodeProcessors.ReplacementSchema
                 return_list.Add(new_chunk.ToArray());
             }
             return return_list;
+        }
+
+        public IEnumerable<CharReplacedText> SplitChunks(byte[] str, int SchemaId)
+        {
+            List<uint8_t[]> brake_down_text = SplitChunks(str).ToList();
+            List<CharReplacedText> return_texts = new List<CharReplacedText>();
+            int i = 0;
+            foreach(uint8_t[] array in brake_down_text)
+            {
+                CharReplacedText charReplacedText = new CharReplacedText(SchemaId);
+                charReplacedText.TextPosition = i;
+                charReplacedText.Text = array;
+                return_texts.Add(charReplacedText);
+                i++;
+            }
+            return return_texts;
         }
 
         private IEnumerable<string> SplitChunks(string str)
