@@ -91,6 +91,13 @@ namespace MAESSERVICE
                 catch (Exception e)
                 {
                     Console.WriteLine(e.StackTrace);
+                    AESMessage error_result = new AESMessage();
+                    error_result.MessageType = (int)MAES_INSTRUCTION.ERRORRESULT;
+                    error_result.SchemaId = 1;
+                    error_result.ServerText = encode_set.GetBytes(e.StackTrace);
+
+                    //send message back to the device it came from
+                    SendAESMessage(error_result);
                 }
                 Thread.Sleep(50);
             }

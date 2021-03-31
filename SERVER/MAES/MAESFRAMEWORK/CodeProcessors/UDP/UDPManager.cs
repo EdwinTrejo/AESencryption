@@ -40,8 +40,10 @@ namespace MAESFRAMEWORK.CodeProcessors.UDP
             if (_manager.RemoteIpEndPoint.Address != _manager.send_ip)
             {
                 _manager.send_ip = _manager.RemoteIpEndPoint.Address;
+                _manager.port = _manager.RemoteIpEndPoint.Port;
                 identifier_one = _manager.RemoteIpEndPoint.Address.ToString();
-                identifier_two = _manager.port.ToString();
+                //identifier_two = _manager.port.ToString();
+                identifier_two = _manager.RemoteIpEndPoint.Port.ToString();
             }
             return receiveBytes;
         }
@@ -49,7 +51,7 @@ namespace MAESFRAMEWORK.CodeProcessors.UDP
         public override void Initialize()
         {
             _manager.client = new UdpClient(_manager.port);
-            Console.WriteLine($"started {_manager.DeviceName} service");
+            Console.WriteLine($"UDP::{_manager.DeviceName}::SERVICE::START");
         }
 
         public UDPManager(IPAddress send_ip, int port)
