@@ -42,7 +42,6 @@ namespace MAESFRAMEWORK.CodeProcessors.UDP
                 _manager.send_ip = _manager.RemoteIpEndPoint.Address;
                 _manager.port = _manager.RemoteIpEndPoint.Port;
                 identifier_one = _manager.RemoteIpEndPoint.Address.ToString();
-                //identifier_two = _manager.port.ToString();
                 identifier_two = _manager.RemoteIpEndPoint.Port.ToString();
             }
             return receiveBytes;

@@ -8,7 +8,7 @@
 #define MSGSIZE 16
 #define SERVER_PORT Serial
 #define DEBUG_PORT Serial1
-#define DEBUG_ENABLED false
+#define DEBUG_ENABLED true
 
 static const byte sbox[256] = {
 		//0     1    2      3     4    5     6     7      8    9     A      B    C     D     E     F

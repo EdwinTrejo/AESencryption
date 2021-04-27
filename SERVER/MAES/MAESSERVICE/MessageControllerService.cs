@@ -8,6 +8,7 @@ using MAESFRAMEWORK.DataTypes.ReplacementSchema;
 using Newtonsoft.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Runtime.InteropServices;
 
 namespace MAESSERVICE
 {
@@ -15,13 +16,20 @@ namespace MAESSERVICE
     {
         private static void Main(string[] args)
         {
-            //process can only be run as admin realtime
-            Process[] processes = Process.GetProcessesByName("MAESSERVICE");
-            foreach (var proc in processes)
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                proc.PriorityClass = ProcessPriorityClass.RealTime;
+                //process can only be run as admin realtime on windows
+                Process[] processes = Process.GetProcessesByName("MAESSERVICE");
+                foreach (var proc in processes)
+                {
+                    proc.PriorityClass = ProcessPriorityClass.RealTime;
+                }
+                Console.WriteLine("MAES::Admin::RealTime");
             }
-            Console.WriteLine("MAES::Admin::RealTime");
+            else
+            {
+                Console.WriteLine("MAES::Admin::Normal::Process");
+            }
             //UART init
             InitUARTService();
             //UDP init

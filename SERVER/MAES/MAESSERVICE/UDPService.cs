@@ -15,17 +15,11 @@ namespace MAESSERVICE
         {
             byte[] encoded_text = encode_set.GetBytes(JsonConvert.SerializeObject(msg));
 #if DEBUG
-            Console.WriteLine(JsonConvert.SerializeObject(msg));
-#endif
-            //Thread.Sleep(1000);
-#if DEBUG
-            for (int i = 0; i < 2000; i++)
-            {
-                Console.WriteLine($"{i}::{m_udp.identifier_one}:{m_udp.identifier_two}::{System.DateTime.Now.ToString("HH:mm:ss:ffff")}");
-                m_udp.Send(encoded_text);
-            }
+            Console.WriteLine("UDP::TX::TRANS::{0}::{1}", System.DateTime.Now.ToString("HH:mm:ss:ffff"), m_udp.identifier_one);
+            m_udp.Send(encoded_text);
 #endif
 #if RELEASE
+            Console.WriteLine("UDP::TX::TRANS::{0}::{1}", System.DateTime.Now.ToString("HH:mm:ss:ffff"), m_udp.identifier_one);
             m_udp.Send(encoded_text);
 #endif
         }
