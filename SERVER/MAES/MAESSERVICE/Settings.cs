@@ -18,7 +18,7 @@ namespace MAESSERVICE
         #endregion
 
         #region constants
-        private enum MAES_INSTRUCTION { NONE, ENCRYPT, DECRYPT, ENCRYPTRESULT, DECRYPTRESULT, NEWSCHEMA, DELSCHEMA, NEWSCHEMARESULT }
+        private enum MAES_INSTRUCTION { NONE, ENCRYPT, DECRYPT, ENCRYPTRESULT, DECRYPTRESULT, NEWSCHEMA, DELSCHEMA, NEWSCHEMARESULT, ERRORRESULT }
         private static Encoding encode_set { get { return Encoding.ASCII; } }
 
         //MAESTESTINGMAEST

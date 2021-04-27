@@ -8,6 +8,7 @@ using MAESFRAMEWORK.DataTypes.ReplacementSchema;
 using Newtonsoft.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Runtime.InteropServices;
 
 namespace MAESSERVICE
 {
@@ -15,13 +16,20 @@ namespace MAESSERVICE
     {
         private static void Main(string[] args)
         {
-            //process can only be run as admin realtime
-            Process[] processes = Process.GetProcessesByName("MAESSERVICE");
-            foreach (var proc in processes)
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                proc.PriorityClass = ProcessPriorityClass.RealTime;
+                //process can only be run as admin realtime on windows
+                Process[] processes = Process.GetProcessesByName("MAESSERVICE");
+                foreach (var proc in processes)
+                {
+                    proc.PriorityClass = ProcessPriorityClass.RealTime;
+                }
+                Console.WriteLine("MAES::Admin::RealTime");
             }
-            Console.WriteLine("MAES::Admin::RealTime");
+            else
+            {
+                Console.WriteLine("MAES::Admin::Normal::Process");
+            }
             //UART init
             InitUARTService();
             //UDP init
@@ -91,6 +99,13 @@ namespace MAESSERVICE
                 catch (Exception e)
                 {
                     Console.WriteLine(e.StackTrace);
+                    AESMessage error_result = new AESMessage();
+                    error_result.MessageType = (int)MAES_INSTRUCTION.ERRORRESULT;
+                    error_result.SchemaId = 1;
+                    error_result.ServerText = encode_set.GetBytes(e.StackTrace);
+
+                    //send message back to the device it came from
+                    SendAESMessage(error_result);
                 }
                 Thread.Sleep(50);
             }
